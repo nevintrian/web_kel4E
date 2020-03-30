@@ -22,9 +22,9 @@
 					<th>Kode transaksi</th>
 					<th>:</th>
 					<td><?php echo $rs->id_transaksi; ?></td>
-					<!-- <th>Nama Pelanggan</th>
+					<th>Nama Pelanggan</th>
 					<th>:</th>
-					<td><?php echo $rs->nama_pelanggan; ?></td> -->
+					<td><?php echo $rs->nama_pelanggan; ?></td> 
 				</tr>
 				<tr>
 					<th>Tgl transaksi</th>

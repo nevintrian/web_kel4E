@@ -76,14 +76,14 @@ class Masuk extends CI_Controller {
         $kode_penjualan = $this->input->post('kode_penjualan');
         $total_harga = $this->input->post('total_harga');
         $tgl_penjualan = $this->input->post('tgl_penjualan');
-        // $pelanggan = $this->input->post('pelanggan');
+        $pelanggan = $this->input->post('nama_pelanggan');
 
         $data = array(
-        	//'nama_pelanggan' => $pelanggan,
+        	'nama_pelanggan' => $pelanggan,
             'id_transaksi'=> $kode_penjualan,
             'total_harga'=> $total_harga,
 			'tgl_transaksi'=> $tgl_penjualan,
-			'status'=> "masuk",
+			
         );
         $this->db->insert('transaksi', $data);
 
@@ -95,6 +95,7 @@ class Masuk extends CI_Controller {
 			'id_transaksi' => $kode_penjualan,
 			'id_barang' => $id_barang,
 			'qty' => $qty,
+			'status'=> "masuk",
 		);
 		$this->db->insert('detail_transaksi', $d);
 		//$this->db->query("UPDATE menu SET satuan=satuan-'$qty' WHERE kode_menu='$id_barang'");

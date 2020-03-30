@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Mar 2020 pada 06.15
+-- Waktu pembuatan: 30 Mar 2020 pada 07.43
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -45,9 +45,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `id_pelanggan`, `nama_barang`, `harga`, `stok`, `foto_barang`, `jenis`, `merk`) VALUES
-(6, 1, NULL, 'kopii', 5000, 12, 'kopi.jpg', 'minuman', 'kapal api'),
-(9, 2, NULL, 'milo stroberi', 5000, 1112, 'milo.jpg', 'minuman', 'milo'),
-(14, NULL, NULL, 'sss', 5000, 1112, NULL, 'minuman', 'milo');
+(6, 1, NULL, 'kopii', 5000, 4893, 'kopi.jpg', 'minuman', 'kapal api'),
+(9, 2, NULL, 'milo stroberi', 5000, 1124, 'milo.jpg', 'minuman', 'milo');
 
 -- --------------------------------------------------------
 
@@ -58,17 +57,51 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `id_pelanggan`, `nama_barang`,
 CREATE TABLE `detail_transaksi` (
   `id_transaksi` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
-  `qty` int(11) NOT NULL
+  `qty` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `detail_transaksi`
 --
 
-INSERT INTO `detail_transaksi` (`id_transaksi`, `id_barang`, `qty`) VALUES
-(1, 9, 5),
-(7, 9, 888),
-(8, 9, 5555);
+INSERT INTO `detail_transaksi` (`id_transaksi`, `id_barang`, `qty`, `status`) VALUES
+(1, 6, 12, 'masuk'),
+(3, 9, 12, 'masuk'),
+(4, 6, 120, 'keluar'),
+(5, 6, 5000, 'masuk');
+
+--
+-- Trigger `detail_transaksi`
+--
+DELIMITER $$
+CREATE TRIGGER `delete_beli` AFTER DELETE ON `detail_transaksi` FOR EACH ROW BEGIN
+	UPDATE barang SET stok = stok-OLD.qty 
+    WHERE id_barang=OLD.id_barang AND OLD.status='masuk';
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_jual` AFTER DELETE ON `detail_transaksi` FOR EACH ROW BEGIN
+	UPDATE barang SET stok = stok+OLD.qty 
+    WHERE id_barang=OLD.id_barang AND OLD.status='keluar';
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tambah_beli` AFTER INSERT ON `detail_transaksi` FOR EACH ROW BEGIN
+	UPDATE barang SET stok=stok+NEW.qty
+    WHERE id_barang=NEW.id_barang and NEW.status='masuk';
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tambah_jual` AFTER INSERT ON `detail_transaksi` FOR EACH ROW BEGIN
+	UPDATE barang SET stok=stok-NEW.qty
+    WHERE id_barang=NEW.id_barang and NEW.status='keluar';
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -112,7 +145,7 @@ INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat`, `no_telp`) VAL
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `status` varchar(10) NOT NULL,
+  `nama_pelanggan` varchar(200) NOT NULL,
   `tgl_transaksi` date DEFAULT NULL,
   `total_harga` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -121,10 +154,11 @@ CREATE TABLE `transaksi` (
 -- Dumping data untuk tabel `transaksi`
 --
 
-INSERT INTO `transaksi` (`id_transaksi`, `status`, `tgl_transaksi`, `total_harga`) VALUES
-(1, 'masuk', '2020-03-29', 25000),
-(7, 'masuk', '2020-03-30', 4440000),
-(8, 'keluar', '2020-03-30', 27775000);
+INSERT INTO `transaksi` (`id_transaksi`, `nama_pelanggan`, `tgl_transaksi`, `total_harga`) VALUES
+(1, 'PT Kino', '2020-03-30', 60000),
+(3, 'PT Indofood', '2020-03-30', 60000),
+(4, 'Nevin', '2020-03-30', 600000),
+(5, 'PT Kino', '2020-03-30', 25000000);
 
 --
 -- Trigger `transaksi`
@@ -232,7 +266,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

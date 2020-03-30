@@ -27,7 +27,7 @@
 			<tbody>
 				<?php 
 				$id = $this->session->userdata('id_user');
-				$sql = $this->db->query("SELECT * from transaksi inner join detail_transaksi on transaksi.id_transaksi=detail_transaksi.id_transaksi where transaksi.status='keluar' group by transaksi.id_transaksi order by transaksi.id_transaksi");
+				$sql = $this->db->query("SELECT * from transaksi inner join detail_transaksi on transaksi.id_transaksi=detail_transaksi.id_transaksi where detail_transaksi.status='keluar' group by transaksi.id_transaksi order by transaksi.id_transaksi");
 				$no = 1;
 				foreach ($sql->result() as $row) {
 				 ?>

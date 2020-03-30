@@ -49,10 +49,10 @@
         	</tr>
         </table>
         </div>
-    <!--    <div class="form-group">
-            <label>Pelanggan</label>
-            <input type="text" name="pelanggan" class="form-control" placeholder="Nama Pelanggan">
-        </div> -->
+     <div class="form-group">
+            <label>Supplier</label>
+            <input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama Pelanggan">
+        </div> 
         
         <div class="form-group">
         	<input type="hidden" name="total_harga" value="<?php echo $this->cart->total() ?>">

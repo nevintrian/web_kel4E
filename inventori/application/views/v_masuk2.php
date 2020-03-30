@@ -17,9 +17,9 @@ $rs = $data->row();
 				<th>Kode Transaksi</th>
 				<th>:</th>
 				<td><?php echo $rs->id_transaksi; ?></td>
-				<!-- <th>Nama Pelanggan</th>
+				 <th>Nama Supplier</th>
 				<th>:</th>
-				<td><?php echo $rs->nama_pelanggan; ?></td> -->
+				<td><?php echo $rs->nama_pelanggan; ?></td> 
 			</tr>
 			<tr>
 				<th>Tgl Penjualan</th>
