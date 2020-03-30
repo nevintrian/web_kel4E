@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Mar 2020 pada 03.47
+-- Waktu pembuatan: 30 Mar 2020 pada 06.15
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `barang` (
   `id_barang` int(11) NOT NULL,
   `id_supplier` int(11) DEFAULT NULL,
+  `id_pelanggan` int(11) DEFAULT NULL,
   `nama_barang` varchar(50) DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
   `stok` int(5) DEFAULT NULL,
@@ -43,9 +44,10 @@ CREATE TABLE `barang` (
 -- Dumping data untuk tabel `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `harga`, `stok`, `foto_barang`, `jenis`, `merk`) VALUES
-(6, 1, 'kopi', 5000, 12, 'kopi.jpg', 'minuman', 'kapal api'),
-(9, 2, 'milo stroberi', 5000, 1112, 'milo.jpg', 'minuman', 'milo');
+INSERT INTO `barang` (`id_barang`, `id_supplier`, `id_pelanggan`, `nama_barang`, `harga`, `stok`, `foto_barang`, `jenis`, `merk`) VALUES
+(6, 1, NULL, 'kopii', 5000, 12, 'kopi.jpg', 'minuman', 'kapal api'),
+(9, 2, NULL, 'milo stroberi', 5000, 1112, 'milo.jpg', 'minuman', 'milo'),
+(14, NULL, NULL, 'sss', 5000, 1112, NULL, 'minuman', 'milo');
 
 -- --------------------------------------------------------
 
@@ -170,7 +172,8 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
-  ADD KEY `id_supplier` (`id_supplier`);
+  ADD KEY `id_supplier` (`id_supplier`),
+  ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
 -- Indeks untuk tabel `detail_transaksi`
@@ -211,7 +214,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelanggan`
@@ -245,7 +248,8 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
+  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`),
+  ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`);
 
 --
 -- Ketidakleluasaan untuk tabel `detail_transaksi`
