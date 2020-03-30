@@ -1,0 +1,29 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Dashboard extends CI_Controller {
+	//load library, helper, dan model
+	function __construct(){  
+		parent::__construct(); 
+		$this->load->helper('url');
+		$this->load->helper('html'); 
+        $this->load->helper(array('form', 'url'));
+        $this->load->model('m_barang');
+        $this->load->model('m_user');
+	}
+	//menampilkan dashboard dan jumlah row
+	public function index() 
+	{
+		$this->load->view('v_header');
+		$this->load->view('v_sidebar');
+		if ($this->session->userdata('level') == "") {
+            redirect('login');
+		} 
+		//memaggil total row dari tabel barang dan user
+		$data = array(
+            'total_asset_barang'=> $this->m_barang->total_rows(),
+            'total_asset_user'=> $this->m_user->total_rows(),
+		);
+		$this->load->view('v_dashboard', $data);
+	}
+}

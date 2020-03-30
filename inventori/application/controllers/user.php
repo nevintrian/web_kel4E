@@ -1,0 +1,206 @@
+<?php
+class User extends CI_Controller {
+
+     //load library, helper, dan model
+	function __construct(){ 
+		parent::__construct(); 
+		$this->load->helper('url');
+		$this->load->helper('html'); 
+        $this->load->model('m_barang');
+        $this->load->model('m_user');
+        $this->load->library('pagination');
+        $this->load->library('upload'); 
+		$this->load->helper('form');
+    }
+    
+    //menampilkan data dan membuat halaman
+    public function index() 
+    {
+        //menampilkan header dan sidebar
+        $this->load->view('v_header');
+        $this->load->view('v_sidebar');
+        //konfigurasi url saat klik halaman
+        $q = urldecode($this->input->get('q', TRUE));
+        $per_page = intval($this->input->get('per_page'));
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'user/?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'user/?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'user';
+            $config['first_url'] = base_url() . 'user';
+        }
+        //konfigurasi banyak row dalam satu halaman
+        $config['per_page'] = 10;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->m_user->total_rows($q);
+        $user = $this->m_user->get_limit_data($config['per_page'], $per_page, $q);
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+        //menampilkan data
+        $data = array(
+        'user_data' => $user,
+        'q' => $q,
+        'pagination' => $this->pagination->create_links(),
+        'total_rows' => $config['total_rows'],
+        'per_page' => $per_page,
+        );
+        //menampilkan view user
+        $this->load->view('v_user', $data);
+
+    } 
+    //untuk menampilkan form insert data
+    public function create() 
+    {
+         //menampilkan header dan sidebar
+        $this->load->view('v_header');
+        $this->load->view('v_sidebar');
+        //memanggil value dari form yang diinputkan user
+        $data = array(
+        'button' => 'Create',
+        'action' => site_url('user/create_action'),
+        'id_user' => set_value('id_user'),
+        'email' => set_value('email'),
+	    'nama' => set_value('nama'),
+	    'username' => set_value('username'),
+	    'password' => set_value('password'),
+        'level' => set_value('level'),
+        'tgl_lahir' => set_value('tgl_lahir'),
+        'jenis_kelamin' => set_value('jenis_kelamin'),
+    );
+        //menampilkan view tambah user
+        $this->load->view('v_user1', $data);
+    }
+
+
+    //fungsi untuk insert ke database
+    public function create_action() 
+    {
+            //konfigurasi upload gambar
+            $nmfile = "user_".time();
+            $config['upload_path'] = './image/user';
+            $config['allowed_types'] = 'jpg|png';
+            $config['max_size'] = '20000';
+            $config['file_name'] = $nmfile;
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+            $this->upload->do_upload('foto');
+            $result1 = $this->upload->data();
+            $result = array('gambar'=>$result1);
+            $dfile = $result['gambar']['file_name'];
+    
+            //memasukkan data ke database
+            $data = array(
+            'email' => $this->input->post('email',TRUE),
+            'nama' => $this->input->post('nama',TRUE),
+            'username' => $this->input->post('username',TRUE),
+            'password' => $this->input->post('password',TRUE),
+            'level' => $this->input->post('level',TRUE),
+            'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
+            'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+            'foto' => $dfile,
+	    );
+
+            $this->m_user->insert($data);
+            $this->session->set_flashdata('message', 'Create Record Success');
+            redirect(site_url('user'));
+        
+    }
+    //untuk menampilkan data pada form edit
+    public function update($id) 
+    {
+         //menampilkan header dan sidebar
+        $this->load->view('v_header');
+        $this->load->view('v_sidebar');
+        $row = $this->m_user->get_by_id($id);
+        //menampilkan data ke dalam form
+        if ($row) {
+            $data = array(
+            'button' => 'Update',
+            'action' => site_url('user/update_action'),
+            'id_user' => set_value('id_user', $row->id_user),
+            'email' => set_value('email', $row->email),
+            'nama' => set_value('nama', $row->nama),
+            'username' => set_value('username', $row->username),
+            'password' => set_value('password', $row->password),
+            'level' => set_value('level', $row->level),
+            'jenis_kelamin' => set_value('jenis_kelamin', $row->jenis_kelamin),
+            'tgl_lahir' => set_value('tgl_lahir', $row->tgl_lahir),
+            'konten' => 'user/user_form',
+            'judul' => 'Data User',
+        );
+            //menampilkan form edit data
+            $this->load->view('v_user1', $data);
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('user'));
+        }
+    }
+    //fungsi update data ke database
+    public function update_action() 
+    {
+        //jika gambar tidak diinput oleh user 
+        if (empty($_FILES["foto"]["name"])) {  
+        $data = array(
+        'nama' => $this->input->post('nama',TRUE),
+        'email' => $this->input->post('email',TRUE),
+		'username' => $this->input->post('username',TRUE),
+        'password' => $this->input->post('password',TRUE),
+        'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
+        'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+		'level' => $this->input->post('level',TRUE),
+	    );
+
+            $this->m_user->update($this->input->post('id_user', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('user'));
+        //jika gambar diinput oleh user
+        } else {
+
+            $nmfile = "user_".time();
+            $config['upload_path'] = './image/user';
+            $config['allowed_types'] = 'jpg|png';
+            $config['max_size'] = '20000';
+            $config['file_name'] = $nmfile;
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+            $this->upload->do_upload('foto');
+            $result1 = $this->upload->data();
+            $result = array('gambar'=>$result1);
+            $dfile = $result['gambar']['file_name'];
+            //masukkan data ke database
+            $data = array(
+                'nama' => $this->input->post('nama',TRUE),
+                'email' => $this->input->post('email',TRUE),
+                'username' => $this->input->post('username',TRUE),
+                'password' => $this->input->post('password',TRUE),
+                'level' => $this->input->post('level',TRUE),
+                'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
+                'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+                'foto' => $dfile,
+                );
+                
+            $this->m_user->update($this->input->post('id_user', TRUE), $data);
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('user'));
+
+        }
+    
+}
+    //fungsi delete data database
+    public function delete($id) 
+    {
+        $row = $this->m_user->get_by_id($id);
+
+        if ($row) {
+            $this->m_user->delete($id);
+            $this->session->set_flashdata('message', 'Delete Record Success');
+            redirect(site_url('user'));
+        } else {
+            $this->session->set_flashdata('message', 'Record Not Found');
+            redirect(site_url('user'));
+        }
+    }
+
+    
+}
+    ?>
