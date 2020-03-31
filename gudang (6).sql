@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Mar 2020 pada 07.43
+-- Waktu pembuatan: 31 Mar 2020 pada 05.41
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -45,7 +45,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `id_pelanggan`, `nama_barang`, `harga`, `stok`, `foto_barang`, `jenis`, `merk`) VALUES
-(6, 1, NULL, 'kopii', 5000, 4893, 'kopi.jpg', 'minuman', 'kapal api'),
+(6, 1, NULL, 'kopii', 5000, 4904, 'kopi.jpg', 'minuman', 'kapal api'),
 (9, 2, NULL, 'milo stroberi', 5000, 1124, 'milo.jpg', 'minuman', 'milo');
 
 -- --------------------------------------------------------
@@ -69,7 +69,8 @@ INSERT INTO `detail_transaksi` (`id_transaksi`, `id_barang`, `qty`, `status`) VA
 (1, 6, 12, 'masuk'),
 (3, 9, 12, 'masuk'),
 (4, 6, 120, 'keluar'),
-(5, 6, 5000, 'masuk');
+(5, 6, 5000, 'masuk'),
+(6, 6, 11, 'masuk');
 
 --
 -- Trigger `detail_transaksi`
@@ -116,6 +117,14 @@ CREATE TABLE `pelanggan` (
   `no_telp` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat`, `no_telp`) VALUES
+(1, 'rere', 'situbondo', '089765456271'),
+(2, 'rara', 'bondowoso', '089765345612');
+
 -- --------------------------------------------------------
 
 --
@@ -158,7 +167,8 @@ INSERT INTO `transaksi` (`id_transaksi`, `nama_pelanggan`, `tgl_transaksi`, `tot
 (1, 'PT Kino', '2020-03-30', 60000),
 (3, 'PT Indofood', '2020-03-30', 60000),
 (4, 'Nevin', '2020-03-30', 600000),
-(5, 'PT Kino', '2020-03-30', 25000000);
+(5, 'PT Kino', '2020-03-30', 25000000),
+(6, 'ss', '2020-03-31', 55000);
 
 --
 -- Trigger `transaksi`
@@ -195,7 +205,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `foto`) VALUES
 (1, 'nevintrian@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin trian', '2000-01-27', 'laki-laki', 'pp.jpg'),
-(2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian vidyanjaya', '2000-04-20', 'laki-laki', 'pp.jpg');
+(2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian vidyanjaya', '2000-04-20', 'laki-laki', 'pp.jpg'),
+(22, 's', 's', '03c7c0ace395d80182db07ae2c30f034', 'petugas gudang', 's', '2020-03-06', 'laki-laiki', 'pp.jpg');
 
 --
 -- Indexes for dumped tables
@@ -254,7 +265,7 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`
@@ -272,7 +283,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

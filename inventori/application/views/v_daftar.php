@@ -34,6 +34,7 @@
         <div class="form-group">
             <label for="varchar">Level </label>
             <select name="level"  required class="form-control">
+                <option value="">--pilih level--</option>
                 <option value="petugas gudang">gudang</option>
                 <option value="admin">admin</option>
                 <option value="manajer">manajer</option>
@@ -52,6 +53,7 @@
         <div class="form-group">
             <label for="varchar">Jenis Kelamin </label>
             <select name="jenis_kelamin"  required class="form-control">
+                <option value="">--pilih jenis kelamin--</option>
                 <option value="laki-laiki">laki-laki</option>
                 <option value="perempuan">perempuan</option>
             </select>
