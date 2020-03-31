@@ -37,10 +37,11 @@
                     <div class="col-md-12">
                     <table class="table table-bordered" style="margin-bottom: 10px">
         <tr>
-        <th>id_supplier</th>
+        <th>No</th>
         <th>Nama_supplier</th>
         <th>Alamat</th>
         <th>No_telp</th>
+        <th>Action</th>
         </tr>
         <?php 
 					foreach ($supplier_data as $supplier) {

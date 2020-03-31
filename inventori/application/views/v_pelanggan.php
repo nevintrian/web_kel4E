@@ -37,10 +37,11 @@
                     <div class="col-md-12">
                     <table class="table table-bordered" style="margin-bottom: 10px">
         <tr>
-        <th>id_pelanggan</th>
+        <th>No</th>
         <th>Nama_pelanggan</th>
         <th>Alamat</th>
         <th>No_telp</th>
+        <th>Action</th>
         </tr>
         <?php 
 					foreach ($pelanggan_data as $pelanggan) {
