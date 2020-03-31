@@ -21,6 +21,7 @@
 					<th>Kode Transaksi</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
+					<th>Nama Pelanggan</th>
 					<th>Pilihan</th>
 				</tr>
 			</thead>
@@ -37,6 +38,7 @@
 					
 					<td><?php echo $row->tgl_transaksi; ?></td>
 					<td><?php echo number_format($row->total_harga); ?></td>
+					<td><?php echo $row->nama_pelanggan; ?></td>
 					<td>
 						<a href="keluar/detail_penjualan/<?php echo $row->id_transaksi ?>" class="btn btn-info btn-sm">detail</a>
 						<a href="keluar/hapus_penjualan/<?php echo $row->id_transaksi ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
