@@ -14,7 +14,8 @@
                     <li class="collapse" id="demo4">
                       <a href="barang" class="list-group-item"> Data Barang</a>
                       <a href="user" class="list-group-item"> Data User</a>
-                      
+                      <a href="pelanggan" class="list-group-item"> Data Pelanggan</a>
+                      <a href="supplier" class="list-group-item"> Data Supplier</a>
                     </li>
                 </li>
                 <li>

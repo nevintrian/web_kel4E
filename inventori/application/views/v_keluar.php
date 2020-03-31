@@ -21,7 +21,7 @@
 					<th>Kode Transaksi</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
-					<th>Nama Pelanggan</th>
+					<th>Nama pelanggan</th>
 					<th>Pilihan</th>
 				</tr>
 			</thead>
@@ -35,7 +35,6 @@
 				<tr>
 					<td><?php echo $no++; ?></td>
 					<td><?php echo $row->id_transaksi; ?></td>
-					
 					<td><?php echo $row->tgl_transaksi; ?></td>
 					<td><?php echo number_format($row->total_harga); ?></td>
 					<td><?php echo $row->nama_pelanggan; ?></td>
