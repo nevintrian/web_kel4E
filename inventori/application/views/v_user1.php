@@ -5,7 +5,7 @@
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data Barang</h2>
+                  <h2 class="content-row-title">Tambah Data Pegawai</h2>
 
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -24,11 +24,10 @@
             <label for="varchar">Level </label>
             <select name="level"  required class="form-control">
                 <option value="<?php echo $level ?>"><?php echo $level ?></option>
-                <option value="petugas gudang">gudang</option>
                 <option value="admin">admin</option>
                 <option value="manajer">manajer</option>
-                <option value="manajer">customer</option>
-                <option value="manajer">supplier</option>
+                <option value="gudang">gudang</option>
+                <option value="sales">sales</option>
 
             </select>
         </div>
@@ -49,6 +48,14 @@
                 <option value="perempuan">perempuan</option>
                 <!-- <option value="supplier">supplier</option> -->
             </select>
+        </div>
+        <div class="form-group">
+            <label for="varchar">Alamat</label>
+            <input type="text" class="form-control" required name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $alamat; ?>" />
+        </div>
+        <div class="form-group">
+            <label for="varchar">No Telepon</label>
+            <input type="text" class="form-control" required name="no_telp" id="no_telp" placeholder="No telepon" value="<?php echo $no_telp; ?>" />
         </div>
         <div class="form-group">
             <label for="file">Foto </label>

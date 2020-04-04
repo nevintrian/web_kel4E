@@ -60,6 +60,14 @@
                 <!-- <option value="supplier">supplier</option> -->
             </select>
         </div>
+        <div class="form-group">
+            <label for="varchar">Alamat</label>
+            <input type="text" class="form-control" required name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $row->alamat; ?>" />
+        </div>
+        <div class="form-group">
+            <label for="varchar">No Telepon</label>
+            <input type="text" class="form-control" required name="no_telp" id="no_telp" placeholder="No telepon" value="<?php echo $row->no_telp; ?>" />
+        </div>
         <input type="hidden" name="id_user" value="<?php echo $row->id_user; ?>" /> 
         <button type="submit" class="btn btn-primary">Simpan</button> 
         <a href="<?php echo site_url('user') ?>" class="btn btn-default">Cancel</a>

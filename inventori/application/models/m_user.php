@@ -13,11 +13,9 @@ class M_user extends CI_Model
 
 	//menghitung rows untuk pencarian dan dashboard
 	public function total_rows($q = NULL) {
-        $this->db->like('id_user', $q);
-	$this->db->or_like('nama', $q);
-	$this->db->or_like('username', $q);
-	$this->db->or_like('password', $q);
-	$this->db->or_like('level', $q);
+    $this->db->or_like('nama', $q);
+    $where = "level='admin' or level='manajer' or level='gudang' or level='sales'";
+    $this->db->where($where);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -25,11 +23,9 @@ class M_user extends CI_Model
     // untuk limit halaman dan pencarian
     function get_limit_data($limit, $per_page = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('id_user', $q);
 	$this->db->or_like('nama', $q);
-	$this->db->or_like('username', $q);
-	$this->db->or_like('password', $q);
-	$this->db->or_like('level', $q);
+    $where = "level='admin' or level='manajer' or level='gudang' or level='sales'";
+    $this->db->where($where);
 	$this->db->limit($limit, $per_page);
         return $this->db->get($this->table)->result();
     }

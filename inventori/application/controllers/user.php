@@ -66,6 +66,8 @@ class User extends CI_Controller {
         'level' => set_value('level'),
         'tgl_lahir' => set_value('tgl_lahir'),
         'jenis_kelamin' => set_value('jenis_kelamin'),
+        'alamat' => set_value('alamat'),
+        'no_telp' => set_value('no_telp'),
     );
         //menampilkan view tambah user
         $this->load->view('v_user1', $data);
@@ -97,6 +99,8 @@ class User extends CI_Controller {
             'level' => $this->input->post('level',TRUE),
             'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
             'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+            'alamat' => $this->input->post('alamat',TRUE),
+            'no_telp' => $this->input->post('no_telp',TRUE),
             'foto' => $dfile,
 	    );
 
@@ -125,8 +129,9 @@ class User extends CI_Controller {
             'level' => set_value('level', $row->level),
             'jenis_kelamin' => set_value('jenis_kelamin', $row->jenis_kelamin),
             'tgl_lahir' => set_value('tgl_lahir', $row->tgl_lahir),
-            'konten' => 'user/user_form',
-            'judul' => 'Data User',
+            'alamat' => set_value('alamat', $row->alamat),
+            'no_telp' => set_value('no_telp', $row->no_telp),
+
         );
             //menampilkan form edit data
             $this->load->view('v_user1', $data);
@@ -147,6 +152,8 @@ class User extends CI_Controller {
         'password' => $this->input->post('password',TRUE),
         'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
         'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+        'alamat' => $this->input->post('alamat',TRUE),
+        'no_telp' => $this->input->post('no_telp',TRUE),
 		'level' => $this->input->post('level',TRUE),
 	    );
 
@@ -176,6 +183,8 @@ class User extends CI_Controller {
                 'level' => $this->input->post('level',TRUE),
                 'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+                'alamat' => $this->input->post('alamat',TRUE),
+                'no_telp' => $this->input->post('no_telp',TRUE),
                 'foto' => $dfile,
                 );
                 

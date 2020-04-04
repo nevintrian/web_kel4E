@@ -5,7 +5,7 @@
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data supplier</h2>
+                  <h2 class="content-row-title">Tambah Data Supplier</h2>
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="varchar">Nama supplier</label>

@@ -5,7 +5,7 @@
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data Barang</h2>
+                  <h2 class="content-row-title">Tambah Data Barang</h2>
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="varchar">Nama Barang</label>
@@ -15,6 +15,10 @@
         <div class="form-group">
             <label for="varchar">Jenis </label>
             <input type="text" class="form-control" required name="jenis" id="jenis" placeholder="Jenis" value="<?php echo $jenis; ?>" />
+        </div>
+        <div class="form-group">
+            <label for="varchar">Kemasan</label>
+            <input type="text" class="form-control" required name="kemasan" id="kemasan" placeholder="Kemasan" value="<?php echo $kemasan; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Merk</label>

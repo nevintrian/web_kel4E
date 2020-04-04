@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Mar 2020 pada 05.41
+-- Waktu pembuatan: 04 Apr 2020 pada 07.36
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gudang`
+-- Database: `inventori`
 --
 
 -- --------------------------------------------------------
@@ -29,24 +29,26 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barang` (
-  `id_barang` int(11) NOT NULL,
-  `id_supplier` int(11) DEFAULT NULL,
-  `id_pelanggan` int(11) DEFAULT NULL,
-  `nama_barang` varchar(50) DEFAULT NULL,
-  `harga` int(11) DEFAULT NULL,
-  `stok` int(5) DEFAULT NULL,
-  `foto_barang` varchar(100) DEFAULT NULL,
+  `id_barang` int(4) NOT NULL,
+  `id_supplier` int(4) NOT NULL,
+  `nama_barang` varchar(100) DEFAULT NULL,
+  `kemasan` varchar(20) DEFAULT NULL,
+  `merk` varchar(100) DEFAULT NULL,
   `jenis` varchar(20) DEFAULT NULL,
-  `merk` varchar(20) DEFAULT NULL
+  `harga` int(11) DEFAULT NULL,
+  `stok` int(11) DEFAULT NULL,
+  `foto_barang` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `id_supplier`, `id_pelanggan`, `nama_barang`, `harga`, `stok`, `foto_barang`, `jenis`, `merk`) VALUES
-(6, 1, NULL, 'kopii', 5000, 4904, 'kopi.jpg', 'minuman', 'kapal api'),
-(9, 2, NULL, 'milo stroberi', 5000, 1124, 'milo.jpg', 'minuman', 'milo');
+INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `foto_barang`) VALUES
+(1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 4904, 'kopi.jpg'),
+(2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 1124, 'milo.jpg'),
+(4, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 123, 'barang_1585976994.jpg'),
+(5, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 1200, 'barang_1585977262.jpg');
 
 -- --------------------------------------------------------
 
@@ -55,22 +57,11 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `id_pelanggan`, `nama_barang`,
 --
 
 CREATE TABLE `detail_transaksi` (
-  `id_transaksi` int(11) NOT NULL,
-  `id_barang` int(11) NOT NULL,
-  `qty` int(11) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `id_barang` int(4) NOT NULL,
+  `id_transaksi` int(4) NOT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `detail_transaksi`
---
-
-INSERT INTO `detail_transaksi` (`id_transaksi`, `id_barang`, `qty`, `status`) VALUES
-(1, 6, 12, 'masuk'),
-(3, 9, 12, 'masuk'),
-(4, 6, 120, 'keluar'),
-(5, 6, 5000, 'masuk'),
-(6, 6, 11, 'masuk');
 
 --
 -- Trigger `detail_transaksi`
@@ -107,35 +98,14 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelanggan`
---
-
-CREATE TABLE `pelanggan` (
-  `id_pelanggan` int(11) NOT NULL,
-  `nama_pelanggan` varchar(50) NOT NULL,
-  `alamat` varchar(50) NOT NULL,
-  `no_telp` varchar(12) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `pelanggan`
---
-
-INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat`, `no_telp`) VALUES
-(1, 'rere', 'situbondo', '089765456271'),
-(2, 'rara', 'bondowoso', '089765345612');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `supplier`
 --
 
 CREATE TABLE `supplier` (
-  `id_supplier` int(11) NOT NULL,
-  `nama_supplier` varchar(50) NOT NULL,
-  `alamat` varchar(50) NOT NULL,
-  `no_telp` varchar(12) NOT NULL
+  `id_supplier` int(4) NOT NULL,
+  `nama_supplier` varchar(100) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `no_telp` varchar(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -153,22 +123,11 @@ INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat`, `no_telp`) VAL
 --
 
 CREATE TABLE `transaksi` (
-  `id_transaksi` int(11) NOT NULL,
-  `nama_pelanggan` varchar(200) NOT NULL,
+  `id_transaksi` int(4) NOT NULL,
+  `id_user` int(4) NOT NULL,
   `tgl_transaksi` date DEFAULT NULL,
   `total_harga` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `transaksi`
---
-
-INSERT INTO `transaksi` (`id_transaksi`, `nama_pelanggan`, `tgl_transaksi`, `total_harga`) VALUES
-(1, 'PT Kino', '2020-03-30', 60000),
-(3, 'PT Indofood', '2020-03-30', 60000),
-(4, 'Nevin', '2020-03-30', 600000),
-(5, 'PT Kino', '2020-03-30', 25000000),
-(6, 'ss', '2020-03-31', 55000);
 
 --
 -- Trigger `transaksi`
@@ -188,25 +147,31 @@ DELIMITER ;
 --
 
 CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `level` varchar(200) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `tgl_lahir` date NOT NULL,
-  `jenis_kelamin` varchar(20) NOT NULL,
-  `foto` varchar(100) NOT NULL
+  `id_user` int(4) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `level` varchar(20) DEFAULT NULL,
+  `nama` varchar(100) DEFAULT NULL,
+  `tgl_lahir` date DEFAULT NULL,
+  `jenis_kelamin` varchar(20) DEFAULT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
+  `no_telp` varchar(12) DEFAULT NULL,
+  `foto` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `foto`) VALUES
-(1, 'nevintrian@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin trian', '2000-01-27', 'laki-laki', 'pp.jpg'),
-(2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian vidyanjaya', '2000-04-20', 'laki-laki', 'pp.jpg'),
-(22, 's', 's', '03c7c0ace395d80182db07ae2c30f034', 'petugas gudang', 's', '2020-03-06', 'laki-laiki', 'pp.jpg');
+INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`, `foto`) VALUES
+(1, 'nevintrian@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin trian', '2000-01-27', 'laki-laki', 'Jember', '085234567891', 'pp.jpg'),
+(2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian vidyanjaya', '2000-04-20', 'laki-laki', 'Probolinggo', '087672819212', 'pp.jpg'),
+(3, 'rere@gmail.com', 'rere', '4b054d969d22341219a5bc88f4c8321f', 'customer', 'rere', '2000-01-27', 'perempuan', 'Surabaya', '089765682312', 'pp.jpg'),
+(4, 'rara@gmail.com', 'rara', '5ab83fa52e5d0f5abc44d2eed4479ff0', 'customer', 'rara', '2020-04-09', 'perempuan', 'Situbondo', '085234567891', 'pp.jpg'),
+(25, 'sinyo@gmail.com', 'sinyo', 'sinyo123', 'gudang', 'sinyo', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'user_1585977429.jpg'),
+(26, 'rama@gmail.com', 'rama', 'rama123', 'sales', 'rama', '2020-04-09', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977424.jpg'),
+(28, 'tarno@gmail.com', 'tarno', 'tarno123', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977486.jpg');
 
 --
 -- Indexes for dumped tables
@@ -217,21 +182,14 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`),
-  ADD KEY `id_supplier` (`id_supplier`),
-  ADD KEY `id_pelanggan` (`id_pelanggan`);
+  ADD KEY `fk_menyetok` (`id_supplier`);
 
 --
 -- Indeks untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  ADD KEY `id_transaksi` (`id_transaksi`),
-  ADD KEY `id_barang` (`id_barang`);
-
---
--- Indeks untuk tabel `pelanggan`
---
-ALTER TABLE `pelanggan`
-  ADD PRIMARY KEY (`id_pelanggan`);
+  ADD KEY `fk_memiliki` (`id_barang`),
+  ADD KEY `fk_mempunyai` (`id_transaksi`);
 
 --
 -- Indeks untuk tabel `supplier`
@@ -243,7 +201,8 @@ ALTER TABLE `supplier`
 -- Indeks untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id_transaksi`);
+  ADD PRIMARY KEY (`id_transaksi`),
+  ADD KEY `fk_melakukan` (`id_user`);
 
 --
 -- Indeks untuk tabel `user`
@@ -259,31 +218,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT untuk tabel `pelanggan`
---
-ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_barang` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_supplier` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_transaksi` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_user` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -293,15 +246,20 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`),
-  ADD CONSTRAINT `barang_ibfk_2` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`);
+  ADD CONSTRAINT `fk_menyetok` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
 
 --
 -- Ketidakleluasaan untuk tabel `detail_transaksi`
 --
 ALTER TABLE `detail_transaksi`
-  ADD CONSTRAINT `detail_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`),
-  ADD CONSTRAINT `detail_transaksi_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
+  ADD CONSTRAINT `fk_memiliki` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`),
+  ADD CONSTRAINT `fk_mempunyai` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`);
+
+--
+-- Ketidakleluasaan untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `fk_melakukan` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

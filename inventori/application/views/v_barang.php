@@ -23,7 +23,7 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('user'); ?>" class="btn btn-default">Reset</a>
+                                    <a href="<?php echo site_url('barang'); ?>" class="btn btn-default">Reset</a>
                                     <?php
                                 }
                             ?>
@@ -40,6 +40,7 @@
         <th>No</th>
         <th>Nama Barang</th>
         <th>Jenis</th>
+        <th>Kemasan</th>
         <th>Merk</th>
         <th>Stok</th>
         <th>Harga</th>
@@ -54,6 +55,7 @@
             <td width="80px"><?php echo ++$per_page ?></td>
             <td><?php echo $barang->nama_barang ?></td>
             <td><?php echo $barang->jenis ?></td>
+            <td><?php echo $barang->kemasan ?></td>
             <td><?php echo $barang->merk ?></td>
             <td><?php echo $barang->stok ?></td>
             <td><?php echo $barang->harga ?></td>

@@ -28,7 +28,7 @@
 			<tbody>
 				<?php 
 				$id = $this->session->userdata('id_user');
-				$sql = $this->db->query("SELECT * from transaksi inner join detail_transaksi on transaksi.id_transaksi=detail_transaksi.id_transaksi where detail_transaksi.status='keluar' group by transaksi.id_transaksi order by transaksi.id_transaksi");
+				$sql = $this->db->query("SELECT * from transaksi inner join detail_transaksi on transaksi.id_transaksi=detail_transaksi.id_transaksi inner join user on user.id_user=transaksi.id_user where detail_transaksi.status='keluar' group by transaksi.id_transaksi order by transaksi.id_transaksi");
 				$no = 1;
 				foreach ($sql->result() as $row) {
 				 ?>
@@ -37,7 +37,7 @@
 					<td><?php echo $row->id_transaksi; ?></td>
 					<td><?php echo $row->tgl_transaksi; ?></td>
 					<td><?php echo number_format($row->total_harga); ?></td>
-					<td><?php echo $row->nama_pelanggan; ?></td>
+					<td><?php echo $row->nama; ?></td>
 					<td>
 						<a href="keluar/detail_penjualan/<?php echo $row->id_transaksi ?>" class="btn btn-info btn-sm">detail</a>
 						<a href="keluar/hapus_penjualan/<?php echo $row->id_transaksi ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>

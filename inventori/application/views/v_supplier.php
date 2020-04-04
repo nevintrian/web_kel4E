@@ -5,7 +5,7 @@
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data supplier</h2>
+                  <h2 class="content-row-title">Data Supplier</h2>
                   <div class="row">
 
                 <div class="card">

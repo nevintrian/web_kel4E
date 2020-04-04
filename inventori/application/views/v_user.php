@@ -7,7 +7,7 @@
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data User</h2>
+                  <h2 class="content-row-title">Data Pegawai</h2>
 
                   <div class="row" style="margin-bottom: 10px">
 
@@ -43,11 +43,13 @@
         <th>No</th>
         <th>Email</th>
         <th>Username</th>
-        <th>Password</th>
+        
         <th>Level</th>
         <th>Nama User</th>
         <th>Tanggal Lahir</th>
         <th>Jenis Kelamin</th>
+        <th>Alamat</th>
+        <th>No Telepon</th> 
         <th>Foto</th>
         <th>Action</th>
         </tr>
@@ -59,11 +61,13 @@
             <td width="80px"><?php echo ++$per_page ?></td>
             <td><?php echo $user->email ?></td>
             <td><?php echo $user->username ?></td>
-            <td><?php echo $user->password ?></td>
+            
             <td><?php echo $user->level ?></td>
             <td><?php echo $user->nama ?></td>
             <td><?php echo $user->tgl_lahir ?></td>
             <td><?php echo $user->jenis_kelamin ?></td>
+            <td><?php echo $user->alamat ?></td>
+            <td><?php echo $user->no_telp ?></td>
             <td><img src="<?php echo base_url('image/user/'.$user->foto) ?>" width="64" /></td> <!-- menampilkan gambar  -->
             <td style="text-align:center" width="200px">
                 <?php 

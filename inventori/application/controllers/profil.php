@@ -33,6 +33,8 @@ class Profil extends CI_Controller {
         'password' => $this->input->post('password',TRUE),
         'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
         'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+        'alamat' => $this->input->post('alamat',TRUE),
+        'no_telp' => $this->input->post('no_telp',TRUE),
 		'level' => $this->input->post('level',TRUE),
 	    );
 
@@ -62,6 +64,8 @@ class Profil extends CI_Controller {
                 'level' => $this->input->post('level',TRUE),
                 'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+                'alamat' => $this->input->post('alamat',TRUE),
+                'no_telp' => $this->input->post('no_telp',TRUE),
                 'foto' => $dfile,
                 );
                 

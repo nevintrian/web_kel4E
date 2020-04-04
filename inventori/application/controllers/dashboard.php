@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->model('m_barang');
 		$this->load->model('m_user');
+		$this->load->model('m_pelanggan');
 		$this->load->model('m_keluar');
 		$this->load->model('m_masuk');
 	}
@@ -24,7 +25,8 @@ class Dashboard extends CI_Controller {
 		//memaggil total row dari tabel barang dan user
 		$data = array(
             'total_asset_barang'=> $this->m_barang->total_rows(),
-			'total_asset_user'=> $this->m_user->total_rows(),
+			'total_asset_pelanggan'=> $this->m_user->total_rows(),
+			'total_asset_karyawan'=> $this->m_pelanggan->total_rows(),
 			'total_asset_masuk'=> $this->m_masuk->total_rows(),
 			'total_asset_keluar'=> $this->m_keluar->total_rows(),
 		);
