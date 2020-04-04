@@ -4,6 +4,7 @@
             <ul class="list-group panel">
                 <li class="list-group-item"><i class="glyphicon glyphicon-align-justify"></i> <b>MENU UTAMA</b></li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>dashboard"><i class="glyphicon glyphicon-home"></i>Dashboard </a></li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>profil"><i class="glyphicon glyphicon-user"></i>Profil</a></li>
                 
                 <?php 
                 if ($this->session->userdata('level') == 'admin') {
