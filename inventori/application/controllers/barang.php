@@ -103,8 +103,12 @@ class Barang extends CI_Controller {
 	    );
 
         $this->m_barang->insert($data);
-        $this->session->set_flashdata('message', 'Create Record Success');
-        redirect(site_url('barang'));
+        ?>
+        <script type="text/javascript">
+			alert('Data Berhasil di Tambahkan');
+			window.location = '<?php echo base_url('barang'); ?>'
+        </script>
+        <?php
         
     }
     
@@ -153,8 +157,12 @@ class Barang extends CI_Controller {
             'id_supplier' => $this->input->post('id_supplier',TRUE),
             );
             $this->m_barang->update($this->input->post('id_barang', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('barang'));
+            ?>
+            <script type="text/javascript">
+                alert('Data Berhasil di Update');
+                window.location = '<?php echo base_url('barang'); ?>'
+            </script>
+            <?php
         //jika gambar diinput oleh user
         } else {
             $nmfile = "barang_".time();
@@ -194,15 +202,20 @@ class Barang extends CI_Controller {
 
     if ($row) {
         $this->m_barang->delete($id);
-        $this->session->set_flashdata('message', 'Delete Record Success');
-    redirect(site_url('barang'));
-    } else {
-        $this->session->set_flashdata('message', 'Record Not Found');
-        redirect(site_url('barang'));
+        ?>
+
+		<script type="text/javascript">
+			alert('Data Berhasil di Hapus');
+			window.location = '<?php echo base_url('barang'); ?>'
+        </script>
+        
+         <?php  }else {
+            echo "<script>alert('Password yang Anda Masukan Tidak Sama');history.go(-1)</script>";
+            }
+       
+	    }
+  
     }
-}
-    
-}
-    ?>
+        ?>
 
 

@@ -96,8 +96,12 @@ class supplier extends CI_Controller {
 	    );
 
         $this->m_supplier->insert($data);
-        $this->session->set_flashdata('message', 'Create Record Success');
-        redirect(site_url('supplier'));
+        ?>
+        <script type="text/javascript">
+			alert('Data Berhasil di Tambahkan');
+			window.location = '<?php echo base_url('supplier'); ?>'
+        </script>
+        <?php
         
     }
     
@@ -164,8 +168,12 @@ class supplier extends CI_Controller {
             );
 
         $this->m_supplier->update($this->input->post('id_supplier', TRUE), $data);
-        $this->session->set_flashdata('message', 'Update Record Success');
-        redirect(site_url('supplier'));
+        ?>
+            <script type="text/javascript">
+                alert('Data Berhasil di Update');
+                window.location = '<?php echo base_url('user'); ?>'
+            </script>
+            <?php
         }
 
            
@@ -177,11 +185,12 @@ class supplier extends CI_Controller {
 
     if ($row) {
         $this->m_supplier->delete($id);
-        $this->session->set_flashdata('message', 'Delete Record Success');
-    redirect(site_url('supplier'));
-    } else {
-        $this->session->set_flashdata('message', 'Record Not Found');
-        redirect(site_url('supplier'));
+        ?>
+        <script type="text/javascript">
+			alert('Data Berhasil di Hapus');
+			window.location = '<?php echo base_url('supplier'); ?>'
+        </script>
+        <?php
     }
 }
     

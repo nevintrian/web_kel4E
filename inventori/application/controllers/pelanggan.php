@@ -105,8 +105,12 @@ class Pelanggan extends CI_Controller {
 	    );
 
             $this->m_pelanggan->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('pelanggan'));
+            ?>
+            <script type="text/javascript">
+                alert('Data Berhasil di Tambahkan');
+                window.location = '<?php echo base_url('pelanggan'); ?>'
+            </script>
+            <?php
         
     }
     //untuk menampilkan data pada form edit
@@ -189,8 +193,12 @@ class Pelanggan extends CI_Controller {
                 );
                 
             $this->m_pelanggan->update($this->input->post('id_user', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('pelanggan'));
+            ?>
+            <script type="text/javascript">
+                alert('Data Berhasil di Update');
+                window.location = '<?php echo base_url('pelanggan'); ?>'
+            </script>
+            <?php
 
         }
     
@@ -202,11 +210,12 @@ class Pelanggan extends CI_Controller {
 
         if ($row) {
             $this->m_pelanggan->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('pelanggan'));
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('pelanggan'));
+            ?>
+            <script type="text/javascript">
+                alert('Data Berhasil di Hapus');
+                window.location = '<?php echo base_url('pelanggan'); ?>'
+            </script>
+            <?php
         }
     }
 
