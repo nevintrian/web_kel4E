@@ -74,31 +74,32 @@ class Keluar extends CI_Controller {
 	public function simpan_penjualan()
 	{
         $kode_penjualan = $this->input->post('kode_penjualan');
-        $total_harga = $this->input->post('total_harga');
+        $total_keluar = $this->input->post('total_keluar');
         $tgl_penjualan = $this->input->post('tgl_penjualan');
-        $pelanggan = $this->input->post('nama_pelanggan');
+        $id_user = $this->input->post('id_user');
 
         $data = array(
-        	'nama_pelanggan' => $pelanggan,
-            'id_transaksi'=> $kode_penjualan,
-            'total_harga'=> $total_harga,
-			'tgl_transaksi'=> $tgl_penjualan,
+        	
+            'id_keluar'=> $kode_penjualan,
+            'total_keluar'=> $total_keluar,
+			'tgl_keluar'=> $tgl_penjualan,
+			'id_user'=> $id_user,
 			
         );
-        $this->db->insert('transaksi', $data);
+        $this->db->insert('keluar', $data);
 
 	
 	foreach ($this->cart->contents() as $items) {
 		$id_barang = $items['id'];
-		$qty = $items['qty'];
+		$qty_keluar = $items['qty'];
 		$d = array(
-			'id_transaksi' => $kode_penjualan,
+			'id_keluar' => $kode_penjualan,
 			'id_barang' => $id_barang,
-			'qty' => $qty,
-			'status'=> "keluar",
+			'qty_keluar' => $qty_keluar,
+			
 		);
-		$this->db->insert('detail_transaksi', $d);
-		//$this->db->query("UPDATE menu SET satuan=satuan-'$qty' WHERE kode_menu='$id_barang'");
+		$this->db->insert('detail_keluar', $d);
+		//$this->db->query("UPDATE menu SET satuan=satuan-'$qty_keluar' WHERE kode_menu='$id_barang'");
 	} 
 	$this->cart->destroy();
 	redirect('keluar');
@@ -108,10 +109,10 @@ class Keluar extends CI_Controller {
 public function hapus_penjualan($kode_penjualan)
 	{
 		
-        $this->db->where('id_transaksi', $kode_penjualan);
-		$this->db->delete('transaksi');
-		$this->db->where('id_transaksi', $kode_penjualan);
-		$this->db->delete('detail_transaksi');
+        $this->db->where('id_keluar', $kode_penjualan);
+		$this->db->delete('keluar');
+		$this->db->where('id_keluar', $kode_penjualan);
+		$this->db->delete('detail_keluar');
 		?>
 		<script type="text/javascript">
 			alert('Berhapus Hapus Data');
@@ -124,7 +125,7 @@ public function hapus_penjualan($kode_penjualan)
 	{
 		
         $data = array(
-			'data' => $this->db->query("SELECT * FROM transaksi where id_transaksi='$kode_penjualan'"),
+			'data' => $this->db->query("SELECT * FROM keluar inner join user on user.id_user=keluar.id_user where id_keluar='$kode_penjualan'"),
 		);
 		$this->load->view('v_keluar3',$data);
 	}
@@ -135,7 +136,7 @@ public function hapus_penjualan($kode_penjualan)
         $this->load->view('v_sidebar'); 
 		$data = array(
 
-			'data' => $this->db->query("SELECT * FROM transaksi where id_transaksi='$kode_penjualan'"),
+			'data' => $this->db->query("SELECT * FROM keluar inner join user on user.id_user=keluar.id_user where id_keluar='$kode_penjualan'"),
 		);
 		$this->load->view('v_keluar2',$data);
 	}

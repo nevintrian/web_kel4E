@@ -77,6 +77,8 @@ class User extends CI_Controller {
     //fungsi untuk insert ke database
     public function create_action() 
     {
+
+        if (!empty($_FILES["foto"]["name"])) {  
             //konfigurasi upload gambar
             $nmfile = "user_".time();
             $config['upload_path'] = './image/user';
@@ -95,7 +97,7 @@ class User extends CI_Controller {
             'email' => $this->input->post('email',TRUE),
             'nama' => $this->input->post('nama',TRUE),
             'username' => $this->input->post('username',TRUE),
-            'password' => $this->input->post('password',TRUE),
+            'password' => md5($this->input->post('password',TRUE)),
             'level' => $this->input->post('level',TRUE),
             'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
             'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
@@ -112,7 +114,32 @@ class User extends CI_Controller {
             </script>
             <?php
         
+    } else {
+
+        $data = array(
+        'email' => $this->input->post('email',TRUE),
+        'nama' => $this->input->post('nama',TRUE),
+        'username' => $this->input->post('username',TRUE),
+        'password' => md5($this->input->post('password',TRUE)),
+        'level' => $this->input->post('level',TRUE),
+        'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
+        'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+        'alamat' => $this->input->post('alamat',TRUE),
+        'no_telp' => $this->input->post('no_telp',TRUE),
+        'foto' => "pp.jpg",
+    );
+
+        $this->m_user->insert($data);
+        ?>
+        <script type="text/javascript">
+            alert('Data Berhasil di Tambahkan');
+            window.location = '<?php echo base_url('user'); ?>'
+        </script>
+        <?php
+
     }
+
+}
     //untuk menampilkan data pada form edit
     public function update($id) 
     {
@@ -162,8 +189,12 @@ class User extends CI_Controller {
 	    );
 
             $this->m_user->update($this->input->post('id_user', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('user'));
+            ?>
+            <script type="text/javascript">
+                alert('Data Berhasil di Update');
+                window.location = '<?php echo base_url('user'); ?>'
+            </script>
+            <?php
         //jika gambar diinput oleh user
         } else {
 
@@ -199,7 +230,6 @@ class User extends CI_Controller {
                 window.location = '<?php echo base_url('user'); ?>'
             </script>
             <?php
-
         }
     
 }

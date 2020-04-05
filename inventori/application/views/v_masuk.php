@@ -28,21 +28,21 @@
 			<tbody>
 				<?php 
 				$id = $this->session->userdata('id_user');
-				$sql = $this->db->query("SELECT * from transaksi inner join detail_transaksi on transaksi.id_transaksi=detail_transaksi.id_transaksi where detail_transaksi.status='masuk' group by transaksi.id_transaksi order by transaksi.id_transaksi");
+				$sql = $this->db->query("SELECT * from masuk inner join detail_masuk on masuk.id_masuk=detail_masuk.id_masuk inner join supplier on masuk.id_supplier=supplier.id_supplier group by masuk.id_masuk order by masuk.id_masuk");
 				$no = 1;
 				foreach ($sql->result() as $row) {
 				 ?>
 				<tr>
 					<td><?php echo $no++; ?></td>
-					<td><?php echo $row->id_transaksi; ?></td>
+					<td><?php echo $row->id_masuk; ?></td>
 					
-					<td><?php echo $row->tgl_transaksi; ?></td>
-					<td><?php echo number_format($row->total_harga); ?></td>
-					<td><?php echo $row->nama_pelanggan; ?></td>
+					<td><?php echo $row->tgl_masuk; ?></td>
+					<td><?php echo number_format($row->total_masuk); ?></td>
+					<td><?php echo $row->nama_supplier; ?></td>
 					<td>
-						<a href="masuk/detail_penjualan/<?php echo $row->id_transaksi ?>" class="btn btn-info btn-sm">detail</a>
-						<a href="masuk/hapus_penjualan/<?php echo $row->id_transaksi ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
-						<a href="masuk/cetak_penjualan/<?php echo $row->id_transaksi ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+						<a href="masuk/detail_penjualan/<?php echo $row->id_masuk ?>" class="btn btn-info btn-sm">detail</a>
+						<a href="masuk/hapus_penjualan/<?php echo $row->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
+						<a href="masuk/cetak_penjualan/<?php echo $row->id_masuk ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
 					</td>
 				</tr>
 				<?php } ?>

@@ -21,18 +21,18 @@
 				<tr>
 					<th>Kode transaksi</th>
 					<th>:</th>
-					<td><?php echo $rs->id_transaksi; ?></td>
+					<td><?php echo $rs->id_keluar; ?></td>
 					<th>Nama Pelanggan</th>
 					<th>:</th>
-					<td><?php echo $rs->nama_pelanggan; ?></td> 
+					<td><?php echo $rs->nama; ?></td> 
 				</tr>
 				<tr>
 					<th>Tgl transaksi</th>
 					<th>:</th>
-					<td><?php echo $rs->tgl_transaksi; ?></td>
+					<td><?php echo $rs->tgl_keluar; ?></td>
 					<th>Total Harga</th>
 					<th>:</th>
-					<td>Rp. <?php echo number_format($rs->total_harga); ?></td>
+					<td>Rp. <?php echo number_format($rs->total_keluar); ?></td>
 				</tr>
 			</table>
 		</div>
@@ -51,7 +51,7 @@
 				</thead>
 				<tbody>
 					<?php 
-					$sql = $this->db->query("SELECT * FROM detail_transaksi as a,barang as b, supplier as s where a.id_barang=b.id_barang and b.id_supplier=s.id_supplier and a.id_transaksi='$rs->id_transaksi' ");
+					$sql = $this->db->query("SELECT * FROM detail_keluar as a,barang as b, supplier as s where a.id_barang=b.id_barang and b.id_supplier=s.id_supplier and a.id_keluar='$rs->id_keluar' ");
 					$no = 1;
 					foreach ($sql->result() as $row) {
 					 ?>
@@ -60,18 +60,18 @@
 						<td><?php echo $row->id_barang; ?></td>
 						<td><?php echo $row->nama_barang; ?></td>
 						<td><?php echo $row->nama_supplier; ?></td>
-						<td><?php echo $row->qty; ?></td>
+						<td><?php echo $row->qty_keluar; ?></td>
 						
 						<td><?php echo $row->harga; ?></td>
 						<td><?php 
-						$totharga = $row->qty*$row->harga;
+						$totharga = $row->qty_keluar*$row->harga;
 						echo number_format($totharga);
 						 ?></td>
 					</tr>
 					<?php } ?>
 					<tr>
 						<td colspan="6">Total</td>
-						<td>Rp. <?php echo number_format($rs->total_harga) ?></td>
+						<td>Rp. <?php echo number_format($rs->total_keluar) ?></td>
 					</tr>
 					<!-- <tr>
 						<td colspan="6"><b>Diskon Keseluruhan (10%)</b></td>
@@ -79,8 +79,8 @@
 							Rp.
 						<?php 
 						$diskon = 0;
-						if ($rs->total_harga >= 100000) {
-							$diskon = 0.1 * $rs->total_harga;
+						if ($rs->total_keluar >= 100000) {
+							$diskon = 0.1 * $rs->total_keluar;
 						} else {
 							$diskon = 0;
 						 
@@ -92,7 +92,7 @@
 					</tr>
 					<tr>
 						<td colspan="6"><b>Total Bayar</b></td>
-						<td>Rp. <?php echo number_format($rs->total_harga-$diskon) ?></td>
+						<td>Rp. <?php echo number_format($rs->total_keluar-$diskon) ?></td>
 					</tr> -->
 				</tbody>
 			</table>

@@ -16,18 +16,18 @@ $rs = $data->row();
 			<tr>
 				<th>Kode Transaksi</th>
 				<th>:</th>
-				<td><?php echo $rs->id_transaksi; ?></td>
+				<td><?php echo $rs->id_keluar; ?></td>
 				 <th>Nama Pelanggan</th>
 				<th>:</th>
-				<td><?php echo $rs->nama_pelanggan; ?></td> 
+				<td><?php echo $rs->nama; ?></td> 
 			</tr>
 			<tr>
 				<th>Tgl Penjualan</th>
 				<th>:</th>
-				<td><?php echo $rs->tgl_transaksi; ?></td>
+				<td><?php echo $rs->tgl_keluar; ?></td>
 				<th>Total Harga</th>
 				<th>:</th>
-				<td>Rp. <?php echo number_format($rs->total_harga); ?></td>
+				<td>Rp. <?php echo number_format($rs->total_keluar); ?></td>
 			</tr>
 			
 		</table>
@@ -37,26 +37,37 @@ $rs = $data->row();
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Kode Barang</th>
+					
 					<th>Nama Barang</th>
+					<th>Jenis</th>
+					<th>Kemasan</th>
+					<th>Qty</th>
 					<th>Harga</th>
 					<th>Jumlah</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php 
-				$sql = $this->db->query("SELECT * FROM detail_transaksi as a,barang as b where a.id_barang=b.id_barang and a.id_transaksi='$rs->id_transaksi' ");
+				$sql = $this->db->query("SELECT * FROM detail_keluar as a,barang as b where a.id_barang=b.id_barang and a.id_keluar='$rs->id_keluar' ");
 				$no = 1;
 				foreach ($sql->result() as $row) {
 				 ?>
 				<tr>
-					<td><?php echo $no++; ?></td>
-					<td><?php echo $row->id_barang; ?></td>
-					<td><?php echo $row->nama_barang; ?></td>
-					
+				<td><?php echo $no++; ?></td>
+				<td><?php echo $row->nama_barang; ?></td>
+					<td><?php echo $row->jenis; ?></td>
+					<td><?php echo $row->kemasan; ?></td>
 					<td><?php echo $row->harga; ?></td>
-					<td><?php echo $row->qty; ?></td>
+					<td><?php echo $row->qty_keluar; ?></td>
+					<td><?php 
+						$totharga = $row->qty_keluar*$row->harga;
+						echo number_format($totharga);
+						 ?></td>
 				</tr>
+				<tr>
+						<td colspan="6">Total</td>
+						<td>Rp. <?php echo number_format($rs->total_keluar) ?></td>
+					</tr>
 				<?php } ?>
 			</tbody>
 		</table>

@@ -12,7 +12,7 @@
 	<form action="masuk/simpan_penjualan" method="POST">
 		<div class="form-group">
             <label>Kode Pemesanan </label>
-            <input type="text" class="form-control" name="kode_penjualan" id="kode_penjualan" value="<?php echo $kode; ?>" readonly/>
+            <input type="text" class="form-control" name="kode_pembelian" id="kode_pembelian" value="<?php echo $kode; ?>" readonly/>
         </div>
         <div class="table-resposive">
         <table class="table table-bordered">
@@ -49,13 +49,21 @@
         	</tr>
         </table>
         </div>
-     <div class="form-group">
-            <label>Supplier</label>
-            <input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama Pelanggan">
-        </div> 
+        <div class="form-group">
+            <label for="int">Supplier</label>
+            <select name="id_supplier" class="form-control" required>
+            <option value="">--pilih nama supplier--</option>
+                <?php 
+                    $sql =  $this->db->get('supplier');
+                foreach ($sql->result() as $row) {
+                 ?>
+                <option value="<?php echo $row->id_supplier ?>"><?php echo $row->nama_supplier ?></option>
+            <?php } ?>
+            </select>
+        </div>
         
         <div class="form-group">
-        	<input type="hidden" name="total_harga" value="<?php echo $this->cart->total() ?>">
+        	<input type="hidden" name="total_masuk" value="<?php echo $this->cart->total() ?>">
         	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d') ?>">
         	
             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -98,6 +106,7 @@
             <label>Stok tersedia</label>
             <input type="text" class="form-control" name="stok" id="stok" readonly/>
         </div>
+        
         <div class="form-group">
             <label>Harga </label>
             <input type="text" class="form-control" name="harga" id="harga" readonly/>
@@ -132,6 +141,7 @@
             $('#id_barang').val(resp.id_barang); 
             $('#stok').val(resp.stok); 
             $('#harga').val(resp.harga); 
+          
             $('#nabar').val(resp.nama_barang); 
         }
       });

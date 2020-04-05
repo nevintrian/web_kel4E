@@ -77,33 +77,58 @@ class Pelanggan extends CI_Controller {
     //fungsi untuk insert ke database
     public function create_action() 
     {
-            //konfigurasi upload gambar
-            $nmfile = "user_".time();
-            $config['upload_path'] = './image/user';
-            $config['allowed_types'] = 'jpg|png';
-            $config['max_size'] = '20000';
-            $config['file_name'] = $nmfile;
-            $this->load->library('upload');
-            $this->upload->initialize($config);
-            $this->upload->do_upload('foto');
-            $result1 = $this->upload->data();
-            $result = array('gambar'=>$result1);
-            $dfile = $result['gambar']['file_name'];
+      
+            if (!empty($_FILES["foto"]["name"])) {  
+                //konfigurasi upload gambar
+                $nmfile = "user_".time();
+                $config['upload_path'] = './image/user';
+                $config['allowed_types'] = 'jpg|png';
+                $config['max_size'] = '20000';
+                $config['file_name'] = $nmfile;
+                $this->load->library('upload');
+                $this->upload->initialize($config);
+                $this->upload->do_upload('foto');
+                $result1 = $this->upload->data();
+                $result = array('gambar'=>$result1);
+                $dfile = $result['gambar']['file_name'];
+        
+                //memasukkan data ke database
+                $data = array(
+                'email' => $this->input->post('email',TRUE),
+                'nama' => $this->input->post('nama',TRUE),
+                'username' => $this->input->post('username',TRUE),
+                'password' => md5($this->input->post('password',TRUE)),
+                'level' => $this->input->post('level',TRUE),
+                'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
+                'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
+                'alamat' => $this->input->post('alamat',TRUE),
+                'no_telp' => $this->input->post('no_telp',TRUE),
+                'foto' => $dfile,
+            );
     
-            //memasukkan data ke database
+                $this->m_pelanggan->insert($data);
+                ?>
+                <script type="text/javascript">
+                    alert('Data Berhasil di Tambahkan');
+                    window.location = '<?php echo base_url('pelanggan'); ?>'
+                </script>
+                <?php
+            
+        } else {
+    
             $data = array(
             'email' => $this->input->post('email',TRUE),
             'nama' => $this->input->post('nama',TRUE),
             'username' => $this->input->post('username',TRUE),
-            'password' => $this->input->post('password',TRUE),
+            'password' => md5($this->input->post('password',TRUE)),
             'level' => $this->input->post('level',TRUE),
             'tgl_lahir' => $this->input->post('tgl_lahir',TRUE),
             'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
             'alamat' => $this->input->post('alamat',TRUE),
             'no_telp' => $this->input->post('no_telp',TRUE),
-            'foto' => $dfile,
-	    );
-
+            'foto' => "pp.jpg",
+        );
+    
             $this->m_pelanggan->insert($data);
             ?>
             <script type="text/javascript">
@@ -111,7 +136,8 @@ class Pelanggan extends CI_Controller {
                 window.location = '<?php echo base_url('pelanggan'); ?>'
             </script>
             <?php
-        
+        }
+    
     }
     //untuk menampilkan data pada form edit
     public function update($id) 
@@ -162,8 +188,13 @@ class Pelanggan extends CI_Controller {
 	    );
 
             $this->m_pelanggan->update($this->input->post('id_user', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('pelanggan'));
+            ?>
+            <script type="text/javascript">
+                alert('Data Berhasil di Update');
+                window.location = '<?php echo base_url('pelanggan'); ?>'
+            </script>
+            <?php
+
         //jika gambar diinput oleh user
         } else {
 

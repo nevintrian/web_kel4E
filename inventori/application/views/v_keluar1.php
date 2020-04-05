@@ -49,13 +49,24 @@
         	</tr>
         </table>
         </div>
-       <div class="form-group">
-            <label>Pelanggan</label>
-            <input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama Pelanggan">
+
+        <div class="form-group">
+            <label for="int">Pelanggan</label>
+            <select name="id_user" class="form-control" required>
+            <option value="">--pilih nama pelanggan--</option>
+                <?php 
+                    $where = "level='customer'";
+                    $this->db->where($where);
+                    $sql =  $this->db->get('user');
+                foreach ($sql->result() as $row) {
+                 ?>
+                <option value="<?php echo $row->id_user ?>"><?php echo $row->nama ?></option>
+            <?php } ?>
+            </select>
         </div>
         
         <div class="form-group">
-        	<input type="hidden" name="total_harga" value="<?php echo $this->cart->total() ?>">
+        	<input type="hidden" name="total_keluar" value="<?php echo $this->cart->total() ?>">
         	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d') ?>">
         	
             <button type="submit" class="btn btn-primary">Simpan</button>

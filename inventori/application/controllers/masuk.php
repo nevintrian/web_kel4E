@@ -26,7 +26,7 @@ class Masuk extends CI_Controller {
 		$this->load->model('m_nourut');
 		$data = array(
 
-			'kode' => $this->m_nourut->buat_kode_penjualan(),
+			'kode' => $this->m_nourut->buat_kode_pembelian(),
 			
 		);
 		$this->load->view('v_masuk1',$data);
@@ -42,6 +42,8 @@ class Masuk extends CI_Controller {
 			'harga' => $cek->harga,
 			'id_barang' => $cek->id_barang,
 			'nama_barang' => $cek->nama_barang,
+		
+
 		);
 		echo json_encode($data);
 	}
@@ -73,31 +75,30 @@ class Masuk extends CI_Controller {
 
 	public function simpan_penjualan()
 	{
-        $kode_penjualan = $this->input->post('kode_penjualan');
-        $total_harga = $this->input->post('total_harga');
+        $kode_pembelian = $this->input->post('kode_pembelian');
+        $total_masuk = $this->input->post('total_masuk');
         $tgl_penjualan = $this->input->post('tgl_penjualan');
-        $pelanggan = $this->input->post('nama_pelanggan');
+        $id_supplier = $this->input->post('id_supplier');
 
         $data = array(
-        	'nama_pelanggan' => $pelanggan,
-            'id_transaksi'=> $kode_penjualan,
-            'total_harga'=> $total_harga,
-			'tgl_transaksi'=> $tgl_penjualan,
+        	'id_supplier' => $id_supplier,
+            'id_masuk'=> $kode_pembelian,
+            'total_masuk'=> $total_masuk,
+			'tgl_masuk'=> $tgl_penjualan,
 			
         );
-        $this->db->insert('transaksi', $data);
+        $this->db->insert('masuk', $data);
 
 	
 	foreach ($this->cart->contents() as $items) {
 		$id_barang = $items['id'];
-		$qty = $items['qty'];
+		$qty_masuk = $items['qty'];
 		$d = array(
-			'id_transaksi' => $kode_penjualan,
+			'id_masuk' => $kode_pembelian,
 			'id_barang' => $id_barang,
-			'qty' => $qty,
-			'status'=> "masuk",
+			'qty_masuk' => $qty_masuk,
 		);
-		$this->db->insert('detail_transaksi', $d);
+		$this->db->insert('detail_masuk', $d);
 		//$this->db->query("UPDATE menu SET satuan=satuan-'$qty' WHERE kode_menu='$id_barang'");
 	} 
 	$this->cart->destroy();
@@ -105,13 +106,13 @@ class Masuk extends CI_Controller {
 }
 
 
-public function hapus_penjualan($kode_penjualan)
+public function hapus_penjualan($kode_pembelian)
 	{
 		
-        $this->db->where('id_transaksi', $kode_penjualan);
-		$this->db->delete('transaksi');
-		$this->db->where('id_transaksi', $kode_penjualan);
-		$this->db->delete('detail_transaksi');
+        $this->db->where('id_masuk', $kode_pembelian);
+		$this->db->delete('masuk');
+		$this->db->where('id_masuk', $kode_pembelian);
+		$this->db->delete('detail_masuk');
 		?>
 		<script type="text/javascript">
 			alert('Berhapus Hapus Data');
@@ -120,22 +121,22 @@ public function hapus_penjualan($kode_penjualan)
 		<?php
 	}
 
-	public function cetak_penjualan($kode_penjualan)
+	public function cetak_penjualan($kode_pembelian)
 	{
 		
         $data = array(
-			'data' => $this->db->query("SELECT * FROM transaksi where id_transaksi='$kode_penjualan'"),
+			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian'"),
 		);
 		$this->load->view('v_masuk3',$data);
 	}
 
-	public function detail_penjualan($kode_penjualan)
+	public function detail_penjualan($kode_pembelian)
 	{
 		$this->load->view('v_header'); 
         $this->load->view('v_sidebar'); 
 		$data = array(
 
-			'data' => $this->db->query("SELECT * FROM transaksi where id_transaksi='$kode_penjualan'"),
+			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian'"),
 		);
 		$this->load->view('v_masuk2',$data);
 	}
