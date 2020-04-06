@@ -21,11 +21,11 @@
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>
-            <input type="text" class="form-control" required name="username" id="username" placeholder="Username"  />
+            <input type="text" pattern="^[a-zA-Z][a-zA-Z0-9]{5,12}$" title="Masukkan angka atau huruf (6-12 karakter)" class="form-control" required name="username" id="username" placeholder="Username"  />
         </div>
         <div class="form-group">
             <label for="varchar">Password </label>
-            <input type="password" class="form-control" required name="password" id="password" placeholder="Password"? />
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Masukkan password dengan huruf besar, huruf kecil, dan angka (minimal 8 karakter)" class="form-control" required name="password" id="password" placeholder="Password"? />
         </div>
         <div class="form-group">
             <label for="varchar">Ulangi Password </label>
@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Nama User</label>
-            <input type="text" class="form-control" pattern="[A-Za-z ]+" required name="nama" id="nama" placeholder="Nama"  />
+            <input type="text" pattern="[A-Za-z ]+" title="Masukkan data huruf saja" class="form-control" pattern="[A-Za-z ]+" required name="nama" id="nama" placeholder="Nama"  />
         </div>
         <div class="form-group">
             <label for="varchar">Tanggal Lahir</label>

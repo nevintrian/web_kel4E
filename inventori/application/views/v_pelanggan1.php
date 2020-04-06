@@ -10,7 +10,7 @@
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="varchar">Email</label>
-            <input type="text" class="form-control" required name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
+            <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Masukkan email (contoh : xyz@something.com)" class="form-control" required name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Password </label>
-            <input type="password" class="form-control" required name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z]).{8,}" title="Masukkan password dengan huruf kecil, dan angka (minimal 8 karakter)" class="form-control" required name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Level </label>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Nama User</label>
-            <input type="text" class="form-control" required name="nama" id="nama" placeholder="Nama User" value="<?php echo $nama; ?>" />
+            <input type="text" pattern="[A-Za-z ]+" title="Masukkan data huruf saja" class="form-control" required name="nama" id="nama" placeholder="Nama User" value="<?php echo $nama; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Tanggal Lahir</label>
@@ -51,7 +51,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">No Telepon</label>
-            <input type="text" class="form-control" required name="no_telp" id="no_telp" placeholder="No telepon" value="<?php echo $no_telp; ?>" />
+            <input type="text" pattern ="^[0-9]{10}$|^[0-9]{12}$" title="contoh = 081-xxx-xxx-xxx" class="form-control" required name="no_telp" id="no_telp" placeholder="No telepon" value="<?php echo $no_telp; ?>" />
         </div>
         <div class="form-group">
             <label for="file">Foto </label>

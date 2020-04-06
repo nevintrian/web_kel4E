@@ -9,7 +9,7 @@
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="varchar">Nama supplier</label>
-            <input type="text" class="form-control" required name="nama_supplier" id="nama_supplier" placeholder="Nama supplier" value="<?php echo $nama_supplier; ?>" />
+            <input type="text" pattern="[A-Za-z ]+" title="Masukkan data huruf saja" class="form-control" required name="nama_supplier" id="nama_supplier" placeholder="Nama supplier" value="<?php echo $nama_supplier; ?>" />
         </div>
 
         <div class="form-group">
@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">no_telp</label>
-            <input type="text" class="form-control" required name="no_telp" id="no_telp" placeholder="no_telp" value="<?php echo $no_telp; ?>" />
+            <input type="text" pattern ="^[0-9]{10}$|^[0-9]{12}$" class="form-control" required name="no_telp" id="no_telp" placeholder="no_telp" value="<?php echo $no_telp; ?>" />
         </div>
         <input type="hidden" name="id_supplier" value="<?php echo $id_supplier; ?>" /> 
         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 

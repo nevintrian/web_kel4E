@@ -41,7 +41,7 @@ class Profil extends CI_Controller {
             $this->m_user->update($this->input->post('id_user', TRUE), $data);
             ?>
         <script type="text/javascript">
-			confirm('anda yakin?');
+			alert('data profil berhasil di update');
 			window.location = '<?php echo base_url('profil'); ?>'
         </script>
         <?php
@@ -74,12 +74,8 @@ class Profil extends CI_Controller {
                 );
                 
             $this->m_user->update($this->input->post('id_user', TRUE), $data);
-            ?>
-        <script type="text/javascript">
-			confirm('anda yakin?');
-			window.location = '<?php echo base_url('profil'); ?>'
-        </script>
-        <?php
+            $this->session->set_flashdata('message', 'Update Record Success');
+            redirect(site_url('profil'));
 
         }
     

@@ -26,7 +26,7 @@
           <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-form navbar-right">
                <a href="<?php echo base_url() ?>dashboard" type="submit" class="btn btn-primary"><?php echo $this->session->userdata("username") ?> </a> <!-- session username -->
-               <a href="<?php echo base_url() ?>login/logout" type="submit" class="btn btn-primary">Logout </a> <!-- session username -->
+               <a href="<?php echo base_url() ?>login/logout" type="submit" class="btn btn-primary" onclick="javasciprt: return confirm('Apa Anda Yakin?')" >Logout </a> <!-- session username -->
             </div>
           </div>
               <?php }else{ ?>
