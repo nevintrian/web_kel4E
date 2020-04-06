@@ -43,6 +43,12 @@ class Login extends CI_Controller {
         $this->session->unset_userdata('nama');
         $this->session->unset_userdata('level');
         session_destroy();
-        redirect('login');
+        ?>
+        <script type="text/javascript">
+            confirm('Apakah anda akan logout?');
+            window.location = '<?php echo base_url('home'); ?>'
+        </script>
+        
+        <?php
     }
 }

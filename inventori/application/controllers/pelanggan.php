@@ -243,7 +243,7 @@ class Pelanggan extends CI_Controller {
             $this->m_pelanggan->delete($id);
             ?>
             <script type="text/javascript">
-                alert('Data Berhasil di Hapus');
+                confirm('apakah anda akan menghapus data?');
                 window.location = '<?php echo base_url('pelanggan'); ?>'
             </script>
             <?php

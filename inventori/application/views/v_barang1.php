@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
             <label for="int">Stok </label>
-            <input type="text" class="form-control" required name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
+            <input type="text" class="form-control" pattern ="^[0-9]{10}$|^[0-9]{12}$" required name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
         </div>
         <div class="form-group">
             <label for="int">Harga</label>
-            <input type="text" class="form-control" required name="harga" id="harga" placeholder="Harga" value="<?php echo $harga; ?>" />
+            <input type="text" class="form-control" pattern ="^[0-9]{10}$|^[0-9]{12}$" required name="harga" id="harga" placeholder="Harga" value="<?php echo $harga; ?>" />
         </div>
 
         <div class="form-group">

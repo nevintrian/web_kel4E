@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Email</label>
-            <input type="text" class="form-control" required name="email" id="email" placeholder="Email" value="<?php echo $row->email; ?>" />
+            <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="Masukan email (contoh : wirganteng@gmail.com)" required name="email" id="email" placeholder="Email" value="<?php echo $row->email; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>
@@ -44,11 +44,11 @@
         </div>
         <div class="form-group">
             <label for="varchar">Nama User</label>
-            <input type="text" class="form-control" required name="nama" id="nama" placeholder="Nama User" value="<?php echo $row->nama; ?>" />
+            <input type="text" class="form-control" pattern="[A-Za-z ]+" required name="nama" id="nama" placeholder="Nama User" value="<?php echo $row->nama; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Tanggal Lahir</label>
-            <input type="date" class="form-control" required name="tgl_lahir" id="tgl_lahir" placeholder="tgl_lahir" value="<?php echo $row->tgl_lahir; ?>" />
+            <input type="date" class="form-control" required name="tgl_lahir" id="tgl_lahir" placeholder="0000-00-00" value="<?php echo $row->tgl_lahir; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Jenis Kelamin </label>
@@ -62,11 +62,11 @@
         </div>
         <div class="form-group">
             <label for="varchar">Alamat</label>
-            <input type="text" class="form-control" required name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $row->alamat; ?>" />
+            <input type="text" class="form-control" pattern="[A-Za-z ]+" required name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $row->alamat; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">No Telepon</label>
-            <input type="text" class="form-control" required name="no_telp" id="no_telp" placeholder="No telepon" value="<?php echo $row->no_telp; ?>" />
+            <input type="text" class="form-control" pattern ="^[0-9]{10}$|^[0-9]{12}$" title="081xxxxxxxxx" required name="no_telp" id="no_telp" placeholder="No telepon" value="<?php echo $row->no_telp; ?>" />
         </div>
         <input type="hidden" name="id_user" value="<?php echo $row->id_user; ?>" /> 
         <button type="submit" class="btn btn-primary">Simpan</button> 

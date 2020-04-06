@@ -203,14 +203,11 @@ class Barang extends CI_Controller {
     if ($row) {
         $this->m_barang->delete($id);
         ?>
-
-		<script type="text/javascript">
-			alert('Data Berhasil di Hapus');
+        <script type="text/javascript">
+			confirm('apakah anda akan menghapus baran?');
 			window.location = '<?php echo base_url('barang'); ?>'
         </script>
-        
-         <?php  }else {
-            echo "<script>alert('Password yang Anda Masukan Tidak Sama');history.go(-1)</script>";
+        <?php
             }
        
 	    }

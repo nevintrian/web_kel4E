@@ -39,8 +39,12 @@ class Profil extends CI_Controller {
 	    );
 
             $this->m_user->update($this->input->post('id_user', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('profil'));
+            ?>
+        <script type="text/javascript">
+			confirm('anda yakin?');
+			window.location = '<?php echo base_url('profil'); ?>'
+        </script>
+        <?php
         //jika gambar diinput oleh user
         } else {
 
@@ -70,8 +74,12 @@ class Profil extends CI_Controller {
                 );
                 
             $this->m_user->update($this->input->post('id_user', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('profil'));
+            ?>
+        <script type="text/javascript">
+			confirm('anda yakin?');
+			window.location = '<?php echo base_url('profil'); ?>'
+        </script>
+        <?php
 
         }
     

@@ -242,7 +242,7 @@ class User extends CI_Controller {
             $this->m_user->delete($id);
             ?>
             <script type="text/javascript">
-                alert('Data Berhasil di Hapus');
+                confirm('Data akan di Hapus?');
                 window.location = '<?php echo base_url('user'); ?>'
             </script>
             <?php

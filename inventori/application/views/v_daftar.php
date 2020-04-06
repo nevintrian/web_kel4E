@@ -17,7 +17,7 @@
         
         <div class="form-group">
             <label for="varchar">Email</label>
-            <input type="text" class="form-control" required name="email" id="email" placeholder="Email" />
+            <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="Masukan email (contoh : wirganteng@gmail.com)" required name="email" id="email" placeholder="Email" />
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>
@@ -44,11 +44,11 @@
         </div>
         <div class="form-group">
             <label for="varchar">Nama User</label>
-            <input type="text" class="form-control" required name="nama" id="nama" placeholder="Nama"  />
+            <input type="text" class="form-control" pattern="[A-Za-z ]+" required name="nama" id="nama" placeholder="Nama"  />
         </div>
         <div class="form-group">
             <label for="varchar">Tanggal Lahir</label>
-            <input type="date" class="form-control" required name="tgl_lahir" id="tgl_lahir" placeholder="tgl_lahir" />
+            <input type="date" class="form-control" required name="tgl_lahir" id="tgl_lahir" placeholder="0000-00-00" />
         </div>
         <div class="form-group">
             <label for="varchar">Jenis Kelamin </label>

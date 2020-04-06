@@ -187,7 +187,7 @@ class supplier extends CI_Controller {
         $this->m_supplier->delete($id);
         ?>
         <script type="text/javascript">
-			alert('Data Berhasil di Hapus');
+			confirm('apakah Data akan di Hapus?');
 			window.location = '<?php echo base_url('supplier'); ?>'
         </script>
         <?php
