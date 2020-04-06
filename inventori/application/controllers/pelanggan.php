@@ -241,12 +241,7 @@ class Pelanggan extends CI_Controller {
 
         if ($row) {
             $this->m_pelanggan->delete($id);
-            ?>
-            <script type="text/javascript">
-                confirm('apakah anda akan menghapus data?');
-                window.location = '<?php echo base_url('pelanggan'); ?>'
-            </script>
-            <?php
+            redirect(site_url('pelanggan'));
         }
     }
 

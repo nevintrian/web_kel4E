@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>
-            <input type="text" class="form-control" required name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
+            <input type="text" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9]{5,12}$" title="Masukkan angka atau huruf (6-12 karakter)" required name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Password </label>

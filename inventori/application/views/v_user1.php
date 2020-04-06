@@ -14,11 +14,11 @@
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>
-            <input type="text" class="form-control" required name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
+            <input type="text" class="form-control" pattern="^[a-zA-Z][a-zA-Z0-9]{5,12}$" title="Masukkan angka atau huruf (6-12 karakter)" required name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Password </label>
-            <input type="password" class="form-control" required name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
+            <input type="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z]).{8,}" title="Masukkan password dengan huruf kecil, dan angka (minimal 8 karakter)" required name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Level </label>
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Nama User</label>
-            <input type="text" class="form-control" pattern="[A-Za-z ]+" required name="nama" id="nama" placeholder="Nama User" value="<?php echo $nama; ?>" />
+            <input type="text" class="form-control" pattern="[A-Za-z ]+" title="Masukkan data huruf saja" required name="nama" id="nama" placeholder="Nama User" value="<?php echo $nama; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Tanggal Lahir</label>
@@ -51,7 +51,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Alamat</label>
-            <input type="text" class="form-control" pattern="[A-Za-z ]+" required name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $alamat; ?>" />
+            <input type="text" class="form-control" required name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $alamat; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">No Telepon</label>

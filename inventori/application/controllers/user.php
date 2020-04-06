@@ -240,12 +240,7 @@ class User extends CI_Controller {
 
         if ($row) {
             $this->m_user->delete($id);
-            ?>
-            <script type="text/javascript">
-                confirm('Data akan di Hapus?');
-                window.location = '<?php echo base_url('user'); ?>'
-            </script>
-            <?php
+            redirect(site_url('user'));
         }
     }
 

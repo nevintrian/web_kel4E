@@ -74,7 +74,7 @@
                 
                 echo anchor(site_url('user/update/'.$user->id_user),'Ubah', 'class="btn btn-info btn-sm"'); 
                 echo '  '; 
-                echo anchor(site_url('user/delete/'.$user->id_user),'Hapus','class="btn btn-danger btn-sm"','onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
+                echo anchor(site_url('user/delete/'.$user->id_user),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>
             </td>
         </tr>

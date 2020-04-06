@@ -56,7 +56,7 @@
                 <?php 
                echo anchor(site_url('supplier/update/'.$supplier->id_supplier),'Ubah', 'class="btn btn-info btn-sm"'); 
                echo '  '; 
-               echo anchor(site_url('supplier/delete/'.$supplier->id_supplier),'Hapus','class="btn btn-danger btn-sm"','onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
+               echo anchor(site_url('supplier/delete/'.$supplier->id_supplier),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>
             </td>
         </tr>
