@@ -65,7 +65,7 @@
                 <?php 
                echo anchor(site_url('barang/update/'.$barang->id_barang),'Ubah', 'class="btn btn-info btn-sm"'); 
                echo '  '; 
-               echo anchor(site_url('barang/delete/'.$barang->id_barang),'Hapus','class="btn btn-danger btn-sm"','onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
+               echo anchor(site_url('barang/delete/'.$barang->id_barang),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>
             </td>
         </tr>

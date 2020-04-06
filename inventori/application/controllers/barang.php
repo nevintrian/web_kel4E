@@ -202,12 +202,8 @@ class Barang extends CI_Controller {
 
     if ($row) {
         $this->m_barang->delete($id);
-        ?>
-        <script type="text/javascript">
-			confirm('apakah anda akan menghapus baran?');
-			window.location = '<?php echo base_url('barang'); ?>'
-        </script>
-        <?php
+        redirect(site_url('barang'));
+       
             }
        
 	    }
