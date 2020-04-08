@@ -55,16 +55,26 @@
                 <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
                 <?php 
-                } elseif ($this->session->userdata('level') == 'petugas gudang') {
+                } elseif ($this->session->userdata('level') == 'sales') {
                  ?>
 
                 <li>
-                  <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                  <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Fitur Sales  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo5">
-                      <a href="barang_masuk" class="list-group-item">Transaksi Barang Masuk</a>
-                      <a href="barang_keluar" class="list-group-item">Transaksi Barang Keluar</a>
-                      <a href="app/penjualan" class="list-group-item">Pemesanan Ke Supplier</a>
-                      
+                    <a href="barang" class="list-group-item"> Data Barang</a>
+                      <a href="pelanggan" class="list-group-item"> Data Pelanggan</a> 
+                    </li>
+                </li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
+                  
+                <?php 
+                } elseif ($this->session->userdata('level') == 'customer') {
+                 ?>
+
+                <li>
+                  <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Fitur  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <li class="collapse" id="demo5">
+                    <a href="barang" class="list-group-item"> Data Barang</a>
                     </li>
                 </li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>

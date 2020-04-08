@@ -35,7 +35,7 @@
             <label for="varchar">Level </label>
             <select name="level"  required class="form-control">
                 <option value="">--pilih level--</option>
-                <option value="petugas gudang">gudang</option>
+                <option value="sales">sales</option>
                 <option value="admin">admin</option>
                 <option value="manajer">manajer</option>
                 <option value="manajer">customer</option>
