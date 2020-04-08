@@ -103,9 +103,14 @@
 				<p>Brian Vidyanjaya</p>
 			</div>
 		</div>
+
+		<a href="keluar/cetak_penjualan/<?php echo $row->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a> 
 	</div>
 </div>
 
+<script>
+		window.print();
+	</script>
 
 <!-- <script src='assets/jspdf.debug.js'></script>
 	<script src='assets/html2pdf.js'></script>
