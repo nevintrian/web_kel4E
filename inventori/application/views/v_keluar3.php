@@ -104,7 +104,7 @@
 			</div>
 		</div>
 
-		<a href="keluar/cetak_penjualan/<?php echo $row->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a> 
+		
 	</div>
 </div>
 

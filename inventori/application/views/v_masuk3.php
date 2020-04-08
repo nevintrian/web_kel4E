@@ -109,7 +109,9 @@
 	</div>
 </div>
 
-
+<script>
+		window.print();
+	</script>
 <!-- <script src='assets/jspdf.debug.js'></script>
 	<script src='assets/html2pdf.js'></script>
 	<script>
