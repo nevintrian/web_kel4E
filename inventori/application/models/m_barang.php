@@ -9,6 +9,7 @@ class M_barang extends CI_Model
 	//deklarasi tabel
 	public $table = 'barang';
     public $id = 'id_barang';
+    public $terjual = 'terjual';
 	public $order = 'DESC';
 	
 	//untuk tampilan home
@@ -35,7 +36,7 @@ class M_barang extends CI_Model
 
     // untuk limit halaman dan pencarian
     function get_limit_data($limit, $per_page = 0, $q = NULL) { 
-        $this->db->order_by($this->id, $this->order);
+        $this->db->order_by($this->terjual, $this->order);
 	$this->db->or_like('nama_barang', $q);
     $this->db->select('*');
     $this->db->from('barang');

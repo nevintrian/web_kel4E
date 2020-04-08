@@ -45,6 +45,7 @@
         <th>Stok</th>
         <th>Harga</th>
         <th>Nama Supplier</th>
+        <th>Terjual</th>
         <th>Foto Barang</th>
         <th>Action</th>
         </tr>
@@ -60,6 +61,7 @@
             <td><?php echo $barang->stok ?></td>
             <td><?php echo $barang->harga ?></td>
             <td><?php echo $barang->nama_supplier ?></td>
+            <td><?php echo $barang->terjual ?></td>
             <td><img src="<?php echo base_url('image/barang/'.$barang->foto_barang) ?>" width="64" /></td> <!-- menampilkan gambar  -->
             <td style="text-align:center" width="200px">
                 <?php 

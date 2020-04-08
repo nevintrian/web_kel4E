@@ -65,11 +65,12 @@ $rs = $data->row();
 						echo number_format($totharga);
 						 ?></td>
 				</tr>
+	
+				<?php } ?>
 				<tr>
 						<td colspan="6">Total</td>
 						<td>Rp. <?php echo number_format($rs->total_masuk) ?></td>
 					</tr>
-				<?php } ?>
 			</tbody>
 		</table>
 	</div>
