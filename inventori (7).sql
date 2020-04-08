@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Apr 2020 pada 05.04
+-- Waktu pembuatan: 08 Apr 2020 pada 04.09
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -37,6 +37,7 @@ CREATE TABLE `barang` (
   `jenis` varchar(20) DEFAULT NULL,
   `harga` int(11) DEFAULT NULL,
   `stok` int(11) DEFAULT NULL,
+  `terjual` int(11) NOT NULL DEFAULT 0,
   `foto_barang` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,11 +45,11 @@ CREATE TABLE `barang` (
 -- Dumping data untuk tabel `barang`
 --
 
-INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `foto_barang`) VALUES
-(1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 5000, 'kopi.jpg'),
-(2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 4989, 'milo.jpg'),
-(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5000, 'barang_1585976994.jpg'),
-(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 5000, 'barang_1585977262.jpg');
+INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`) VALUES
+(1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 4985, 15, 'kopi.jpg'),
+(2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 124989, 12, 'milo.jpg'),
+(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5011, 0, 'barang_1585976994.jpg'),
+(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 49984, 17, 'barang_1585977262.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,9 @@ CREATE TABLE `detail_keluar` (
 --
 
 INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`) VALUES
-(2, 1, 12);
+(2, 1, 12),
+(1, 1, 15),
+(4, 1, 17);
 
 --
 -- Trigger `detail_keluar`
@@ -80,8 +83,22 @@ END
 $$
 DELIMITER ;
 DELIMITER $$
+CREATE TRIGGER `delete_terjual` AFTER DELETE ON `detail_keluar` FOR EACH ROW BEGIN
+	UPDATE barang SET terjual = terjual-OLD.qty_keluar 
+    WHERE id_barang=OLD.id_barang;
+END
+$$
+DELIMITER ;
+DELIMITER $$
 CREATE TRIGGER `tambah_keluar` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET stok=stok-NEW.qty_keluar
+    WHERE id_barang=NEW.id_barang;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_terjual` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
+	UPDATE barang SET terjual=terjual+NEW.qty_keluar
     WHERE id_barang=NEW.id_barang;
 END
 $$
@@ -104,7 +121,10 @@ CREATE TABLE `detail_masuk` (
 --
 
 INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
-(2, 1, 1);
+(2, 1, 1),
+(2, 2, 120000),
+(4, 3, 1),
+(3, 3, 11);
 
 --
 -- Trigger `detail_masuk`
@@ -142,7 +162,7 @@ CREATE TABLE `keluar` (
 --
 
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`) VALUES
-(1, 4, '2020-04-04', 60000);
+(1, 3, '2020-04-08', 305000);
 
 --
 -- Trigger `keluar`
@@ -173,7 +193,9 @@ CREATE TABLE `masuk` (
 --
 
 INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`) VALUES
-(1, 1, '2020-04-04', 5000);
+(1, 1, '2020-04-04', 5000),
+(2, 1, '2020-04-05', 600000000),
+(3, 1, '2020-04-08', 43000);
 
 --
 -- Trigger `masuk`
@@ -232,7 +254,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`, `foto`) VALUES
-(1, 'nevintrian@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin trian', '2000-01-27', 'laki-laki', 'Jember', '085234567891', 'pp.jpg'),
+(1, 'nevin@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin', '2000-01-27', 'laki-laki', 'Jember', '089765456123', 'pp.jpg'),
 (2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian vidyanjaya', '2000-04-20', 'laki-laki', 'Probolinggo', '087672819212', 'pp.jpg'),
 (3, 'rere@gmail.com', 'rere', '4b054d969d22341219a5bc88f4c8321f', 'customer', 'rere', '2000-01-27', 'perempuan', 'Surabaya', '089765682312', 'pp.jpg'),
 (4, 'rara@gmail.com', 'rara', '5ab83fa52e5d0f5abc44d2eed4479ff0', 'customer', 'rara', '2020-04-09', 'perempuan', 'Situbondo', '085234567891', 'pp.jpg'),
@@ -302,7 +324,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
@@ -314,19 +336,19 @@ ALTER TABLE `keluar`
 -- AUTO_INCREMENT untuk tabel `masuk`
 --
 ALTER TABLE `masuk`
-  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
