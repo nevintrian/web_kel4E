@@ -17,6 +17,7 @@
                       <a href="user" class="list-group-item"> Data Pegawai</a>
                       <a href="pelanggan" class="list-group-item"> Data Pelanggan</a>
                       <a href="supplier" class="list-group-item"> Data Supplier</a>
+                  
                     </li>
                 </li>
                 <li>
@@ -27,6 +28,7 @@
                       
                     </li>
                 </li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>transaksi"><i class="glyphicon glyphicon-user"></i>Report</a></li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>login/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
                 <?php 
