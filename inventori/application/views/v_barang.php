@@ -78,6 +78,7 @@
         <div class="row">
             <div class="col-md-6">
                 <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
+                <a href="barang/cetak_pdf" class="btn btn-info">Cetak Data Barang</a>
         </div>
             <div class="col-md-6 text-right">
                 <?php echo $pagination ?>

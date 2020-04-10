@@ -19,17 +19,11 @@ class Report extends CI_Controller {
         $this->load->view('v_masuk'); 
     }
 
-    public function cetak_penjualan($kode_pembelian)
+    public function cetak_penjualan()
 	{
 		
-        $data = array(
-        	'id_supplier' => $id_supplier,
-            'id_masuk'=> $kode_pembelian,
-            'total_masuk'=> $total_masuk,
-            'tgl_masuk'=> $tgl_penjualan,
-            
-		);
-		$this->load->view('v_reportcetak',$data);
+
+		$this->load->view('v_reportcetak');
 	}
     
 }

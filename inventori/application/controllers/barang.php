@@ -10,7 +10,8 @@ class Barang extends CI_Controller {
         $this->load->model('m_barang');
         $this->load->library('pagination');
         $this->load->library('upload'); 
-		$this->load->helper('form'); 
+        $this->load->helper('form'); 
+        $this->load->library('cetak_pdf');
     }
     
     //fungsi menampilkan data barang dan halaman
@@ -195,6 +196,51 @@ class Barang extends CI_Controller {
 
            
     }
+
+    public function cetak_pdf() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'DAFTAR BARANG',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Nama Barang',1,0,'C');
+        $pdf->Cell(30,6,'Supplier',1,0,'C');
+        $pdf->Cell(20,6,'Kemasan',1,0,'C');
+        $pdf->Cell(20,6,'Merk',1,0,'C');
+        $pdf->Cell(20,6,'Jenis',1,0,'C');
+        $pdf->Cell(35,6,'Harga',1,0,'C');
+        $pdf->Cell(15,6,'Stok',1,0,'C');
+        $pdf->Cell(15,6,'Terjual',1,1,'C');
+        
+        
+
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM barang inner join supplier on barang.id_supplier=supplier.id_supplier")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->nama_barang,1,0);
+            $pdf->Cell(30,6,$data->nama_supplier,1,0);
+            $pdf->Cell(20,6,$data->kemasan,1,0);
+            $pdf->Cell(20,6,$data->merk,1,0);
+            $pdf->Cell(20,6,$data->jenis,1,0);
+            $pdf->Cell(35,6,"Rp ".number_format($data->harga, 0, ".", "."),1,0);
+            $pdf->Cell(15,6,$data->stok,1,0);
+            $pdf->Cell(15,6,$data->terjual,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
+    }
     //fungsi delete data database
     public function delete($id) 
 {
@@ -208,6 +254,7 @@ class Barang extends CI_Controller {
        
 	    }
   
+        
     }
         ?>
 
