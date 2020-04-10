@@ -48,5 +48,14 @@
 				<?php } ?>
 			</tbody>
 		</table>
+		</table>
+<div class="row">
+<div class="col-md-6">
+    
+    <a href="masuk/cetak_pdf" class="btn btn-info">Cetak Data Barang</a>
+</div>
+<div class="col-md-6 text-right">
+</div>
+</div>
 	</div>
 </div>

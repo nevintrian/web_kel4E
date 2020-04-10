@@ -10,7 +10,8 @@ class supplier extends CI_Controller {
         $this->load->model('m_supplier');
         $this->load->library('pagination');
         $this->load->library('upload'); 
-		$this->load->helper('form'); 
+        $this->load->helper('form'); 
+        $this->load->library('cetak_pdf');
     }
     
     //fungsi menampilkan data supplier dan halaman
@@ -178,6 +179,42 @@ class supplier extends CI_Controller {
 
            
     }
+
+    public function cetak_pdf() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+    
+        $pdf->AddPage();
+    
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'DAFTAR PEGAWAI',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+    
+        $pdf->SetFont('Arial','B',10);
+    
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Nama Supplier',1,0,'C');
+        $pdf->Cell(30,6,'Alamat',1,0,'C');
+        $pdf->Cell(30,6,'No Telp',1,1,'C');
+        
+        
+    
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM supplier")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->nama_supplier,1,0);
+            $pdf->Cell(30,6,$data->alamat,1,0);
+            $pdf->Cell(30,6,$data->no_telp,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+    
+    
+    }
+
     //fungsi delete data database
     public function delete($id) 
 {

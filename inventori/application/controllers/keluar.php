@@ -11,6 +11,7 @@ class Keluar extends CI_Controller {
 		$this->load->helper('html'); 
         $this->load->helper(array('form', 'url')); 
 		$this->load->model('m_barang');
+		$this->load->library('cetak_pdf');
 	}
  //menampilkan barang pada home
 	public function index(){	
@@ -141,6 +142,40 @@ public function hapus_penjualan($kode_penjualan)
 		$this->load->view('v_keluar2',$data);
 	}
 
+	public function cetak_pdf() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'TRANSAKSI BARANG KELUAR',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(30,6,'Total bayar',1,0,'C');
+        $pdf->Cell(30,6,'Nama Pelanggan',1,1,'C');
+ 
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->id_keluar,1,0);
+            $pdf->Cell(30,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,0);
+            $pdf->Cell(30,6,$data->nama,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
+    }
 
 
 }
