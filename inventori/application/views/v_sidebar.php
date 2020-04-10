@@ -28,7 +28,14 @@
                       
                     </li>
                 </li>
-                <li class="list-group-item"><a href="<?php echo base_url()?>transaksi"><i class="glyphicon glyphicon-user"></i>Report</a></li>
+                <li>
+                  <a href="#demo6" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Report  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <li class="collapse" id="demo6">
+                      <a href="transaksi" class="list-group-item">Report Transaksi Barang Masuk</a>
+                      <a href="transaksi2" class="list-group-item">Report Transaksi Barang Keluar</a>
+                      
+                    </li>
+                </li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>login/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
                 <?php 

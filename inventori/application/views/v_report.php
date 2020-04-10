@@ -19,7 +19,7 @@
         <br /><br />
         <div id="form-tanggal">
             <label>Tanggal</label><br>
-            <input type="text" name="tanggal" class="input-tanggal" />
+            <input type="date" name="tanggal" class="input-tanggal" />
             <br /><br />
         </div>
         <div id="form-bulan">
@@ -59,8 +59,9 @@
     <hr />
     
     <b><?php echo $ket; ?></b><br /><br />
-    <a href="<?php echo $url_cetak; ?>">CETAK PDF</a><br /><br />
-    <table border="1" cellpadding="8">
+    <a href="report/cetak_penjualan">CETAK PDF</a><br /><br />
+    <div class="col-md-12">
+                    <table class="table table-bordered" style="margin-bottom: 10px">
     <tr>
                     <th>No.</th>
 					<th>Tanggal Transaksi</th>
@@ -82,7 +83,8 @@
                     }
                   }
                   ?>              
-    
+    </table>
+                    </div>
     <script src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js'); ?>"></script> <!-- Load file plugin js jquery-ui -->
     <script>
     $(document).ready(function(){ // Ketika halaman selesai di load
