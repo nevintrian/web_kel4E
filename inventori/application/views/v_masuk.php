@@ -52,7 +52,7 @@
 <div class="row">
 <div class="col-md-6">
     
-    <a href="masuk/cetak_pdf" class="btn btn-info">Cetak Data Barang</a>
+    <a href="masuk/cetak_pdf" class="btn btn-info">Cetak Data Barang Masuk</a>
 </div>
 <div class="col-md-6 text-right">
 </div>

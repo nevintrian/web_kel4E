@@ -85,7 +85,7 @@ foreach ($user_data as $user) {
 <div class="row">
 <div class="col-md-6">
     <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
-    <a href="pelanggan/cetak_pdf" class="btn btn-info">Cetak Data Barang</a>
+    <a href="pelanggan/cetak_pdf" class="btn btn-info">Cetak Data Pelanggan</a>
 </div>
 <div class="col-md-6 text-right">
     <?php echo $pagination; ?>

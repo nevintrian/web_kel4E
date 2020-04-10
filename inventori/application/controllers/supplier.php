@@ -193,9 +193,9 @@ class supplier extends CI_Controller {
         $pdf->SetFont('Arial','B',10);
     
         $pdf->Cell(8,6,'No',1,0,'C');
-        $pdf->Cell(30,6,'Nama Supplier',1,0,'C');
-        $pdf->Cell(30,6,'Alamat',1,0,'C');
-        $pdf->Cell(30,6,'No Telp',1,1,'C');
+        $pdf->Cell(60,6,'Nama Supplier',1,0,'C');
+        $pdf->Cell(70,6,'Alamat',1,0,'C');
+        $pdf->Cell(60,6,'No Telp',1,1,'C');
         
         
     
@@ -204,9 +204,9 @@ class supplier extends CI_Controller {
         $no=1;
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
-            $pdf->Cell(30,6,$data->nama_supplier,1,0);
-            $pdf->Cell(30,6,$data->alamat,1,0);
-            $pdf->Cell(30,6,$data->no_telp,1,1);
+            $pdf->Cell(60,6,$data->nama_supplier,1,0);
+            $pdf->Cell(70,6,$data->alamat,1,0);
+            $pdf->Cell(60,6,$data->no_telp,1,1);
            
             $no++;
         }
