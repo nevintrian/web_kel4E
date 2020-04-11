@@ -54,7 +54,7 @@
                     </li>
                 </li>
         
-                <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
                 <?php 
                 } elseif ($this->session->userdata('level') == 'sales') {
@@ -67,7 +67,7 @@
                       <a href="pelanggan" class="list-group-item"> Data Pelanggan</a> 
                     </li>
                 </li>
-                <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
                   
                 <?php 
                 } elseif ($this->session->userdata('level') == 'customer') {
@@ -79,26 +79,7 @@
                     <a href="barang" class="list-group-item"> Data Barang</a>
                     </li>
                 </li>
-                <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
-
-                <?php 
-                } elseif ($this->session->userdata('level') == 'supplier') {
-                 ?>
-
-
-
-                <li class="list-group-item"><a href="app/pemesanan_supplier"><i class="glyphicon glyphicon-tasks"></i>Daftar Pesanan Barang </a></li>
-                <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
-
-             
-                <?php 
-                } elseif ($this->session->userdata('level') == 'user') {
-                 ?>
-
-
-
-                <li class="list-group-item"><a href="app/pemesanan_supplier"><i class="glyphicon glyphicon-tasks"></i>Daftar Pesanan Barang </a></li>
-                <li class="list-group-item"><a href="<?php echo base_url()?>app/logout"><i class="glyphicon glyphicon-share"></i>Logout </a></li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
                 <?php } ?>
 
