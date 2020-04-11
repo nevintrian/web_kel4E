@@ -20,14 +20,20 @@ $rs = $data->row();
 				 <th>Nama Pelanggan</th>
 				<th>:</th>
 				<td><?php echo $rs->nama; ?></td> 
+				<th>No Telepon</th>
+				<th>:</th>
+				<td><?php echo $rs->no_telp; ?></td> 
 			</tr>
 			<tr>
 				<th>Tgl Penjualan</th>
 				<th>:</th>
 				<td><?php echo $rs->tgl_keluar; ?></td>
-				<th>Total Harga</th>
+				<th>Alamat</th>
 				<th>:</th>
-				<td>Rp. <?php echo number_format($rs->total_keluar); ?></td>
+				<td><?php echo $rs->alamat; ?></td> 
+				<th>Total Harga</th>
+					<th>:</th>
+					<td>Rp. <?php echo number_format($rs->total_keluar); ?></td>
 			</tr>
 			
 		</table>

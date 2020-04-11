@@ -18,22 +18,28 @@
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table">
-				<tr>
-					<th>Kode transaksi</th>
-					<th>:</th>
-					<td><?php echo $rs->id_keluar; ?></td>
-					<th>Nama Pelanggan</th>
-					<th>:</th>
-					<td><?php echo $rs->nama; ?></td> 
-				</tr>
-				<tr>
-					<th>Tgl transaksi</th>
-					<th>:</th>
-					<td><?php echo $rs->tgl_keluar; ?></td>
-					<th>Total Harga</th>
+			<tr>
+				<th>Kode Transaksi</th>
+				<th>:</th>
+				<td><?php echo $rs->id_keluar; ?></td>
+				 <th>Nama Pelanggan</th>
+				<th>:</th>
+				<td><?php echo $rs->nama; ?></td> 
+				<th>No Telepon</th>
+				<th>:</th>
+				<td><?php echo $rs->no_telp; ?></td> 
+			</tr>
+			<tr>
+				<th>Tgl Penjualan</th>
+				<th>:</th>
+				<td><?php echo $rs->tgl_keluar; ?></td>
+				<th>Alamat</th>
+				<th>:</th>
+				<td><?php echo $rs->alamat; ?></td> 
+				<th>Total Harga</th>
 					<th>:</th>
 					<td>Rp. <?php echo number_format($rs->total_keluar); ?></td>
-				</tr>
+			</tr>
 			</table>
 		</div>
 		<div class="col-md-12">

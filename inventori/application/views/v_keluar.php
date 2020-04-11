@@ -22,6 +22,8 @@
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
 					<th>Nama Pelanggan</th>
+          <th>Alamat</th>
+          <th>No Telepon</th>
 					<th>Pilihan</th>
 				</tr>
 			</thead>
@@ -38,6 +40,8 @@
 					<td><?php echo $row->tgl_keluar; ?></td>
 					<td><?php echo number_format($row->total_keluar); ?></td>
 					<td><?php echo $row->nama; ?></td>
+          <td><?php echo $row->alamat; ?></td>
+          <td><?php echo $row->no_telp; ?></td>
 					
 					<td>
 						<a href="keluar/detail_penjualan/<?php echo $row->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
