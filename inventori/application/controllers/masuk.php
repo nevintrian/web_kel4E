@@ -12,6 +12,7 @@ class Masuk extends CI_Controller {
         $this->load->helper(array('form', 'url')); 
 		$this->load->model('m_barang');
 		$this->load->library('cetak_pdf');
+
 	}
  //menampilkan barang pada home
 	public function index(){	
@@ -174,7 +175,224 @@ public function hapus_penjualan($kode_pembelian)
         $pdf->Output();
 	
 
+	}
+	
+	public function cetak_pdf1() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'TRANSAKSI BARANG MASUK',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Total bayar',1,0,'C');
+        $pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+ 
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)=date(now())")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->id_masuk,1,0);
+            $pdf->Cell(50,6,$data->tgl_masuk,1,0);
+            $pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+            $pdf->Cell(60,6,$data->nama_supplier,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
     }
 
+	public function cetak_pdf2() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'TRANSAKSI BARANG MASUK',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Total bayar',1,0,'C');
+        $pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+ 
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now()) and month(masuk.tgl_masuk)=month(now())")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->id_masuk,1,0);
+            $pdf->Cell(50,6,$data->tgl_masuk,1,0);
+            $pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+            $pdf->Cell(60,6,$data->nama_supplier,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
+    }
+
+	public function cetak_pdf3() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'TRANSAKSI BARANG MASUK',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Total bayar',1,0,'C');
+        $pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+ 
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now())")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->id_masuk,1,0);
+            $pdf->Cell(50,6,$data->tgl_masuk,1,0);
+            $pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+            $pdf->Cell(60,6,$data->nama_supplier,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
+	}
+	
+
+	public function cetak_pdf4() {
+
+	
+				if(isset($_GET['filter']) && ! empty($_GET['filter'])){ // Cek apakah user telah memilih filter dan klik tombol tampilkan
+					$filter = $_GET['filter']; // Ambil data filder yang dipilih user
+					if($filter == '1'){ // Jika filter nya 1 (per tanggal)
+						$tgl_masuk = $_GET['tanggal'];
+						$pdf = new FPDF('P', 'mm','Letter');
+
+									$pdf->AddPage();
+
+									$pdf->SetFont('Arial','B',16);
+									$pdf->Cell(0,7,'TRANSAKSI BARANG MASUK',0,1,'C');
+									$pdf->Cell(10,7,'',0,1);
+
+									$pdf->SetFont('Arial','B',10);
+
+									$pdf->Cell(8,6,'No',1,0,'C');
+									$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+									$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+									$pdf->Cell(50,6,'Total bayar',1,0,'C');
+									$pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+							
+									$pdf->SetFont('Arial','',10);
+									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)='$tgl_masuk'")->result();
+									$no=1;
+									foreach ($barang as $data){
+										$pdf->Cell(8,6,$no,1,0);
+										$pdf->Cell(30,6,$data->id_masuk,1,0);
+										$pdf->Cell(50,6,$data->tgl_masuk,1,0);
+										$pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+										$pdf->Cell(60,6,$data->nama_supplier,1,1);
+									
+										$no++;
+									}
+									$pdf->Output();
+								
+					
+					}else if($filter == '2'){ // Jika filter nya 2 (per bulan)
+						$bulan = $_GET['bulan'];
+						$tahun = $_GET['tahun'];
+						$pdf = new FPDF('P', 'mm','Letter');
+
+									$pdf->AddPage();
+
+									$pdf->SetFont('Arial','B',16);
+									$pdf->Cell(0,7,'TRANSAKSI BARANG MASUK',0,1,'C');
+									$pdf->Cell(10,7,'',0,1);
+
+									$pdf->SetFont('Arial','B',10);
+
+									$pdf->Cell(8,6,'No',1,0,'C');
+									$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+									$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+									$pdf->Cell(50,6,'Total bayar',1,0,'C');
+									$pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+							
+									$pdf->SetFont('Arial','',10);
+									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where month(tgl_masuk)=$bulan and year(tgl_masuk)=$tahun")->result();
+									$no=1;
+									foreach ($barang as $data){
+										$pdf->Cell(8,6,$no,1,0);
+										$pdf->Cell(30,6,$data->id_masuk,1,0);
+										$pdf->Cell(50,6,$data->tgl_masuk,1,0);
+										$pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+										$pdf->Cell(60,6,$data->nama_supplier,1,1);
+									
+										$no++;
+									}
+									$pdf->Output();
+								
+					}else{ // Jika filter nya 3 (per tahun)
+						$tahun = $_GET['tahun'];
+
+						$pdf = new FPDF('P', 'mm','Letter');
+
+									$pdf->AddPage();
+
+									$pdf->SetFont('Arial','B',16);
+									$pdf->Cell(0,7,'TRANSAKSI BARANG MASUK',0,1,'C');
+									$pdf->Cell(10,7,'',0,1);
+
+									$pdf->SetFont('Arial','B',10);
+
+									$pdf->Cell(8,6,'No',1,0,'C');
+									$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+									$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+									$pdf->Cell(50,6,'Total bayar',1,0,'C');
+									$pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+							
+									$pdf->SetFont('Arial','',10);
+									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(tgl_masuk)=$tahun")->result();
+									$no=1;
+									foreach ($barang as $data){
+										$pdf->Cell(8,6,$no,1,0);
+										$pdf->Cell(30,6,$data->id_masuk,1,0);
+										$pdf->Cell(50,6,$data->tgl_masuk,1,0);
+										$pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+										$pdf->Cell(60,6,$data->nama_supplier,1,1);
+									
+										$no++;
+									}
+									$pdf->Output();
+								
+						
+					
+					}
+				}
+    
+
+			}
 
 }

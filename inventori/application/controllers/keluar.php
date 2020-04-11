@@ -175,7 +175,227 @@ public function hapus_penjualan($kode_penjualan)
         $pdf->Output();
 	
 
-    }
+	}
+	
+
+	public function cetak_pdf1() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'TRANSAKSI BARANG KELUAR',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Total bayar',1,0,'C');
+        $pdf->Cell(60,6,'Nama Pelanggan',1,1,'C');
+ 
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where date(keluar.tgl_keluar)=date(now())")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->id_keluar,1,0);
+            $pdf->Cell(50,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(50,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,0);
+            $pdf->Cell(60,6,$data->nama,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
+	}
+	
+	public function cetak_pdf2() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'TRANSAKSI BARANG KELUAR',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Total bayar',1,0,'C');
+        $pdf->Cell(60,6,'Nama Pelanggan',1,1,'C');
+ 
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(keluar.tgl_keluar)=year(now()) and month(keluar.tgl_keluar)=month(now())")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->id_keluar,1,0);
+            $pdf->Cell(50,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(50,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,0);
+            $pdf->Cell(60,6,$data->nama,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
+	}
+	
+
+	public function cetak_pdf3() {
+
+        $pdf = new FPDF('P', 'mm','Letter');
+
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(0,7,'TRANSAKSI BARANG KELUAR',0,1,'C');
+        $pdf->Cell(10,7,'',0,1);
+
+        $pdf->SetFont('Arial','B',10);
+
+        $pdf->Cell(8,6,'No',1,0,'C');
+        $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(50,6,'Total bayar',1,0,'C');
+        $pdf->Cell(60,6,'Nama Pelanggan',1,1,'C');
+ 
+        $pdf->SetFont('Arial','',10);
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(keluar.tgl_keluar)=year(now())")->result();
+        $no=1;
+        foreach ($barang as $data){
+            $pdf->Cell(8,6,$no,1,0);
+            $pdf->Cell(30,6,$data->id_keluar,1,0);
+            $pdf->Cell(50,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(50,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,0);
+            $pdf->Cell(60,6,$data->nama,1,1);
+           
+            $no++;
+        }
+        $pdf->Output();
+	
+
+	}
+	
+	public function cetak_pdf4() {
+
+	
+		if(isset($_GET['filter']) && ! empty($_GET['filter'])){ // Cek apakah user telah memilih filter dan klik tombol tampilkan
+			$filter = $_GET['filter']; // Ambil data filder yang dipilih user
+			if($filter == '1'){ // Jika filter nya 1 (per tanggal)
+				$tgl_keluar = $_GET['tanggal'];
+				$pdf = new FPDF('P', 'mm','Letter');
+
+							$pdf->AddPage();
+
+							$pdf->SetFont('Arial','B',16);
+							$pdf->Cell(0,7,'TRANSAKSI BARANG KELUAR',0,1,'C');
+							$pdf->Cell(10,7,'',0,1);
+
+							$pdf->SetFont('Arial','B',10);
+
+							$pdf->Cell(8,6,'No',1,0,'C');
+							$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+							$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+							$pdf->Cell(50,6,'Total bayar',1,0,'C');
+							$pdf->Cell(60,6,'Nama User',1,1,'C');
+					
+							$pdf->SetFont('Arial','',10);
+							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where date(keluar.tgl_keluar)='$tgl_keluar'")->result();
+							$no=1;
+							foreach ($barang as $data){
+								$pdf->Cell(8,6,$no,1,0);
+								$pdf->Cell(30,6,$data->id_keluar,1,0);
+								$pdf->Cell(50,6,$data->tgl_keluar,1,0);
+								$pdf->Cell(50,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,0);
+								$pdf->Cell(60,6,$data->nama,1,1);
+							
+								$no++;
+							}
+							$pdf->Output();
+						
+			
+			}else if($filter == '2'){ // Jika filter nya 2 (per bulan)
+				$bulan = $_GET['bulan'];
+				$tahun = $_GET['tahun'];
+				$pdf = new FPDF('P', 'mm','Letter');
+
+							$pdf->AddPage();
+
+							$pdf->SetFont('Arial','B',16);
+							$pdf->Cell(0,7,'TRANSAKSI BARANG keluar',0,1,'C');
+							$pdf->Cell(10,7,'',0,1);
+
+							$pdf->SetFont('Arial','B',10);
+
+							$pdf->Cell(8,6,'No',1,0,'C');
+							$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+							$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+							$pdf->Cell(50,6,'Total bayar',1,0,'C');
+							$pdf->Cell(60,6,'Nama User',1,1,'C');
+					
+							$pdf->SetFont('Arial','',10);
+							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where month(tgl_keluar)=$bulan and year(tgl_keluar)=$tahun")->result();
+							$no=1;
+							foreach ($barang as $data){
+								$pdf->Cell(8,6,$no,1,0);
+								$pdf->Cell(30,6,$data->id_keluar,1,0);
+								$pdf->Cell(50,6,$data->tgl_keluar,1,0);
+								$pdf->Cell(50,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,0);
+								$pdf->Cell(60,6,$data->nama,1,1);
+							
+								$no++;
+							}
+							$pdf->Output();
+						
+			}else{ // Jika filter nya 3 (per tahun)
+				$tahun = $_GET['tahun'];
+
+				$pdf = new FPDF('P', 'mm','Letter');
+
+							$pdf->AddPage();
+
+							$pdf->SetFont('Arial','B',16);
+							$pdf->Cell(0,7,'TRANSAKSI BARANG keluar',0,1,'C');
+							$pdf->Cell(10,7,'',0,1);
+
+							$pdf->SetFont('Arial','B',10);
+
+							$pdf->Cell(8,6,'No',1,0,'C');
+							$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
+							$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
+							$pdf->Cell(50,6,'Total bayar',1,0,'C');
+							$pdf->Cell(60,6,'Nama User',1,1,'C');
+					
+							$pdf->SetFont('Arial','',10);
+							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(tgl_keluar)=$tahun")->result();
+							$no=1;
+							foreach ($barang as $data){
+								$pdf->Cell(8,6,$no,1,0);
+								$pdf->Cell(30,6,$data->id_keluar,1,0);
+								$pdf->Cell(50,6,$data->tgl_keluar,1,0);
+								$pdf->Cell(50,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,0);
+								$pdf->Cell(60,6,$data->nama,1,1);
+							
+								$no++;
+							}
+							$pdf->Output();
+						
+				
+			
+			}
+		}
+
+
+	}
+
 
 
 }

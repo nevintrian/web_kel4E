@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Apr 2020 pada 04.09
+-- Waktu pembuatan: 11 Apr 2020 pada 03.50
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `barang` (
   `id_barang` int(11) NOT NULL,
-  `id_supplier` int(11) NOT NULL,
+  `id_supplier` int(11) DEFAULT NULL,
   `nama_barang` varchar(100) DEFAULT NULL,
   `kemasan` varchar(20) DEFAULT NULL,
   `merk` varchar(100) DEFAULT NULL,
@@ -46,10 +46,10 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`) VALUES
-(1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 4985, 15, 'kopi.jpg'),
+(1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 49851, 15, 'kopi.jpg'),
 (2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 124989, 12, 'milo.jpg'),
-(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5011, 0, 'barang_1585976994.jpg'),
-(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 49984, 17, 'barang_1585977262.jpg');
+(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5035, 0, 'barang_1585976994.jpg'),
+(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 49992, 29, 'barang_1585977262.jpg');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,8 @@ CREATE TABLE `detail_keluar` (
 INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`) VALUES
 (2, 1, 12),
 (1, 1, 15),
-(4, 1, 17);
+(4, 1, 17),
+(4, 7, 12);
 
 --
 -- Trigger `detail_keluar`
@@ -124,7 +125,11 @@ INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
 (2, 1, 1),
 (2, 2, 120000),
 (4, 3, 1),
-(3, 3, 11);
+(3, 3, 11),
+(4, 7, 9),
+(3, 9, 12),
+(3, 11, 12),
+(4, 12, 11);
 
 --
 -- Trigger `detail_masuk`
@@ -162,7 +167,11 @@ CREATE TABLE `keluar` (
 --
 
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`) VALUES
-(1, 3, '2020-04-08', 305000);
+(1, 3, '2020-04-08', 305000),
+(4, 4, '2021-04-22', 4),
+(5, 3, '2020-04-11', 6),
+(6, 4, '2020-05-08', 6),
+(7, 7, '2020-04-11', 120000);
 
 --
 -- Trigger `keluar`
@@ -195,7 +204,13 @@ CREATE TABLE `masuk` (
 INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`) VALUES
 (1, 1, '2020-04-04', 5000),
 (2, 1, '2020-04-05', 600000000),
-(3, 1, '2020-04-08', 43000);
+(3, 1, '2020-04-08', 43000),
+(7, 1, '2020-04-11', 90000),
+(9, 1, '2020-04-11', 36000),
+(10, 1, '2021-05-11', 444),
+(11, 2, '2020-04-11', 36000),
+(12, 2, '2020-04-11', 110000),
+(13, 2, '2020-04-11', 512);
 
 --
 -- Trigger `masuk`
@@ -226,7 +241,7 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `alamat`, `no_telp`) VALUES
-(1, 'PT Kino', 'Probolinggo', '089765345612'),
+(1, 'PT Kino', 'Probolinggo', '081234456781'),
 (2, 'PT Indofood', 'Probolinggo', '087654321234');
 
 -- --------------------------------------------------------
@@ -262,8 +277,7 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 (6, 'rama@gmail.com', 'rama', '36226b453eb255f672f118a1ecc1e4ec', 'sales', 'rama', '2020-04-09', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977424.jpg'),
 (7, 'tarno@gmail.com', 'tarno', 'ed8465aeaf6682cbf12c6a3c94bba4d7', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977486.jpg'),
 (8, 'ipang@gmail.com', 'ipang', 'a3b1427fc6eb05dde4883180e7284322', 'gudang', 'ipang', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'pp.jpg'),
-(9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Bondowoso', '089765456111', 'pp.jpg'),
-(10, 'r', 'r', '4b43b0aee35624cd95b910189b3dc231', 'petugas gudang', 'r', '2020-04-16', 'laki-laiki', NULL, NULL, 'pp.jpg');
+(9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Bondowoso', '089765456111', 'pp.jpg');
 
 --
 -- Indexes for dumped tables
@@ -324,25 +338,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
 --
 ALTER TABLE `keluar`
-  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `masuk`
 --
 ALTER TABLE `masuk`
-  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
