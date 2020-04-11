@@ -13,14 +13,6 @@ class M_barang extends CI_Model
 	public $order = 'DESC';
 	
 	//untuk tampilan home
-	public function all(){  
-		$hasil = $this->db->get('barang'); 
-		if($hasil->num_rows() > 0){ 
-			return $hasil->result();
-		} else {
-			return array();
-		}
-    }
 
 
 	//menghitung rows untuk pencarian dan dashboard

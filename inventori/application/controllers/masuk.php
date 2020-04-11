@@ -181,9 +181,11 @@ public function hapus_penjualan($kode_pembelian)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Total bayar',1,0,'C');
-        $pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(30,6,'Total bayar',1,0,'C');
+		$pdf->Cell(40,6,'Nama Supplier',1,0,'C');
+		$pdf->Cell(30,6,'Alamat',1,0,'C');
+		$pdf->Cell(30,6,'No Telp',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
         $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier")->result();
@@ -191,10 +193,11 @@ public function hapus_penjualan($kode_pembelian)
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(30,6,$data->id_masuk,1,0);
-            $pdf->Cell(50,6,$data->tgl_masuk,1,0);
-            $pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
-            $pdf->Cell(60,6,$data->nama_supplier,1,1);
-           
+            $pdf->Cell(30,6,$data->tgl_masuk,1,0);
+            $pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+            $pdf->Cell(40,6,$data->nama_supplier,1,0);
+			$pdf->Cell(30,6,$data->alamat,1,0);
+			$pdf->Cell(30,6,$data->no_telp,1,1);
             $no++;
         }
         $pdf->Output();
@@ -216,19 +219,23 @@ public function hapus_penjualan($kode_pembelian)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Total bayar',1,0,'C');
-        $pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(30,6,'Total bayar',1,0,'C');
+		$pdf->Cell(40,6,'Nama Supplier',1,0,'C');
+		$pdf->Cell(30,6,'Alamat',1,0,'C');
+		$pdf->Cell(30,6,'No Telp',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
         $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)=date(now())")->result();
         $no=1;
         foreach ($barang as $data){
-            $pdf->Cell(8,6,$no,1,0);
+			$pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(30,6,$data->id_masuk,1,0);
-            $pdf->Cell(50,6,$data->tgl_masuk,1,0);
-            $pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
-            $pdf->Cell(60,6,$data->nama_supplier,1,1);
+            $pdf->Cell(30,6,$data->tgl_masuk,1,0);
+            $pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+            $pdf->Cell(40,6,$data->nama_supplier,1,0);
+			$pdf->Cell(30,6,$data->alamat,1,0);
+			$pdf->Cell(30,6,$data->no_telp,1,1);
            
             $no++;
         }
@@ -251,19 +258,23 @@ public function hapus_penjualan($kode_pembelian)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Total bayar',1,0,'C');
-        $pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(30,6,'Total bayar',1,0,'C');
+		$pdf->Cell(40,6,'Nama Supplier',1,0,'C');
+		$pdf->Cell(30,6,'Alamat',1,0,'C');
+		$pdf->Cell(30,6,'No Telp',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
         $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now()) and month(masuk.tgl_masuk)=month(now())")->result();
         $no=1;
         foreach ($barang as $data){
-            $pdf->Cell(8,6,$no,1,0);
+			$pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(30,6,$data->id_masuk,1,0);
-            $pdf->Cell(50,6,$data->tgl_masuk,1,0);
-            $pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
-            $pdf->Cell(60,6,$data->nama_supplier,1,1);
+            $pdf->Cell(30,6,$data->tgl_masuk,1,0);
+            $pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+            $pdf->Cell(40,6,$data->nama_supplier,1,0);
+			$pdf->Cell(30,6,$data->alamat,1,0);
+			$pdf->Cell(30,6,$data->no_telp,1,1);
            
             $no++;
         }
@@ -286,19 +297,23 @@ public function hapus_penjualan($kode_pembelian)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
-        $pdf->Cell(50,6,'Total bayar',1,0,'C');
-        $pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(30,6,'Total bayar',1,0,'C');
+		$pdf->Cell(40,6,'Nama Supplier',1,0,'C');
+		$pdf->Cell(30,6,'Alamat',1,0,'C');
+		$pdf->Cell(30,6,'No Telp',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
         $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now())")->result();
         $no=1;
         foreach ($barang as $data){
-            $pdf->Cell(8,6,$no,1,0);
+			$pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(30,6,$data->id_masuk,1,0);
-            $pdf->Cell(50,6,$data->tgl_masuk,1,0);
-            $pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
-            $pdf->Cell(60,6,$data->nama_supplier,1,1);
+            $pdf->Cell(30,6,$data->tgl_masuk,1,0);
+            $pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+            $pdf->Cell(40,6,$data->nama_supplier,1,0);
+			$pdf->Cell(30,6,$data->alamat,1,0);
+			$pdf->Cell(30,6,$data->no_telp,1,1);
            
             $no++;
         }
@@ -324,12 +339,13 @@ public function hapus_penjualan($kode_pembelian)
 									$pdf->Cell(10,7,'',0,1);
 
 									$pdf->SetFont('Arial','B',10);
-
 									$pdf->Cell(8,6,'No',1,0,'C');
 									$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
-									$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
-									$pdf->Cell(50,6,'Total bayar',1,0,'C');
-									$pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+									$pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+									$pdf->Cell(30,6,'Total bayar',1,0,'C');
+									$pdf->Cell(40,6,'Nama Supplier',1,0,'C');
+									$pdf->Cell(30,6,'Alamat',1,0,'C');
+									$pdf->Cell(30,6,'No Telp',1,1,'C');
 							
 									$pdf->SetFont('Arial','',10);
 									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)='$tgl_masuk'")->result();
@@ -337,9 +353,11 @@ public function hapus_penjualan($kode_pembelian)
 									foreach ($barang as $data){
 										$pdf->Cell(8,6,$no,1,0);
 										$pdf->Cell(30,6,$data->id_masuk,1,0);
-										$pdf->Cell(50,6,$data->tgl_masuk,1,0);
-										$pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
-										$pdf->Cell(60,6,$data->nama_supplier,1,1);
+										$pdf->Cell(30,6,$data->tgl_masuk,1,0);
+										$pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+										$pdf->Cell(40,6,$data->nama_supplier,1,0);
+										$pdf->Cell(30,6,$data->alamat,1,0);
+										$pdf->Cell(30,6,$data->no_telp,1,1);
 									
 										$no++;
 									}
@@ -358,12 +376,13 @@ public function hapus_penjualan($kode_pembelian)
 									$pdf->Cell(10,7,'',0,1);
 
 									$pdf->SetFont('Arial','B',10);
-
 									$pdf->Cell(8,6,'No',1,0,'C');
 									$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
-									$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
-									$pdf->Cell(50,6,'Total bayar',1,0,'C');
-									$pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+									$pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+									$pdf->Cell(30,6,'Total bayar',1,0,'C');
+									$pdf->Cell(40,6,'Nama Supplier',1,0,'C');
+									$pdf->Cell(30,6,'Alamat',1,0,'C');
+									$pdf->Cell(30,6,'No Telp',1,1,'C');
 							
 									$pdf->SetFont('Arial','',10);
 									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where month(tgl_masuk)=$bulan and year(tgl_masuk)=$tahun")->result();
@@ -371,9 +390,11 @@ public function hapus_penjualan($kode_pembelian)
 									foreach ($barang as $data){
 										$pdf->Cell(8,6,$no,1,0);
 										$pdf->Cell(30,6,$data->id_masuk,1,0);
-										$pdf->Cell(50,6,$data->tgl_masuk,1,0);
-										$pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
-										$pdf->Cell(60,6,$data->nama_supplier,1,1);
+										$pdf->Cell(30,6,$data->tgl_masuk,1,0);
+										$pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+										$pdf->Cell(40,6,$data->nama_supplier,1,0);
+										$pdf->Cell(30,6,$data->alamat,1,0);
+										$pdf->Cell(30,6,$data->no_telp,1,1);
 									
 										$no++;
 									}
@@ -394,9 +415,11 @@ public function hapus_penjualan($kode_pembelian)
 
 									$pdf->Cell(8,6,'No',1,0,'C');
 									$pdf->Cell(30,6,'Kode Transaksi',1,0,'C');
-									$pdf->Cell(50,6,'Tgl Transaksi',1,0,'C');
-									$pdf->Cell(50,6,'Total bayar',1,0,'C');
-									$pdf->Cell(60,6,'Nama Suppliers',1,1,'C');
+									$pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+									$pdf->Cell(30,6,'Total bayar',1,0,'C');
+									$pdf->Cell(40,6,'Nama Supplier',1,0,'C');
+									$pdf->Cell(30,6,'Alamat',1,0,'C');
+									$pdf->Cell(30,6,'No Telp',1,1,'C');
 							
 									$pdf->SetFont('Arial','',10);
 									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(tgl_masuk)=$tahun")->result();
@@ -404,9 +427,11 @@ public function hapus_penjualan($kode_pembelian)
 									foreach ($barang as $data){
 										$pdf->Cell(8,6,$no,1,0);
 										$pdf->Cell(30,6,$data->id_masuk,1,0);
-										$pdf->Cell(50,6,$data->tgl_masuk,1,0);
-										$pdf->Cell(50,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
-										$pdf->Cell(60,6,$data->nama_supplier,1,1);
+										$pdf->Cell(30,6,$data->tgl_masuk,1,0);
+										$pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,0);
+										$pdf->Cell(40,6,$data->nama_supplier,1,0);
+										$pdf->Cell(30,6,$data->alamat,1,0);
+										$pdf->Cell(30,6,$data->no_telp,1,1);
 									
 										$no++;
 									}
