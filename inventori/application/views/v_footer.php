@@ -5,10 +5,7 @@
                         <div class="container">
                           <div class="clearfix">
                             <div class="footer-logo"><a href="#">UD SRI REJEKI</a></div>
-                            <dl class="footer-nav">
-                              <dt class="nav-title">BANTUAN</dt>
-                              <dd class="nav-item"><a href="#">Kontak Kami</a></dd>
-                              <dd class="nav-item"><a href="#">FAQ</a></dd>
+                           
                               
                             <dl class="footer-nav">
                               <dt class="nav-title">BANTUAN</dt>
