@@ -7,15 +7,35 @@
               <div class="panel-body">
                 <div class="content-row">
                   <h2 class="content-row-title">Data Barang Keluar</h2>
-<div class="row">
+                  <div class="row">
+            <div class="card">
                 <div class="col-md-4">
                 <?php echo anchor(site_url('keluar/tambah'),'Tambah', 'class="btn btn-primary"'); ?>
                 </div>
-	<div class="col-md-4"></div>
-	<div class="col-md-4"></div><br><br><br>
-	<div class="col-md-12">
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-3 text-right">
+                <form action="<?php echo site_url('keluar/index'); ?>" class="form-inline" method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
+                        <span class="input-group-btn">
+                            <?php 
+                                if ($q <> '')
+                                {
+                                    ?>
+                                    <a href="<?php echo site_url('keluar'); ?>" class="btn btn-default">Reset</a>
+                                    <?php
+                                }
+                            ?>
+                          <button class="btn btn-primary" type="submit">Search</button>
+                        </span>
+                    </div>
+                </form>     
+                </div>
+                </div>
+                <div class="col-md-12">
 		<table class="table table-bordered" style="margin-bottom: 10px" id="example">
-			<thead>
+
 				<tr>
 					<th>No.</th>
 					<th>Kode Transaksi</th>
@@ -26,39 +46,49 @@
           <th>No Telepon</th>
 					<th>Pilihan</th>
 				</tr>
-			</thead>
-			<tbody>
-				<?php 
-				$id = $this->session->userdata('id_user');
-				$sql = $this->db->query("SELECT * from keluar inner join user on user.id_user=keluar.id_user group by keluar.id_keluar order by keluar.id_keluar");
-				$no = 1;
-				foreach ($sql->result() as $row) {
-				 ?>
+
+
+      <?php 
+					foreach ($keluar_data as $keluar) {
+                        ?>
+                <tr>
 				<tr>
-					<td><?php echo $no++; ?></td>
-					<td><?php echo $row->id_keluar; ?></td>
-					<td><?php echo $row->tgl_keluar; ?></td>
-					<td><?php echo number_format($row->total_keluar); ?></td>
-					<td><?php echo $row->nama; ?></td>
-          <td><?php echo $row->alamat; ?></td>
-          <td><?php echo $row->no_telp; ?></td>
+          <td width="80px"><?php echo ++$per_page ?></td>
+					<td><?php echo $keluar->id_keluar; ?></td>
+					<td><?php echo $keluar->tgl_keluar; ?></td>
+					<td><?php echo number_format($keluar->total_keluar); ?></td>
+					<td><?php echo $keluar->nama; ?></td>
+          <td><?php echo $keluar->alamat; ?></td>
+          <td><?php echo $keluar->no_telp; ?></td>
 					
 					<td>
-						<a href="keluar/detail_penjualan/<?php echo $row->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
-						<a href="keluar/hapus_penjualan/<?php echo $row->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
-						<a href="keluar/cetak_penjualan/<?php echo $row->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+						<a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
+						<a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
+						<a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
 					</td>
 				</tr>
 				<?php } ?>
 				</table>
-<div class="row">
-<div class="col-md-12">
-	<a href="keluar/cetak_pdf1" class="btn btn-info">Cetak Data Hari ini</a>
-	<a href="keluar/cetak_pdf2" class="btn btn-primary">Cetak Data Bulan ini</a>
-	<a href="keluar/cetak_pdf3" class="btn btn-success">Cetak Data Tahun ini</a>
-	<a href="keluar/cetak_pdf" class="btn btn-secondary">Cetak Semua Data</a>
-	<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Cetak Data Custom</button>
-</div>
+
+
+
+
+    <div class="row">
+            <div class="col-md-10">
+            <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
+            <a href="keluar/cetak_pdf1" class="btn btn-info  btn-sm">Cetak Data Hari ini</a>
+            <a href="keluar/cetak_pdf2" class="btn btn-primary btn-sm ">Cetak Data Bulan ini</a>
+            <a href="keluar/cetak_pdf3" class="btn btn-success btn-sm">Cetak Data Tahun ini</a>
+            <a href="keluar/cetak_pdf" class="btn btn-secondary btn-sm">Cetak Semua Data</a>
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
+        </div>
+            <div class="col-md-2 text-right">
+                <?php echo $pagination ?>
+            </div>
+        </div>
+
+
+
 
 
 <div id="myModal" class="modal fade" role="dialog">

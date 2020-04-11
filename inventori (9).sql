@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Apr 2020 pada 03.50
+-- Waktu pembuatan: 11 Apr 2020 pada 09.54
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -47,9 +47,16 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`) VALUES
 (1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 49851, 15, 'kopi.jpg'),
-(2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 124989, 12, 'milo.jpg'),
-(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5035, 0, 'barang_1585976994.jpg'),
-(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 49992, 29, 'barang_1585977262.jpg');
+(2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 124989, 13, 'milo.jpg'),
+(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5036, 0, 'barang_1585976994.jpg'),
+(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 49992, 29, 'barang_1585977262.jpg'),
+(26, 1, 's', 'e', 'r', 'e', 2, 1, 0, 'barang_1586575293'),
+(27, 1, 'g', 'g', '1', 'g', 2, 1, 0, 'barang_1586575310'),
+(28, 2, 'g', 'g', 'g', 'g', 2, 2, 0, 'barang_1586575320'),
+(29, 2, 'h', 'h', 'h', 'h', 5, 4, 0, 'barang_1586575331'),
+(30, 1, 'd', 'y', 'y', 'y', 6, 6, 0, 'barang_1586575343'),
+(31, 1, 'j', 'j', 'j', 'j', 6, 6, 0, 'barang_1586575352'),
+(32, 1, 'j', 'j', 'j', 'j', 6, 6, 0, 'barang_1586575363');
 
 -- --------------------------------------------------------
 
@@ -71,7 +78,8 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`) VALUES
 (2, 1, 12),
 (1, 1, 15),
 (4, 1, 17),
-(4, 7, 12);
+(4, 7, 12),
+(2, 8, 1);
 
 --
 -- Trigger `detail_keluar`
@@ -129,7 +137,9 @@ INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
 (4, 7, 9),
 (3, 9, 12),
 (3, 11, 12),
-(4, 12, 11);
+(4, 12, 11),
+(3, 14, 1),
+(2, 15, 1);
 
 --
 -- Trigger `detail_masuk`
@@ -171,7 +181,8 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`) VALU
 (4, 4, '2021-04-22', 4),
 (5, 3, '2020-04-11', 6),
 (6, 4, '2020-05-08', 6),
-(7, 7, '2020-04-11', 120000);
+(7, 7, '2020-04-11', 120000),
+(8, 3, '2020-04-11', 5000);
 
 --
 -- Trigger `keluar`
@@ -210,7 +221,9 @@ INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`) VALU
 (10, 1, '2021-05-11', 444),
 (11, 2, '2020-04-11', 36000),
 (12, 2, '2020-04-11', 110000),
-(13, 2, '2020-04-11', 512);
+(13, 2, '2020-04-11', 512),
+(14, 2, '2020-04-11', 3000),
+(15, 1, '2020-04-11', 5000);
 
 --
 -- Trigger `masuk`
@@ -338,19 +351,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
 --
 ALTER TABLE `keluar`
-  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `masuk`
 --
 ALTER TABLE `masuk`
-  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`

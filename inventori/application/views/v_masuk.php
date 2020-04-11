@@ -7,13 +7,34 @@
               <div class="panel-body">
                 <div class="content-row">
                   <h2 class="content-row-title">Transaksi Barang Masuk</h2>
-<div class="row">
+                  <div class="row">
+            <div class="card">
                 <div class="col-md-4">
                 <?php echo anchor(site_url('masuk/tambah'),'Tambah', 'class="btn btn-primary"'); ?>
                 </div>
-	<div class="col-md-4"></div>
-	<div class="col-md-4"></div><br><br><br>
-	<div class="col-md-12">
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-3 text-right">
+                <form action="<?php echo site_url('masuk/index'); ?>" class="form-inline" method="get">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
+                        <span class="input-group-btn">
+                            <?php 
+                                if ($q <> '')
+                                {
+                                    ?>
+                                    <a href="<?php echo site_url('masuk'); ?>" class="btn btn-default">Reset</a>
+                                    <?php
+                                }
+                            ?>
+                          <button class="btn btn-primary" type="submit">Search</button>
+                        </span>
+                    </div>
+                </form>  
+                </div>
+                </div>
+                <div class="col-md-12">
+
 		<table class="table table-bordered" style="margin-bottom: 10px" id="example">
 			<thead>
 				<tr>
@@ -22,42 +43,52 @@
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
 					<th>Nama Supplier</th>
+          <th>Alamat</th>
+          <th>No Telp</th>
 					<th>Pilihan</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php 
-				$id = $this->session->userdata('id_user');
-				$sql = $this->db->query("SELECT * from masuk inner join supplier on masuk.id_supplier=supplier.id_supplier group by masuk.id_masuk order by masuk.id_masuk");
-				$no = 1;
-				foreach ($sql->result() as $row) {
-				 ?>
+      <?php 
+					foreach ($masuk_data as $masuk) {
+                        ?>
 				<tr>
-					<td><?php echo $no++; ?></td>
-					<td><?php echo $row->id_masuk; ?></td>
+        <td width="80px"><?php echo ++$per_page ?></td>
+					<td><?php echo $masuk->id_masuk; ?></td>
 					
-					<td><?php echo $row->tgl_masuk; ?></td>
-					<td><?php echo number_format($row->total_masuk); ?></td>
-					<td><?php echo $row->nama_supplier; ?></td>
+					<td><?php echo $masuk->tgl_masuk; ?></td>
+					<td><?php echo number_format($masuk->total_masuk); ?></td>
+          <td><?php echo $masuk->nama_supplier; ?></td>
+          <td><?php echo $masuk->alamat; ?></td>
+          <td><?php echo $masuk->no_telp; ?></td>
 					<td>
-						<a href="masuk/detail_penjualan/<?php echo $row->id_masuk ?>" class="btn btn-info btn-sm">detail</a>
-						<a href="masuk/hapus_penjualan/<?php echo $row->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
-						<a href="masuk/cetak_penjualan/<?php echo $row->id_masuk ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+						<a href="masuk/detail_penjualan/<?php echo $masuk->id_masuk ?>" class="btn btn-info btn-sm">detail</a>
+						<a href="masuk/hapus_penjualan/<?php echo $masuk->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
+						<a href="masuk/cetak_penjualan/<?php echo $masuk->id_masuk ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
 					</td>
 				</tr>
 				<?php } ?>
 			</tbody>
 		</table>
 		</table>
+
+
+
+
 <div class="row">
-<div class="col-md-12">
-    
-    <a href="masuk/cetak_pdf1" class="btn btn-info">Cetak Data Hari ini</a>
-	<a href="masuk/cetak_pdf2" class="btn btn-primary">Cetak Data Bulan ini</a>
-	<a href="masuk/cetak_pdf3" class="btn btn-success">Cetak Data Tahun ini</a>
-	<a href="masuk/cetak_pdf" class="btn btn-secondary">Cetak Semua Data</a>
-	<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Cetak Data Custom</button>
-</div>
+            <div class="col-md-9">
+            <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
+    <a href="masuk/cetak_pdf1" class="btn btn-info btn-sm">Cetak Data Hari ini</a>
+	<a href="masuk/cetak_pdf2" class="btn btn-primary btn-sm">Cetak Data Bulan ini</a>
+	<a href="masuk/cetak_pdf3" class="btn btn-success btn-sm">Cetak Data Tahun ini</a>
+	<a href="masuk/cetak_pdf" class="btn btn-secondary btn-sm">Cetak Semua Data</a>
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
+        </div>
+            <div class="col-md-3 text-right">
+                <?php echo $pagination ?>
+            </div>
+        </div>
+
 
 
 <div id="myModal" class="modal fade" role="dialog">

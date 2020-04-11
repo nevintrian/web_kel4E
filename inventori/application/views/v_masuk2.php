@@ -29,6 +29,14 @@ $rs = $data->row();
 				<th>:</th>
 				<td>Rp. <?php echo number_format($rs->total_masuk); ?></td>
 			</tr>
+			<tr>
+				<th>Alamat</th>
+				<th>:</th>
+				<td><?php echo $rs->alamat; ?></td>
+				<th>No Telp</th>
+				<th>:</th>
+				<td><?php echo $rs->no_telp; ?></td>
+			</tr>
 			
 		</table>
 	</div>
