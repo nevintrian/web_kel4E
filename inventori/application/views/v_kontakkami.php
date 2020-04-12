@@ -7,14 +7,16 @@
 
 
 	<body>
-	<div align="center" > <h3>INFORMASI KONTAK</h3> </div>
+
     <!-- Contact -->
+    <div class="col-xs-12 col-sm-12 content">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <div align="center" > <h3>INFORMASI KONTAK</h3> </div>
+</br>
     <section class="section-wrap contact">
       <div class="container">
         <div class="row">
-
-
-
           <div class="col-md-3 mb-40 mt-mdm-40 contact-info">
 
             <ul class="contact-info-list">
@@ -59,6 +61,9 @@
               <li><span>E-mail: </span><a href="mailto:ipang@gmail.com" class="sliding-link">ipang@gmail.com</a></li>
             </ul>
             </div> 
+          </div>
+          </div>
+          </div> 
           </div>
           </div>
 	</body>

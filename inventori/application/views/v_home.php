@@ -5,8 +5,18 @@
     <script type="text/javascript" src="assets/dist/js/site.min.js"></script>
 	</head>
 
+<style>
+	.panel > .panel-body {
+    background-image: none;
+    background-color: lightgrey;
 
+
+}
+</style>
 	<body>
+	<div class="col-xs-12 col-sm-12 content">
+      <div class="panel panel-default">
+        <div class="panel-body">
 	<form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
@@ -52,9 +62,12 @@
 		<div class="row">
             <div class="col-md-12 text-right">
                 <?php echo $pagination ?>
-            </div>s
+            </div>
         </div>
-		
+		</div>
+		</div>
+		</div>
+        
 	</body>
 </html>
 </section>

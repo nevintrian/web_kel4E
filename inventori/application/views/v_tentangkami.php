@@ -7,8 +7,12 @@
 
 
 	<body>
-	<center><h2>UD SRI REJEKI</h2></center>
-    <br>
+
+ 
+    <div class="col-xs-12 col-sm-12 content">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <center><h3>UD SRI REJEKI</h3></center>
     <section class="section-wrap about-us pb-60">
       <div class="container">
         <div class="row">
@@ -29,6 +33,9 @@
         </div>
       </div>
     </section>
+    </div>
+        </div>
+      </div>
 	</body>
 </html>
 </section>
