@@ -19,7 +19,7 @@
         <div class="panel-body">
 	<form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
+                        <input type="text" class="form-control" placeholder="cari nama barang" name="q" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
                             <?php 
                                 if ($q <> '')
