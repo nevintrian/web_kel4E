@@ -28,13 +28,13 @@
                                 <li class="dropdown">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bantuan <b class="caret"></b></a>
                                             <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Kontak Kami</a></li>
-                                            <li><a href="#">FAQ</a></li>
+                                            <li><a href="kontakkami">Kontak Kami</a></li>
+                                            <li><a href="faq">FAQ</a></li>
                                             
 
                                 </ul>
                                 </li>
-                                <li class="active"><a href="#">Tentang Kami</a></li>
+                                <li class="active"><a href="tentangkami">Tentang Kami</a></li>
                                 </ul>
                                
           <?php 
