@@ -19,7 +19,7 @@ class M_keluar extends CI_Model
 
     function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
         $this->db->order_by($this->id, $this->order);
-	$this->db->or_like('id_keluar', $q);
+	$this->db->or_like('nama', $q);
     $this->db->select('*');
     $this->db->from('keluar');
     $this->db->join('user', 'user.id_user=keluar.id_user');

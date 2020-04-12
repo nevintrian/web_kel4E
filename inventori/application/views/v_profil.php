@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Email</label>
-            <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="Masukan email (contoh : wirganteng@gmail.com)" required name="email" id="email" placeholder="Email" value="<?php echo $row->email; ?>" />
+            <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="Masukan email (contoh : wirganteng@gmail.com)" disabled name="email" id="email" placeholder="Email" value="<?php echo $row->email; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>
@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Level </label>
-            <select name="level"  required class="form-control">
+            <select name="level"  disabled class="form-control">
                 <option value="<?php echo $row->level; ?>"><?php echo $row->level ?></option>
                 <option value="petugas gudang">gudang</option>
                 <option value="admin">admin</option>
@@ -53,7 +53,7 @@
         <div class="form-group">
             <label for="varchar">Jenis Kelamin </label>
             <!-- <input type="text" class="form-control" name="level" id="level" placeholder="Level" value="<?php echo $row->jenis_kelamin; ?>" /> -->
-            <select name="jenis_kelamin"  required class="form-control">
+            <select name="jenis_kelamin"  disabled class="form-control">
                 <option value="<?php echo $row->jenis_kelamin ?>"><?php echo $row->jenis_kelamin ?></option>
                 <option value="laki-laiki">laki-laki</option>
                 <option value="perempuan">perempuan</option>

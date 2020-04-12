@@ -19,7 +19,7 @@ class M_masuk extends CI_Model
 
     function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
         $this->db->order_by($this->id, $this->order);
-	$this->db->or_like('id_masuk', $q);
+	$this->db->or_like('nama_supplier', $q);
     $this->db->select('*');
     $this->db->from('masuk');
     $this->db->join('supplier', 'supplier.id_supplier=masuk.id_supplier');

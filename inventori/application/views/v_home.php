@@ -8,10 +8,12 @@
 <style>
 	.panel > .panel-body {
     background-image: none;
-    background-color: lightgrey;
+    background-color: #f1f2f6;
 
 
 }
+
+
 </style>
 	<body>
 	<div class="col-xs-12 col-sm-12 content">

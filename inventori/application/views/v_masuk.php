@@ -12,12 +12,12 @@
                 <div class="col-md-4">
                 <?php echo anchor(site_url('masuk/tambah'),'Tambah', 'class="btn btn-primary"'); ?>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                 </div>
-                <div class="col-md-3 text-right">
+                <div class="col-md-4 text-right">
                 <form action="<?php echo site_url('masuk/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="q" value="<?php echo $q; ?>">
+                        <input type="text" class="form-control" placeholder="cari nama supplier" name="q" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
                             <?php 
                                 if ($q <> '')

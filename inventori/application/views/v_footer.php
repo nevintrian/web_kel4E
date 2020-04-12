@@ -1,4 +1,11 @@
+<style>
+	.footer {
+    background-image: none;
+    background-color: #303641;
 
+
+}
+</style>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="footer">

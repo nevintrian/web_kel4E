@@ -26,11 +26,11 @@
         </div>
         <div class="form-group">
             <label for="int">Stok </label>
-            <input type="text" min="0" pattern ="^[0-9]{10}$|^[0-9]$" title="Masukkan data angka saja" class="form-control" required name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
+            <input type="number" min="0"  title="Masukkan data angka saja" class="form-control" required name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
         </div>
         <div class="form-group">
             <label for="int">Harga</label>
-            <input type="text" min="1" pattern ="^[0-9]{10}$|^[0-9]$" title="Masukkan data angka saja" class="form-control" required name="harga" id="harga" placeholder="Harga" value="<?php echo $harga; ?>" />
+            <input type="number" min="1"  title="Masukkan data angka saja" class="form-control" required name="harga" id="harga" placeholder="Harga" value="<?php echo $harga; ?>" />
         </div>
 
         <div class="form-group">
