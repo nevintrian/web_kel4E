@@ -61,6 +61,16 @@
               <li><span>E-mail: </span><a href="mailto:ipang@gmail.com" class="sliding-link">ipang@gmail.com</a></li>
             </ul>
             </div> 
+
+            <div class="col-md-3 mb-40 mt-mdm-40 contact-info">
+ 
+            <ul class="contact-info-list">
+            <li><span>Nama: Angga si dosen gaul </a></li>
+            <li><span>Nomor Hp: </span><a href="tel:+628121643773">+628121643773</a></li>
+            <li><span>E-mail: </span><a href="mailto:ipang@gmail.com" class="sliding-link">ipang@gmail.com</a></li>
+            </ul>
+            </div> 
+
           </div>
           </div>
           </div> 
