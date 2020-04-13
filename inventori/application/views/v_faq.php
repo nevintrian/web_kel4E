@@ -16,6 +16,7 @@
   <li><span>Berapa lama waktu proses pengiriman barang?</a></li>
   <li><span>Bagaimana cara daftar akun?</a></li>
   <li><span>kontak person UD SRI REJEKI?</a></li>
+  <li><span>bagaimana cara login?</a></li>
   </ul>
   </div> 
   </div> 
