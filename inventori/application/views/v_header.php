@@ -12,6 +12,8 @@
     <link href="assets/bootstrap-datepicker.css" rel="stylesheet">
     <script type="text/javascript" src="assets/dist/js/site.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
   </head>
   <body>
     <nav role="navigation" class="navbar navbar-custom">
@@ -49,6 +51,7 @@
               <?php }else{ ?>
                 <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-form navbar-right">
+               <a href="<?php echo base_url() ?>keranjang" type="submit" class='fas fa-cart-plus' style='font-size:24px'> </a>
                <a href="<?php echo base_url() ?>login" type="submit" class="btn btn-primary">login </a> <!-- session username -->
                <a href="<?php echo base_url() ?>daftar" type="submit" class="btn btn-primary">Register </a> <!-- session username -->
             </div>
