@@ -13,6 +13,7 @@
   <div align="center" > <h3>FAQ</h3> </div>
   <ul class="contact-info-list">
   <li><span>Bagaimana cara order barang?</a></li>
+  <li><span>Berapa lama waktu proses pengiriman barang?</a></li>
   <li><span>Bagaimana cara daftar akun?</a></li>
   <li><span>kontak person UD SRI REJEKI?</a></li>
   </ul>
