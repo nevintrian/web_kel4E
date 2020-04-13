@@ -17,6 +17,7 @@
   <li><span>Bagaimana cara daftar akun?</a></li>
   <li><span>kontak person UD SRI REJEKI?</a></li>
   <li><span>bagaimana cara login?</a></li>
+  <li><span>bagaimana cara logout?</a></li>
   </ul>
   </div> 
   </div> 
