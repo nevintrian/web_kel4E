@@ -51,7 +51,7 @@
 				<p>Harga : Rp<?=$home->harga?></p> 
 				<p>
 
-				<?=anchor('keranjang/' . $home->id_barang, 'Lihat Barang' , [
+				<?=anchor('detail/update/' . $home->id_barang, 'Lihat Barang' , [
 						'class'	=> 'btn btn-primary',
 						'role'	=> 'button'
 					])?>
