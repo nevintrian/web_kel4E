@@ -46,18 +46,66 @@
 			  ])?>
 			  <div class="caption">
 				<h3 style="min-height:20px;"><?=$home->nama_barang?></h3>
-				<p>stok : <?=$home->stok?></p>
+				<p>Stok : <?=$home->stok?></p>
 				
-				<p>harga : Rp<?=$home->harga?></p> 
+				<p>Harga : Rp<?=$home->harga?></p> 
 				<p>
-					<?=anchor('welcome/add_to_cart/' . $home->id_barang, 'Buy' , [
+
+				<?=anchor('keranjang/' . $home->id_barang, 'Lihat Barang' , [
 						'class'	=> 'btn btn-primary',
 						'role'	=> 'button'
 					])?>
+
+
+				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Beli</button>
+
+
 				</p>
+				
 			</div>
 			</div>
 		  </div>
+
+		  <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <form action="keranjang/simpan" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Beli Barang</h4>
+      </div>
+      <div class="modal-body">
+	  <input type="hidden" name="id_barang" value="<?php echo $home->id_barang ?>">
+        <div class="form-group">
+        	<label>Nama Barang</label><br>
+			<input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly value="<?php echo $home->nama_barang ?>"/>
+	    </div>
+	    <div class="form-group">
+            <label>Stok tersedia</label>
+            <input type="text" class="form-control" name="stok" id="stok" readonly value="<?php echo $home->stok ?>"/>
+        </div>
+        <div class="form-group">
+            <label>Harga </label>
+            <input type="text" class="form-control" name="harga" id="harga" value="<?php echo $home->harga ?>"readonly/>
+        </div>
+        <div class="form-group">
+            <label>Jumlah Beli </label>
+            <input type="text" class="form-control" name="jumlah" id="jumlah"/>
+            <input type="hidden" class="form-control" name="nabar" id="nabar"/>
+		</div>
+		
+      </div>
+      <div class="modal-footer">
+      	<button class="btn btn-info" type="submit">Beli</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+      </div>
+    </div>
+    </form>
+
+  </div>
+</div>
 		  <?php endforeach; ?>
 		</div>
 
@@ -69,7 +117,15 @@
 		</div>
 		</div>
 		</div>
-        
+		
+		
+
+
+
+
+
 	</body>
+
+	
 </html>
 </section>

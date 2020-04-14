@@ -17,7 +17,7 @@
     <section class="section-wrap contact">
       <div class="container">
         <div class="row">
-          <div class="col-md-3 mb-40 mt-mdm-40 contact-info">
+          <div class="col-md-4 mb-40 mt-mdm-40 contact-info">
 
             <ul class="contact-info-list">
               <li><span>Nama: Brian Vidyanjaya</a></li>
@@ -26,7 +26,16 @@
             </ul>
             </div> 
 
-            <div class="col-md-3 mb-40 mt-mdm-40 contact-info">
+            <div class="col-md-4 mb-40 mt-mdm-40 contact-info">
+ 
+            <ul class="contact-info-list">
+              <li><span>Nama: Nevin Trian Ade Putera</a></li>
+              <li><span>Nomor Hp: </span><a href="tel:+6282234706515">+6282234706515</a></li>
+              <li><span>E-mail: </span><a href="mailto:nevintrianade@gmail.com" class="sliding-link">nevintrianade@gmail.com</a></li>
+            </ul>
+            </div> 
+             
+            <div class="col-md-4 mb-40 mt-mdm-40 contact-info">
 
             <ul class="contact-info-list">
               <li><span>Nama: Ramma Eka Putera</a></li>
@@ -35,16 +44,9 @@
             </ul>
             </div> 
 
-            <div class="col-md-3 mb-40 mt-mdm-40 contact-info">
- 
-            <ul class="contact-info-list">
-              <li><span>Nama: Nevin Trian Ade Putera</a></li>
-              <li><span>Nomor Hp: </span><a href="tel:+6282234706515">+6282234706515</a></li>
-              <li><span>E-mail: </span><a href="mailto:nevintrianade@gmail.com" class="sliding-link">nevintrianade@gmail.com</a></li>
-            </ul>
-            </div> 
 
-            <div class="col-md-3 mb-40 mt-mdm-40 contact-info">
+
+            <div class="col-md-4 mb-40 mt-mdm-40 contact-info">
  
             <ul class="contact-info-list">
               <li><span>Nama: Abdul Razak Sebastian</a></li>
@@ -62,14 +64,6 @@
             </ul>
             </div> 
 
-            <div class="col-md-3 mb-40 mt-mdm-40 contact-info">
- 
-            <ul class="contact-info-list">
-            <li><span>Nama: Angga si dosen gaul </a></li>
-            <li><span>Nomor Hp: </span><a href="tel:+628121643773">+628121643773</a></li>
-            <li><span>E-mail: </span><a href="mailto:ipang@gmail.com" class="sliding-link">ipang@gmail.com</a></li>
-            </ul>
-            </div> 
 
           </div>
           </div>
