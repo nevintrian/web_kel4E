@@ -11,6 +11,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
   <div align="center" > <h4>Keranjang Barang</h4> </div>
+  </br>
   <ul class="contact-info-list">
 <div class="col-md-12">
                     <table class="table table-bordered" style="margin-bottom: 10px">
@@ -19,7 +20,6 @@
         <th>Nama Barang</th>
         <th>Jumlah</th>
         <th>Harga</th>
-        <th>Total</th>
         </tr>
         </table>
   </ul>
