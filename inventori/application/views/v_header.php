@@ -47,7 +47,7 @@
             <a href="<?php echo base_url() ?>keranjang" type="submit" class="btn btn-info"><i class='fas fa-shopping-cart' style='font-size:16px'></i> </a>
 
                <a href="<?php echo base_url() ?>dashboard" type="submit" class="btn btn-primary"><?php echo $this->session->userdata("username") ?> </a> <!-- session username -->
-               <a href="<?php echo base_url() ?>login/logout" type="submit" class="btn btn-primary" onclick="javasciprt: return confirm('Apa Anda Yakin?')" >Logout </a> <!-- session username -->
+               <a href="<?php echo base_url() ?>login/logout" type="submit" class="btn btn-danger" onclick="javasciprt: return confirm('Apa Anda Yakin?')" >Logout </a> <!-- session username -->
             </div>
           </div>
               <?php }else{ ?>

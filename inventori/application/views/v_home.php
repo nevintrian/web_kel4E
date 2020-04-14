@@ -46,18 +46,17 @@
 			  ])?>
 			  <div class="caption">
 				<h3 style="min-height:20px;"><?=$home->nama_barang?></h3>
-				<p>Stok : <?=$home->stok?></p>
 				
 				<p>Harga : Rp<?=$home->harga?></p> 
 				<p>
 
-				<?=anchor('detail/update/' . $home->id_barang, 'Lihat Barang' , [
+				<?=anchor('detail/index/' . $home->id_barang, 'Lihat Barang' , [
 						'class'	=> 'btn btn-primary',
 						'role'	=> 'button'
 					])?>
 
 
-				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Beli</button>
+				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?php echo $home->id_barang; ?>">Beli</button>
 
 
 				</p>
@@ -66,7 +65,7 @@
 			</div>
 		  </div>
 
-		  <div id="myModal" class="modal fade" role="dialog">
+		  <div id="myModal<?php echo $home->id_barang; ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -87,10 +86,6 @@
             <input type="text" class="form-control" name="stok" id="stok" readonly value="<?php echo $home->stok ?>"/>
         </div>
         <div class="form-group">
-            <label>Harga </label>
-            <input type="text" class="form-control" name="harga" id="harga" value="<?php echo $home->harga ?>"readonly/>
-        </div>
-        <div class="form-group">
             <label>Jumlah Beli </label>
             <input type="text" class="form-control" name="jumlah" id="jumlah"/>
             <input type="hidden" class="form-control" name="nabar" id="nabar"/>
@@ -98,8 +93,9 @@
 		
       </div>
       <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
       	<button class="btn btn-info" type="submit">Beli</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+        
       </div>
     </div>
     </form>

@@ -4,60 +4,132 @@
 	<link rel="stylesheet" href="assets/dist/css/site.min.css">
     <script type="text/javascript" src="assets/dist/js/site.min.js"></script>
 	</head>
-    
-<div class="col-xs-12 col-sm-9 content">
+
+    <div class="col-xs-12 col-sm-12 content">
             <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Barang</h3>
-              </div>
+             
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Detail Barang</h2>
-<form action="<?php echo $action; ?>" method="get" enctype="multipart/form-data">
-        <div class="form-group">
-        <img src="image/barang/" name="foto_barang" id="foto_barang" value="<?php echo $foto_barang; ?>" height="100px" width="100px" >
-        </div>
-        <div class="form-group">
-            <label for="varchar">Nama Barang</label>
-            <input type="text" class="form-control" required name="nama_barang" id="nama_barang" placeholder="Nama Barang" value="<?php echo $nama_barang; ?>" />
-        </div>
+                  <center><h2 class="content-row-title">Lihat Data Barang</h2></center>
 
-        <div class="form-group">
-            <label for="varchar">Jenis </label>
-            <input type="text" class="form-control" required name="jenis" id="jenis" placeholder="Jenis" value="<?php echo $jenis; ?>" />
-        </div>
-        <div class="form-group">
-            <label for="varchar">Kemasan</label>
-            <input type="text" class="form-control" required name="kemasan" id="kemasan" placeholder="Kemasan" value="<?php echo $kemasan; ?>" />
-        </div>
-        <div class="form-group">
-            <label for="varchar">Merk</label>
-            <input type="text" class="form-control" required name="merk" id="merk" placeholder="Merk" value="<?php echo $merk; ?>" />
-        </div>
-        <div class="form-group">
-            <label for="int">Stok </label>
-            <input type="number" min="0"  title="Masukkan data angka saja" class="form-control" required name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
-        </div>
-        <div class="form-group">
-            <label for="int">Harga</label>
-            <input type="number" min="1"  title="Masukkan data angka saja" class="form-control" required name="harga" id="harga" placeholder="Harga" value="<?php echo $harga; ?>" />
-        </div>
 
-        <div class="form-group">
-            <label for="int">Supplier </label>
-            <input type="text" class="form-control" required name="id_supplier" id="id_supplier" placeholder="Merk" value="<?php echo $id_supplier; ?>" />
-        </div>
-       
-        <input type="hidden" name="id_barang" value="<?php echo $id_barang; ?>" /> 
+<div class="flickity  mfp-hover" id="gallery-main">
+
+<div class="thumbnail">
+            <?=img([
+				'src'		=> 'image/barang/' . $foto_barang, 
+				'style'		=> 'width: 200px; height:200px; ' 
+              ])?>
+  </div>
+
+</div> <!-- end gallery main -->
+</div> 
+
+
+<div class="col-md-3">
+            </div>
+               <div class="col-md-6">
+                  <table class="table table-bordered">
+  
+
+
+                    <tr>
+                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td ><span>Nama Barang</td>
+                        <td ><?php echo $nama_barang; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td ><span class="sku">Jenis</td>
+                        <td ><?php echo $jenis; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td ><span class="sku">Kemasan</td>
+                        <td ><?php echo $kemasan; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td ><span class="sku">Merk</td>
+                        <td ><?php echo $merk; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td ><span class="sku">Stok</td>
+                        <td ><?php echo $stok; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td ><span class="sku">Harga</td>
+                        <td ><?php echo $harga; ?></span></td>
+                    </tr>
+                    <tr>
+                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td ><span class="sku">Nama Supplier</td>
+                        <td ><?php echo $nama_supplier; ?></span></td>
+                    </tr>
+
+                    <tr>
+        <td><input type="hidden" name="id_barang" value="<?php echo $id_barang; ?>" /> </td>
         
-        <a href="<?php echo site_url('home') ?>" class="btn btn-default">Cancel</a>
+       <td> <a href="<?php echo site_url('home') ?>" class="btn btn-danger">Kembali</a> </td>
+       <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?php echo $id_barang; ?>">Beli</button></td>
+        </tr>
+              </table>
+
+
+
+
+              
+              <div id="myModal<?php echo $id_barang; ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <form action="keranjang/simpan" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Beli Barang</h4>
+      </div>
+      <div class="modal-body">
+	  <input type="hidden" name="id_barang" value="<?php echo $id_barang ?>">
+        <div class="form-group">
+        	<label>Nama Barang</label><br>
+			<input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly value="<?php echo $nama_barang ?>"/>
+	    </div>
+	    <div class="form-group">
+            <label>Stok tersedia</label>
+            <input type="text" class="form-control" name="stok" id="stok" readonly value="<?php echo $stok ?>"/>
+        </div>
+        <div class="form-group">
+            <label>Jumlah Beli </label>
+            <input type="text" class="form-control" name="jumlah" id="jumlah"/>
+            <input type="hidden" class="form-control" name="nabar" id="nabar"/>
+		</div>
+		
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+      	<button class="btn btn-info" type="submit">Beli</button>
+      </div>
+    </div>
     </form>
 
+  </div>
+</div>
+
+
+
+
+                </div> 
+                </div>
+                </div>
+                </div>
                 </div>
                 </div>
                 </div>
                 </div>
            
-                </body>
+  </body>
 </html>
 </section>
