@@ -14,14 +14,55 @@
   </br>
   <ul class="contact-info-list">
 <div class="col-md-12">
-                    <table class="table table-bordered" style="margin-bottom: 10px">
-        <tr>
-        <th>No</th>
-        <th>Nama Barang</th>
-        <th>Jumlah</th>
-        <th>Harga</th>
-        </tr>
+<div class="row">
+	<div class="col-md-12">
+	<form action="keranjang/simpan_penjualan" method="POST">
+
+        <div class="table-resposive">
+        <table class="table table-bordered">
+        	<tr>
+        		<th>No.</th>
+        		<th>Nama Barang</th>
+        		<th>Jumlah</th>
+        		<th>Harga</th>
+            <th>Subtotal</th>
+            <th>Action</th>
+       
+        	</tr>
+        	<tr>
+        	<?php $i=1; $no=1;?>
+            <?php foreach($this->cart->contents() as $item): ?>
+        		<td><?php echo $no; ?></td>
+            
+                <td><?php echo $item['name']; ?></td>
+                <td><?php echo $item['qty']; ?></td>
+                <td>Rp. <?php echo $this->cart->format_number($item['price']); ?></td>
+                <td>Rp. <?php echo $this->cart->format_number($item['subtotal']); ?></td>
+                <td>
+                    <a href="keranjang/hapus_cart/<?php echo $item['rowid'] ?>" class="btn btn-warning btn-sm">X</a>
+                </td>
+        	</tr>
+        	<?php $i++; $no++;?>
+            <?php endforeach; ?>
+            <tr>
+        		<th colspan="4">Total Harga</th>
+        		<th colspan="2">Rp. <?php echo $this->cart->format_number($this->cart->total()); ?></th>
+        	</tr>
         </table>
+        </div>
+
+        
+        
+        <div align="right" class="form-group">
+        	<input type="hidden" name="total_keluar" value="<?php echo $this->cart->total() ?>">
+        	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d') ?>">
+        	<a href="home" class="btn btn-danger">Kembali</a>
+            <button type="submit" class="btn btn-info">Bayar</button>
+            
+        </div>
+	</form>
+	</div>
+</div>
   </ul>
   </div> 
   </div> 

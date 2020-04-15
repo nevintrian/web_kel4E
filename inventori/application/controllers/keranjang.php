@@ -9,7 +9,8 @@ class Keranjang extends CI_Controller {
 		parent::__construct(); 
 		$this->load->helper('url'); 
 		$this->load->helper('html'); 
-        $this->load->helper(array('form', 'url')); 
+		$this->load->helper(array('form', 'url')); 
+		$this->load->model('m_keluar');
 		
 	}
  //menampilkan barang pada home
@@ -22,5 +23,33 @@ class Keranjang extends CI_Controller {
 
 
 	}
-    
+
+
+	public function simpan()
+	{
+		
+        $data = array(
+            'id'    => $this->input->post('id_barang'),
+            'qty'   => $this->input->post('jumlah'),
+            'price' => $this->input->post('harga'),
+            'name'  => $this->input->post('nabar'),
+        );
+        $this->cart->insert($data);
+        redirect('keranjang');
+	}
+
+	
+	public function hapus_cart($id)
+	{
+		
+        $data = array(
+            'rowid'    => $id,
+            'qty'   => 0,
+        );
+        $this->cart->update($data);
+        redirect('keranjang');
+	}
+
+
+	
 }

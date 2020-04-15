@@ -76,7 +76,8 @@
         <h4 class="modal-title">Beli Barang</h4>
       </div>
       <div class="modal-body">
-	  <input type="hidden" name="id_barang" value="<?php echo $home->id_barang ?>">
+    <input type="hidden" name="id_barang" id="id_barang" value="<?php echo $home->id_barang ?>">
+    <input type="hidden" name="harga" id="harga" value="<?php echo $home->harga ?>">
         <div class="form-group">
         	<label>Nama Barang</label><br>
 			<input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly value="<?php echo $home->nama_barang ?>"/>
@@ -88,7 +89,7 @@
         <div class="form-group">
             <label>Jumlah Beli </label>
             <input type="text" class="form-control" name="jumlah" id="jumlah"/>
-            <input type="hidden" class="form-control" name="nabar" id="nabar"/>
+            <input type="hidden" class="form-control" name="nabar" id="nabar" value="<?php echo $home->nama_barang ?>"/>
 		</div>
 		
       </div>
