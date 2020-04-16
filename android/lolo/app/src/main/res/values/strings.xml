@@ -1,0 +1,43 @@
+<resources>
+
+
+
+    <string-array name="list_dropdown">
+        <item>Pelanggan</item>
+        <item>Sales</item>
+        <item>Admin</item>
+    </string-array>
+
+        <string name="app_name">Intro Slider</string>
+        <string name="title_activity_welcome">Home Screen</string>
+        <string name="next">NEXT</string>
+        <string name="skip">SKIP</string>
+        <string name="start">GOT IT</string>
+
+        <string name="slide_1_title">UD Rejeki</string>
+        <string name="slide_1_desc">Selamat Datang</string>
+
+        <string name="slide_2_title">Mudah</string>
+        <string name="slide_2_desc">Membantu pelanggan dalam memberikan informasi mengenai barang yang
+                                paling laku</string>
+
+        <string name="slide_3_title">Efisien dan Efektif</string>
+        <string name="slide_3_desc">Memudahkan dalam mempromosikan barang</string>
+
+        <string name="slide_4_title">Lengkap</string>
+        <string name="slide_4_desc">Dapat menghasilkan laporan transaksi yang tersusun secara rapi dan efisien</string>
+
+        <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+        <string name="play_again">Play Again</string>
+
+        <string name="cardview_1">Kopi hitam, merupakan hasil ektraksi langsung dari perebusan biji kopi yang disajikan tanpa penambahan perisa apapun. Espresso, merupakan kopi yang dibuat dengan mengekstraksi biji kopi menggunakan uap panas pada tekanan tinggi.</string>
+        <string name="cardview_2">Hidangan nasi goreng merupakan makanan yang sangat mudah ditemukan oleh para penggemarnya, mulai dari yang dijajakan di gerobak pinggir jalan hingga rumah makan atau restoran. Nasi goreng berasal dari tradisi Cina menggoreng nasi dingin, yang sudah ada sejak 4.000 SM.</string>
+        <string name="cardview_3">Pudding adalah nama untuk berbagai hidangan penutup (dessert) yang umumnya dibuat dari bahan- bahan yang direbus, dikukus, atau dipanggang. Istilah pudding juga dipakai untuk berbagai jenis pai berisi lemak hewan, daging, atau buah-buahan yang dipanggang</string>
+        <string name="cardview_4">Tahu adalah makanan yang dibuat dari endapan perasan biji kedelai yang mengalami koagulasi. Tahu berasal dari Tiongkok, seperti halnya kecap, tauco, bakpau, dan bakso. Nama "tahu" merupakan serapan dari bahasa Hokkian, yang secara harfiah berarti "kedelai terfermentasi</string>
+        <string name="tahu">Tahu</string>
+        <string name="pudding">Pudding</string>
+        <string name="nasi_goreng">Nasi Goreng</string>
+        <string name="kopi_hitam">Kopi Hitam</string>
+
+
+</resources>
