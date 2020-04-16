@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Apr 2020 pada 09.54
+-- Waktu pembuatan: 16 Apr 2020 pada 17.16
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -46,10 +46,10 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`) VALUES
-(1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 49851, 15, 'kopi.jpg'),
-(2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 124989, 13, 'milo.jpg'),
-(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5036, 0, 'barang_1585976994.jpg'),
-(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 49992, 29, 'barang_1585977262.jpg'),
+(1, 1, 'kopii', '6 pcs/k', 'kapal api', 'minuman', 5000, 49849, 17, 'kopi.jpg'),
+(2, 2, 'milo stroberi', '6 pcs/k', 'milo', 'minuman', 5000, 124853, 149, 'milo.jpg'),
+(3, 1, 'tahu kuning', '6 pcs/k', 'ultramilk', 'makanan', 3000, 5004, 34, 'barang_1585976994.jpg'),
+(4, 2, 'nasi goreng', 'piring', 'pak surman', 'makanan', 10000, 49991, 41, 'barang_1585977262.jpg'),
 (26, 1, 's', 'e', 'r', 'e', 2, 1, 0, 'barang_1586575293'),
 (27, 1, 'g', 'g', '1', 'g', 2, 1, 0, 'barang_1586575310'),
 (28, 2, 'g', 'g', 'g', 'g', 2, 2, 0, 'barang_1586575320'),
@@ -67,19 +67,23 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 CREATE TABLE `detail_keluar` (
   `id_barang` int(11) NOT NULL,
   `id_keluar` int(11) NOT NULL,
-  `qty_keluar` int(11) DEFAULT NULL
+  `qty_keluar` int(11) DEFAULT NULL,
+  `status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `detail_keluar`
 --
 
-INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`) VALUES
-(2, 1, 12),
-(1, 1, 15),
-(4, 1, 17),
-(4, 7, 12),
-(2, 8, 1);
+INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) VALUES
+(3, 1, 1200, 0),
+(3, 14, 12, 1),
+(2, 15, 1, 1),
+(4, 16, 1, 1),
+(4, 17, 11, 1),
+(1, 18, 2, 1),
+(2, 19, 123, 1),
+(3, 19, 11, 1);
 
 --
 -- Trigger `detail_keluar`
@@ -87,28 +91,28 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`) VALUES
 DELIMITER $$
 CREATE TRIGGER `delete_keluar` AFTER DELETE ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET stok = stok+OLD.qty_keluar 
-    WHERE id_barang=OLD.id_barang;
+    WHERE id_barang=OLD.id_barang AND OLD.status='1';
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `delete_terjual` AFTER DELETE ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET terjual = terjual-OLD.qty_keluar 
-    WHERE id_barang=OLD.id_barang;
+    WHERE id_barang=OLD.id_barang AND OLD.status='1';
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `tambah_keluar` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET stok=stok-NEW.qty_keluar
-    WHERE id_barang=NEW.id_barang;
+    WHERE id_barang=NEW.id_barang AND NEW.status='1';
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `update_terjual` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET terjual=terjual+NEW.qty_keluar
-    WHERE id_barang=NEW.id_barang;
+    WHERE id_barang=NEW.id_barang AND NEW.status='1';
 END
 $$
 DELIMITER ;
@@ -139,7 +143,9 @@ INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
 (3, 11, 12),
 (4, 12, 11),
 (3, 14, 1),
-(2, 15, 1);
+(2, 15, 1),
+(3, 16, 2),
+(4, 16, 11);
 
 --
 -- Trigger `detail_masuk`
@@ -177,12 +183,13 @@ CREATE TABLE `keluar` (
 --
 
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`) VALUES
-(1, 3, '2020-04-08', 305000),
-(4, 4, '2021-04-22', 4),
-(5, 3, '2020-04-11', 6),
-(6, 4, '2020-05-08', 6),
-(7, 7, '2020-04-11', 120000),
-(8, 3, '2020-04-11', 5000);
+(1, 7, '2020-04-08', 6),
+(14, 3, '2020-04-16', 36000),
+(15, 4, '2020-04-16', 5000),
+(16, 7, '2020-04-16', 10000),
+(17, 3, '2020-04-16', 110000),
+(18, 4, '2020-04-16', 10000),
+(19, 9, '2020-04-16', 648000);
 
 --
 -- Trigger `keluar`
@@ -223,7 +230,8 @@ INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`) VALU
 (12, 2, '2020-04-11', 110000),
 (13, 2, '2020-04-11', 512),
 (14, 2, '2020-04-11', 3000),
-(15, 1, '2020-04-11', 5000);
+(15, 1, '2020-04-11', 5000),
+(16, 1, '2020-04-14', 116000);
 
 --
 -- Trigger `masuk`
@@ -357,25 +365,25 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT untuk tabel `keluar`
 --
 ALTER TABLE `keluar`
-  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `masuk`
 --
 ALTER TABLE `masuk`
-  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

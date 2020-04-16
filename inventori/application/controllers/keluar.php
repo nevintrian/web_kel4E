@@ -121,6 +121,7 @@ class Keluar extends CI_Controller {
 			'id_keluar' => $kode_penjualan,
 			'id_barang' => $id_barang,
 			'qty_keluar' => $qty_keluar,
+			'status' => "1",
 			
 		);
 		$this->db->insert('detail_keluar', $d);
