@@ -53,10 +53,10 @@
               <?php }else{ ?>
                 <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-form navbar-right">
+            <a href="<?php echo base_url() ?>notifikasi" type="submit" class="btn btn-info"><i class='fas fa-bell' style='font-size:16px'></i> </a>
             <a href="<?php echo base_url() ?>keranjang" type="submit" class="btn btn-info"><i class='fas fa-shopping-cart' style='font-size:16px'></i> </a>
-
-               <a href="<?php echo base_url() ?>login" type="submit" class="btn btn-primary">login </a> <!-- session username -->
-               <a href="<?php echo base_url() ?>daftar" type="submit" class="btn btn-primary">Register </a> <!-- session username -->
+            <a href="<?php echo base_url() ?>login" type="submit" class="btn btn-primary">login </a> <!-- session username -->
+            <a href="<?php echo base_url() ?>daftar" type="submit" class="btn btn-primary">Register </a> <!-- session username -->
             </div>
           </div>
             <?php  } ?>
