@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 class M_konfirmasi extends CI_Model
 {
 
-    public $table = 'keluar';
+
 
     public function total_rows($q = NULL)
     {
@@ -34,6 +34,8 @@ class M_konfirmasi extends CI_Model
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
+
+
 }
 
 

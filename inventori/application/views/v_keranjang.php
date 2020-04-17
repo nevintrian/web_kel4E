@@ -18,6 +18,9 @@
 	<div class="col-md-12">
 	<form action="keranjang/simpan_penjualan" method="POST">
 
+       
+            <input type="hidden" class="form-control" name="kode_penjualan" id="kode_penjualan" value="<?php echo $kode; ?>" readonly/>
+            <input type="hidden" class="form-control" name="id_user" id="id_user" value="<?php echo $this->session->userdata("id_user") ?> ?>" readonly/>
         <div class="table-resposive">
         <table class="table table-bordered">
         	<tr>

@@ -60,9 +60,11 @@
 					<td><?php echo $keluar->nama; ?></td>
           <td><?php echo $keluar->alamat; ?></td>
           <td><?php echo $keluar->no_telp; ?></td>
+          <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
 					
 					<td>
-          <a href="#" class="btn btn-warning btn-sm">Konfirmasi</a>
+          
+          <a href="konfirmasi/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm">Konfirmasi</a>
           <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
