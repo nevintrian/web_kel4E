@@ -23,9 +23,10 @@
                 <li>
                   <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo5">
+                    <a href="konfirmasi" class="list-group-item">Konfirmasi Pembayaran</a>
                       <a href="masuk" class="list-group-item">Transaksi Barang Masuk</a>
                       <a href="keluar" class="list-group-item">Transaksi Barang Keluar</a>
-                      <a href="konfirmasi" class="list-group-item">Konfirmasi Bayar</a>
+                      
                     </li>
                 </li>
                
@@ -48,6 +49,7 @@
                 <li>
                   <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo5">
+                    <a href="konfirmasi" class="list-group-item">Konfirmasi Pembayaran</a>
                     <a href="masuk" class="list-group-item">Transaksi Barang Masuk</a>
                       <a href="keluar" class="list-group-item">Transaksi Barang Keluar</a>
                       

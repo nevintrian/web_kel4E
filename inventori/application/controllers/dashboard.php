@@ -14,6 +14,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('m_keluar');
 		$this->load->model('m_masuk');
 		$this->load->model('m_supplier');
+		$this->load->model('m_konfirmasi');
 	}
 	//menampilkan dashboard dan jumlah row
 	public function index() 
@@ -31,6 +32,7 @@ class Dashboard extends CI_Controller {
 			'total_asset_masuk'=> $this->m_masuk->total_rows(),
 			'total_asset_keluar'=> $this->m_keluar->total_rows(),
 			'total_asset_supplier'=> $this->m_supplier->total_rows(),
+			'total_asset_konfirmasi'=> $this->m_konfirmasi->total_rows(),
 		);
 		$this->load->view('v_dashboard', $data);
 	}

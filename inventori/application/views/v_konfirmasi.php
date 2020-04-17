@@ -15,7 +15,7 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4 text-right">
-                <form action="<?php echo site_url('keluar/index'); ?>" class="form-inline" method="get">
+                <form action="<?php echo site_url('konfirmasi/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" placeholder="cari nama pelanggan" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
@@ -23,7 +23,7 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('keluar'); ?>" class="btn btn-default">Reset</a>
+                                    <a href="<?php echo site_url('konfirmasi'); ?>" class="btn btn-default">Reset</a>
                                     <?php
                                 }
                             ?>
@@ -62,9 +62,10 @@
           <td><?php echo $keluar->no_telp; ?></td>
 					
 					<td>
-						
-						<a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
-						<a href="#" class="btn btn-success btn-sm">Konfirmasi</a>
+          <a href="#" class="btn btn-warning btn-sm">Konfirmasi</a>
+          <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
+            <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+            <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
 					</td>
 				</tr>
 				<?php } ?>

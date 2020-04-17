@@ -21,11 +21,11 @@ class Konfirmasi extends CI_Controller {
 		$q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
-            $config['base_url'] = base_url() . 'keluar/?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'keluar/?q=' . urlencode($q);
+            $config['base_url'] = base_url() . 'konfirmasi/?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'konfirmasi/?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . 'keluar';
-            $config['first_url'] = base_url() . 'keluar';
+            $config['base_url'] = base_url() . 'konfirmasi';
+            $config['first_url'] = base_url() . 'konfirmasi';
 		}
 		
 		$config['per_page'] = 5;

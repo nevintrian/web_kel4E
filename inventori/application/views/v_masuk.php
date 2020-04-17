@@ -63,8 +63,9 @@
           <td><?php echo $masuk->no_telp; ?></td>
 					<td>
 						<a href="masuk/detail_penjualan/<?php echo $masuk->id_masuk ?>" class="btn btn-info btn-sm">detail</a>
-						<a href="masuk/hapus_penjualan/<?php echo $masuk->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
-						<a href="masuk/cetak_penjualan/<?php echo $masuk->id_masuk ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+					
+            <a href="masuk/cetak_penjualan/<?php echo $masuk->id_masuk ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+            <a href="masuk/hapus_penjualan/<?php echo $masuk->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
 					</td>
 				</tr>
 				<?php } ?>
