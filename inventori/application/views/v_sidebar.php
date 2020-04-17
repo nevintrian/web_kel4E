@@ -25,7 +25,7 @@
                     <li class="collapse" id="demo5">
                       <a href="masuk" class="list-group-item">Transaksi Barang Masuk</a>
                       <a href="keluar" class="list-group-item">Transaksi Barang Keluar</a>
-                      
+                      <a href="konfirmasi" class="list-group-item">Konfirmasi Bayar</a>
                     </li>
                 </li>
                
