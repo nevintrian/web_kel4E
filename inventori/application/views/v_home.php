@@ -47,7 +47,7 @@
 			  <div class="caption">
 				<h3 style="min-height:20px;"><?=$home->nama_barang?></h3>
 				
-				<p>Harga : Rp<?=$home->harga?></p> 
+				<p class="badge badge-success">Harga : Rp<?=$home->harga?></p>
 				<p>
 
 				<?=anchor('detail/index/' . $home->id_barang, 'Lihat Barang' , [

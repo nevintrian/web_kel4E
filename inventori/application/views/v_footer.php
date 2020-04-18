@@ -2,6 +2,8 @@
 	.footer {
     background-image: none;
     background-color: #303641;
+    margin-top: 100px;
+    
 
 
 }
@@ -10,8 +12,7 @@
                     <div class="col-md-12">
                       <div class="footer">
                         <div class="container">
-                          <div class="clearfix">
-                            <div class="footer-logo"><a href="#">UD SRI REJEKI</a></div>
+                          
                            
                             <dl class="footer-nav">
                               <dt class="nav-title">HOME</dt>
@@ -22,6 +23,11 @@
                               <dt class="nav-title">KERANJANG</dt>
                               <dd class="nav-item"><a href="keranjang">Halaman Keranjang</a></dd>
                               </dl>
+                              
+                              <dl class="footer-nav">
+                              <dt class="nav-title">TENTANG DEVELOPER</dt>
+                              <dd class="nav-item"><a href="tentangdeveloper">Halaman Tentang Developer</a></dd>
+                            </dl>
 
                               
                             <dl class="footer-nav">
