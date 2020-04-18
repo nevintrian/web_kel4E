@@ -22,7 +22,7 @@
             <p align="justify">
             UNTUK INFORMASI LEBIH LANJUT SILAHKAN MENGHUBUNGI NOMOR DIBAWAH INI</p>
             <li><span>Nomor Hp: </span><a href="tel :+62852 3608 4776">+62852 3608 4776</a></li>
-            <li><span>E-mail: </span><a href="mailto:vidyanjayabrian@gmail.com" class="sliding-link">vidyanjayabrian@gmail.com</a></li>
+            <li><span>E-mail: </span><a href="mailto:Srirejeki@gmail.com" class="sliding-link">Srirejeki@gmail.com</a></li>
             </ul>
             </div> 
             </div>
