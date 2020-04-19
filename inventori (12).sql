@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Apr 2020 pada 03.53
+-- Waktu pembuatan: 19 Apr 2020 pada 04.34
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -46,12 +46,12 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', NULL, NULL, 22500, 5000, 100, 'gg.jpg'),
-(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', NULL, NULL, 22500, 5000, 0, 'gg.jpg'),
-(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', NULL, NULL, 22500, 5000, 0, 'gg.jpg'),
-(4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', NULL, NULL, 22500, 5000, 0, 'gg.jpg'),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', NULL, NULL, 22500, 5012, 111, 'gg.jpg'),
+(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', NULL, NULL, 22500, 4969, 31, 'gg.jpg'),
+(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', NULL, NULL, 22500, 5001, 0, 'gg.jpg'),
+(4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', NULL, NULL, 22500, 5099, 12, 'gg.jpg'),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', NULL, NULL, 22500, 5000, 0, 'gg.jpg'),
-(6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg'),
+(6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', NULL, NULL, 16750, 4889, 112, 'gg.jpg'),
 (7, 1, 'MAJORICO MATCHA 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg'),
 (8, 1, 'MAJORICO CHOCOLATE 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg'),
 (9, 1, 'KUKIS N KRIM STRAWBERY 400 GR', '6 PCS / K', NULL, NULL, 22700, 5000, 0, 'gg.jpg'),
@@ -312,7 +312,20 @@ CREATE TABLE `detail_keluar` (
 
 INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) VALUES
 (1, 4, 100, 1),
-(1, 5, 1, 0);
+(1, 5, 1, 1),
+(2, 6, 20, 1),
+(1, 6, 10, 1),
+(2, 7, 2, 0),
+(5, 8, 1, 0),
+(1, 9, 2, 0),
+(6, 10, 21, 0),
+(2, 11, 12, 0),
+(1, 12, 1, 0),
+(2, 13, 2, 0),
+(4, 14, 12, 0),
+(4, 15, 12, 1),
+(2, 16, 11, 1),
+(6, 17, 112, 1);
 
 --
 -- Trigger `detail_keluar`
@@ -377,7 +390,12 @@ CREATE TABLE `detail_masuk` (
 --
 
 INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
-(1, 1, 100);
+(1, 1, 100),
+(1, 2, 12),
+(6, 3, 1),
+(3, 4, 1),
+(1, 5, 11),
+(4, 6, 111);
 
 --
 -- Trigger `detail_masuk`
@@ -417,7 +435,19 @@ CREATE TABLE `keluar` (
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`) VALUES
 (2, 2, '2020-04-19', 0),
 (4, 3, '2020-04-19', 2250000),
-(5, 1, '2020-04-19', 22500);
+(5, 1, '2020-04-19', 22500),
+(6, 1, '2020-04-19', 675000),
+(7, 1, '2020-04-19', 45000),
+(8, 1, '2020-04-19', 22500),
+(9, 1, '2020-04-19', 45000),
+(10, 1, '2020-04-19', 351750),
+(11, 1, '2020-04-19', 270000),
+(12, 2, '2020-04-19', 22500),
+(13, 2, '2020-04-19', 45000),
+(14, 2, '2020-04-19', 270000),
+(15, 3, '2020-04-19', 270000),
+(16, 4, '2020-04-19', 247500),
+(17, 3, '2020-04-19', 1876000);
 
 --
 -- Trigger `keluar`
@@ -448,7 +478,12 @@ CREATE TABLE `masuk` (
 --
 
 INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`) VALUES
-(1, 1, '2020-04-19', 2250000);
+(1, 1, '2020-04-19', 2250000),
+(2, 2, '2020-04-19', 270000),
+(3, 11, '2020-04-19', 16750),
+(4, 1, '2020-04-19', 22500),
+(5, 2, '2020-04-19', 247500),
+(6, 7, '2020-04-19', 2497500);
 
 --
 -- Trigger `masuk`

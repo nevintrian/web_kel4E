@@ -85,7 +85,7 @@
                                   ?>
                           <li><a href="<?php echo base_url() ?>konfirmasi">Transaksi baru dari <td><?php echo $row->nama; ?></td></a></li>
                              <?php } ?>   
-                             <li><a>Lihat semua</a></li>         
+                             <li><a href="konfirmasi">Lihat semua</a></li>         
                             </ul>
                             
                      

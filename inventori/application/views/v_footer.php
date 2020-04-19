@@ -46,7 +46,7 @@
                           </br>
                           </br>
                           </br>
-                          <div class="footer-copyright text-center">Copyright &copy; 2020 UD SRI REJEKI.</div>
+                          <div class="footer-copyright text-center">Copyright &copy; 2020 UD SRI REJEKI by A-Squad</div>
                         </div>
                       </div>
                     </div>
