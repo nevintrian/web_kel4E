@@ -22,13 +22,14 @@
             UD Sri Rejeki adalah gudang distributor yang berlokasi di Dringu Kabupaten
             Probolinggo. UD Sri Rejeki menjual berbagai macam produk secara grosir dalam
             bentuk makanan, minuman, parfum, dll. Terdapat beberapa user daalam gudang ini,
-            yaitu pemilik, admin, supervisior, pegawai gudang, dan juga sales.</p>
+            yaitu pemilik, admin, supervisior, pegawai gudang, dan juga sales.
+            </p>
+            <h4 class="uppercase">Tahun Didirikan</h4>
+            <h2><span>2020</span></h2>
+            
           </div>
           <div class="col-sm-3 col-sm-offset-1">
-            <div class="statistic">
-              <h2><span>2020</span></h2>
-              <h4 class="uppercase">tahun didirikan</h4>
-            </div>            
+          <img src="<?php echo base_url()?>image/tentang_kami/legrek.jpeg" class="card-img-top" width= 300>      
           </div>
         </div>
       </div>

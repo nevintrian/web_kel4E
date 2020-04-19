@@ -39,8 +39,8 @@
             
                 <td><?php echo $item['name']; ?></td>
                 <td><?php echo $item['qty']; ?></td>
-                <td>Rp. <?php echo $this->cart->format_number($item['price']); ?></td>
-                <td>Rp. <?php echo $this->cart->format_number($item['subtotal']); ?></td>
+                <td>Rp. <?php echo number_format($item['price'], 0,',','.'); ?></td>
+                <td>Rp. <?php echo number_format($item['subtotal'], 0,',','.'); ?></td>
                 <td>
                     <a href="keranjang/hapus_cart/<?php echo $item['rowid'] ?>" class="btn btn-warning btn-sm">X</a>
                 </td>
@@ -49,7 +49,7 @@
             <?php endforeach; ?>
             <tr>
         		<th colspan="4">Total Harga</th>
-        		<th colspan="2">Rp. <?php echo $this->cart->format_number($this->cart->total()); ?></th>
+        		<th colspan="2">Rp. <?php echo number_format($this->cart->total(), 0,',','.'); ?></th>
         	</tr>
         </table>
         </div>
