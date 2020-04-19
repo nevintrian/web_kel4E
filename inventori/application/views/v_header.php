@@ -27,25 +27,73 @@
                                   <!-- <li class="disabled"><a href="#">Link</a></li> -->
         
 
-                                <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bantuan <b class="caret"></b></a>
+                                <li class="dropdown">  
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bantuan <b class="caret"></b></a>
                                             <ul class="dropdown-menu" role="menu">
                                             <li><a href="kontakkami">Kontak Kami</a></li>
                                             <li><a href="faq">FAQ</a></li>
                                             
-
                                 </ul>
                                 </li>
+
+                                
                                 <li class="active"><a href="tentangkami">Tentang Kami</a></li>
+
                                 </ul>
+
+
+
+    
+
+
+
+
+
+        
                                
           <?php 
                 if ($this->session->userdata('level') != NULL) {
                  ?>
           <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-form navbar-right">
-            <a href="<?php echo base_url() ?>notifikasi" type="submit" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i> </a>
+                       
             <a href="<?php echo base_url() ?>keranjang" type="submit" class="btn btn-info"><i class='fas fa-shopping-cart' style='font-size:16px'></i> </a>
+
+
+
+
+
+            
+            <?php $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0'")->num_rows(); ?>           
+            <?php if ($jmlh=='0') {
+              ?>   
+               <a class="dropdown">    
+              <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh; ?></span> </a>
+              <ul id='dropdown' class='dropdown-menu'>
+                                          <li><a>Tidak ada notifikasi baru</a></li>
+                                            
+                            </ul>
+              </a> 
+              <?php }else{ ?>
+
+              <a class="dropdown">  
+                    <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh; ?></span> </a>
+                        <ul id='dropdown' class='dropdown-menu'>
+                          <?php 
+                              $sql = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0'");
+                                foreach ($sql->result() as $row) {
+                                  ?>
+                          <li><a href="<?php echo base_url() ?>konfirmasi">Transaksi baru dari <td><?php echo $row->nama; ?></td></a></li>
+                             <?php } ?>   
+                             <li><a>Lihat semua</a></li>         
+                            </ul>
+                            
+                     
+              </a> 
+            <?php } ?>
+
+           
+                                      
             <a href="<?php echo base_url() ?>dashboard" type="submit" class="btn btn-primary"><?php echo $this->session->userdata("username") ?> </a> <!-- session username -->
             <a href="<?php echo base_url() ?>login/logout" type="submit" class="btn btn-danger" onclick="javasciprt: return confirm('Apa Anda Yakin?')" >Logout </a> <!-- session username -->
             </div>

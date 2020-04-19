@@ -59,7 +59,6 @@ class Konfirmasi extends CI_Controller {
 				$this->db->where('id_keluar', $kode_penjualan);
 				$this->db->update('detail_keluar', $data);
 				$this->db->where('id_keluar', $kode_penjualan);
-				$this->db->update('detail_keluar', $data);
            		 redirect(site_url('konfirmasi'));
 
 		}
@@ -72,12 +71,7 @@ class Konfirmasi extends CI_Controller {
 		$this->db->delete('keluar');
 		$this->db->where('id_keluar', $kode_penjualan);
 		$this->db->delete('detail_keluar');
-		?>
-		<script type="text/javascript">
-			alert('Berhapus Hapus Data');
-			window.location='<?php echo base_url('konfirmasi') ?>';
-		</script>
-		<?php
+		redirect('konfirmasi');
 	}
     
 }

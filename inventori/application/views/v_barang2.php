@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="int">Stok </label>
-            <input type="number" min="0"  title="Masukkan data angka saja" class="form-control" required name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
+            <input type="text" min="0"  title="Masukkan data angka saja" class="form-control" readonly name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
         </div>
         <div class="form-group">
             <label for="int">Harga</label>

@@ -64,10 +64,10 @@
 					
 					<td>
           
-          <a href="konfirmasi/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm">Konfirmasi</a>
+          <a href="konfirmasi/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
           <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
-            <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Are You Sure ?')">hapus</a>
+            <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
 					</td>
 				</tr>
 				<?php } ?>

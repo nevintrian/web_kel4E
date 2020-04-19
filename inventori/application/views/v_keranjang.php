@@ -60,7 +60,9 @@
         	<input type="hidden" name="total_keluar" value="<?php echo $this->cart->total() ?>">
         	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d') ?>">
         	<a href="home" class="btn btn-danger">Kembali</a>
-            <button type="submit" class="btn btn-info">Bayar</button>
+            <button type="submit" class="btn btn-info" onclick="javasciprt: return confirm('Apa anda yakin ingin membeli barang ini?')">Bayar</button>
+
+            
             
         </div>
 	</form>

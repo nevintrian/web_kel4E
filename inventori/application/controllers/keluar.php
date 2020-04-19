@@ -139,12 +139,8 @@ public function hapus_penjualan($kode_penjualan)
 		$this->db->delete('keluar');
 		$this->db->where('id_keluar', $kode_penjualan);
 		$this->db->delete('detail_keluar');
-		?>
-		<script type="text/javascript">
-			alert('Berhapus Hapus Data');
-			window.location='<?php echo base_url('keluar') ?>';
-		</script>
-		<?php
+		redirect('keluar');
+		
 	}
 
 	public function cetak_penjualan($kode_penjualan)

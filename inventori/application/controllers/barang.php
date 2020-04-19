@@ -79,6 +79,29 @@ class Barang extends CI_Controller {
     public function create_action() 
     {
         //insert dan konfigurasi gambar
+
+        if (empty($_FILES["foto_barang"]["name"])) {   
+            $data = array(
+                'nama_barang' => $this->input->post('nama_barang',TRUE),
+                'harga' => $this->input->post('harga',TRUE),
+                'stok' => $this->input->post('stok',TRUE),
+                'jenis' => $this->input->post('jenis',TRUE),
+                'merk' => $this->input->post('merk',TRUE),
+                'kemasan' => $this->input->post('kemasan',TRUE),
+                'id_supplier' => $this->input->post('id_supplier',TRUE),
+                'foto_barang' => "gg.jpg",
+                );
+        
+                $this->m_barang->insert($data);
+                ?>
+                <script type="text/javascript">
+                    alert('Data Berhasil di Tambahkan');
+                    window.location = '<?php echo base_url('barang'); ?>'
+                </script>
+                <?php
+
+
+        } else {
         $nmfile = "barang_".time();
         $config['upload_path'] = './image/barang';
         $config['allowed_types'] = 'jpg|png';
@@ -110,7 +133,7 @@ class Barang extends CI_Controller {
 			window.location = '<?php echo base_url('barang'); ?>'
         </script>
         <?php
-        
+        }
     }
     
     //untuk menampilkan data pada form edit
@@ -133,11 +156,10 @@ class Barang extends CI_Controller {
             'jenis' => set_value('jenis', $row->jenis),
             'merk' => set_value('merk', $row->merk),
             'id_supplier' => set_value('id_supplier', $row->id_supplier),
-            'konten' => 'barang/barang_form',
-            'judul' => 'Data Barang',
+
             );
             //menampilkan form edit data
-            $this->load->view('v_barang1', $data);
+            $this->load->view('v_barang2', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('barang'));
@@ -190,8 +212,12 @@ class Barang extends CI_Controller {
             );
 
         $this->m_barang->update($this->input->post('id_barang', TRUE), $data);
-        $this->session->set_flashdata('message', 'Update Record Success');
-        redirect(site_url('barang'));
+        ?>
+        <script type="text/javascript">
+            alert('Data Berhasil di Update');
+            window.location = '<?php echo base_url('barang'); ?>'
+        </script>
+        <?php
         }
 
            

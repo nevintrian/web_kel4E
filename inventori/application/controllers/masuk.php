@@ -140,12 +140,8 @@ public function hapus_penjualan($kode_pembelian)
 		$this->db->delete('masuk');
 		$this->db->where('id_masuk', $kode_pembelian);
 		$this->db->delete('detail_masuk');
-		?>
-		<script type="text/javascript">
-			alert('Berhapus Hapus Data');
-			window.location='<?php echo base_url('masuk') ?>';
-		</script>
-		<?php
+		redirect('masuk');
+
 	}
 
 	public function cetak_penjualan($kode_pembelian)

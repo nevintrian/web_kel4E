@@ -65,8 +65,9 @@ $rs = $data->row();
 				<td><?php echo $row->nama_barang; ?></td>
 					<td><?php echo $row->jenis; ?></td>
 					<td><?php echo $row->kemasan; ?></td>
-					<td><?php echo $row->harga; ?></td>
 					<td><?php echo $row->qty_keluar; ?></td>
+					<td><?php echo $row->harga; ?></td>
+					
 					<td><?php 
 						$totharga = $row->qty_keluar*$row->harga;
 						echo number_format($totharga);
