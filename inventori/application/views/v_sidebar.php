@@ -7,7 +7,7 @@
                 <li class="list-group-item"><a href="<?php echo base_url()?>profil"><i class="glyphicon glyphicon-user"></i>Profil</a></li>
                 
                 <?php 
-                if ($this->session->userdata('level') == 'admin') {
+                if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
                  ?>
                
                 <li>
@@ -32,53 +32,18 @@
                
                 <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
+               
+              
                 <?php 
-                } elseif ($this->session->userdata('level') == 'manajer') {
+                } elseif ($this->session->userdata('level') == 'customer' or $this->session->userdata('level') == 'sales') {
                  ?>
 
-                <li>
-                  <a href="#demo4" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-th-large"></i>Data Master  <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    <li class="collapse" id="demo4">
-                    <a href="barang" class="list-group-item"> Data Barang</a>
-                      <a href="user" class="list-group-item"> Data Pegawai</a>
-                      <a href="pelanggan" class="list-group-item"> Data Pelanggan</a>
-                      <a href="supplier" class="list-group-item"> Data Supplier</a>
-                      
-                    </li>
-                </li>
-                <li>
+              <li>
                   <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo5">
-                    <a href="konfirmasi" class="list-group-item">Konfirmasi Pembayaran</a>
-                    <a href="masuk" class="list-group-item">Transaksi Barang Masuk</a>
-                      <a href="keluar" class="list-group-item">Transaksi Barang Keluar</a>
+                    <a href="konfirmasi" class="list-group-item">Menunggu Konfirmasi</a>
+                      <a href="keluar" class="list-group-item">Telah Dikonfirmasi</a>
                       
-                    </li>
-                </li>
-        
-                <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
-
-                <?php 
-                } elseif ($this->session->userdata('level') == 'sales') {
-                 ?>
-
-                <li>
-                  <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Fitur Sales  <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    <li class="collapse" id="demo5">
-                    <a href="barang" class="list-group-item"> Data Barang</a>
-                      <a href="pelanggan" class="list-group-item"> Data Pelanggan</a> 
-                    </li>
-                </li>
-                <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
-                  
-                <?php 
-                } elseif ($this->session->userdata('level') == 'customer') {
-                 ?>
-
-                <li>
-                  <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Fitur  <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    <li class="collapse" id="demo5">
-                    <a href="barang" class="list-group-item"> Data Barang</a>
                     </li>
                 </li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>

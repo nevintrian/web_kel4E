@@ -2,12 +2,21 @@
           <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
+              <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
                 <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Barang Keluar</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
                   <h2 class="content-row-title">Data Barang Keluar</h2>
+                  <?php }else{?>
+                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Telah Dikonfirmasi</h3>
+              </div>
+              <div class="panel-body">
+                <div class="content-row">
+                  <h2 class="content-row-title">Transaksi Telah di Konfirmasi</h2>
+                  <?php } ?>
                   <div class="row">
+                  <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <div class="card">
                 <div class="col-md-4">
                 <?php echo anchor(site_url('keluar/tambah'),'Tambah', 'class="btn btn-primary"'); ?>
@@ -33,6 +42,7 @@
                 </form>     
                 </div>
                 </div>
+                <?php } ?>
                 <div class="col-md-12">
 		<table class="table table-bordered" style="margin-bottom: 10px" id="example">
 
@@ -65,8 +75,10 @@
 						<a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
 
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+            <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
-					</td>
+            <?php }?>
+          </td>
 				</tr>
 				<?php } ?>
 				</table>
@@ -76,13 +88,16 @@
 
     <div class="row">
             <div class="col-md-10">
+            
             <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
+            <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <a href="keluar/cetak_pdf1" class="btn btn-info  btn-sm">Cetak Data Hari ini</a>
             <a href="keluar/cetak_pdf2" class="btn btn-primary btn-sm ">Cetak Data Bulan ini</a>
             <a href="keluar/cetak_pdf3" class="btn btn-success btn-sm">Cetak Data Tahun ini</a>
             <a href="keluar/cetak_pdf" class="btn btn-secondary btn-sm">Cetak Semua Data</a>
             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
-        </div>
+            <?php }?>
+          </div>
             <div class="col-md-2 text-right">
                 <?php echo $pagination ?>
             </div>

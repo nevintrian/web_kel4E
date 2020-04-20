@@ -25,6 +25,11 @@ class Dashboard extends CI_Controller {
             redirect('login');
 		} 
 		//memaggil total row dari tabel barang dan user
+
+
+		 
+		if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
+		
 		$data = array(
             'total_asset_barang'=> $this->m_barang->total_rows(),
 			'total_asset_pelanggan'=> $this->m_user->total_rows(),
@@ -34,6 +39,20 @@ class Dashboard extends CI_Controller {
 			'total_asset_supplier'=> $this->m_supplier->total_rows(),
 			'total_asset_konfirmasi'=> $this->m_konfirmasi->total_rows(),
 		);
+
+
+	}else if($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
+		$data = array(
+			'total_asset_konfirmasi'=> $this->m_konfirmasi->total_rows(),
+			'total_asset_keluar'=> $this->m_keluar->total_rows(),
+
+		);
+
+
+	}
+
+
+
 		$this->load->view('v_dashboard', $data);
 	}
 }

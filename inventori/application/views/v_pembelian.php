@@ -2,29 +2,20 @@
           <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
-              <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
-                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Konfirmasi Pembayaran</h3>
+                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Pembelian</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Pembayaran</h2>
-                  <?php }else{?>
-                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Menunggu Konfirmasi</h3>
-              </div>
-              <div class="panel-body">
-                <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Menunggu Konfirmasi</h2>
-                  <?php } ?>
+                  <h2 class="content-row-title">Transaksi Pembelian</h2>
                   <div class="row">
-                  <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <div class="card">
                 <div class="col-md-4">
-                
+              
                 </div>
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4 text-right">
-                <form action="<?php echo site_url('konfirmasi/index'); ?>" class="form-inline" method="get">
+                <form action="<?php echo site_url('keluar/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" name="q" placeholder="cari nama pelanggan" value="<?php echo $q; ?>">
                         <span class="input-group-btn">
@@ -32,7 +23,7 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('konfirmasi'); ?>" class="btn btn-default">Reset</a>
+                                    <a href="<?php echo site_url('keluar'); ?>" class="btn btn-default">Reset</a>
                                     <?php
                                 }
                             ?>
@@ -42,7 +33,6 @@
                 </form>     
                 </div>
                 </div>
-                <?php } ?>
                 <div class="col-md-12">
 		<table class="table table-bordered" style="margin-bottom: 10px" id="example">
 
@@ -70,16 +60,12 @@
 					<td><?php echo $keluar->nama; ?></td>
           <td><?php echo $keluar->alamat; ?></td>
           <td><?php echo $keluar->no_telp; ?></td>
-          <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
 					
 					<td>
-         <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
-          <a href="konfirmasi/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
-          <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
-         <?php } ?>
-          <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
+						<a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
+
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
-            
+            <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
 					</td>
 				</tr>
 				<?php } ?>
@@ -91,6 +77,11 @@
     <div class="row">
             <div class="col-md-10">
             <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
+            <a href="keluar/cetak_pdf1" class="btn btn-info  btn-sm">Cetak Data Hari ini</a>
+            <a href="keluar/cetak_pdf2" class="btn btn-primary btn-sm ">Cetak Data Bulan ini</a>
+            <a href="keluar/cetak_pdf3" class="btn btn-success btn-sm">Cetak Data Tahun ini</a>
+            <a href="keluar/cetak_pdf" class="btn btn-secondary btn-sm">Cetak Semua Data</a>
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
         </div>
             <div class="col-md-2 text-right">
                 <?php echo $pagination ?>
