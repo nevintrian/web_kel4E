@@ -5,11 +5,19 @@ $rs = $data->row();
  <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Barang keluar</h3>
+			  <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
+                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Nota Barang keluar</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Barang keluar</h2>
+                  <h2 class="content-row-title">Nota Barang keluar</h2>
+				  <?php }else{?>
+				    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Nota Pembelian</h3>
+              </div>
+              <div class="panel-body">
+                <div class="content-row">
+                  <h2 class="content-row-title">Nota Pembelian</h2>
+					<?php } ?>
 <div class="row">
 	<div class="col-md-12">
 		<table class="table">
