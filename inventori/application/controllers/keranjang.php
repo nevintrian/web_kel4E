@@ -24,7 +24,21 @@ class Keranjang extends CI_Controller {
 			'kode' => $this->m_nourut->buat_kode_penjualan(),
 			
 		);
-		$this->load->view('v_keranjang',$data);
+
+	
+		if ($this->session->userdata('level') != NULL) {
+			$this->load->view('v_keranjang',$data);
+        }else{
+			?>
+			<script type="text/javascript">
+				alert('Anda harus login dulu');
+				window.location = '<?php echo base_url('login'); ?>'
+			</script>
+			<?php
+			
+		}
+				 
+		
 		$this->load->view('v_footer'); 
 
 	}

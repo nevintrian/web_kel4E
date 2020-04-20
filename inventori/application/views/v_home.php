@@ -88,7 +88,7 @@
         </div>
         <div class="form-group">
             <label>Jumlah Beli </label>
-            <input type="text" class="form-control" name="jumlah" id="jumlah"/>
+            <input type="text" class="form-control" required name="jumlah" id="jumlah"/>
             <input type="hidden" class="form-control" name="nabar" id="nabar" value="<?php echo $home->nama_barang ?>"/>
 		</div>
 		
