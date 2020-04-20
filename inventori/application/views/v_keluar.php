@@ -77,7 +77,10 @@
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
-            <?php }?>
+            <?php }else{?>
+              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal1">retur</button>
+            <?php } ?>
+            
           </td>
 				</tr>
 				<?php } ?>
@@ -176,6 +179,9 @@
 	
 </div>
 </div>
+
+
+
 </div>
     
 
@@ -212,4 +218,35 @@
 </div>
 </div>
 	</div>
+</div>
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <form method="GET" action="retur">
+	  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Retur Barang</h4>
+      </div>
+    <!-- Modal content-->
+	<div class="modal-body">
+	<div class="form-group">
+        <label>Alasan melakukan retur</label><br>
+        <input name="alasan" id="alasan" placeholder="masukkan alasan" required class="form-control">
+		</div>
+    <div class="form-group">
+            <label for="file">Bukti foto barang </label>
+            <input type="file" class="form-control" required name="foto_barang" />
+        </div>
+       
+      
+		</div>
+        <div class="modal-footer">
+	
+      	<button class="btn btn-info" type="submit">Kirim</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+        
+    </form>
+	
+</div>
 </div>

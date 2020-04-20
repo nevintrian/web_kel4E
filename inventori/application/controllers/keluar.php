@@ -444,7 +444,22 @@ public function hapus_penjualan($kode_penjualan)
 
 
 	}
+	public function status($kode_penjualan) 
+    {
+        //jika gambar tidak diinput oleh user 
 
+            //masukkan data ke database
+            $data = array(
+                'status' => "2"
+
+                );
+                
+				$this->db->where('id_keluar', $kode_penjualan);
+				$this->db->update('detail_keluar', $data);
+				$this->db->where('id_keluar', $kode_penjualan);
+           		 redirect(site_url('keluar'));
+
+		}
 
 
 }
