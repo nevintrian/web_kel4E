@@ -47,14 +47,24 @@ class Keranjang extends CI_Controller {
 	public function simpan()
 	{
 		
-        $data = array(
-            'id'    => $this->input->post('id_barang'),
-            'qty'   => $this->input->post('jumlah'),
-            'price' => $this->input->post('harga'),
-            'name'  => $this->input->post('nabar'),
-        );
-        $this->cart->insert($data);
-        redirect('keranjang');
+		if($this->input->post('jumlah')<$this->input->post('stok')){
+
+		
+			$data = array(
+				'id'    => $this->input->post('id_barang'),
+				'qty'   => $this->input->post('jumlah'),
+				'stok' => $this->input->post('stok'),
+				'price' => $this->input->post('harga'),
+				'name'  => $this->input->post('nabar'),
+			);
+			
+			$this->cart->insert($data);
+			redirect('keranjang');
+
+		}else {
+			echo "<script>alert('Stok barang tidak cukup! Silahkan kurangi jumlah pembelian.');window.history.back();</script>";
+			}
+	
 	}
 
 	

@@ -26,10 +26,7 @@
             <label for="varchar">Username</label>
             <input type="text" class="form-control" required name="username" id="username" placeholder="Username" value="<?php echo $row->username; ?>" />
         </div>
-        <div class="form-group">
-            <label for="varchar">Password </label>
-            <input type="password" class="form-control" required name="password" id="password" placeholder="Password" value="<?php echo $row->password; ?>" />
-        </div>
+       
         <div class="form-group">
             <label for="varchar">Level </label>
             <input type="level" class="form-control" readonly name="level" id="level" placeholder="level" value="<?php echo $row->level; ?>" />
@@ -54,6 +51,17 @@
             <label for="varchar">No Telepon</label>
             <input type="text" class="form-control" pattern ="^[0-9]{10}$|^[0-9]{12}$" title="081xxxxxxxxx" required name="no_telp" id="no_telp" placeholder="No telepon" value="<?php echo $row->no_telp; ?>" />
         </div>
+
+        <div class="form-group">
+            <label for="varchar">Password </label>
+            <input type="password" class="form-control" name="password" id="password" placeholder ="Biarkan kosong jika tidak ingin mengubah password!"  />
+        </div>
+
+        <div class="form-group">
+            <label for="varchar"> Ulangi Password </label>
+            <input type="password" class="form-control"  name="password1" id="password1" placeholder ="Biarkan kosong jika tidak ingin mengubah password!" />
+        </div>
+
         <input type="hidden" name="id_user" value="<?php echo $row->id_user; ?>" /> 
         <button type="submit" class="btn btn-primary">Simpan</button> 
         <a href="<?php echo site_url('user') ?>" class="btn btn-default">Cancel</a>

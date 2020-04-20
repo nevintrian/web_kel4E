@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="varchar">Password </label>
-            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Masukkan password dengan huruf besar, huruf kecil, dan angka (minimal 8 karakter)" class="form-control" required name="password" id="password" placeholder="Password"? />
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z]).{6,}" title="Masukkan password dengan huruf dan angka (minimal 8 karakter)" class="form-control" required name="password" id="password" placeholder="Password"? />
         </div>
         <div class="form-group">
             <label for="varchar">Ulangi Password </label>

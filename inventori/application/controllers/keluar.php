@@ -74,15 +74,23 @@ class Keluar extends CI_Controller {
 
 	public function simpan_cart()
 	{
+		if($this->input->post('jumlah')<$this->input->post('stok')){
+
 		
         $data = array(
             'id'    => $this->input->post('id_barang'),
             'qty'   => $this->input->post('jumlah'),
-            'price' => $this->input->post('harga'),
+			'stok' => $this->input->post('stok'),
+			'price' => $this->input->post('harga'),
             'name'  => $this->input->post('nabar'),
-        );
+		);
+		
         $this->cart->insert($data);
         redirect('keluar/tambah');
+	}else {
+		echo "<script>alert('Stok barang tidak cukup! Silahkan kurangi jumlah pembelian.');window.location.replace('tambah');</script>";
+		}
+
 	}
 
 	public function hapus_cart($id)
