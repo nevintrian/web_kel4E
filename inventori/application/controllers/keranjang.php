@@ -82,6 +82,10 @@ class Keranjang extends CI_Controller {
 
 	public function simpan_penjualan()
 	{
+		if(isset($_POST['filter']) && ! empty($_POST['filter'])){ // Cek apakah user telah memilih filter dan klik tombol tampilkan
+			$filter = $_POST['filter']; // Ambil data filder yang dipilih user
+			if($filter == '1'){ // Jika filter nya 1 (per tanggal)
+
         $kode_penjualan = $this->input->post('kode_penjualan');
         $total_keluar = $this->input->post('total_keluar');
         $tgl_penjualan = $this->input->post('tgl_penjualan');
@@ -109,10 +113,11 @@ class Keranjang extends CI_Controller {
 			
 		);
 		$this->db->insert('detail_keluar', $d);
+		
 		//$this->db->query("UPDATE menu SET satuan=satuan-'$qty_keluar' WHERE kode_menu='$id_barang'");
 	} 
 	$this->cart->destroy();
 	redirect('keranjang');
 }
-	
+		}	}
 }

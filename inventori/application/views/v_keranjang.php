@@ -67,12 +67,80 @@
         	<input type="hidden" name="total_keluar" value="<?php echo $this->cart->total() ?>">
         	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d') ?>">
         	<a href="home" class="btn btn-danger">Kembali</a>
-            <button type="submit" class="btn btn-info" onclick="javasciprt: return confirm('Apa anda yakin ingin membeli barang ini?')">Bayar</button>
 
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Bayar</button>
             
             
         </div>
-	</form>
+
+        <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <form method="POST" action="keranjang/simpan_penjualan">
+	  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pilih metode pembayaran</h4>
+      </div>
+    <!-- Modal content-->
+	<div class="modal-body">
+	<div class="form-group">
+  <input type="hidden" class="form-control" name="kode_penjualan" id="kode_penjualan" value="<?php echo $kode; ?>" readonly/>
+        <label>Pilih Pembayaran</label><br>
+        <select name="filter" id="filter" class="form-control" required>
+            <option value="">--pilih--</option>
+            <option value="1">Bayar di tempat</option>
+            <option value="2">Bayar melalui transfer bank</option>
+           
+        </select>
+		</div>
+
+    <div class="form-group" id="form-tanggal">
+            <label style="color:red">Silahkan melakukan pembayaran saat barang telah sampai</label><br>
+            </div>    
+     
+        
+        <div class="form-group" id="form-tahun">
+            <label >Silahkan melakukan transfer ke nomor rekening berikut</label><br>
+           
+				<input name="tahun" class="form-control" readonly value="110293846328882191"></input>
+			
+
+    </div>
+    <div class="form-group" id="form-bulan">
+            <label for="file"> Masukkan bukti transfer </label>
+            <input type="file" class="form-control" name="foto_barang" />
+        </div>
+	
+        <div class="modal-footer">
+	
+      	<button class="btn btn-info" type="submit">Simpan</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+        
+            </form>
+	
+</div>
+</div>
+  </form>
+  
+<script src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js'); ?>"></script> <!-- Load file plugin js jquery-ui -->
+    <script>
+    $(document).ready(function(){ // Ketika halaman selesai di load
+
+        $('#form-tanggal, #form-bulan, #form-tahun').hide(); // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
+        $('#filter').change(function(){ // Ketika user memilih filter
+            if($(this).val() == '1'){ // Jika filter nya 1 (per tanggal)
+                $('#form-bulan, #form-tahun').hide(); // Sembunyikan form bulan dan tahun
+                $('#form-tanggal').show(); // Tampilkan form tanggal
+            }else if($(this).val() == '2'){ // Jika filter nya 2 (per bulan)
+                $('#form-tanggal').hide(); // Sembunyikan form tanggal
+                $('#form-bulan, #form-tahun').show(); // Tampilkan form bulan dan tahun
+
+            }
+            $('#form-tanggal input, #form-bulan select, #form-tahun select').val(''); // Clear data pada textbox tanggal, combobox bulan & tahun
+        })
+    })
+    </script>
 	</div>
 </div>
   </ul>
