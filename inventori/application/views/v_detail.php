@@ -15,7 +15,7 @@
 
 <div class="flickity  mfp-hover" id="gallery-main">
 
-<div class="thumbnail">
+<div class="col-sm-3 col-sm-offset-1">
             <?=img([
 				'src'		=> 'image/barang/' . $foto_barang, 
 				'style'		=> 'width: 200px; height:200px; ' 
@@ -28,51 +28,53 @@
 
 <div class="col-md-3">
             </div>
-               <div class="col-md-6">
-                  <table class="table table-bordered">
+               <div class="col-md-5">
+                  <table class="table table-hover table-responsive">
   
 
 
                     <tr>
-                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td width="5px"><span class="fa fa-circle"></span></td>
                         <td ><span>Nama Barang</td>
                         <td ><?php echo $nama_barang; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td width="5px"><span class="fa fa-circle"></span></td>
                         <td ><span class="sku">Jenis</td>
                         <td ><?php echo $jenis; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td width="5px"><span class="fa fa-circle"></span></td>
                         <td ><span class="sku">Kemasan</td>
                         <td ><?php echo $kemasan; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td width="5px"><span class="fa fa-circle"></span></td>
                         <td ><span class="sku">Merk</td>
                         <td ><?php echo $merk; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td width="5px"><span class="fa fa-circle"></span></td>
                         <td ><span class="sku">Stok</td>
                         <td ><?php echo $stok; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td width="5px"><span class="fa fa-circle"></span></td>
                         <td ><span class="sku">Harga</td>
                         <td ><?php echo $harga; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-building"></span></td>
+                        <td width="5px"><span class="fa fa-circle"></span></td>
                         <td ><span class="sku">Nama Supplier</td>
                         <td ><?php echo $nama_supplier; ?></span></td>
                     </tr>
 
                     <tr>
         <td><input type="hidden" name="id_barang" value="<?php echo $id_barang; ?>" /> </td>
-        
-       <td> <a href="<?php echo site_url('home') ?>" class="btn btn-danger">Kembali</a> </td>
+
+       
+       <td><a href="<?php echo site_url('home') ?>" class="btn btn-danger">Kembali</a>
+       </td>
        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<?php echo $id_barang; ?>">Beli</button></td>
         </tr>
               </table>

@@ -38,6 +38,7 @@ class Detail extends CI_Controller {
             );
             //menampilkan form edit data
             $this->load->view('v_detail', $data);
+            $this->load->view('v_footer'); 
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('barang'));

@@ -2,7 +2,7 @@
 	.footer {
     background-image: none;
     background-color: #303641;
-    margin-top: 100px;
+    margin-top: -15px;
     
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Apr 2020 pada 06.40
+-- Waktu pembuatan: 22 Apr 2020 pada 13.55
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.3
 
@@ -46,7 +46,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5012, 111, 'barang_1587349533.jpg'),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5010, 113, 'barang_1587349533.jpg'),
 (2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4969, 31, 'barang_1587349541.jpg'),
 (3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 5001, 0, 'barang_1587350641.jpg'),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5087, 24, 'barang_1587349556.jpg'),
@@ -60,7 +60,7 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (12, 7, 'POWDER PINK 50 GR', '48 PCS/ K', NULL, 'PC', 3500, 5000, 0, 'gg.jpg'),
 (13, 7, 'POWDER BLUE 50 GR', '48 PCS / K', NULL, 'PC', 3500, 5000, 0, 'gg.jpg'),
 (14, 7, 'POWDER PINK 100 GR', '48 PCS / K', NULL, 'PC', 6193, 5000, 0, 'gg.jpg'),
-(15, 7, 'POWDER BLUE 100 GR', '48 PCS / K', NULL, 'PC', 6193, 5000, 0, 'gg.jpg'),
+(15, 7, 'POWDER BLUE 100 GR', '48 PCS / K', '-', 'PC', 6193, 5000, 0, 'barang_1587486993.jpg'),
 (16, 7, 'POWDER PINK 200 GR', '24 PCS / K', NULL, 'PC', 11044, 5000, 0, 'gg.jpg'),
 (17, 7, 'POWDER BLUE 200 GR', '24 PCS / K', NULL, 'PC', 11044, 5000, 0, 'gg.jpg'),
 (18, 7, 'POWDER UNGU 200 GR', '24 PCS / K', '-', 'PC', 11044, 5000, 0, 'barang_1587354776.jpg'),
@@ -81,11 +81,11 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (33, 1, 'KUKIS BUTTER 90 GR', '30 PCS / K', NULL, 'MM', 2375, 5000, 0, 'gg.jpg'),
 (34, 1, 'KUKIS KELAPA 90 GR', '30 PCS / K', NULL, 'MM', 2375, 5000, 0, 'gg.jpg'),
 (35, 1, 'KUKIS MOCHACINO 90 GR', '30 PCS / K', NULL, 'MM', 2375, 5000, 0, 'gg.jpg'),
-(36, 1, 'KUKIS VANILLA 90 GR', '30 PCS / K', NULL, 'MM', 2375, 5000, 0, 'gg.jpg'),
-(37, 1, 'KUKIS WHITE COFFEE 13 GR 6 x 120', '9 PACK / K', NULL, 'MM', 8200, 5000, 0, 'gg.jpg'),
+(36, 1, 'KUKIS VANILLA 90 GR', '30 PCS / K', '-', 'MM', 2375, 5000, 0, 'barang_1587389782.jpg'),
+(37, 1, 'KUKIS WHITE COFFEE 13 GR 6 x 120', '9 PACK / K', '-', 'MM', 8200, 5000, 0, 'barang_1587486678.jpg'),
 (38, 1, 'KUKIS ROLL WHITE COFFEE 90 GR', '30 PCS / K', NULL, 'MM', 2375, 5000, 0, 'gg.jpg'),
 (39, 1, 'KUKIS WHITE COFFEE 300 GR', '18 PCS/ K ', NULL, 'MM', 6250, 5000, 0, 'gg.jpg'),
-(40, 1, 'KUKIS BUTTER 70 GR', '60 PCS / K', NULL, 'MM', 1400, 5000, 0, 'gg.jpg'),
+(40, 1, 'KUKIS BUTTER 70 GR', '60 PCS / K', '-', 'MM', 1400, 5000, 0, 'barang_1587486806.jpg'),
 (41, 1, 'KUKIS MOCHACINO 70 GR', '60 PCS / K', NULL, 'MM', 1400, 5000, 0, 'gg.jpg'),
 (42, 1, 'KUKIS KELAPA 70 GR', '60 PCS / K', NULL, 'MM', 1400, 5000, 0, 'gg.jpg'),
 (43, 1, 'KUKIS KELAPA 12 GR', '9 PACK / K', '-', 'MM', 8200, 5000, 0, 'barang_1587354519.jpg'),
@@ -101,7 +101,7 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (53, 1, 'KUKIS VANILLA 25.2 GR', '12 PCS / K', NULL, NULL, 8000, 5000, 0, 'gg.jpg'),
 (54, 1, 'KUKIS WHITE COFFEE 25.2 GR', '12 PACK / K', NULL, NULL, 8000, 5000, 0, 'gg.jpg'),
 (55, 1, 'KUKIS KELAPA 218 GR', '24 PCS / K', NULL, NULL, 4500, 5000, 0, 'gg.jpg'),
-(56, 1, 'KUKIS BUTTER 218 GR', '24 PCS / K', NULL, NULL, 4500, 5000, 0, 'gg.jpg'),
+(56, 1, 'KUKIS BUTTER 218 GR', '24 PCS / K', '-', 'MM', 4500, 5000, 0, 'barang_1587486934.jpg'),
 (57, 1, 'KUKIS MOCHACINO 218 GR', '24 PCS / K', NULL, NULL, 4500, 5000, 0, 'gg.jpg'),
 (58, 1, ' KUKIS VANILLA 218 GR', '24 PCS / K', NULL, NULL, 4500, 5000, 0, 'gg.jpg'),
 (59, 1, 'MONI CHOCO RING 11.5 GR', '6 PACK / K', '-', 'MM', 8200, 5000, 0, 'barang_1587355392.png'),
@@ -112,28 +112,28 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (64, 1, 'ROSE CREAM NANAS 260 GR', '10 PCS / K', NULL, 'MM', 5500, 5000, 0, 'gg.jpg'),
 (65, 1, 'ROSE CREAM COKLAT 23 GR', '6 PACK / K', NULL, NULL, 14000, 5000, 0, 'gg.jpg'),
 (66, 1, 'ROSE CREAM LEMON 23 GR', '6 PACK / K', NULL, NULL, 14000, 5000, 0, 'gg.jpg'),
-(67, 1, 'MONTEGO COKLAT 50 GR', '30 PCS / K', NULL, 'MM', 2250, 5000, 0, 'gg.jpg'),
-(68, 1, 'MONTEGO COKLAT 17 GR', ' 6 PACK / K', NULL, 'MM', 16000, 5000, 0, 'gg.jpg'),
+(67, 1, 'MONTEGO COKLAT 50 GR', '30 PCS / K', '-', 'MM', 2250, 5000, 0, 'barang_1587471161.jpg'),
+(68, 1, 'MONTEGO COKLAT 17 GR', ' 6 PACK / K', '-', 'MM', 16000, 5000, 0, 'barang_1587389298.jpg'),
 (69, 1, 'NARITA MARI SUSU ROLL 150 GR', '24 PCS / K', NULL, 'MM', 2650, 5000, 0, 'gg.jpg'),
 (70, 1, 'MONTEGP BUTTER 17 GR', '6 PACK / K', NULL, 'MM', 16000, 5000, 0, 'gg.jpg'),
 (71, 1, 'MONTEGO FUN DOUBLE CHOCO', '10 PACK / K', NULL, 'MM', 9600, 5000, 0, 'gg.jpg'),
-(72, 1, 'MARI SUSU MADU 12 GR', '6 PACK / K', NULL, 'MM', 8200, 5000, 0, 'gg.jpg'),
+(72, 1, 'MARI SUSU MADU 12 GR', '6 PACK / K', '-', 'MM', 8200, 5000, 0, 'barang_1587487028.jpg'),
 (73, 1, 'MARI SUSU MADU 100 GR', '36 PCS / K', NULL, 'MM', 3500, 5000, 0, 'gg.jpg'),
 (74, 1, 'MARI SUSU MADU 180 GR', '24 PCS / K', NULL, 'MM', 4500, 5000, 0, 'gg.jpg'),
 (75, 1, 'MALKIST SUSU 14.5 GR', '9 PACK / K', '-', 'MM', 8200, 5000, 0, 'barang_1587354836.jpg'),
 (76, 1, 'MALKIST SUSU 238 GR', '18 PCS / K', NULL, 'MM', 4500, 5000, 0, 'gg.jpg'),
 (77, 1, 'MALKIST SUSU 108 GR', '24 PCS / K', NULL, 'MM', 3150, 5000, 0, 'gg.jpg'),
-(78, 1, 'CRACKERS BUTTER 262 GR', '18 PCS / K', NULL, 'MM', 4500, 5000, 0, 'gg.jpg'),
+(78, 1, 'CRACKERS BUTTER 262 GR', '18 PCS / K', '-', 'MM', 4500, 5000, 0, 'barang_1587471113.jpg'),
 (79, 1, 'MALKIST OLEZZ 20 GR', '12 PACK / K', '-', 'MM', 8000, 5000, 0, 'barang_1587351085.jpg'),
 (80, 1, 'MALKIST GARLIC 12 GR', '6 PACK / K', NULL, 'MM', 8200, 5000, 0, 'gg.jpg'),
-(81, 1, 'GARLIC SEDAP 108 GR', '24 PCS / K', NULL, NULL, 3500, 5000, 0, 'gg.jpg'),
+(81, 1, 'GARLIC SEDAP 108 GR', '24 PCS / K', '-', 'MM', 3500, 5000, 0, 'barang_1587486713.jpg'),
 (82, 1, 'GARLIC SEDAP 208 GR', '18 PCS / K', NULL, NULL, 4500, 5000, 0, 'gg.jpg'),
 (83, 1, 'MALKIST SUSU 25 GR', '12 PACK / K', NULL, 'MM', 8000, 5000, 0, 'gg.jpg'),
-(84, 1, 'GARLIC BREADCRACKERS 24 GR', '12 PACK / K', NULL, NULL, 8000, 5000, 0, 'gg.jpg'),
+(84, 1, 'GARLIC BREADCRACKERS 24 GR', '12 PACK / K', '-', 'MM', 8000, 5000, 0, 'barang_1587389381.jpg'),
 (85, 1, 'MARI SUSU MADU 24 GR', '12 PACK / K', NULL, NULL, 8000, 5000, 0, 'gg.jpg'),
 (86, 1, 'CRACKERS 132 GR', ' 24 PCS / K', NULL, NULL, 3150, 5000, 0, 'gg.jpg'),
 (87, 1, 'ABC CRACKERS CHOCO 12 GR', '6 PACK / K', NULL, NULL, 8200, 5000, 0, 'gg.jpg'),
-(88, 1, 'RIMBA CHOCO CRACKERS 12 GR', '6 PACK / K', NULL, NULL, 8200, 5000, 0, 'gg.jpg'),
+(88, 1, 'RIMBA CHOCO CRACKERS 12 GR', '6 PACK / K', '-', 'MM', 8200, 5000, 0, 'barang_1587487307.png'),
 (89, 1, 'OLEZZ CHEESE CHOCO 10 GR', '6 PACK / K', NULL, 'MM', 8200, 5000, 0, 'gg.jpg'),
 (90, 1, 'OLEZZ CHEESE CHOCO 100 GR', '30 PCS / K', NULL, 'MM', 3500, 5000, 0, 'gg.jpg'),
 (91, 1, 'OLEZZ CHOCO PARTY 10 GR', '6 PACK / K', '-', 'MM', 8200, 5000, 0, 'barang_1587353857.jpg'),
@@ -144,16 +144,16 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (96, 1, 'SUPERCREAM STRAWBERI 200 GR', '21 PCS / K', NULL, 'MM', 4286, 5000, 0, 'gg.jpg'),
 (97, 1, 'SUPERCREAM ORANGE 200 GR', '21 PCS / K', NULL, 'MM', 4286, 5000, 0, 'gg.jpg'),
 (98, 1, 'SUPERCREAM BON-BON 46 GR', '60 PCS / K', NULL, NULL, 1400, 5000, 0, 'gg.jpg'),
-(99, 2, 'KAKI TIGA GUAVA CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
+(99, 2, 'KAKI TIGA GUAVA CAN 320 ML', '24 PCS / K', '-', 'MM2', 4938, 5000, 0, 'barang_1587486178.jpg'),
 (100, 2, 'KAKI TIGA STRAWBERRY CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
 (101, 2, 'KAKI TIGA LECCI CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
 (102, 2, 'KAKI TIGA MELON CAN 320 ML', '24 PCS / K', '-', 'MM2', 4938, 5000, 0, 'barang_1587352768.jpg'),
 (103, 2, 'KAKI TIGA ORANGE CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
 (104, 2, 'KAKI TIGA ANGGUR CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
-(105, 2, 'KAKI TIGA APEL CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
+(105, 2, 'KAKI TIGA APEL CAN 320 ML', '24 PCS / K', '-', 'MM2', 4938, 5000, 0, 'barang_1587486209.jpg'),
 (106, 2, 'KAKI TIGA MARKISA 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
-(107, 2, 'KAKI TIGA TIMUN SURI CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
-(108, 2, 'KAKI TIGA KURMA & TIN CAN 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
+(107, 2, 'KAKI TIGA TIMUN SURI CAN 320 ML', '24 PCS / K', '-', 'MM2', 4938, 5000, 0, 'barang_1587389562.jpg'),
+(108, 2, 'KAKI TIGA KURMA & TIN CAN 320 ML', '24 PCS / K', '-', 'MM2', 4938, 5000, 0, 'barang_1587486500.jpg'),
 (109, 2, 'KAKI TIGA JERUK NIPIS 320 ML', '24 PCS / K', NULL, 'MM2', 4938, 5000, 0, 'gg.jpg'),
 (110, 2, 'KAKI TIGA ANAK ORANGE CAN 250 ML', '24 PCS / K', NULL, 'MM2', 4167, 5000, 0, 'gg.jpg'),
 (111, 2, 'KAKI TIGA ANAK LECCI CAN 250 ML', '24 PCS / K', NULL, 'MM2', 4167, 5000, 0, 'gg.jpg'),
@@ -166,15 +166,15 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (118, 2, 'KAKI TIGA ANAK PET DISNEY 250 ML', '24 PCS / K', '-', 'MM2', 4000, 5000, 0, 'barang_1587349576.jpg'),
 (119, 2, 'KAKI TIGA PET 200 ML', '48 PCS / K', NULL, 'MM2', 2844, 5000, 0, 'gg.jpg'),
 (120, 2, 'KAKI TIGA PET 500 ML', '24 PCS / K', NULL, 'MM2', 5438, 5000, 0, 'gg.jpg'),
-(121, 2, 'KAKI TIGA PET GUAVA 320 ML', '24 PCS / K', NULL, 'MM2', 4750, 5000, 0, 'gg.jpg'),
+(121, 2, 'KAKI TIGA PET GUAVA 320 ML', '24 PCS / K', '-', 'MM2', 4750, 5000, 0, 'barang_1587486351.jpg'),
 (122, 2, 'KAKI TIGA PET LECCI 320 ML', '24 PCS / K', NULL, 'MM2', 4750, 5000, 0, 'gg.jpg'),
-(123, 2, 'KAKI TIGA PET ORANGE 320 ML', '24 PCS / K', NULL, 'MM2', 4750, 5000, 0, 'gg.jpg'),
-(124, 2, 'KAKI TIGA PET STRAWBERRY 320 ML', '24 PCS / K', NULL, 'MM2', 4750, 5000, 0, 'gg.jpg'),
+(123, 2, 'KAKI TIGA PET ORANGE 320 ML', '24 PCS / K', '-', 'MM2', 4750, 5000, 0, 'barang_1587389625.jpg'),
+(124, 2, 'KAKI TIGA PET STRAWBERRY 320 ML', '24 PCS / K', '-', 'MM2', 4750, 5000, 0, 'barang_1587486568.jpg'),
 (125, 2, 'KAKI TIGA PET JERUK NIPIS 320 ML', '24 PCS / K', NULL, 'MM2', 4750, 5000, 0, 'gg.jpg'),
 (126, 2, 'KAKI TIGA PET MELON 320 ML', '24 PCS / K', NULL, 'MM2', 4750, 5000, 0, 'gg.jpg'),
 (127, 1, 'MAJESTIC WAFER WHITE COFFEE 90 GR', '30 PCS / K', NULL, 'MM', 2150, 5000, 0, 'gg.jpg'),
-(128, 1, 'MAJESTIC MIX BARRIES 90 GR', '30 PCS / K', NULL, 'MM', 2150, 5000, 0, 'gg.jpg'),
-(129, 1, 'MAJESTIC WAFER POPCORN 90 GR', '30 PCS / K', NULL, 'MM', 2150, 5000, 0, 'gg.jpg'),
+(128, 1, 'MAJESTIC MIX BARRIES 90 GR', '30 PCS / K', '-', 'MM', 2150, 5000, 0, 'barang_1587389441.jpg'),
+(129, 1, 'MAJESTIC WAFER POPCORN 90 GR', '30 PCS / K', '-', 'MM', 2150, 5000, 0, 'barang_1587486439.jpg'),
 (130, 1, 'MAJESTIC WAFER POPCORN 53.5 GR', '60 PCS / K', NULL, 'MM', 1400, 5000, 0, 'gg.jpg'),
 (131, 1, 'MAJESTIC WAFER WHITE COFFEE 53.5 GR', '60 PCS / K', NULL, 'MM', 1400, 5000, 0, 'gg.jpg'),
 (132, 1, 'CHOCOLATE WAFER 145 GR', '24 PCS / K', NULL, 'MM', 4000, 5000, 0, 'gg.jpg'),
@@ -184,11 +184,11 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (136, 7, 'SWEETY PANTS L1', '20 RTG / K', 'PEMBALUT', NULL, 10800, 5000, 0, 'gg.jpg'),
 (137, 7, 'SWEETY BRONZE L2', '12 RTG / K', NULL, NULL, 19750, 5000, 0, 'gg.jpg'),
 (138, 7, 'SWEETY PANTS M1', '20 RTG / K', NULL, 'PEMBALUT', 10800, 5000, 0, 'gg.jpg'),
-(139, 7, 'SWEETY BRONZE M2', '12 RTG / K', NULL, NULL, 19750, 5000, 0, 'gg.jpg'),
+(139, 7, 'SWEETY BRONZE M2', '12 RTG / K', '-', 'PEMBALUT', 19750, 5000, 0, 'barang_1587389350.jpg'),
 (140, 7, 'MIRANDA MC 1', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
 (141, 7, 'MIRANDA MC 2', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
 (142, 7, 'MIRANDA MC 3', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
-(143, 7, 'MIRANDA MC 4', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
+(143, 7, 'MIRANDA MC 4', '144 PCS / K', '-', 'PC', 12150, 5000, 0, 'barang_1587487063.jpg'),
 (144, 7, 'MIRANDA MC 5', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
 (145, 7, 'MIRANDA MC 6', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
 (146, 7, 'MIRANDA MC 7', '144 PCS / K', '-', 'MM', 12150, 5000, 0, 'barang_1587354871.jpg'),
@@ -197,15 +197,15 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (149, 7, 'MIRANDA MC 10', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
 (150, 7, 'MIRANDA MC 11', '144 PCS / K', '-', 'PC', 12150, 5000, 0, 'barang_1587351171.jpg'),
 (151, 7, 'MIRANDA MC 12', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
-(152, 7, 'MIRANDA MC 13', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
+(152, 7, 'MIRANDA MC 13', '144 PCS / K', '-', 'PC', 12150, 5000, 0, 'barang_1587486745.jpg'),
 (153, 7, 'MIRANDA MC 14', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
 (154, 7, 'MIRANDA MC 15', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
-(155, 7, 'MIRANDA MC 16', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
-(156, 7, 'MIRANDA MC 17', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
+(155, 7, 'MIRANDA MC 16', '144 PCS / K', '-', 'PC', 12150, 5000, 0, 'barang_1587389411.jpg'),
+(156, 7, 'MIRANDA MC 17', '144 PCS / K', '-', 'PC', 12150, 5000, 0, 'barang_1587486403.jpg'),
 (157, 7, 'MIRANDA MC 18', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
 (158, 7, 'MIRANDA MC 19', '144 PCS / K', NULL, NULL, 12150, 5000, 0, 'gg.jpg'),
-(159, 10, 'MINYAK DUNIA CUP 200 ML', '48 PCS / K', NULL, NULL, 2415, 5000, 0, 'gg.jpg'),
-(160, 10, 'MINYAK DUNIA POUCH 900 ML', '12 PCS / K', NULL, NULL, 10145, 5000, 0, 'gg.jpg'),
+(159, 10, 'MINYAK DUNIA CUP 200 ML', '48 PCS / K', '-', 'PC', 2415, 5000, 0, 'barang_1587389711.jpg'),
+(160, 10, 'MINYAK DUNIA POUCH 900 ML', '12 PCS / K', '-', 'minyak goreng', 10145, 5000, 0, 'barang_1587486616.jpg'),
 (161, 10, 'MINYAK DUNIA POUCH 1800 ML', '6 PCS / K', NULL, NULL, 19845, 5000, 0, 'gg.jpg'),
 (162, 10, 'MINYAK DUNIA JERRYCAN 4500 ML', '4 PCS / K', NULL, NULL, 53340, 5000, 0, 'gg.jpg'),
 (163, 10, 'MINYAK DAMAI PUOCH 1000 ML', '12 PCS / K', NULL, NULL, 11267, 5000, 0, 'gg.jpg'),
@@ -227,7 +227,7 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (179, 11, 'PERMEN ICE CREAM STOBERI 12 GR', '30 PACK / K', NULL, 'CANDY', 17000, 5000, 0, 'gg.jpg'),
 (180, 11, 'PERMEN FINGER SPINNER 11 GR', '30 PACK / K', NULL, 'CANDY', 17000, 5000, 0, 'gg.jpg'),
 (181, 11, 'PERMEN LOLLIPOP MAWAR 12 GR', '30 PACK / K', NULL, 'CANDY', 17000, 5000, 0, 'gg.jpg'),
-(182, 7, 'SWEETY PANTS S1', '20 RTG / K', NULL, NULL, 8350, 5000, 0, 'gg.jpg'),
+(182, 7, 'SWEETY PANTS S1', '20 RTG / K', '-', 'PEMBALUT', 8350, 5000, 0, 'barang_1587487362.jpg'),
 (183, 9, 'TEH CELUP KAMPUNG MNS ASLI', '48 PCS/ K', NULL, NULL, 4200, 5000, 0, 'gg.jpg'),
 (184, 9, 'TEH KROSOS KAMPUNG MNS', '10 SLOP / B', NULL, NULL, 20000, 5000, 0, 'gg.jpg'),
 (185, 9, 'TEH KAMPUNG MELATI', '48 PCS / K', NULL, NULL, 4000, 5000, 0, 'gg.jpg'),
@@ -246,15 +246,15 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (198, 4, 'ULTRA TABUR RS KEJU 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg'),
 (199, 4, 'ULTRA TABUR RS BARBQUE 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg'),
 (200, 4, 'ULTRA TABUR RS PEDAS MANIS 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg'),
-(201, 4, 'ULTRA AYAM BAWANG 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg'),
+(201, 4, 'ULTRA AYAM BAWANG 100 GR', '200 PCS / K', '-', 'bumbu', 4200, 5000, 0, 'barang_1587389820.jpg'),
 (202, 4, 'ULTRA TABUR RS SAPI PANGGANG 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg'),
 (203, 4, 'ULTRA BALADO 900 GR', '20 PCS / K', NULL, NULL, 37000, 5000, 0, 'gg.jpg'),
 (204, 4, 'ULTRA SAMBAL BALADO 900 GR', '20 PCS / K', NULL, NULL, 37000, 5000, 0, 'gg.jpg'),
-(205, 4, 'ULTRA BARBEQUE 900 GR', '20 PCS / K', NULL, NULL, 37000, 5000, 0, 'gg.jpg'),
+(205, 4, 'ULTRA BARBEQUE 900 GR', '20 PCS / K', '-', 'bumbu', 37000, 5000, 0, 'barang_1587486866.jpg'),
 (206, 4, 'ULTRA EXTRA PEDAS 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg'),
 (207, 4, 'ULTRA BALADO PEDAS MANIS 900 GR', '20 PCS / K', NULL, NULL, 37000, 5000, 0, 'gg.jpg'),
-(208, 8, 'VIT BODY SCENT BLOSSOM/PINK 120 ML', '16 PCS / K', NULL, NULL, 18001, 5000, 0, 'gg.jpg'),
-(209, 8, 'VIT BODY SCENT BLISSFUL/ORANGE 120 ML', '36 PCS / K', NULL, NULL, 18001, 5000, 0, 'gg.jpg'),
+(208, 8, 'VIT BODY SCENT BLOSSOM/PINK 120 ML', '16 PCS / K', '-', 'PC', 18001, 5000, 0, 'barang_1587389588.jpg'),
+(209, 8, 'VIT BODY SCENT BLISSFUL/ORANGE 120 ML', '36 PCS / K', '-', 'PC', 18001, 5000, 0, 'barang_1587486546.jpg'),
 (210, 8, 'VIT BODY SCENT BREEZE/BIRU 120 ML', '36 PCS / K', NULL, NULL, 18001, 5000, 0, 'gg.jpg'),
 (211, 8, 'VIT BODY SCENT BIZARE/UNGU 120 ML', '36 PCS / K', NULL, NULL, 18001, 5000, 0, 'gg.jpg'),
 (212, 8, 'VIT BODY SCENT BLESS/MERAH 120 ML', '36 PCS / K', NULL, NULL, 18001, 5000, 0, 'gg.jpg'),
@@ -276,8 +276,8 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (228, 7, 'YUPI STRAWBERRY 125S TOPLES', '6 PCS / K', NULL, NULL, 17680, 5000, 0, 'gg.jpg'),
 (229, 7, 'YUPI FRUTY COLA  8 GR', '24 PCS / K', NULL, NULL, 10200, 5000, 0, 'gg.jpg'),
 (230, 7, 'YUPI GUMMY COOKIES 8 GR', '12 PCS / K', NULL, NULL, 10000, 5000, 0, 'gg.jpg'),
-(231, 7, 'YUPI WOTTA MELON 8.5 GR', '12 PCS / K', NULL, NULL, 10000, 5000, 0, 'gg.jpg'),
-(232, 7, 'YUPI JUST FOR FUN', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg'),
+(231, 7, 'YUPI WOTTA MELON 8.5 GR', '12 PCS / K', '-', 'CANDY', 10000, 5000, 0, 'barang_1587389530.jpg'),
+(232, 7, 'YUPI JUST FOR FUN', '12 PCS / K', '-', 'CANDY', 10300, 5000, 0, 'barang_1587486472.jpg'),
 (233, 7, 'YUPI BURGER 8 GR', '12 PCS / K', NULL, NULL, 10200, 5000, 0, 'gg.jpg'),
 (234, 7, 'YUPI ROLETTO 8 GR', '24 PCS / K', NULL, NULL, 10200, 5000, 0, 'gg.jpg'),
 (235, 7, 'YUPI JUGLE FUN 8.5 GR', '12 PCS / K', NULL, NULL, 10200, 5000, 0, 'gg.jpg'),
@@ -290,7 +290,7 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (242, 7, 'YUPI PIZZA 15 GR', '12 PCS / K', '-', 'CANDY', 10300, 5000, 0, 'barang_1587352816.jpg'),
 (243, 7, 'YUPO FRUIT COCKTAIL 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg'),
 (244, 7, 'YUPI SEET HEART 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg'),
-(245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg'),
+(245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', '-', 'CANDY', 10300, 5000, 0, 'barang_1587486236.jpg'),
 (246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', NULL, NULL, 25000, 5000, 0, 'gg.jpg');
 
 -- --------------------------------------------------------
@@ -325,7 +325,9 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) V
 (4, 14, 12, 1),
 (4, 15, 12, 1),
 (2, 16, 11, 1),
-(6, 17, 112, 1);
+(6, 17, 112, 1),
+(1, 18, 2, 1),
+(1, 19, 2, 0);
 
 --
 -- Trigger `detail_keluar`
@@ -447,7 +449,9 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`) VALU
 (14, 2, '2020-04-19', 270000),
 (15, 3, '2020-04-19', 270000),
 (16, 4, '2020-04-19', 247500),
-(17, 3, '2020-04-19', 1876000);
+(17, 3, '2020-04-19', 1876000),
+(18, 3, '2020-04-20', 45000),
+(19, 1, '2020-04-22', 45000);
 
 --
 -- Trigger `keluar`
@@ -561,6 +565,63 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 (7, 'tarno@gmail.com', 'tarno', 'ed8465aeaf6682cbf12c6a3c94bba4d7', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977486.jpg'),
 (8, 'ipang@gmail.com', 'ipang', 'a3b1427fc6eb05dde4883180e7284322', 'gudang', 'ipang', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'pp.jpg'),
 (9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Bondowoso', '089765456111', 'pp.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `v_barang`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `v_barang` (
+`id_barang` int(11)
+,`id_supplier` int(11)
+,`nama_barang` varchar(100)
+,`kemasan` varchar(20)
+,`merk` varchar(100)
+,`jenis` varchar(20)
+,`harga` int(11)
+,`stok` int(11)
+,`terjual` int(11)
+,`foto_barang` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `v_user`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `v_user` (
+`id_user` int(11)
+,`email` varchar(100)
+,`username` varchar(20)
+,`password` varchar(100)
+,`level` varchar(20)
+,`nama` varchar(100)
+,`tgl_lahir` date
+,`jenis_kelamin` varchar(20)
+,`alamat` varchar(100)
+,`no_telp` varchar(12)
+,`foto` varchar(100)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `v_barang`
+--
+DROP TABLE IF EXISTS `v_barang`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_barang`  AS  select `barang`.`id_barang` AS `id_barang`,`barang`.`id_supplier` AS `id_supplier`,`barang`.`nama_barang` AS `nama_barang`,`barang`.`kemasan` AS `kemasan`,`barang`.`merk` AS `merk`,`barang`.`jenis` AS `jenis`,`barang`.`harga` AS `harga`,`barang`.`stok` AS `stok`,`barang`.`terjual` AS `terjual`,`barang`.`foto_barang` AS `foto_barang` from `barang` ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `v_user`
+--
+DROP TABLE IF EXISTS `v_user`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_user`  AS  select `user`.`id_user` AS `id_user`,`user`.`email` AS `email`,`user`.`username` AS `username`,`user`.`password` AS `password`,`user`.`level` AS `level`,`user`.`nama` AS `nama`,`user`.`tgl_lahir` AS `tgl_lahir`,`user`.`jenis_kelamin` AS `jenis_kelamin`,`user`.`alamat` AS `alamat`,`user`.`no_telp` AS `no_telp`,`user`.`foto` AS `foto` from `user` ;
 
 --
 -- Indexes for dumped tables

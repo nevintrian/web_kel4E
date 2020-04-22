@@ -29,7 +29,8 @@ class M_barang extends CI_Model
     // untuk limit halaman dan pencarian
     function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
         $this->db->order_by($this->terjual, $this->order);
-	$this->db->or_like('nama_barang', $q);
+    $this->db->or_like('nama_barang', $q);
+    $this->db->or_like('jenis', $q);
     $this->db->select('*');
     $this->db->from('barang');
     $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
