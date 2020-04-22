@@ -5,7 +5,7 @@
     <title>UD SRI REJEKI</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <base href="<?php echo base_url();?>">
-    <link rel="shortcut icon" href="favicon_16.ico"/>
+    <link rel="shortcut icon" href="image/hh.png">
     <link rel="bookmark" href="favicon_16.ico"/>
     <link rel="stylesheet" href="assets/dist/css/site.min.css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
