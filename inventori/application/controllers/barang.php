@@ -31,7 +31,7 @@ class Barang extends CI_Controller {
             $config['first_url'] = base_url() . 'barang';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 36;
+        $config['per_page'] = 5;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_barang->total_rows($q);
         $barang = $this->m_barang->get_limit_data($config['per_page'], $per_page, $q);

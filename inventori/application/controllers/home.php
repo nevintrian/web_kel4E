@@ -27,7 +27,7 @@ class Home extends CI_Controller {
             $config['first_url'] = base_url() . 'home';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 12;
+        $config['per_page'] = 6;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_home->total_rows($q);
         $home = $this->m_home->get_limit_data($config['per_page'], $per_page, $q);

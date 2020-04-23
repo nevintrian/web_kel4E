@@ -77,7 +77,7 @@
 
 
 <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-10">
             <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
     <a href="masuk/cetak_pdf1" class="btn btn-info btn-sm">Cetak Data Hari ini</a>
 	<a href="masuk/cetak_pdf2" class="btn btn-primary btn-sm">Cetak Data Bulan ini</a>
@@ -85,7 +85,7 @@
 	<a href="masuk/cetak_pdf" class="btn btn-secondary btn-sm">Cetak Semua Data</a>
             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
         </div>
-            <div class="col-md-3 text-right">
+            <div class="col-md-2 text-right">
                 <?php echo $pagination ?>
             </div>
         </div>
