@@ -78,8 +78,9 @@
             <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
             <?php }else{?>
-              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal1">retur</button>
-            <?php } ?>
+              
+              <a href="#"  data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar; ?>" class="btn btn-danger btn-sm" >retur</a>
+              <?php } ?>
             
           </td>
 				</tr>
@@ -219,7 +220,8 @@
 </div>
 	</div>
 </div>
-<div id="myModal1" class="modal fade" role="dialog">
+<div id="myModal1<?php echo $keluar->id_keluar; ?>" class="modal fade" role="dialog">
+
   <div class="modal-dialog">
   <form method="GET" action="retur">
 	  <div class="modal-content">
@@ -229,14 +231,24 @@
       </div>
     <!-- Modal content-->
 	<div class="modal-body">
-	<div class="form-group">
-        <label>Alasan melakukan retur</label><br>
-        <input name="alasan" id="alasan" placeholder="masukkan alasan" required class="form-control">
-		</div>
-    <div class="form-group">
-            <label for="file">Bukti foto barang </label>
-            <input type="file" class="form-control" required name="foto_barang" />
-        </div>
+  <div class="form-group">
+        	<label>Nama Barang</label><br>
+	      <select id="nama_barang" name="nama_barang"  class="form-control" >
+        <option value="">--pilih barang--</option>
+	        <?php 
+	      $sql = $this->db->query("select * from detail_keluar inner join barang on detail_keluar.id_barang=barang.id_barang where detail_keluar.id_keluar=$keluar->id_keluar");
+	        foreach ($sql->result() as $row) {
+           ?>
+	        <option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?></option>
+	        <?php } ?>
+	      </select>
+      </div>
+
+      <div class="form-group">
+        	<label>Jumlah Retur</label><br>
+	      <input id="jumlah_retur" name="jumlah_retur"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+      
+	    </div>
        
       
 		</div>
