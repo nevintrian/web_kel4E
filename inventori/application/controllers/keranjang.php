@@ -118,6 +118,54 @@ class Keranjang extends CI_Controller {
 	} 
 	$this->cart->destroy();
 	redirect('keranjang');
+
+}else if($filter == '2'){
+	$nmfile = "bayar_".time();
+	$config['upload_path'] = './image/bayar';
+	$config['allowed_types'] = 'jpg|png';
+	$config['max_size'] = '20000';
+	$config['file_name'] = $nmfile;
+	$this->load->library('upload');
+	$this->upload->initialize($config);
+	$this->upload->do_upload('foto_keluar');
+	$result1 = $this->upload->data();
+	$result = array('gambar'=>$result1);
+	$dfile = $result['gambar']['file_name'];
+
+	$kode_penjualan = $this->input->post('kode_penjualan');
+	$total_keluar = $this->input->post('total_keluar');
+	$tgl_penjualan = $this->input->post('tgl_penjualan');
+	$id_user = $this->input->post('id_user');
+
+	$data = array(
+		
+		'id_keluar'=> $kode_penjualan,
+		'total_keluar'=> $total_keluar,
+		'tgl_keluar'=> $tgl_penjualan,
+		'id_user'=> $id_user,
+		'foto_keluar'=> $dfile,
+		
+	);
+	$this->db->insert('keluar', $data);
+
+
+foreach ($this->cart->contents() as $items) {
+	$id_barang = $items['id'];
+	$qty_keluar = $items['qty'];
+	$d = array(
+		'id_keluar' => $kode_penjualan,
+		'id_barang' => $id_barang,
+		'qty_keluar' => $qty_keluar,
+		'status' => "0",
+		
+	);
+	$this->db->insert('detail_keluar', $d);
+	
+	//$this->db->query("UPDATE menu SET satuan=satuan-'$qty_keluar' WHERE kode_menu='$id_barang'");
+} 
+$this->cart->destroy();
+redirect('keranjang');
+
 }
 		}	}
 }

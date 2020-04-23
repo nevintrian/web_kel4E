@@ -23,7 +23,7 @@
 <div class="col-md-12">
 <div class="row">
 	<div class="col-md-12">
-	<form action="keranjang/simpan_penjualan" method="POST">
+	<form action="keranjang/simpan_penjualan"  enctype="multipart/form-data" method="POST">
 
        
             <input type="hidden" class="form-control" name="kode_penjualan" id="kode_penjualan" value="<?php echo $kode; ?>" readonly/>
@@ -75,7 +75,7 @@
 
         <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-  <form method="POST" action="keranjang/simpan_penjualan">
+  <form method="POST"  enctype="multipart/form-data" action="keranjang/simpan_penjualan">
 	  <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -108,7 +108,7 @@
     </div>
     <div class="form-group" id="form-bulan">
             <label for="file"> Masukkan bukti transfer </label>
-            <input type="file" class="form-control" name="foto_barang" />
+            <input type="file" class="form-control" name="foto_keluar" />
         </div>
 	
         <div class="modal-footer">

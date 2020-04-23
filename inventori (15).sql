@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Apr 2020 pada 13.55
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Waktu pembuatan: 23 Apr 2020 pada 02.26
+-- Versi server: 10.3.16-MariaDB
+-- Versi PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -327,7 +327,8 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) V
 (2, 16, 11, 1),
 (6, 17, 112, 1),
 (1, 18, 2, 1),
-(1, 19, 2, 0);
+(1, 19, 2, 0),
+(1, 21, 1, 0);
 
 --
 -- Trigger `detail_keluar`
@@ -427,31 +428,33 @@ CREATE TABLE `keluar` (
   `id_keluar` int(11) NOT NULL,
   `id_user` int(11) DEFAULT NULL,
   `tgl_keluar` date DEFAULT NULL,
-  `total_keluar` int(11) DEFAULT NULL
+  `total_keluar` int(11) DEFAULT NULL,
+  `foto_keluar` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `keluar`
 --
 
-INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`) VALUES
-(2, 2, '2020-04-19', 0),
-(4, 3, '2020-04-19', 2250000),
-(5, 1, '2020-04-19', 22500),
-(6, 1, '2020-04-19', 675000),
-(7, 1, '2020-04-19', 45000),
-(8, 1, '2020-04-19', 22500),
-(9, 1, '2020-04-19', 45000),
-(10, 1, '2020-04-19', 351750),
-(11, 1, '2020-04-19', 270000),
-(12, 2, '2020-04-19', 22500),
-(13, 2, '2020-04-19', 45000),
-(14, 2, '2020-04-19', 270000),
-(15, 3, '2020-04-19', 270000),
-(16, 4, '2020-04-19', 247500),
-(17, 3, '2020-04-19', 1876000),
-(18, 3, '2020-04-20', 45000),
-(19, 1, '2020-04-22', 45000);
+INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `foto_keluar`) VALUES
+(2, 2, '2020-04-19', 0, NULL),
+(4, 3, '2020-04-19', 2250000, NULL),
+(5, 1, '2020-04-19', 22500, NULL),
+(6, 1, '2020-04-19', 675000, NULL),
+(7, 1, '2020-04-19', 45000, NULL),
+(8, 1, '2020-04-19', 22500, NULL),
+(9, 1, '2020-04-19', 45000, NULL),
+(10, 1, '2020-04-19', 351750, NULL),
+(11, 1, '2020-04-19', 270000, NULL),
+(12, 2, '2020-04-19', 22500, NULL),
+(13, 2, '2020-04-19', 45000, NULL),
+(14, 2, '2020-04-19', 270000, NULL),
+(15, 3, '2020-04-19', 270000, NULL),
+(16, 4, '2020-04-19', 247500, NULL),
+(17, 3, '2020-04-19', 1876000, NULL),
+(18, 3, '2020-04-20', 45000, NULL),
+(19, 1, '2020-04-22', 45000, NULL),
+(21, 1, '2020-04-23', 22500, 'bayar_1587601213.jpg');
 
 --
 -- Trigger `keluar`
@@ -565,63 +568,6 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 (7, 'tarno@gmail.com', 'tarno', 'ed8465aeaf6682cbf12c6a3c94bba4d7', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977486.jpg'),
 (8, 'ipang@gmail.com', 'ipang', 'a3b1427fc6eb05dde4883180e7284322', 'gudang', 'ipang', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'pp.jpg'),
 (9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Bondowoso', '089765456111', 'pp.jpg');
-
--- --------------------------------------------------------
-
---
--- Stand-in struktur untuk tampilan `v_barang`
--- (Lihat di bawah untuk tampilan aktual)
---
-CREATE TABLE `v_barang` (
-`id_barang` int(11)
-,`id_supplier` int(11)
-,`nama_barang` varchar(100)
-,`kemasan` varchar(20)
-,`merk` varchar(100)
-,`jenis` varchar(20)
-,`harga` int(11)
-,`stok` int(11)
-,`terjual` int(11)
-,`foto_barang` varchar(100)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in struktur untuk tampilan `v_user`
--- (Lihat di bawah untuk tampilan aktual)
---
-CREATE TABLE `v_user` (
-`id_user` int(11)
-,`email` varchar(100)
-,`username` varchar(20)
-,`password` varchar(100)
-,`level` varchar(20)
-,`nama` varchar(100)
-,`tgl_lahir` date
-,`jenis_kelamin` varchar(20)
-,`alamat` varchar(100)
-,`no_telp` varchar(12)
-,`foto` varchar(100)
-);
-
--- --------------------------------------------------------
-
---
--- Struktur untuk view `v_barang`
---
-DROP TABLE IF EXISTS `v_barang`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_barang`  AS  select `barang`.`id_barang` AS `id_barang`,`barang`.`id_supplier` AS `id_supplier`,`barang`.`nama_barang` AS `nama_barang`,`barang`.`kemasan` AS `kemasan`,`barang`.`merk` AS `merk`,`barang`.`jenis` AS `jenis`,`barang`.`harga` AS `harga`,`barang`.`stok` AS `stok`,`barang`.`terjual` AS `terjual`,`barang`.`foto_barang` AS `foto_barang` from `barang` ;
-
--- --------------------------------------------------------
-
---
--- Struktur untuk view `v_user`
---
-DROP TABLE IF EXISTS `v_user`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_user`  AS  select `user`.`id_user` AS `id_user`,`user`.`email` AS `email`,`user`.`username` AS `username`,`user`.`password` AS `password`,`user`.`level` AS `level`,`user`.`nama` AS `nama`,`user`.`tgl_lahir` AS `tgl_lahir`,`user`.`jenis_kelamin` AS `jenis_kelamin`,`user`.`alamat` AS `alamat`,`user`.`no_telp` AS `no_telp`,`user`.`foto` AS `foto` from `user` ;
 
 --
 -- Indexes for dumped tables

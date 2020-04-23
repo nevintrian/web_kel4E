@@ -34,37 +34,37 @@
 
 
                     <tr>
-                        <td width="5px"><span class="fa fa-circle"></span></td>
-                        <td ><span>Nama Barang</td>
-                        <td ><?php echo $nama_barang; ?></span></td>
+                        <td width="5px"><span class="fa fa-dot-circle"></span></td>
+                        <td><span>Nama Barang</td>
+                        <td><?php echo $nama_barang; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-circle"></span></td>
+                        <td width="5px"><span class="fa fa-dot-circle"></span></td>
                         <td ><span class="sku">Jenis</td>
                         <td ><?php echo $jenis; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-circle"></span></td>
+                        <td width="5px"><span class="fa fa-dot-circle"></span></td>
                         <td ><span class="sku">Kemasan</td>
                         <td ><?php echo $kemasan; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-circle"></span></td>
+                        <td width="5px"><span class="fa fa-dot-circle"></span></td>
                         <td ><span class="sku">Merk</td>
                         <td ><?php echo $merk; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-circle"></span></td>
+                        <td width="5px"><span class="fa fa-dot-circle"></span></td>
                         <td ><span class="sku">Stok</td>
                         <td ><?php echo $stok; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-circle"></span></td>
+                        <td width="5px"><span class="fa fa-dot-circle"></span></td>
                         <td ><span class="sku">Harga</td>
                         <td ><?php echo $harga; ?></span></td>
                     </tr>
                     <tr>
-                        <td width="5px"><span class="fa fa-circle"></span></td>
+                        <td width="5px"><span class="fa fa-dot-circle"></span></td>
                         <td ><span class="sku">Nama Supplier</td>
                         <td ><?php echo $nama_supplier; ?></span></td>
                     </tr>
