@@ -34,7 +34,7 @@ class M_barang extends CI_Model
     $this->db->select('*');
     $this->db->from('barang');
     $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
-    $where = "barang.status='0'";
+    $where = "barang.del='0'";
     $this->db->where($where);
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();

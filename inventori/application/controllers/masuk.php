@@ -141,11 +141,11 @@ class Masuk extends CI_Controller {
 	public function hapus_penjualan($id)
 	{
 		$data = array(
-			'status' => "1"
+			'del' => "1"
 
 			);
 
-        
+			$this->db->where('id_masuk', $id);
 		$this->db->update('masuk',$data);
 		$this->db->where('id_masuk', $id);
 		
@@ -153,19 +153,7 @@ class Masuk extends CI_Controller {
 
 	}
 
-	public function delete($id) 
-    {
-            $data = array(
-                'status' => "1"
 
-                );
-                
-				$this->db->where('id_masuk', $id);
-				$this->db->update('masuk', $data);
-				$this->db->where('id_masuk', $id);
-           		 redirect(site_url('masuk1'));
-
-	}
 
 	public function cetak_penjualan($kode_pembelian)
 	{

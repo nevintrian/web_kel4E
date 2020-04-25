@@ -15,7 +15,7 @@ class M_masuk1 extends CI_Model
     $this->db->select('*');
     $this->db->from('masuk');
     $this->db->join('supplier', 'supplier.id_supplier=masuk.id_supplier');
-    $where = "masuk.status='1'";
+    $where = "masuk.del='1'";
     $this->db->where($where);
             return $this->db->count_all_results();
     }
@@ -27,7 +27,7 @@ class M_masuk1 extends CI_Model
     $this->db->select('*');
     $this->db->from('masuk');
     $this->db->join('supplier', 'supplier.id_supplier=masuk.id_supplier');
-    $where = "masuk.status='1'";
+    $where = "masuk.del='1'";
     $this->db->where($where);
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();

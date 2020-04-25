@@ -17,7 +17,7 @@ class Home extends CI_Controller {
 
         $this->load->view('v_header');
         
-        $this->load->view('v_carousel');
+       
         
 		$q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
@@ -43,8 +43,9 @@ class Home extends CI_Controller {
             'total_rows' => $config['total_rows'],
             'per_page' => $per_page,
 		);
-		
         $this->load->view('v_home',$data);
+        $this->load->view('v_carousel');
+        $this->load->view('v_home1',$data);
 		$this->load->view('v_footer'); 
 
 

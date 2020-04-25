@@ -11,8 +11,10 @@
                 <div class="card">
                   <div class="col-md-4">
                 <?php echo anchor(site_url('barang/create'),'Tambah', 'class="btn btn-primary"'); ?>
+                <a class ="btn btn-danger" href="barang1"> <i class="glyphicon glyphicon-trash"></i> </a>
                 </div>
                 <div class="col-md-4">
+               
                 </div>
                 <div class="col-md-4 text-right">
                 <form action="<?php echo site_url('barang/index'); ?>" class="form-inline" method="get">

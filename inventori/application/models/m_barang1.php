@@ -23,7 +23,7 @@ class M_barang1 extends CI_Model
     $this->db->select('*');
     $this->db->from('barang');
     $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
-    $where = "barang.status='1'";
+    $where = "barang.del='1'";
     $this->db->where($where);
         return $this->db->count_all_results();
     }
@@ -36,7 +36,7 @@ class M_barang1 extends CI_Model
     $this->db->select('*');
     $this->db->from('barang');
     $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
-    $where = "barang.status='1'";
+    $where = "barang.del='1'";
     $this->db->where($where);
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();

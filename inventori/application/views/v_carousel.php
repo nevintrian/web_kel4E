@@ -9,7 +9,7 @@
 <body>
 
    <div class="container">		
-	<center><h3>UD SRI REJEKI</h3></center>
+
 	<br/>
 	<div class="col-md-8 col-md-offset-2">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -115,3 +115,5 @@
    </div>
 </body>
 </html>
+</br>
+</br>

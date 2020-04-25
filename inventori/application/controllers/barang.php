@@ -274,7 +274,7 @@ class Barang extends CI_Controller {
 
             //masukkan data ke database
             $data = array(
-                'status' => "1"
+                'del' => "1"
 
                 );
                 
