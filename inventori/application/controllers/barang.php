@@ -267,21 +267,26 @@ class Barang extends CI_Controller {
 	
 
     }
-    //fungsi delete data database
-    public function delete($id) 
-{
-    $row = $this->m_barang->get_by_id($id);
 
-    if ($row) {
-        $this->m_barang->delete($id);
-        redirect(site_url('barang'));
-       
-            }
-       
-	    }
+    public function delete($id) 
+    {
+        //jika gambar tidak diinput oleh user 
+
+            //masukkan data ke database
+            $data = array(
+                'status' => "1"
+
+                );
+                
+				$this->db->where('id_barang', $id);
+				$this->db->update('barang', $data);
+				$this->db->where('id_barang', $id);
+           		 redirect(site_url('barang1'));
+
+	}
   
         
-    }
-        ?>
+}
+        
 
 

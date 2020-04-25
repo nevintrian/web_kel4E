@@ -11,6 +11,7 @@ class Masuk extends CI_Controller {
 		$this->load->helper('html'); 
         $this->load->helper(array('form', 'url')); 
 		$this->load->model('m_masuk');
+		$this->load->model('m_masuk');
 		$this->load->library('cetak_pdf');
 
 	}
@@ -137,14 +138,32 @@ class Masuk extends CI_Controller {
 }
 
 
-public function hapus_penjualan($kode_pembelian)
+	public function hapus_penjualan($id)
 	{
+		$data = array(
+			'status' => "1"
+
+			);
+
+        
+		$this->db->update('masuk',$data);
+		$this->db->where('id_masuk', $id);
 		
-        $this->db->where('id_masuk', $kode_pembelian);
-		$this->db->delete('masuk');
-		$this->db->where('id_masuk', $kode_pembelian);
-		$this->db->delete('detail_masuk');
-		redirect('masuk');
+		redirect(site_url('masuk1'));
+
+	}
+
+	public function delete($id) 
+    {
+            $data = array(
+                'status' => "1"
+
+                );
+                
+				$this->db->where('id_masuk', $id);
+				$this->db->update('masuk', $data);
+				$this->db->where('id_masuk', $id);
+           		 redirect(site_url('masuk1'));
 
 	}
 

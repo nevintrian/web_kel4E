@@ -15,8 +15,10 @@ class Home extends CI_Controller {
  //menampilkan barang pada home
 	public function index(){	
 
-		$this->load->view('v_header');
-
+        $this->load->view('v_header');
+        
+        $this->load->view('v_carousel');
+        
 		$q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
@@ -42,8 +44,7 @@ class Home extends CI_Controller {
             'per_page' => $per_page,
 		);
 		
-
-		$this->load->view('v_home',$data); 
+        $this->load->view('v_home',$data);
 		$this->load->view('v_footer'); 
 
 
