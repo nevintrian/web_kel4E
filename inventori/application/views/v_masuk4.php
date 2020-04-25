@@ -62,8 +62,8 @@
           <td><?php echo $masuk1->alamat; ?></td>
           <td><?php echo $masuk1->no_telp; ?></td>
 					<td>
-						
-            <a href="masuk4/hapus_penjualan/<?php echo $masuk1->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
+          <a href="masuk1/restore/<?php echo $masuk1->id_masuk ?>" class="btn btn-warning btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin merestore data?')">restore</a>
+            <a href="masuk1/hapus_penjualan/<?php echo $masuk1->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
 					</td>
 				</tr>
 				<?php } ?>

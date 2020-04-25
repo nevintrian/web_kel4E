@@ -155,16 +155,20 @@ class Keluar extends CI_Controller {
 }
 
 
-public function hapus_penjualan($kode_penjualan)
-	{
-		
-        $this->db->where('id_keluar', $kode_penjualan);
-		$this->db->delete('keluar');
-		$this->db->where('id_keluar', $kode_penjualan);
-		$this->db->delete('detail_keluar');
-		redirect('keluar');
-		
-	}
+public function hapus_penjualan($id)
+{
+	$data = array(
+		'del' => "1"
+
+		);
+
+		$this->db->where('id_keluar', $id);
+	$this->db->update('keluar',$data);
+	$this->db->where('id_keluar', $id);
+	
+	redirect(site_url('keluar'));
+
+}
 
 	public function cetak_penjualan($kode_penjualan)
 	{

@@ -65,7 +65,7 @@
             <td><img src="<?php echo base_url('image/barang/'.$barang1->foto_barang) ?>" width="64" /></td> <!-- menampilkan gambar  -->
             <td style="text-align:center" width="200px">
                 <?php 
-               
+                 echo anchor(site_url('barang1/restore/'.$barang1->id_barang),'Restore', 'class="btn btn-warning btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                echo '  '; 
                echo anchor(site_url('barang1/delete/'.$barang1->id_barang),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>
