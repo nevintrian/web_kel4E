@@ -72,19 +72,7 @@ class Keluar extends CI_Controller {
 	}
 
 
-	public function cek_retur()
-	{
-		$id_barang = $this->input->post('id_barang');
-		$id_keluar = $this->input->post('id_keluar');
-        $cek = $this->db->query("select * from detail_keluar inner join barang on detail_keluar.id_barang=barang.id_barang where detail_keluar.id_barang=$id_barang")->row();
-		$data = array(
-			'qty_keluar' => $cek->qty_keluar,
-			'id_barang' => $cek->id_barang,
-			'id_keluar' => $cek->id_keluar,
-			'nama_barang' => $cek->nama_barang,
-		);
-		echo json_encode($data);
-	}
+
 
 
 	public function simpan_cart()
@@ -118,6 +106,18 @@ class Keluar extends CI_Controller {
         $this->cart->update($data);
         redirect('keluar/tambah');
 	}
+
+	public function retur($id_keluar) 
+    {
+		$id_barang = $this->input->post('id_barang');
+		$jumlah_retur = $this->input->post('jumlah_retur');
+ 
+
+			 $this->db->query("UPDATE detail_keluar set qty_keluar=qty_keluar-($jumlah_retur) where id_keluar=$id_keluar and id_barang=$id_barang");
+				
+           		 redirect(site_url('keluar'));
+
+		}
 
 	public function simpan_penjualan()
 	{

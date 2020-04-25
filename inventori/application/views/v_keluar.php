@@ -1,5 +1,8 @@
 
-          <div class="col-xs-12 col-sm-9 content">
+       <script type="text/javascript" src="assets/dist/js/site.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+       <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
               <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
@@ -77,17 +80,16 @@
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
-            <?php }else{?>
-              
-              <a href="#"  data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" >retur</a>
-                                                   
+                     
               <?php } ?>
+              <button href="#" data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm" >retur</button>
                                
           </td>
-          <div id="myModal1<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
-
+         
+   <div id="myModal1<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
-  <form method="GET" action="retur">
+  <form method="POST" action="keluar/retur/<?php echo $keluar->id_keluar ?>">
+  <?php $kel=$keluar->id_keluar ?>
 	  <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -96,30 +98,31 @@
     <!-- Modal content-->
 	<div class="modal-body">
   <div class="form-group">
+  
         	<label>Nama Barang</label><br>
-	      <select id="nama_barang" name="nama_barang"  class="form-control" >
+	      <select id="id_barang" name="id_barang"  class="form-control" >
+      
         <option value="">--pilih barang--</option>
 	        <?php 
-	      $sql = $this->db->query("select * from detail_keluar inner join barang on detail_keluar.id_barang=barang.id_barang where detail_keluar.id_keluar=$keluar->id_keluar");
+	      $sql = $this->db->query("select * from detail_keluar inner join barang on detail_keluar.id_barang=barang.id_barang where detail_keluar.id_keluar=$kel");
 	        foreach ($sql->result() as $row) {
            ?>
-	        <option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?></option>
-	        <?php } ?>
-	      </select>
+	        <option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?> (qty beli:<?php echo $row->qty_keluar ?>)</option>
+       
+     
+          <?php } ?>
+        </select>
+       
       </div>
 
-      <div class="form-group">
-            <label>Jumlah Beli </label>
-            <input type="text" class="form-control" name="qty_keluar" readonly id="qty_keluar"/>
-        </div>
-      
+
+     
+
       <div class="form-group">
         	<label>Jumlah Retur</label><br>
 	      <input id="jumlah_retur" name="jumlah_retur"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
       
-	    </div>
-       
-      
+      </div>
 		</div>
         <div class="modal-footer">
 	
@@ -131,9 +134,11 @@
 	
 </div>
 </div>
-          <?php } ?>
-				</tr>
-				
+  
+
+        </tr>
+
+			  <?php } ?>    	
 				</table>
 
 
@@ -257,30 +262,7 @@
     })
     </script>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#nama_barang').change(function() {
-      var id = $(this).val();
-      $.ajax({
-        type : 'POST',
-        url : '<?php echo base_url('keluar/cek_retur') ?>',
-        Cache : false,
-        dataType: "json",
-        data : 'id_barang='+id,
-        success : function(resp) {
-            $('#id_barang').val(resp.id_barang); 
-            $('#id_keluar').val(resp.id_keluar); 
-            $('#qty_keluar').val(resp.qty_keluar); 
-            $('#nabar').val(resp.nama_barang); 
-        }
-      });
-      // alert(id);
-    });
 
-
-    
-  });
-</script>
   </div>
 </div>
 </div>
@@ -294,3 +276,4 @@
 </div>
 	</div>
 </div>
+

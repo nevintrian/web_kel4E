@@ -68,7 +68,7 @@
         
         <div class="form-group">
         	<input type="hidden" name="total_masuk" value="<?php echo $this->cart->total() ?>">
-        	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d') ?>">
+        	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d h:i:sa') ?>">
         	
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="masuk" class="btn btn-default">Close</a>
