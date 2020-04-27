@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Apr 2020 pada 08.08
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Waktu pembuatan: 27 Apr 2020 pada 08.40
+-- Versi server: 10.3.16-MariaDB
+-- Versi PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `inventori`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `activity`
+--
+
+CREATE TABLE `activity` (
+  `id_activity` int(11) NOT NULL,
+  `tgl_activity` datetime DEFAULT current_timestamp(),
+  `keterangan` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `activity`
+--
+
+INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`) VALUES
+(3, '2020-04-27 11:44:21', 'admin menginputkan barang bernama brian');
 
 -- --------------------------------------------------------
 
@@ -47,8 +66,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5003, 12, 'barang_1587349533.jpg', 0),
-(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5011, 12, 'barang_1587349541.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5001, 12, 'barang_1587349533.jpg', 0),
+(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5012, 0, 'barang_1587349541.jpg', 0),
 (3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5000, 0, 'barang_1587349556.jpg', 0),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350694.jpg', 0),
@@ -293,7 +312,18 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (244, 7, 'YUPI SEET HEART 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg', 0),
 (245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', '-', 'CANDY', 10300, 5000, 0, 'barang_1587486236.jpg', 0),
 (246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', NULL, NULL, 25000, 5000, 0, 'gg.jpg', 0),
-(254, 11, 'hhd', 'piring', 'r', 'makanan', 10000, 5000, 0, 'gg.jpg', 1);
+(260, 10, 'brian', 'piring', 'r', 'r', 2, 123, 0, 'gg.jpg', 0);
+
+--
+-- Trigger `barang`
+--
+DELIMITER $$
+CREATE TRIGGER `tambah_activity` AFTER INSERT ON `barang` FOR EACH ROW BEGIN
+ INSERT INTO activity(keterangan)
+        VALUES(CONCAT('admin menginputkan barang bernama ', NEW.nama_barang));
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -302,18 +332,11 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 --
 
 CREATE TABLE `carousel` (
-  `id` int(11) NOT NULL,
-  `judul` varchar(100) NOT NULL,
-  `foto` varchar(256) NOT NULL,
-  `isi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `carousel`
---
-
-INSERT INTO `carousel` (`id`, `judul`, `foto`, `isi`) VALUES
-(1, 'pohong', 'hh.jpg', 'pohong goreng');
+  `id_carousel` int(11) NOT NULL,
+  `judul` varchar(100) DEFAULT NULL,
+  `isi` varchar(200) DEFAULT NULL,
+  `gambar` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -333,12 +356,11 @@ CREATE TABLE `detail_keluar` (
 --
 
 INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) VALUES
-(1, 1, 12, 1),
-(2, 1, 12, 1),
 (1, 2, 11, 0),
 (2, 2, 11, 0),
 (1, 3, 12, 0),
-(2, 3, 12, 0);
+(2, 3, 12, 0),
+(1, 4, 12, 1);
 
 --
 -- Trigger `detail_keluar`
@@ -421,9 +443,7 @@ INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
 (1, 1, 12),
 (2, 2, 1),
 (1, 3, 1),
-(2, 4, 11),
-(2, 5, 11),
-(1, 6, 2);
+(2, 5, 11);
 
 --
 -- Trigger `detail_masuk`
@@ -463,9 +483,9 @@ CREATE TABLE `keluar` (
 --
 
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `foto_keluar`, `del`) VALUES
-(1, 2, '2020-04-25 02:15:21', 540000, NULL, 0),
 (2, 2, '2020-04-25 02:15:36', 495000, NULL, 0),
-(3, 1, '2020-04-25 02:16:02', 540000, 'bayar_1587798968.jpg', 0);
+(3, 1, '2020-04-25 02:16:02', 540000, 'bayar_1587798968.jpg', 0),
+(4, 1, '2020-04-26 09:49:36', 270000, NULL, 0);
 
 --
 -- Trigger `keluar`
@@ -500,9 +520,7 @@ INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del
 (1, 1, '2020-04-25 02:16:34', 270000, 1),
 (2, 2, '2020-04-25 02:19:59', 22500, 1),
 (3, 6, '2020-04-25 02:20:29', 22500, 1),
-(4, 7, '2020-04-25 02:20:35', 247500, 1),
-(5, 1, '2020-04-25 02:21:43', 247500, 0),
-(6, 1, '2020-04-25 02:21:50', 45000, 1);
+(5, 1, '2020-04-25 02:21:43', 247500, 0);
 
 --
 -- Trigger `masuk`
@@ -586,6 +604,12 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 --
 
 --
+-- Indeks untuk tabel `activity`
+--
+ALTER TABLE `activity`
+  ADD PRIMARY KEY (`id_activity`);
+
+--
 -- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
@@ -596,7 +620,7 @@ ALTER TABLE `barang`
 -- Indeks untuk tabel `carousel`
 --
 ALTER TABLE `carousel`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_carousel`);
 
 --
 -- Indeks untuk tabel `detail_keluar`
@@ -643,16 +667,22 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `activity`
+--
+ALTER TABLE `activity`
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
 
 --
 -- AUTO_INCREMENT untuk tabel `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
