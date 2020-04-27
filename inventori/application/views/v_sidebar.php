@@ -51,8 +51,15 @@
                 <?php 
                 } elseif ($this->session->userdata('level') == 'manajer')  {
                  ?>
-
-<li>
+                
+                <li>
+                  <a href="#demo3" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-picture"></i>Tampilan  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <li class="collapse" id="demo3">
+                      <a href="carousel" class="list-group-item"> Edit Gambar</a>
+                  
+                    </li>
+                </li>
+                <li>
                   <a href="#demo4" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-th-large"></i>Data Master  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo4">
                       <a href="barang" class="list-group-item"> Data Barang</a>

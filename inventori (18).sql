@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Apr 2020 pada 09.23
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.3.7
+-- Waktu pembuatan: 27 Apr 2020 pada 08.08
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -298,6 +298,26 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `carousel`
+--
+
+CREATE TABLE `carousel` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `foto` varchar(256) NOT NULL,
+  `isi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `carousel`
+--
+
+INSERT INTO `carousel` (`id`, `judul`, `foto`, `isi`) VALUES
+(1, 'pohong', 'hh.jpg', 'pohong goreng');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `detail_keluar`
 --
 
@@ -573,6 +593,12 @@ ALTER TABLE `barang`
   ADD KEY `fk_berasal` (`id_supplier`);
 
 --
+-- Indeks untuk tabel `carousel`
+--
+ALTER TABLE `carousel`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `detail_keluar`
 --
 ALTER TABLE `detail_keluar`
@@ -621,6 +647,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `barang`
   MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=255;
+
+--
+-- AUTO_INCREMENT untuk tabel `carousel`
+--
+ALTER TABLE `carousel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
