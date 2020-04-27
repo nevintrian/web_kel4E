@@ -8,7 +8,7 @@ class M_carousel extends CI_Model
 {
 	//deklarasi tabel
 	public $table = 'carousel';
-    public $id = 'id';
+    public $id = 'id_carousel';
 	public $order = 'DESC';
 	
 	//untuk tampilan home
@@ -16,7 +16,7 @@ class M_carousel extends CI_Model
 
 	//menghitung rows untuk pencarian dan dashboard
 	public function total_rows($q = NULL) { //untuk memunculkan record
-        $this->db->like('id', $q);
+        $this->db->like('id_carousel', $q);
 	$this->db->or_like('judul', $q);
 	$this->db->or_like('isi', $q);
 	$this->db->from($this->table);

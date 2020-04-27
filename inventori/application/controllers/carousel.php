@@ -46,7 +46,7 @@ class Carousel extends CI_Controller {
             'per_page' => $per_page,
         );
         //menampilkan view barang
-        $this->load->view('v_carousel2', $data);
+        $this->load->view('v_carousel1', $data);
 
     } 
 
@@ -61,7 +61,7 @@ class Carousel extends CI_Controller {
         $data = array(
         'button' => 'Create',
         'action' => site_url('carousel/create_action'),
-	    'id' => set_value('id'),
+	    'id_carousel' => set_value('id_carousel'),
 	    'judul' => set_value('judul'),
         'isi' => set_value('isi'),
        
@@ -75,11 +75,11 @@ class Carousel extends CI_Controller {
     {
         //insert dan konfigurasi gambar
 
-        if (empty($_FILES["foto"]["name"])) {   
+        if (empty($_FILES["gambar"]["name"])) {   
             $data = array(
                 'judul' => $this->input->post('judul',TRUE),
                 'isi' => $this->input->post('isi',TRUE),
-                'foto' => "hh.jpg",
+                'gambar' => "hh.jpg",
                 );
         
                 $this->m_carousel->insert($data);
@@ -99,7 +99,7 @@ class Carousel extends CI_Controller {
         $config['file_name'] = $nmfile;
         $this->load->library('upload');
         $this->upload->initialize($config);
-        $this->upload->do_upload('foto');
+        $this->upload->do_upload('gambar');
         $result1 = $this->upload->data();
         $result = array('gambar'=>$result1);
         $dfile = $result['gambar']['file_name'];
@@ -108,7 +108,7 @@ class Carousel extends CI_Controller {
         $data = array(
             'judul' => $this->input->post('judul',TRUE),
             'isi' => $this->input->post('isi',TRUE),
-		    'foto' => $dfile,
+		    'gambar' => $dfile,
 	    );
 
         $this->m_carousel->insert($data);
@@ -132,8 +132,8 @@ class Carousel extends CI_Controller {
         if ($row) {
             $data = array(
             'button' => 'Update',
-            'action' => site_url('carous/update_action'),
-            'id' => set_value('id', $row->id),
+            'action' => site_url('carousel/update_action'),
+            'id_carousel' => set_value('id_carousel', $row->id_carousel),
             'judul' => set_value('judul', $row->judul),
             'isi' => set_value('isi', $row->isi),
 
@@ -149,13 +149,13 @@ class Carousel extends CI_Controller {
     public function update_action() 
     {
         //jika gambar tidak diinput oleh user 
-        if (empty($_FILES["foto"]["name"])) {    
+        if (empty($_FILES["gambar"]["name"])) {    
             $data = array(
             'judul' => $this->input->post('judul',TRUE),
             'isi' => $this->input->post('isi',TRUE),
             
             );
-            $this->m_carousel->update($this->input->post('id', TRUE), $data);
+            $this->m_carousel->update($this->input->post('id_carousel', TRUE), $data);
             ?>
             <script type="text/javascript">
                 alert('Data Berhasil di Update');
@@ -171,7 +171,7 @@ class Carousel extends CI_Controller {
             $config['file_name'] = $nmfile;
             $this->load->library('upload');
             $this->upload->initialize($config);
-            $this->upload->do_upload('foto');
+            $this->upload->do_upload('gambar');
             $result1 = $this->upload->data();
             $result = array('gambar'=>$result1);
             $dfile = $result['gambar']['file_name'];
@@ -179,10 +179,10 @@ class Carousel extends CI_Controller {
             $data = array(
             'judul' => $this->input->post('judul',TRUE),
             'isi' => $this->input->post('isi',TRUE),
-            'foto' => $dfile,
+            'gambar' => $dfile,
             );
 
-        $this->m_carousel->update($this->input->post('id', TRUE), $data);
+        $this->m_carousel->update($this->input->post('id_carousel', TRUE), $data);
         ?>
         <script type="text/javascript">
             alert('Data Berhasil di Update');
@@ -197,21 +197,16 @@ class Carousel extends CI_Controller {
    
 
     public function delete($id) 
-    {
-        //jika gambar tidak diinput oleh user 
+{
+    $row = $this->m_carousel->get_by_id($id);
 
-            //masukkan data ke database
-            $data = array(
-                'del' => "1"
-
-                );
-                
-				$this->db->where('id_barang', $id);
-				$this->db->update('barang', $data);
-				$this->db->where('id_barang', $id);
-           		 redirect(site_url('barang1'));
-
-	}
+    if ($row) {
+        $this->m_carousel->delete($id);
+        redirect(site_url('carousel'));
+       
+            }
+       
+	    }
   
         
 }
