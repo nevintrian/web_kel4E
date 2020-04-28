@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Apr 2020 pada 08.40
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.3.7
+-- Waktu pembuatan: 28 Apr 2020 pada 07.28
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,7 +39,8 @@ CREATE TABLE `activity` (
 --
 
 INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`) VALUES
-(3, '2020-04-27 11:44:21', 'admin menginputkan barang bernama brian');
+(3, '2020-04-27 11:44:21', 'admin menginputkan barang bernama brian'),
+(4, '2020-04-28 10:26:07', 'admin menginputkan barang bernama nevin');
 
 -- --------------------------------------------------------
 
@@ -71,7 +72,7 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5000, 0, 'barang_1587349556.jpg', 0),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350694.jpg', 0),
-(6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', '-', 'makanan', 16750, 5000, 0, 'barang_1587349524.jpg', 0),
+(6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', '-', 'makanan', 16750, 4996, 4, 'barang_1587349524.jpg', 0),
 (7, 1, 'MAJORICO MATCHA 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg', 0),
 (8, 1, 'MAJORICO CHOCOLATE 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg', 0),
 (9, 1, 'KUKIS N KRIM STRAWBERY 400 GR', '6 PCS / K', NULL, NULL, 22700, 5000, 0, 'gg.jpg', 0),
@@ -312,7 +313,8 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (244, 7, 'YUPI SEET HEART 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg', 0),
 (245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', '-', 'CANDY', 10300, 5000, 0, 'barang_1587486236.jpg', 0),
 (246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', NULL, NULL, 25000, 5000, 0, 'gg.jpg', 0),
-(260, 10, 'brian', 'piring', 'r', 'r', 2, 123, 0, 'gg.jpg', 0);
+(260, 10, 'brian', 'piring', 'r', 'r', 2, 123, 0, 'gg.jpg', 0),
+(261, 7, 'nevin', 'g', '-', 'MM', 1, 1, 0, 'barang_1588044367.jpg', 0);
 
 --
 -- Trigger `barang`
@@ -338,6 +340,21 @@ CREATE TABLE `carousel` (
   `gambar` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `carousel`
+--
+
+INSERT INTO `carousel` (`id_carousel`, `judul`, `isi`, `gambar`) VALUES
+(3, 'a', 'a', 'carousel_1588048397.jpg'),
+(4, 'b', 'b', 'carousel_1588048326.jpg'),
+(6, 'd', 'd', 'carousel_1588048366.jpg'),
+(7, 'c', 'c', 'carousel_1588048918.jpg'),
+(8, 'e', 'e', 'carousel_1588048943.jpg'),
+(9, 'f', 'f', 'carousel_1588048955.jpg'),
+(10, 'g', 'g', 'carousel_1588048992.jpg'),
+(11, 'h', 'h', 'carousel_1588049008.jpg'),
+(12, 'i', 'i', 'carousel_1588049021.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -360,7 +377,8 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) V
 (2, 2, 11, 0),
 (1, 3, 12, 0),
 (2, 3, 12, 0),
-(1, 4, 12, 1);
+(1, 4, 12, 1),
+(6, 5, 4, 1);
 
 --
 -- Trigger `detail_keluar`
@@ -485,7 +503,8 @@ CREATE TABLE `keluar` (
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `foto_keluar`, `del`) VALUES
 (2, 2, '2020-04-25 02:15:36', 495000, NULL, 0),
 (3, 1, '2020-04-25 02:16:02', 540000, 'bayar_1587798968.jpg', 0),
-(4, 1, '2020-04-26 09:49:36', 270000, NULL, 0);
+(4, 1, '2020-04-26 09:49:36', 270000, NULL, 0),
+(5, 3, '2020-04-28 10:47:28', 67000, NULL, 0);
 
 --
 -- Trigger `keluar`
@@ -517,9 +536,9 @@ CREATE TABLE `masuk` (
 --
 
 INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del`) VALUES
-(1, 1, '2020-04-25 02:16:34', 270000, 1),
+(1, 1, '2020-04-25 02:16:34', 270000, 0),
 (2, 2, '2020-04-25 02:19:59', 22500, 1),
-(3, 6, '2020-04-25 02:20:29', 22500, 1),
+(3, 6, '2020-04-25 02:20:29', 22500, 0),
 (5, 1, '2020-04-25 02:21:43', 247500, 0);
 
 --
@@ -670,19 +689,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
 
 --
 -- AUTO_INCREMENT untuk tabel `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
