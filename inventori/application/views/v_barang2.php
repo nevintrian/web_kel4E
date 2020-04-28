@@ -24,10 +24,20 @@
             <label for="varchar">Merk</label>
             <input type="text" class="form-control" required name="merk" id="merk" placeholder="Merk" value="<?php echo $merk; ?>" />
         </div>
+        
         <div class="form-group">
             <label for="int">Stok </label>
-            <input type="text" min="0"  title="Masukkan data angka saja" class="form-control" readonly name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
+            <?php if ($this->session->userdata('level') == 'manajer') { ?>
+                <input type="text" min="0"  title="Masukkan data angka saja" class="form-control" required name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
+            <?php 
+                } elseif ($this->session->userdata('level') == 'admin') {
+                 ?>
+                
+                    <input type="text" min="0"  title="Masukkan data angka saja" class="form-control" readonly name="stok" id="stok" placeholder="Stok" value="<?php echo $stok; ?>" />
+
+            <?php  } ?>
         </div>
+
         <div class="form-group">
             <label for="int">Harga</label>
             <input type="number" min="1"  title="Masukkan data angka saja" class="form-control" required name="harga" id="harga" placeholder="Harga" value="<?php echo $harga; ?>" />
