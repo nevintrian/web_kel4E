@@ -67,6 +67,12 @@
               <d style="text-align: center;background-color: #66b3ff;border-color: #d9d9d9" class="list-group-item"><i class="fa fa-folder"> </i> Konfirmasi Pembayaran</d>
               <a href="<?php echo site_url('konfirmasi') ?>" class="list-group-item" style="text-align: center;background-color: light-blue;border-color: #d9d9d9">jumlah konfirmasi pembayaran : <?php echo $total_asset_konfirmasi; ?></a>  <!-- menampilkan jumlah user -->
             </div>
+      </div>
+      <div class="col-md-4">
+            <div class="list-group">  
+              <d style="text-align: center;background-color: #66b3ff;border-color: #d9d9d9" class="list-group-item"><i class="fa fa-folder"> </i> Carousel</d>
+              <a href="<?php echo site_url('carousel') ?>" class="list-group-item" style="text-align: center;background-color: light-blue;border-color: #d9d9d9">jumlah carousel : <?php echo $total_asset_carousel; ?></a>  <!-- menampilkan jumlah user -->
+            </div>
     	</div>
     <?php }else if ($this->session->userdata('level') == 'customer' or $this->session->userdata('level') == 'sales') { ?>
       <div class="col-md-4">

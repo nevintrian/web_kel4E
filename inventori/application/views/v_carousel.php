@@ -28,7 +28,7 @@
 			<!-- deklarasi carousel -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="image/carousel/kokola1.jpg" alt="www.kokola.co.id">
+					<img src="image/carousel/pohong.jpg">
 					<div class="carousel-caption">
 						<h3>A-Squad</h3>
 						<p>Tutorial belajar pemrograman web, mobile dan design.</p>
