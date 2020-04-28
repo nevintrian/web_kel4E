@@ -50,6 +50,23 @@ class Barang1 extends CI_Controller {
 
     } 
 
+    public function restore($id) 
+    {
+        //jika gambar tidak diinput oleh user 
+
+            //masukkan data ke database
+            $data = array(
+                'del' => "0"
+
+                );
+                
+				$this->db->where('id_barang', $id);
+				$this->db->update('barang', $data);
+				$this->db->where('id_barang', $id);
+           		 redirect(site_url('barang1'));
+
+	}
+
     //fungsi delete data database
     public function delete($id) 
 {

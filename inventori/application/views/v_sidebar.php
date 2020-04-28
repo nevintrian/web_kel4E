@@ -79,6 +79,7 @@
                     </li>
                 </li>
                
+                <li class="list-group-item"><a href="<?php echo base_url()?>activity" type="submit"><i class="fa fa-history"></i>Riwayat </a></li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
                 
 

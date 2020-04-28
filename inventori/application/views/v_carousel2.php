@@ -23,7 +23,7 @@
         </div>
         <input type="hidden" name="id_carousel" value="<?php echo $id_carousel; ?>" /> 
         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-        <a href="<?php echo site_url('carousel1') ?>" class="btn btn-default">Cancel</a>
+        <a href="<?php echo site_url('carousel') ?>" class="btn btn-default">Cancel</a>
     </form>
 
                 </div>

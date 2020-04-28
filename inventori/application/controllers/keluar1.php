@@ -45,6 +45,20 @@ class Keluar1 extends CI_Controller {
 	}
 	
 	
+	public function restore($id)
+{
+	$data = array(
+		'del' => "0"
+
+		);
+
+	$this->db->where('id_keluar', $id);
+	$this->db->update('keluar',$data);
+	$this->db->where('id_keluar', $id);
+	
+	redirect(site_url('keluar1'));
+
+} 
 
 public function hapus_penjualan($kode_penjualan)
 	{

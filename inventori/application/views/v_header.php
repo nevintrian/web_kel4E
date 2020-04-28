@@ -56,7 +56,7 @@
             <div class="navbar-form navbar-right">
                        
             <a href="<?php echo base_url() ?>keranjang" type="submit" class="btn btn-info"><i class='fas fa-shopping-cart' style='font-size:16px'></i> </a>
-
+            
 
 
 
@@ -64,6 +64,7 @@
             <?php 
                 if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
                  ?>
+                 <a href="<?php echo base_url() ?>activity" type="submit" class="btn btn-secondary"><i class='fas fa-history' style='font-size:16px'></i> </a>                              
             <?php $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0'")->num_rows(); ?>           
             <?php if ($jmlh=='0') {
               ?>   
@@ -71,7 +72,7 @@
               <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh; ?></span> </a>
               <ul id='dropdown' class='dropdown-menu'>
               <li><a>Tidak ada notifikasi baru</a></li>
-                                            
+              
                             </ul>
               </a> 
               <?php }else{ ?>
