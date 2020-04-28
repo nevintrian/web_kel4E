@@ -16,89 +16,39 @@
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>		
-        <li data-target="#myCarousel" data-slide-to="3"></li>	
-        <li data-target="#myCarousel" data-slide-to="4"></li>	
-        <li data-target="#myCarousel" data-slide-to="5"></li>	
-        <li data-target="#myCarousel" data-slide-to="6"></li>	
-        <li data-target="#myCarousel" data-slide-to="7"></li>	
-        <li data-target="#myCarousel" data-slide-to="8"></li>	
-        <li data-target="#myCarousel" data-slide-to="9"></li>	
+				
+					<?php 
+					$sql = $this->db->query("select * from carousel");
+					foreach ($sql->result() as $row) {
+					?>
+					<li data-target="#myCarousel" data-slide-to="<?php echo $row->id_carousel; ?>" ></li>
+					<?php } ?>
 			</ol>
 
 			<!-- deklarasi carousel -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="image/kokola1.jpg" alt="www.kokola.co.id">
+					<img src="image/carousel/kokola1.jpg" alt="www.kokola.co.id">
 					<div class="carousel-caption">
 						<h3>A-Squad</h3>
 						<p>Tutorial belajar pemrograman web, mobile dan design.</p>
 					</div>
 				</div>
+
+				<?php 
+					$sql = $this->db->query("select * from carousel");
+					foreach ($sql->result() as $row) {
+					?>
+					
 				<div class="item">
-					<img src="image/kokola2.jpg" alt="www.kokola.co.id">
+					<img src="image/carousel/<?php echo $row->gambar; ?> " style="height:292px; width:100%">
 					<div class="carousel-caption">
-						<h3>Pohong Goreng</h3>
-						<p>Mangan pohong enak</p>
+						<h3><?php echo $row->judul; ?></h3>
+						<p><?php echo $row->isi; ?></p>
 					</div>
 				</div>
-        <div class="item">
-					<img src="image/kokola3.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Pohong Rebus</h3>
-						<p>Pohong di gawe mokel</p>
-					</div>
-				</div>
-        <div class="item">
-					<img src="image/kokola4.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Tutorial Bootstrap</h3>
-						<p>Belajar tutorial bootstrap</p>
-					</div>
-				</div>
-        <div class="item">
-					<img src="image/kokola5.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Tutorial Bootstrap</h3>
-						<p>Belajar tutorial bootstrap</p>
-					</div>
-				</div>
-        <div class="item">
-					<img src="image/kokola6.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Tutorial Bootstrap</h3>
-						<p>Belajar tutorial bootstrap</p>
-					</div>
-				</div>
-        <div class="item">
-					<img src="image/kokola7.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Tutorial Bootstrap</h3>
-						<p>Belajar tutorial bootstrap</p>
-					</div>
-				</div>
-        <div class="item">
-					<img src="image/kokola8.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Tutorial Bootstrap</h3>
-						<p>Belajar tutorial bootstrap</p>
-					</div>
-				</div>
-        <div class="item">
-					<img src="image/kokola9.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Tutorial Bootstrap</h3>
-						<p>Belajar tutorial bootstrap</p>
-					</div>
-				</div>
-				<div class="item">
-					<img src="image/kokola10.jpg" alt="www.kokola.co.id">
-					<div class="carousel-caption">
-						<h3>Tutorial Android</h3>
-						<p>Tutorial membuat aplikasi android.</p>
-					</div>
-				</div>				
+				<?php } ?>
+    			
 			</div>
 
 			<!-- membuat panah next dan previous -->

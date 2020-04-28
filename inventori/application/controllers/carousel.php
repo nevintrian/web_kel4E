@@ -93,7 +93,7 @@ class Carousel extends CI_Controller {
 
         } else {
         $nmfile = "carousel_".time();
-        $config['upload_path'] = './image/barang';
+        $config['upload_path'] = './image/carousel';
         $config['allowed_types'] = 'jpg|png';
         $config['max_size'] = '20000';
         $config['file_name'] = $nmfile;
@@ -165,7 +165,7 @@ class Carousel extends CI_Controller {
         //jika gambar diinput oleh user
         } else {
             $nmfile = "carousel_".time();
-            $config['upload_path'] = './image/barang';
+            $config['upload_path'] = './image/carousel';
             $config['allowed_types'] = 'jpg|png';
             $config['max_size'] = '20000';
             $config['file_name'] = $nmfile;

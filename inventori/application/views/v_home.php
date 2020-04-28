@@ -21,13 +21,19 @@
       <div class="panel panel-default">
         <div class="panel-body">
         <div class="card">
-                  <div class="col-md-4">
+        <div class="col-md-1 text-right">
+                <select id="id_barang" name="id_barang"  class="form-control" > 
+                <option value="">pilih</option>
+                <?php 
+                $sql = $this->db->query("select distinct jenis from barang");
+                foreach ($sql->result() as $row) {
+                 ?>
+                <option value="<?php echo $row->jenis ?>"><?php echo $row->jenis ?></option>
+                <?php } ?>
+                 </select>
                 
                 </div>
-                <div class="col-md-4">
-                <center><h4> UD SRI REJEKI </h4> </center>
-                </div>
-                <div class="col-md-4 text-right">
+                <div class="col-md-3 text-left">
                 <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="cari nama barang" name="q" value="<?php echo $q; ?>">
@@ -44,7 +50,14 @@
                         </span>
                     </div>
                 </form>
+
                 </div>
+            
+ 
+                <div class="col-md-4 text-left">
+                <center><h4> UD SRI REJEKI </h4> </center>
+                </div>
+                
                 </div>
 </br>
 	
