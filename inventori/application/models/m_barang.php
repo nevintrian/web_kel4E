@@ -69,4 +69,42 @@ class M_barang extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get()->row();
     }
+
+    //barang get API
+    public function getBarang($id=null){
+        
+        if($id==null) {
+
+            $this->db->select('*');
+            $this->db->from('barang');
+            $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
+            return $this->db->get()->result();
+        }else{
+            $this->db->select('*');
+            $this->db->from('barang');
+            $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
+            $where = "id_barang=$id";
+            $this->db->where($where);
+            return $this->db->get()->result();
+        }
+        
+    }
+
+   public function deleteBarang($id){
+        $this->db->delete('barang', ['id_barang' =>$id]);
+        return $this->db->affected_rows();
+    }
+
+    public function createBarang($data){
+
+        $this->db->insert('barang', $data);
+        return $this->db->affected_rows();
+    }
+
+
+    public function updateBarang($data, $id){
+
+        $this->db->update('barang', $data, ['id_barang' =>$id]);
+        return $this->db->affected_rows();
+    }
 }
