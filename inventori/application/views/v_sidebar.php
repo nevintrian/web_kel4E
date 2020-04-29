@@ -13,7 +13,14 @@
                   <a href="#demo3" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-picture"></i>Tampilan  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo3">
                       <a href="carousel" class="list-group-item"> Edit Gambar</a>
-                  
+                    </li>
+                </li>
+                <li>
+                  <a href="#demo6" class="list-group-item " data-toggle="collapse"><i class="fa fa-users"></i>Data Pegawai  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <li class="collapse" id="demo6">
+                    <a href="user" class="list-group-item">Admin</a>
+                    <a href="sales" class="list-group-item">Sales</a>
+                    <a href="gudang" class="list-group-item">Gudang</a>    
                     </li>
                 </li>
                 <li>
@@ -66,10 +73,17 @@
                     </li>
                 </li>
                 <li>
+                  <a href="#demo6" class="list-group-item " data-toggle="collapse"><i class="fa fa-users"></i>Data Pegawai  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <li class="collapse" id="demo6">
+                    <a href="user" class="list-group-item">Admin</a>
+                    <a href="sales" class="list-group-item">Sales</a>
+                    <a href="gudang" class="list-group-item">Gudang</a>    
+                    </li>
+                </li>
+                <li>
                   <a href="#demo4" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-th-large"></i>Data Master  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo4">
                       <a href="barang" class="list-group-item"> Data Barang</a>
-                      <a href="user" class="list-group-item"> Data Pegawai</a>
                       <a href="pelanggan" class="list-group-item"> Data Pelanggan</a>
                       <a href="supplier" class="list-group-item"> Data Supplier</a>
                   

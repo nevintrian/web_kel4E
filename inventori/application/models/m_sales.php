@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class M_user extends CI_Model
+class M_sales extends CI_Model
 {
 	//deklarasi tabel
     public $table = 'user';
@@ -14,7 +14,7 @@ class M_user extends CI_Model
 	//menghitung rows untuk pencarian dan dashboard
 	public function total_rows($q = NULL) {
     $this->db->or_like('nama', $q);
-    $where = "level='admin'";
+    $where = "level='sales'";
     $this->db->where($where);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
@@ -24,7 +24,7 @@ class M_user extends CI_Model
     function get_limit_data($limit, $per_page = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
 	$this->db->or_like('nama', $q);
-    $where = "level='admin'";
+    $where = "level='sales'";
     $this->db->where($where);
 	$this->db->limit($limit, $per_page);
         return $this->db->get($this->table)->result();
