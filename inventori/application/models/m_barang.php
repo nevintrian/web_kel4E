@@ -70,8 +70,18 @@ class M_barang extends CI_Model
         return $this->db->get()->row();
     }
 
-    //barang get API
-    public function getBarang($id=null){
+
+
+
+
+
+
+
+
+
+
+  //API API API
+    public function getbarang($id=null){
         
         if($id==null) {
 
@@ -90,19 +100,19 @@ class M_barang extends CI_Model
         
     }
 
-   public function deleteBarang($id){
+   public function deletebarang($id){
         $this->db->delete('barang', ['id_barang' =>$id]);
         return $this->db->affected_rows();
     }
 
-    public function createBarang($data){
+    public function createbarang($data){
 
         $this->db->insert('barang', $data);
         return $this->db->affected_rows();
     }
 
 
-    public function updateBarang($data, $id){
+    public function updatebarang($data, $id){
 
         $this->db->update('barang', $data, ['id_barang' =>$id]);
         return $this->db->affected_rows();

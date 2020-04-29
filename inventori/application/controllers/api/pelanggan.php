@@ -2,13 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
-class Barang extends RestController{
+class Pelanggan extends RestController{
 
     function __construct()
     {
         // Construct the parent class
         parent::__construct();
-        $this->load->model('m_barang');
+        $this->load->model('m_pelanggan');
     }
 
 
@@ -17,19 +17,19 @@ class Barang extends RestController{
 
     $id=$this->get('id');
     if($id==null) {
-    $barang=$this->m_barang->getbarang();
+    $pelanggan=$this->m_pelanggan->getpelanggan();
     }else {
-        $barang=$this->m_barang->getbarang($id);
+        $pelanggan=$this->m_pelanggan->getpelanggan($id);
 
     }
      
      
 
-    if($barang) {
+    if($pelanggan) {
 
             $this->response( [
                 'status' => true,
-                'data' => $barang
+                'data' => $pelanggan
             ], 200 );
      
     }else {
@@ -49,7 +49,7 @@ public function index_delete(){
             'message' => 'masukkan id delete'
         ], 400 );
         }else {
-            if($this->m_barang->deletebarang($id)>0) {
+            if($this->m_pelanggan->deletepelanggan($id)>0) {
                 $this->response( [
                     'status' => true,
                     'id'=> $id,
@@ -67,26 +67,28 @@ public function index_delete(){
 
 public function index_post(){
     $data = [
-    'nama_barang' => $this->post('nama_barang'),
-    'harga' => $this->post('harga'),
-    'stok' => $this->post('stok'),
-    'kemasan' => $this->post('kemasan'),
-    'jenis' => $this->post('jenis'),
-    'merk' => $this->post('merk'),
-    'id_supplier' => $this->post('id_supplier'),
-    'foto_barang' => $this->post('foto_barang'),
+    'email' => $this->post('email'),
+    'username' => $this->post('username'),
+    'password' => $this->post('password'),
+    'level' => $this->post('level'),
+    'nama' => $this->post('nama'),
+    'tgl_lahir' => $this->post('tgl_lahir'),
+    'jenis_kelamin' => $this->post('jenis_kelamin'),
+    'alamat' => $this->post('alamat'),
+    'no_telp' => $this->post('no_telp'),
+    'foto' => $this->post('foto'),
     ];
 
-    if($this->m_barang->createbarang($data) >0){
+    if($this->m_pelanggan->createpelanggan($data) >0){
 
         $this->response( [
             'status' => true,
-            'message' => 'data barang berhasil ditambah'
+            'message' => 'data pelanggan berhasil ditambah'
         ], 200 );
     } else {
         $this->response( [
             'status' => false,
-            'message' => 'data barang gagal ditambahkan'
+            'message' => 'data pelanggan gagal ditambahkan'
         ], 400 );
 
     }
@@ -98,26 +100,28 @@ public function index_post(){
 public function index_put() {
     $id=$this->put('id');
     $data = [
-        'nama_barang' => $this->put('nama_barang'),
-        'harga' => $this->put('harga'),
-        'stok' => $this->put('stok'),
-        'kemasan' => $this->put('kemasan'),
-        'jenis' => $this->put('jenis'),
-        'merk' => $this->put('merk'),
-        'id_supplier' => $this->put('id_supplier'),
-        'foto_barang' => $this->put('foto_barang'),
+        'email' => $this->put('email'),
+        'username' => $this->put('username'),
+        'password' => $this->put('password'),
+        'level' => $this->put('level'),
+        'nama' => $this->put('nama'),
+        'tgl_lahir' => $this->put('tgl_lahir'),
+        'jenis_kelamin' => $this->put('jenis_kelamin'),
+        'alamat' => $this->put('alamat'),
+        'no_telp' => $this->put('no_telp'),
+        'foto' => $this->put('foto'),
         ];
 
-        if($this->m_barang->updatebarang($data, $id) >0){
+        if($this->m_pelanggan->updatepelanggan($data, $id) >0){
 
             $this->response( [
                 'status' => true,
-                'message' => 'data barang berhasil diupdate'
+                'message' => 'data pelanggan berhasil diupdate'
             ], 200 );
         } else {
             $this->response( [
                 'status' => false,
-                'message' => 'data barang gagal diupdate'
+                'message' => 'data pelanggan gagal diupdate'
             ], 400 );
     
         }
