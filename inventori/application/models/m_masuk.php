@@ -9,7 +9,7 @@ class M_masuk extends CI_Model
 	//deklarasi tabel
 	public $table = 'masuk';
     public $id = 'id_masuk';
-    public $terjual = 'terjual';
+    
 	public $order = 'DESC';
 	
 	//untuk tampilan home
@@ -27,12 +27,11 @@ class M_masuk extends CI_Model
 
     // untuk limit halaman dan pencarian
     function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
-        $this->db->order_by($this->terjual, $this->order);
-    $this->db->or_like('nama_masuk', $q);
-    $this->db->or_like('jenis', $q);
+        
+    
     $this->db->select('*');
     $this->db->from('masuk');
-    $this->db->join('detail_masuk', 'masuk.id_masuk=detail_masuk.id_masuk');
+    $this->db->join('supplier', 'supplier.id_supplier=masuk.id_supplier');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
