@@ -56,4 +56,43 @@ class M_gudang extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    
+    //API API API
+    public function getgudang($id=null){
+        
+        if($id==null) {
+
+            $this->db->select('*');
+            $this->db->from('user');
+            $where = "level='gudang'";
+            $this->db->where($where);
+            return $this->db->get()->result();
+        }else{
+            $this->db->select('*');
+            $this->db->from('user');
+            $where = "level='gudang' and id_user=$id";
+            $this->db->where($where);
+            return $this->db->get()->result();
+        }
+        
+    }
+
+   public function deletegudang($id){
+        $this->db->delete('user', ['id_user' =>$id]);
+        return $this->db->affected_rows();
+    }
+
+    public function creategudang($data){
+
+        $this->db->insert('user', $data);
+        return $this->db->affected_rows();
+    }
+
+
+    public function updategudang($data, $id){
+
+        $this->db->update('user', $data, ['id_user' =>$id]);
+        return $this->db->affected_rows();
+    }
 }

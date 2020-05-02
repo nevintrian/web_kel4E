@@ -72,5 +72,43 @@ class M_keluar extends CI_Model
             return $this->db->get()->result();
 }
     }
+
+    //API API API
+    public function getkeluar($id=null){
+        
+        if($id==null) {
+
+            $this->db->select('*');
+            $this->db->from('keluar');
+            
+            return $this->db->get()->result();
+        }else{
+            $this->db->select('*');
+            $this->db->from('keluar');
+            
+            
+            
+            return $this->db->get()->result();
+        }
+        
+    }
+
+   public function deletekeluar($id){
+        $this->db->delete('keluar', ['id_keluar' =>$id]);
+        return $this->db->affected_rows();
+    }
+
+    public function createkeluar($data){
+
+        $this->db->insert('keluar', $data);
+        return $this->db->affected_rows();
+    }
+
+
+    public function updatekeluar($data, $id){
+
+        $this->db->update('keluar', $data, ['id_keluar' =>$id]);
+        return $this->db->affected_rows();
+    }
 }
 

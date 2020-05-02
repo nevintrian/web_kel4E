@@ -67,5 +67,43 @@ class M_supplier extends CI_Model
     {
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
+
+
+    }
+    //API API API
+    public function getsupplier($id=null){
+        
+        if($id==null) {
+
+            $this->db->select('*');
+            $this->db->from('supplier');
+
+            return $this->db->get()->result();
+        }else{
+            $this->db->select('*');
+            $this->db->from('supplier');
+
+
+            return $this->db->get()->result();
+        }
+        
+    }
+
+   public function deletesupplier($id){
+        $this->db->delete('supplier', ['id_supplier' =>$id]);
+        return $this->db->affected_rows();
+    }
+
+    public function createsupplier($data){
+
+        $this->db->insert('supplier', $data);
+        return $this->db->affected_rows();
+    }
+
+
+    public function updatesupplier($data, $id){
+
+        $this->db->update('supplier', $data, ['id_supplier' =>$id]);
+        return $this->db->affected_rows();
     }
 }

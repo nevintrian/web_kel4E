@@ -59,4 +59,40 @@ class M_carousel extends CI_Model
         $this->db->from('carousel');
         return $this->db->get()->row();
     }
+    
+    //API API API
+    public function getcarousel($id=null){
+        
+        if($id==null) {
+
+            $this->db->select('*');
+            $this->db->from('carousel');
+            
+            return $this->db->get()->result();
+        }else{
+            $this->db->select('*');
+            $this->db->from('carousel');
+
+            return $this->db->get()->result();
+        }
+        
+    }
+
+   public function deletecarousel($id){
+        $this->db->delete('carousel', ['id_carousel' =>$id]);
+        return $this->db->affected_rows();
+    }
+
+    public function createcarousel($data){
+
+        $this->db->insert('user', $data);
+        return $this->db->affected_rows();
+    }
+
+
+    public function updatecarousel($data, $id){
+
+        $this->db->update('user', $data, ['id_carousel' =>$id]);
+        return $this->db->affected_rows();
+    }
 }
