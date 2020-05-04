@@ -20,30 +20,17 @@ class Barang extends CI_Controller {
         //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
-        //konfigurasi url saat klik halaman
-        $q = urldecode($this->input->get('q', TRUE)); //search 
-        $per_page = intval($this->input->get('per_page')); //membuat halaman baru
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'barang/?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'barang/?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'barang';
-            $config['first_url'] = base_url() . 'barang';
-        }
+
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 200;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->m_barang->total_rows($q);
-        $barang = $this->m_barang->get_limit_data($config['per_page'], $per_page, $q);
+
+        $config['total_rows'] = $this->m_barang->total_rows();
+        $barang = $this->m_barang->get_limit_data();
         $this->load->library('pagination');
         $this->pagination->initialize($config);
         //menampilkan data
         $data = array(
             'barang_data' => $barang,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
-            'per_page' => $per_page,
         );
         //menampilkan view barang
         $this->load->view('v_barang', $data);

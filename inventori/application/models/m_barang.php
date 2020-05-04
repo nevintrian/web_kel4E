@@ -16,27 +16,26 @@ class M_barang extends CI_Model
 
 
 	//menghitung rows untuk pencarian dan dashboard
-	public function total_rows($q = NULL) { //untuk memunculkan record
-        $this->db->like('id_barang', $q);
-	$this->db->or_like('nama_barang', $q);
-	$this->db->or_like('stok', $q);
-	$this->db->or_like('harga', $q);
-	$this->db->or_like('merk', $q);
+	public function total_rows() { //untuk memunculkan record
+        $this->db->like('id_barang');
+	$this->db->or_like('nama_barang');
+	$this->db->or_like('stok');
+	$this->db->or_like('harga');
+	$this->db->or_like('merk');
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     // untuk limit halaman dan pencarian
-    function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+    function get_limit_data() { //membubat seacrh dan pagination
         $this->db->order_by($this->terjual, $this->order);
-    $this->db->or_like('nama_barang', $q);
-    $this->db->or_like('jenis', $q);
+    $this->db->or_like('nama_barang');
+    $this->db->or_like('jenis');
     $this->db->select('*');
     $this->db->from('barang');
     $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
     $where = "barang.del='0'";
     $this->db->where($where);
-	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
 

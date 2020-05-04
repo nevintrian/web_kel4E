@@ -1,5 +1,22 @@
 
-          
+     <head>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    
+
+</head> 
+<style>
+table.dataTable {
+  margin-top:-1em !important;  
+  margin-bottom:-1em !important;  
+}  
+
+div.dataTables_info {
+    margin-bottom: -5em;
+}
+</style>  
           <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -24,19 +41,20 @@
                
                 </div>
                 </div>
-
+                </br>
+                </br></br>
               <div class="col-md-12">
-                    <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
+                    <table class="table table-bordered" style="margin-top: 10px" id="datatables">
         <thead>
         <tr>
         <th>No</th>
-        <th>Nama Barang</th>
+        <th>Nama </th>
         <th>Jenis</th>
         <th>Kemasan</th>
         <th>Merk</th>
         <th>Stok</th>
         <th>Harga</th>
-        <th>Nama Supplier</th>
+        <th>Supplier</th>
         <th>Terjual</th>
         <th>Foto Barang</th>
         <th>Action</th>
@@ -44,10 +62,11 @@
         </thead>
       <tbody>
         <?php 
+        $no=1;
 					foreach ($barang_data as $barang) {
                         ?>
                 <tr>
-            <td width="80px"><?php echo ++$per_page ?></td>
+            <td width="80px"><?php echo $no++ ?></td>
             <td><?php echo $barang->nama_barang ?></td>
             <td><?php echo $barang->jenis ?></td>
             <td><?php echo $barang->kemasan ?></td>
@@ -76,7 +95,7 @@
                 <a href="barang/cetak_pdf" class="btn btn-info">Cetak Data Barang</a>
         </div>
             <div class="col-md-6 text-right">
-                <?php echo $pagination ?>
+                
             </div>
         </div>
 
@@ -88,4 +107,13 @@
         </div>
       </div>
     </div>
-    
+    <script type="text/javascript">
+    $(document).ready( function () 
+    {
+      $('#datatables').DataTable({
+                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                responsive: true
+                });
+      
+    } );
+    </script>
