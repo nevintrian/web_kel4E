@@ -243,13 +243,12 @@ public function cetak_pdf() {
     $pdf->AddPage();
 
     $pdf->SetFont('Arial','B',16);
-    $pdf->Cell(0,7,'DAFTAR PEGAWAI',0,1,'C');
+    $pdf->Cell(0,7,'DAFTAR PELANGGAN',0,1,'C');
     $pdf->Cell(10,7,'',0,1);
 
     $pdf->SetFont('Arial','B',10);
 
     $pdf->Cell(8,6,'No',1,0,'C');
-    $pdf->Cell(30,6,'Email',1,0,'C');
     $pdf->Cell(20,6,'Username',1,0,'C');
     $pdf->Cell(20,6,'Level',1,0,'C');
     $pdf->Cell(15,6,'Nama',1,0,'C');
@@ -265,7 +264,6 @@ public function cetak_pdf() {
     $no=1;
     foreach ($barang as $data){
         $pdf->Cell(8,6,$no,1,0);
-        $pdf->Cell(30,6,$data->email,1,0);
         $pdf->Cell(20,6,$data->username,1,0);
         $pdf->Cell(20,6,$data->level,1,0);
         $pdf->Cell(15,6,$data->nama,1,0);
