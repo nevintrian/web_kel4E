@@ -21,7 +21,6 @@
                   <a href="#demo4" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-th-large"></i>Data Master  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo4">
                       <a href="barang" class="list-group-item"> Data Barang</a>
-                      <a href="user" class="list-group-item"> Data Pegawai</a>
                       <a href="pelanggan" class="list-group-item"> Data Pelanggan</a>
                       <a href="supplier" class="list-group-item"> Data Supplier</a>
                   

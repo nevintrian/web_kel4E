@@ -1,3 +1,5 @@
+
+          
           <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -14,32 +16,18 @@
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
                 <a class ="btn btn-danger" href="barang1"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
-                </div>
+              </div>
                 <div class="col-md-4">
                
                 </div>
                 <div class="col-md-4 text-right">
-                <form action="<?php echo site_url('barang/index'); ?>" class="form-inline" method="get">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="cari nama barang" name="q" value="<?php echo $q; ?>">
-                        <span class="input-group-btn">
-                            <?php 
-                                if ($q <> '')
-                                {
-                                    ?>
-                                    <a href="<?php echo site_url('barang'); ?>" class="btn btn-default">Reset</a>
-                                    <?php
-                                }
-                            ?>
-                          <button class="btn btn-primary" type="submit">Search</button>
-                        </span>
-                    </div>
-                </form>
+               
                 </div>
                 </div>
 
-                    <div class="col-md-12">
-                    <table class="table table-bordered" style="margin-bottom: 10px">
+              <div class="col-md-12">
+                    <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
+        <thead>
         <tr>
         <th>No</th>
         <th>Nama Barang</th>
@@ -53,6 +41,8 @@
         <th>Foto Barang</th>
         <th>Action</th>
         </tr>
+        </thead>
+      <tbody>
         <?php 
 					foreach ($barang_data as $barang) {
                         ?>
@@ -78,6 +68,7 @@
                 <?php
             }
             ?>
+      </tbody>
         </table>
         <div class="row">
             <div class="col-md-6">
@@ -97,3 +88,4 @@
         </div>
       </div>
     </div>
+    
