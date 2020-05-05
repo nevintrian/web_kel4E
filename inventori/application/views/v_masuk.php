@@ -38,8 +38,10 @@ div.dataTables_info {
                
                 </div>
                 </div>
+                </br>
+                </br></br>
                 <div class="col-md-12">
-
+                
 		<table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
 			<thead>
 				<tr>
@@ -83,13 +85,13 @@ div.dataTables_info {
 
 
 <div class="row">
-            <div class="col-md-10">
-            <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
-    <a href="masuk/cetak_pdf1" class="btn btn-info btn-sm">Cetak Data Hari ini</a>
-	<a href="masuk/cetak_pdf2" class="btn btn-primary btn-sm">Cetak Data Bulan ini</a>
-	<a href="masuk/cetak_pdf3" class="btn btn-success btn-sm">Cetak Data Tahun ini</a>
-	<a href="masuk/cetak_pdf" class="btn btn-secondary btn-sm">Cetak Semua Data</a>
-            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
+            <div class="col-md-12">
+            <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
+    <a href="masuk/cetak_pdf1" class="btn btn-info">Cetak Data Hari ini</a>
+	<a href="masuk/cetak_pdf2" class="btn btn-primary">Cetak Data Bulan ini</a>
+	<a href="masuk/cetak_pdf3" class="btn btn-success">Cetak Data Tahun ini</a>
+	<a href="masuk/cetak_pdf" class="btn btn-secondary">Cetak Semua Data</a>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
         </div>
           
         </div>

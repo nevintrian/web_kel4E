@@ -44,6 +44,8 @@
                 </div>
                 </div>
                 <?php } ?>
+                </br>
+                </br></br>
                 <div class="col-md-12">
 		<table class="table table-bordered" style="margin-bottom: 10px" id="example">
 
@@ -64,7 +66,7 @@
                         ?>
                 <tr>
 				<tr>
-          <td width="80px"><?php echo ++$per_page ?></td>
+          <td><?php echo ++$per_page ?></td>
 					<td><?php echo $keluar->id_keluar; ?></td>
 					<td><?php echo $keluar->tgl_keluar; ?></td>
 					<td><?php echo number_format($keluar->total_keluar); ?></td>
@@ -91,7 +93,7 @@
 
     <div class="row">
             <div class="col-md-10">
-            <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
+            <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
         </div>
             <div class="col-md-2 text-right">
                 <?php echo $pagination ?>

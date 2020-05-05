@@ -49,7 +49,7 @@
 
 				<tr>
 					<th>No.</th>
-					<th>Kode Transaksi</th>
+					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
 					<th>Nama Pelanggan</th>
@@ -93,7 +93,7 @@
 
     <div class="row">
             <div class="col-md-10">
-            <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
+            <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
         </div>
             <div class="col-md-2 text-right">
                 <?php echo $pagination ?>

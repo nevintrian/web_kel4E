@@ -33,6 +33,8 @@
                 </form>  
                 </div>
                 </div>
+                </br>
+                </br></br>
                 <div class="col-md-12">
 
 		<table class="table table-bordered" style="margin-bottom: 10px" id="example">

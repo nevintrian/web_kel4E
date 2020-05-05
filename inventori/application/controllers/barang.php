@@ -25,8 +25,7 @@ class Barang extends CI_Controller {
 
         $config['total_rows'] = $this->m_barang->total_rows();
         $barang = $this->m_barang->get_limit_data();
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
+
         //menampilkan data
         $data = array(
             'barang_data' => $barang,
@@ -268,7 +267,7 @@ class Barang extends CI_Controller {
 				$this->db->where('id_barang', $id);
 				$this->db->update('barang', $data);
 				$this->db->where('id_barang', $id);
-           		 redirect(site_url('barang1'));
+           		 redirect(site_url('barang'));
 
 	}
   

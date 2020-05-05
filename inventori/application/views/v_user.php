@@ -38,7 +38,8 @@ div.dataTables_info {
                
                 </div>
                 </div>
-
+                </br>
+                </br></br>
                     <div class="col-md-12">
                     <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
     <thead>
@@ -64,7 +65,7 @@ div.dataTables_info {
                         ?>
 					 
                 <tr>
-            <td width="80px"><?php echo $no++ ?></td>
+            <td ><?php echo $no++ ?></td>
             <td><?php echo $user->email ?></td>
             <td><?php echo $user->username ?></td>
             
