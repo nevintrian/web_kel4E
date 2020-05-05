@@ -20,30 +20,15 @@ class Gudang extends CI_Controller {
         //menampilkan header dan sidebar
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
-        //konfigurasi url saat klik halaman
-        $q = urldecode($this->input->get('q', TRUE));
-        $per_page = intval($this->input->get('per_page'));
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'gudang/?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'gudang/?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'gudang';
-            $config['first_url'] = base_url() . 'gudang';
-        }
-        //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->m_gudang->total_rows($q);
-        $user = $this->m_gudang->get_limit_data($config['per_page'], $per_page, $q);
+        
+        $config['total_rows'] = $this->m_gudang->total_rows();
+        $user = $this->m_gudang->get_limit_data();
         $this->load->library('pagination');
         $this->pagination->initialize($config);
         //menampilkan data
         $data = array(
-        'user_data' => $user,
-        'q' => $q,
-        'pagination' => $this->pagination->create_links(),
+        'user_data' => $user, 
         'total_rows' => $config['total_rows'],
-        'per_page' => $per_page,
         );
         //menampilkan view user
         $this->load->view('v_gudang', $data);

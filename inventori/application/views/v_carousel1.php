@@ -1,3 +1,21 @@
+<head>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    
+
+</head> 
+<style>
+table.dataTable {
+  margin-top:-1em !important;  
+  margin-bottom:-1em !important;  
+}  
+
+div.dataTables_info {
+    margin-bottom: -5em;
+}
+</style> 
 <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -24,7 +42,8 @@
                 </div>
 
                     <div class="col-md-12">
-                    <table class="table table-bordered" style="margin-bottom: 10px">
+                    <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
+                    <thead>
         <tr>
         <th>No</th>
         <th>Judul</th>
@@ -32,11 +51,14 @@
         <th>Gambar</th>
         <th>Action</th>
         </tr>
+        </thead>
+        <tbody>
         <?php 
+        $no=1;
 					foreach ($carousel_data as $carousel) {
                         ?>
                 <tr>
-            <td width="80px"><?php echo ++$per_page ?></td>
+            <td width="80px"><?php echo $no++ ?></td>
             <td><?php echo $carousel->judul ?></td>
             <td><?php echo $carousel->isi ?></td>
             <td><img src="<?php echo base_url('image/carousel/'.$carousel->gambar) ?>" width="64" /></td> <!-- menampilkan gambar  -->
@@ -51,6 +73,7 @@
                 <?php
             }
             ?>
+            </tbody>
         </table>
         <div class="row">
             <div class="col-md-6">
@@ -70,3 +93,13 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+    $(document).ready( function () 
+    {
+      $('#datatables').DataTable({
+                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                responsive: true
+                });
+      
+    } );
+    </script> 

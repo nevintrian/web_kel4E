@@ -16,9 +16,9 @@ class M_barang1 extends CI_Model
 
 
 	//menghitung rows untuk pencarian dan dashboard
-	public function total_rows($q = NULL) { //untuk memunculkan record
+	public function total_rows() { //untuk memunculkan record
     
-    $this->db->or_like('nama_barang', $q);
+    $this->db->or_like('nama_barang');
     
     $this->db->select('*');
     $this->db->from('barang');
@@ -29,16 +29,16 @@ class M_barang1 extends CI_Model
     }
 
     // untuk limit halaman dan pencarian
-    function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+    function get_limit_data() { //membubat seacrh dan pagination
     $this->db->order_by($this->terjual, $this->order);
-    $this->db->or_like('nama_barang', $q);
+    $this->db->or_like('nama_barang');
    
     $this->db->select('*');
     $this->db->from('barang');
     $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
     $where = "barang.del='1'";
     $this->db->where($where);
-	$this->db->limit($limit, $per_page);
+	
         return $this->db->get()->result();
     }
 
