@@ -12,7 +12,6 @@
                 <li>
                   <a href="#demo6" class="list-group-item " data-toggle="collapse"><i class="fa fa-users"></i>Data Pegawai  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo6">
-                    <a href="user" class="list-group-item">Data Admin</a>
                     <a href="sales" class="list-group-item">Data Sales</a>
                     <a href="gudang" class="list-group-item">Data Gudang</a>    
                     </li>
