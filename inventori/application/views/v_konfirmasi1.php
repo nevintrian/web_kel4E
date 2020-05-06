@@ -1,4 +1,21 @@
+<head>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    
 
+</head> 
+<style>
+table.dataTable {
+  margin-top:-1em !important;  
+  margin-bottom:-1em !important;  
+}  
+
+div.dataTables_info {
+    margin-bottom: -5em;
+}
+</style> 
           <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -25,28 +42,14 @@
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4 text-right">
-                <form action="<?php echo site_url('konfirmasi1/index'); ?>" class="form-inline" method="get">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="q" placeholder="cari nama pelanggan" value="<?php echo $q; ?>">
-                        <span class="input-group-btn">
-                            <?php 
-                                if ($q <> '')
-                                {
-                                    ?>
-                                    <a href="<?php echo site_url('konfirmasi1'); ?>" class="btn btn-default">Reset</a>
-                                    <?php
-                                }
-                            ?>
-                          <button class="btn btn-primary" type="submit">Search</button>
-                        </span>
-                    </div>
-                </form>     
+                
                 </div>
                 </div>
                 <?php } ?>
+                </br></br></br>
                 <div class="col-md-12">
-		<table class="table table-bordered" style="margin-bottom: 10px" id="example">
-
+              <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
+    <thead>
 				<tr>
 					<th>No.</th>
 					<th>Kode</th>
@@ -58,14 +61,15 @@
           <th>Foto</th>
 					<th>Pilihan</th>
 				</tr>
-
-
+    </thead>                                
+    <tbody>
       <?php 
+        $no=1;
 					foreach ($keluar_data as $keluar) {
                         ?>
-                <tr>
+                
 				<tr>
-          <td><?php echo ++$per_page ?></td>
+          <td><?php echo $no++ ?></td>
 					<td><?php echo $keluar->id_keluar; ?></td>
 					<td><?php echo $keluar->tgl_keluar; ?></td>
 					<td><?php echo number_format($keluar->total_keluar); ?></td>
@@ -75,17 +79,18 @@
           <td><img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" /></td>
           <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
 					
-					<td>
-         <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
+				<td>
+          <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
           <a href="konfirmasi1/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
           <a href="konfirmasi1/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
-         <?php } ?>
+          <?php } ?>
           <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
-            <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+          <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             
-					</td>
+				</td>
 				</tr>
 				<?php } ?>
+      </tbody>  
 				</table>
 
 
@@ -96,7 +101,7 @@
             <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
         </div>
             <div class="col-md-2 text-right">
-                <?php echo $pagination ?>
+                
             </div>
         </div>
 
@@ -210,3 +215,13 @@
 </div>
 	</div>
 </div>
+<script type="text/javascript">
+    $(document).ready( function () 
+    {
+      $('#datatables').DataTable({
+                "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                responsive: true
+                });
+      
+    } );
+    </script> 

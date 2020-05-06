@@ -24,7 +24,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data Pegawai</h2>
+                  <h2 class="content-row-title">Data Admin</h2>
 
                   <div class="row" style="margin-bottom: 10px">
 
