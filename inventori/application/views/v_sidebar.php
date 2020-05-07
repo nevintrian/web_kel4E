@@ -34,12 +34,10 @@
                       
                     </li>
                 </li>
-                <li>
-                  <a href="#demo3" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-picture"></i>Tampilan  <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    <li class="collapse" id="demo3">
-                      <a href="carousel" class="list-group-item"> Edit Gambar</a>
-                    </li>
-                </li>
+
+                <li class="list-group-item"><a href="<?php echo base_url()?>carousel"><i class="glyphicon glyphicon-picture"></i>Data Slider</a></li>
+
+                
                 <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
 
                
@@ -87,13 +85,8 @@
                       
                     </li>
                 </li>
-                <li>
-                  <a href="#demo3" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-picture"></i>Tampilan  <span class="glyphicon glyphicon-chevron-right"></span></a>
-                    <li class="collapse" id="demo3">
-                      <a href="carousel" class="list-group-item"> Edit Gambar</a>
-                    </li>
-                </li>
-                <li class="list-group-item"><a href="<?php echo base_url()?>activity" type="submit"><i class="fa fa-history"></i>Riwayat </a></li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>carousel"><i class="glyphicon glyphicon-picture"></i>Data Slider</a></li>
+                <li class="list-group-item"><a href="<?php echo base_url()?>activity" type="submit"><i class="fa fa-history"></i>Data Activity </a></li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>login/logout" type="submit" onclick="javasciprt: return confirm('Apa Anda Yakin?')" ><i class="glyphicon glyphicon-share"></i>Logout </a></li>
                 
 

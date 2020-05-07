@@ -23,7 +23,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data terhapus Transaksi Barang Masuk</h2>
+                  <h2 class="content-row-title">Data Transaksi Barang Masuk Terhapus</h2>
                   <div class="row">
             <div class="card">
                 <div class="col-md-4">

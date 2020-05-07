@@ -22,13 +22,13 @@ div.dataTables_info {
             <div class="panel panel-default">
               <div class="panel-heading">
               <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
-                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Barang Keluar</h3>
+                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data Barang Keluar</h2>
+                  <h2 class="content-row-title">Transaksi Barang Keluar</h2>
                   <?php }else{?>
-                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Telah Dikonfirmasi</h3>
+                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">

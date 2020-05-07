@@ -10,6 +10,8 @@ class Dashboard extends CI_Controller {
         $this->load->helper(array('form', 'url'));
         $this->load->model('m_barang');
 		$this->load->model('m_user');
+		$this->load->model('m_gudang');
+		$this->load->model('m_sales');
 		$this->load->model('m_pelanggan');
 		$this->load->model('m_keluar');
 		$this->load->model('m_masuk');
@@ -29,18 +31,35 @@ class Dashboard extends CI_Controller {
 
 
 		 
-		if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
+		if ($this->session->userdata('level') == 'manajer') {
 		
 		$data = array(
             'total_asset_barang'=> $this->m_barang->total_rows(),
 			'total_asset_pelanggan'=> $this->m_user->total_rows(),
-			'total_asset_karyawan'=> $this->m_pelanggan->total_rows(),
+			'total_asset_admin'=> $this->m_user->total_rows(),
+			'total_asset_sales'=> $this->m_sales->total_rows(),
+			'total_asset_gudang'=> $this->m_gudang->total_rows(),
 			'total_asset_masuk'=> $this->m_masuk->total_rows(),
 			'total_asset_keluar'=> $this->m_keluar->total_rows(),
 			'total_asset_supplier'=> $this->m_supplier->total_rows(),
 			'total_asset_konfirmasi'=> $this->m_konfirmasi->total_rows(),
 			'total_asset_carousel'=> $this->m_carousel->total_rows(),
 		);
+
+	}else if ($this->session->userdata('level') == 'admin') {
+		
+			$data = array(
+				'total_asset_barang'=> $this->m_barang->total_rows(),
+				'total_asset_pelanggan'=> $this->m_user->total_rows(),
+				'total_asset_sales'=> $this->m_sales->total_rows(),
+				'total_asset_gudang'=> $this->m_gudang->total_rows(),
+				'total_asset_masuk'=> $this->m_masuk->total_rows(),
+				'total_asset_keluar'=> $this->m_keluar->total_rows(),
+				'total_asset_supplier'=> $this->m_supplier->total_rows(),
+				'total_asset_konfirmasi'=> $this->m_konfirmasi->total_rows(),
+				'total_asset_carousel'=> $this->m_carousel->total_rows(),
+			);
+	
 
 
 	}else if($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
