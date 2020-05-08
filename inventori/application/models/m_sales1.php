@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class M_pelanggan extends CI_Model
+class M_sales1 extends CI_Model
 {
 	//deklarasi tabel
     public $table = 'user';
@@ -11,12 +11,10 @@ class M_pelanggan extends CI_Model
 	public $order = 'DESC';
 	
 
-
-
 	//menghitung rows untuk pencarian dan dashboard
 	public function total_rows() {
     $this->db->or_like('nama');
-    $where = "level='customer'";
+    $where = "level='sales' and user.del='1'";
     $this->db->where($where);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
@@ -24,12 +22,11 @@ class M_pelanggan extends CI_Model
 
     // untuk limit halaman dan pencarian
     function get_limit_data() {
-        $this->db->or_like('nama');
-        $where = "level='customer' and user.del='0'";
-        $this->db->where($where);
         $this->db->order_by($this->id, $this->order);
+	$this->db->or_like('nama');
+    $where = "level='sales' and user.del='1'";
+    $this->db->where($where);
         return $this->db->get($this->table)->result();
-        
     }
 
     // insert data
@@ -59,49 +56,42 @@ class M_pelanggan extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
-
-
-
-
-
-
+    
     //API API API
-    public function getpelanggan($id=null){
+    public function getsales($id=null){
         
         if($id==null) {
 
             $this->db->select('*');
             $this->db->from('user');
-            $where = "level='customer'";
+            $where = "level='sales'";
             $this->db->where($where);
             return $this->db->get()->result();
         }else{
             $this->db->select('*');
             $this->db->from('user');
-            $where = "level='customer' and id_user=$id";
+            $where = "level='sales' and id_user=$id";
             $this->db->where($where);
             return $this->db->get()->result();
         }
         
     }
 
-   public function deletepelanggan($id){
+   public function deletesales($id){
         $this->db->delete('user', ['id_user' =>$id]);
         return $this->db->affected_rows();
     }
 
-    public function createpelanggan($data){
+    public function createsales($data){
 
         $this->db->insert('user', $data);
         return $this->db->affected_rows();
     }
 
 
-    public function updatepelanggan($data, $id){
+    public function updatesales($data, $id){
 
         $this->db->update('user', $data, ['id_user' =>$id]);
         return $this->db->affected_rows();
     }
-
-
 }

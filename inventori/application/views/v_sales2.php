@@ -24,16 +24,13 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data Sales</h2>
+                  <h2 class="content-row-title">Data Sales Terhapus</h2>
 
                   <div class="row" style="margin-bottom: 10px">
 
                   <div class="card">
                   <div class="col-md-4">
-                <?php echo anchor(site_url('sales/create'),'Tambah', 'class="btn btn-primary"'); ?>
-                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="sales1"> <i class="glyphicon glyphicon-trash"></i> </a>
-                <?php } ?>
+               
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -64,27 +61,27 @@ div.dataTables_info {
         <tbody>
             <?php 
             $no=1;
-					foreach ($user_data as $user) {
+					foreach ($user_data1 as $user1) {
                         ?>
 					 
                 <tr>
             <td width="80px"><?php echo $no++?></td>
-            <td><?php echo $user->email ?></td>
-            <td><?php echo $user->username ?></td>
+            <td><?php echo $user1->email ?></td>
+            <td><?php echo $user1->username ?></td>
             
-            <td><?php echo $user->level ?></td>
-            <td><?php echo $user->nama ?></td>
-            <td><?php echo $user->tgl_lahir ?></td>
-            <td><?php echo $user->jenis_kelamin ?></td>
-            <td><?php echo $user->alamat ?></td>
-            <td><?php echo $user->no_telp ?></td>
-            <td><img src="<?php echo base_url('image/user/'.$user->foto) ?>" width="64" /></td> <!-- menampilkan gambar  -->
+            <td><?php echo $user1->level ?></td>
+            <td><?php echo $user1->nama ?></td>
+            <td><?php echo $user1->tgl_lahir ?></td>
+            <td><?php echo $user1->jenis_kelamin ?></td>
+            <td><?php echo $user1->alamat ?></td>
+            <td><?php echo $user1->no_telp ?></td>
+            <td><img src="<?php echo base_url('image/user/'.$user1->foto) ?>" width="64" /></td> <!-- menampilkan gambar  -->
             <td style="text-align:center" width="200px">
                 <?php 
                 
-                echo anchor(site_url('sales/update/'.$user->id_user),'Ubah', 'class="btn btn-info btn-sm"'); 
+                echo anchor(site_url('sales/restore/'.$user1->id_user),'Restore', 'class="btn btn-info btn-sm"'); 
                 echo '  '; 
-                echo anchor(site_url('sales/delete/'.$user->id_user),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
+                echo anchor(site_url('sales/delete/'.$user1->id_user),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>
             </td>
         </tr>

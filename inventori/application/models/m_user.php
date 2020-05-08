@@ -24,7 +24,7 @@ class M_user extends CI_Model
     function get_limit_data() {
         $this->db->order_by($this->id, $this->order);
 	$this->db->or_like('nama');
-    $where = "level='admin'";
+    $where = "level='admin' and user.del='0'";
     $this->db->where($where);
         return $this->db->get($this->table)->result();
     }

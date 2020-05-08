@@ -15,7 +15,7 @@ table.dataTable {
 div.dataTables_info {
     margin-bottom: -5em;
 }
-</style>  
+</style> 
 <div class="col-xs-12 col-sm-9 content">
 
             <div class="panel panel-default">
@@ -24,28 +24,25 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data Sales</h2>
+                  <h2 class="content-row-title">Data Terhapus Admin</h2>
 
                   <div class="row" style="margin-bottom: 10px">
 
                   <div class="card">
                   <div class="col-md-4">
-                <?php echo anchor(site_url('sales/create'),'Tambah', 'class="btn btn-primary"'); ?>
-                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="sales1"> <i class="glyphicon glyphicon-trash"></i> </a>
-                <?php } ?>
+                
                 </div>
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4 text-right">
-                
+               
                 </div>
                 </div>
                 </br>
                 </br></br>
                     <div class="col-md-12">
                     <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
-        <thead>
+    <thead>
             <tr>
         <th>No</th>
         <th>Email</th>
@@ -60,45 +57,47 @@ div.dataTables_info {
         <th>Foto</th>
         <th>Action</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>    
+    <tbody>
             <?php 
             $no=1;
-					foreach ($user_data as $user) {
+					foreach ($user_data1 as $user1) {
                         ?>
 					 
                 <tr>
-            <td width="80px"><?php echo $no++?></td>
-            <td><?php echo $user->email ?></td>
-            <td><?php echo $user->username ?></td>
+            <td ><?php echo $no++ ?></td>
+            <td><?php echo $user1->email ?></td>
+            <td><?php echo $user1->username ?></td>
             
-            <td><?php echo $user->level ?></td>
-            <td><?php echo $user->nama ?></td>
-            <td><?php echo $user->tgl_lahir ?></td>
-            <td><?php echo $user->jenis_kelamin ?></td>
-            <td><?php echo $user->alamat ?></td>
-            <td><?php echo $user->no_telp ?></td>
-            <td><img src="<?php echo base_url('image/user/'.$user->foto) ?>" width="64" /></td> <!-- menampilkan gambar  -->
+            <td><?php echo $user1->level ?></td>
+            <td><?php echo $user1->nama ?></td>
+            <td><?php echo $user1->tgl_lahir ?></td>
+            <td><?php echo $user1->jenis_kelamin ?></td>
+            <td><?php echo $user1->alamat ?></td>
+            <td><?php echo $user1->no_telp ?></td>
+            <td><img src="<?php echo base_url('image/user/'.$user1->foto) ?>" width="64" /></td> <!-- menampilkan gambar  -->
             <td style="text-align:center" width="200px">
                 <?php 
                 
-                echo anchor(site_url('sales/update/'.$user->id_user),'Ubah', 'class="btn btn-info btn-sm"'); 
+                echo anchor(site_url('user1/restore/'.$user1->id_user),'Restore', 'class="btn btn-info btn-sm"'); 
                 echo '  '; 
-                echo anchor(site_url('sales/delete/'.$user->id_user),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
+                echo anchor(site_url('user1/delete/'.$user1->id_user),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>
             </td>
         </tr>
                 <?php
             }
             ?>
-        </tbody>
+    </tbody>        
         </table>
         <div class="row">
             <div class="col-md-6">
                 <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
-                <a href="sales/cetak_pdf" class="btn btn-info">Cetak Data Sales</a>
+                <a href="user/cetak_pdf" class="btn btn-info">Cetak Data Pegawai</a>
         </div>
-            
+            <div class="col-md-6 text-right">
+                
+            </div>
         </div>
 
                     </div>
@@ -107,6 +106,7 @@ div.dataTables_info {
               </div>
             </div>
         </div>
+
         <script type="text/javascript">
     $(document).ready( function () 
     {

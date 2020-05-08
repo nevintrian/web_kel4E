@@ -265,14 +265,18 @@ public function cetak_pdf() {
     //fungsi delete data database
     public function delete($id) 
     {
-        $row = $this->m_sales->get_by_id($id);
+        $data = array(
+            'del' => "1"
 
-        if ($row) {
-            $this->m_sales->delete($id);
-            redirect(site_url('sales'));
+            );
+            
+            $this->db->where('id_user', $id);
+            $this->db->update('user', $data);
+            $this->db->where('id_user', $id);
+                redirect(site_url('sales'));
         }
     }
 
     
-}
+
     ?>

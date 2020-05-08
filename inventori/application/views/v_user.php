@@ -31,6 +31,9 @@ div.dataTables_info {
                   <div class="card">
                   <div class="col-md-4">
                 <?php echo anchor(site_url('user/create'),'Tambah', 'class="btn btn-primary"'); ?>
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-danger" href="user1"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <?php } ?>
                 </div>
                 <div class="col-md-4">
                 </div>

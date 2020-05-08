@@ -24,7 +24,7 @@ class M_sales extends CI_Model
     function get_limit_data() {
         $this->db->order_by($this->id, $this->order);
 	$this->db->or_like('nama');
-    $where = "level='sales'";
+    $where = "level='sales' and user.del='0'";
     $this->db->where($where);
         return $this->db->get($this->table)->result();
     }
