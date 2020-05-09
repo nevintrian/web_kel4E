@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
-class Admin extends RestController{
+class User extends RestController{
 
     function __construct()
     {
@@ -40,8 +40,8 @@ class Admin extends RestController{
     }
 }
 
-public function index_delete(){
-    $id=$this->delete('id');
+public function index_delete($id){
+
 
     if($id==null) {
         $this->response ([
@@ -70,7 +70,7 @@ public function index_post(){
     'email' => $this->post('email'),
     'username' => $this->post('username'),
     'password' => $this->post('password'),
-    'level' => $this->post('level'),
+    'level' => "admin",
     'nama' => $this->post('nama'),
     'tgl_lahir' => $this->post('tgl_lahir'),
     'jenis_kelamin' => $this->post('jenis_kelamin'),
@@ -97,13 +97,13 @@ public function index_post(){
 }
 
 
-public function index_put() {
-    $id=$this->put('id');
+public function index_put($id) {
+
     $data = [
         'email' => $this->put('email'),
         'username' => $this->put('username'),
         'password' => $this->put('password'),
-        'level' => $this->put('level'),
+        'level' => "admin",
         'nama' => $this->put('nama'),
         'tgl_lahir' => $this->put('tgl_lahir'),
         'jenis_kelamin' => $this->put('jenis_kelamin'),

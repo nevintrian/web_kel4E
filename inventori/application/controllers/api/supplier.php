@@ -40,8 +40,8 @@ class Supplier extends RestController{
     }
 }
 
-public function index_delete(){
-    $id=$this->delete('id');
+public function index_delete($id){
+
 
     if($id==null) {
         $this->response ([
@@ -91,8 +91,7 @@ public function index_post(){
 }
 
 
-public function index_put() {
-    $id=$this->put('id');
+public function index_put($id) {
     $data = [
         'nama_supplier' => $this->put('nama_supplier'),
         'alamat' => $this->put('alamat'),

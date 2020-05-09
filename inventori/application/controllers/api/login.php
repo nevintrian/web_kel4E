@@ -23,7 +23,10 @@ class Login extends RestController{
                 $this->response( [
                     'status' => true,
                     'message' => 'anda berhasil login',
-                    'data' => $data
+                    'username' => $data['username'],
+                    'level' => $data['level'],
+                    'id_user' => $data['id_user']
+                    
                    
                 ], 200 );
             } else {
