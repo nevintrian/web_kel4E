@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Apr 2020 pada 07.28
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.3
+-- Waktu pembuatan: 12 Bulan Mei 2020 pada 01.09
+-- Versi server: 10.3.16-MariaDB
+-- Versi PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,16 +31,28 @@ SET time_zone = "+00:00";
 CREATE TABLE `activity` (
   `id_activity` int(11) NOT NULL,
   `tgl_activity` datetime DEFAULT current_timestamp(),
-  `keterangan` varchar(100) DEFAULT NULL
+  `keterangan` varchar(100) DEFAULT NULL,
+  `status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `activity`
 --
 
-INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`) VALUES
-(3, '2020-04-27 11:44:21', 'admin menginputkan barang bernama brian'),
-(4, '2020-04-28 10:26:07', 'admin menginputkan barang bernama nevin');
+INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) VALUES
+(48, '2020-05-12 05:01:18', 'Barang bernama l telah ditambah', 1),
+(49, '2020-05-12 05:14:39', 'Tansaksi barang masuk dengan id=5 telah dihapus', 1),
+(50, '2020-05-12 05:16:04', 'Transaksi barang keluar dengan id=7 telah dihapus', 1),
+(51, '2020-05-12 05:49:13', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(52, '2020-05-12 05:49:13', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(53, '2020-05-12 05:49:13', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(54, '2020-05-12 05:49:13', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(55, '2020-05-12 05:49:21', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(56, '2020-05-12 05:49:21', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(57, '2020-05-12 05:49:21', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(58, '2020-05-12 05:49:21', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(59, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(60, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0);
 
 -- --------------------------------------------------------
 
@@ -67,12 +79,12 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5001, 12, 'barang_1587349533.jpg', 0),
-(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5012, 0, 'barang_1587349541.jpg', 0),
-(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350641.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4977, 36, 'barang_1587349533.jpg', 0),
+(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4986, 26, 'barang_1587349541.jpg', 0),
+(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 4999, 1, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5000, 0, 'barang_1587349556.jpg', 0),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350694.jpg', 0),
-(6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', '-', 'makanan', 16750, 4996, 4, 'barang_1587349524.jpg', 0),
+(6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', '-', 'makanan', 16750, 5000, 0, 'barang_1587349524.jpg', 0),
 (7, 1, 'MAJORICO MATCHA 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg', 0),
 (8, 1, 'MAJORICO CHOCOLATE 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg', 0),
 (9, 1, 'KUKIS N KRIM STRAWBERY 400 GR', '6 PCS / K', NULL, NULL, 22700, 5000, 0, 'gg.jpg', 0),
@@ -313,16 +325,31 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (244, 7, 'YUPI SEET HEART 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg', 0),
 (245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', '-', 'CANDY', 10300, 5000, 0, 'barang_1587486236.jpg', 0),
 (246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', NULL, NULL, 25000, 5000, 0, 'gg.jpg', 0),
-(260, 10, 'brian', 'piring', 'r', 'r', 2, 123, 0, 'gg.jpg', 0),
-(261, 7, 'nevin', 'g', '-', 'MM', 1, 1, 0, 'barang_1588044367.jpg', 0);
+(269, 7, 'h', 'h', 'h', 'h', 1, 1, 0, 'gg.jpg', 0),
+(270, 11, 'hu', 'h', 'h', 'h', 5000, 5, 0, 'gg.jpg', 0),
+(271, 12, 'l', 'l', 'l', 'l', 9, 9, 0, 'gg.jpg', 0);
 
 --
 -- Trigger `barang`
 --
 DELIMITER $$
+CREATE TRIGGER `delete_activity` AFTER DELETE ON `barang` FOR EACH ROW BEGIN
+ INSERT INTO activity(keterangan)
+        VALUES(CONCAT('Barang bernama', OLD.nama_barang, ' telah dihapus'));
+END
+$$
+DELIMITER ;
+DELIMITER $$
 CREATE TRIGGER `tambah_activity` AFTER INSERT ON `barang` FOR EACH ROW BEGIN
  INSERT INTO activity(keterangan)
-        VALUES(CONCAT('admin menginputkan barang bernama ', NEW.nama_barang));
+        VALUES(CONCAT('Barang bernama ', NEW.nama_barang, ' telah ditambah'));
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_activity` AFTER UPDATE ON `barang` FOR EACH ROW BEGIN
+ INSERT INTO activity(keterangan)
+        VALUES(CONCAT('Barang bernama ', OLD.nama_barang, ' telah diupdate'));
 END
 $$
 DELIMITER ;
@@ -348,12 +375,13 @@ INSERT INTO `carousel` (`id_carousel`, `judul`, `isi`, `gambar`) VALUES
 (3, 'a', 'a', 'carousel_1588048397.jpg'),
 (4, 'b', 'b', 'carousel_1588048326.jpg'),
 (6, 'd', 'd', 'carousel_1588048366.jpg'),
-(7, 'c', 'c', 'carousel_1588048918.jpg'),
+(7, 'pohong gosong', 'enak pol', 'carousel_1588041174.jpg'),
 (8, 'e', 'e', 'carousel_1588048943.jpg'),
 (9, 'f', 'f', 'carousel_1588048955.jpg'),
 (10, 'g', 'g', 'carousel_1588048992.jpg'),
 (11, 'h', 'h', 'carousel_1588049008.jpg'),
-(12, 'i', 'i', 'carousel_1588049021.jpg');
+(12, 'i', 'i', 'carousel_1588049021.jpg'),
+(13, 'c', 'c', 'carousel_1588048918.jpg');
 
 -- --------------------------------------------------------
 
@@ -373,12 +401,18 @@ CREATE TABLE `detail_keluar` (
 --
 
 INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) VALUES
-(1, 2, 11, 0),
-(2, 2, 11, 0),
-(1, 3, 12, 0),
-(2, 3, 12, 0),
-(1, 4, 12, 1),
-(6, 5, 4, 1);
+(1, 2, 11, 1),
+(2, 2, 11, 1),
+(1, 3, 12, 1),
+(2, 3, 12, 1),
+(1, 4, 10, 1),
+(2, 5, 1, 1),
+(3, 6, 1, 1),
+(1, 7, 2, 1),
+(2, 7, 1, 1),
+(2, 8, 1, 1),
+(1, 9, 1, 3),
+(2, 10, 1, 3);
 
 --
 -- Trigger `detail_keluar`
@@ -503,8 +537,13 @@ CREATE TABLE `keluar` (
 INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `foto_keluar`, `del`) VALUES
 (2, 2, '2020-04-25 02:15:36', 495000, NULL, 0),
 (3, 1, '2020-04-25 02:16:02', 540000, 'bayar_1587798968.jpg', 0),
-(4, 1, '2020-04-26 09:49:36', 270000, NULL, 0),
-(5, 3, '2020-04-28 10:47:28', 67000, NULL, 0);
+(4, 1, '2020-04-26 09:49:36', 270000, NULL, 1),
+(5, 3, '2020-05-06 06:03:03', 22500, NULL, 1),
+(6, 3, '2020-05-06 02:10:18', 22500, NULL, 0),
+(7, 3, '2020-05-06 02:21:36', 67500, NULL, 1),
+(8, 3, '2020-05-06 02:22:02', 22500, 'bayar_1588749730.jpg', 1),
+(9, 3, '2020-05-12 05:49:53', 22500, NULL, 0),
+(10, 4, '2020-05-12 05:51:25', 22500, NULL, 0);
 
 --
 -- Trigger `keluar`
@@ -513,6 +552,13 @@ DELIMITER $$
 CREATE TRIGGER `hapus keluar` BEFORE DELETE ON `keluar` FOR EACH ROW BEGIN
 	DELETE FROM detail_keluar
     WHERE id_keluar=OLD.id_keluar;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `hapus keluar1` AFTER UPDATE ON `keluar` FOR EACH ROW BEGIN
+ INSERT INTO activity(keterangan)
+        VALUES(CONCAT('Transaksi barang keluar dengan id=', OLD.id_keluar, ' telah dihapus'));
 END
 $$
 DELIMITER ;
@@ -536,10 +582,10 @@ CREATE TABLE `masuk` (
 --
 
 INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del`) VALUES
-(1, 1, '2020-04-25 02:16:34', 270000, 0),
+(1, 1, '2020-04-25 02:16:34', 270000, 1),
 (2, 2, '2020-04-25 02:19:59', 22500, 1),
-(3, 6, '2020-04-25 02:20:29', 22500, 0),
-(5, 1, '2020-04-25 02:21:43', 247500, 0);
+(3, 6, '2020-04-25 02:20:29', 22500, 1),
+(5, 1, '2020-04-25 02:21:43', 247500, 1);
 
 --
 -- Trigger `masuk`
@@ -548,6 +594,13 @@ DELIMITER $$
 CREATE TRIGGER `hapus masuk` BEFORE DELETE ON `masuk` FOR EACH ROW BEGIN
 	DELETE FROM detail_masuk
     WHERE id_masuk=OLD.id_masuk;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `hapus masuk1` AFTER UPDATE ON `masuk` FOR EACH ROW BEGIN
+ INSERT INTO activity(keterangan)
+        VALUES(CONCAT('Tansaksi barang masuk dengan id=', OLD.id_masuk, ' telah dihapus')) ;
 END
 $$
 DELIMITER ;
@@ -600,23 +653,25 @@ CREATE TABLE `user` (
   `jenis_kelamin` varchar(20) DEFAULT NULL,
   `alamat` varchar(100) DEFAULT NULL,
   `no_telp` varchar(12) DEFAULT NULL,
-  `foto` varchar(100) DEFAULT NULL
+  `foto` varchar(100) DEFAULT NULL,
+  `del` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`, `foto`) VALUES
-(1, 'nevin@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin', '2000-01-27', 'laki-laki', 'Jember', '089765456123', 'pp.jpg'),
-(2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian', '2000-04-20', 'laki-laki', 'Probolinggo', '087672819212', 'pp.jpg'),
-(3, 'rere@gmail.com', 'rere', '4b054d969d22341219a5bc88f4c8321f', 'customer', 'rere', '2000-01-27', 'perempuan', 'Surabaya', '089765682312', 'pp.jpg'),
-(4, 'rara@gmail.com', 'rara', '5ab83fa52e5d0f5abc44d2eed4479ff0', 'customer', 'rara', '2020-04-09', 'perempuan', 'Situbondo', '085234567891', 'pp.jpg'),
-(5, 'sinyo@gmail.com', 'sinyo', '7cf7a0149ee46108c3f37066b1c126ec', 'gudang', 'sinyo', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'user_1585977429.jpg'),
-(6, 'rama@gmail.com', 'rama', '36226b453eb255f672f118a1ecc1e4ec', 'sales', 'rama', '2020-04-09', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977424.jpg'),
-(7, 'tarno@gmail.com', 'tarno', 'ed8465aeaf6682cbf12c6a3c94bba4d7', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977486.jpg'),
-(8, 'ipang@gmail.com', 'ipang', 'a3b1427fc6eb05dde4883180e7284322', 'gudang', 'ipang', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'pp.jpg'),
-(9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Bondowoso', '089765456111', 'pp.jpg');
+INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`, `foto`, `del`) VALUES
+(1, 'nevin@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin', '2000-01-27', 'laki-laki', 'Jember', '089765456123', 'pp.jpg', 0),
+(2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian', '2000-04-20', 'laki-laki', 'Probolinggo', '087672819212', 'pp.jpg', 0),
+(3, 'rere@gmail.com', 'rere', '4b054d969d22341219a5bc88f4c8321f', 'customer', 'rere', '2000-01-27', 'perempuan', 'Surabaya', '089765682312', 'pp.jpg', 0),
+(4, 'rara@gmail.com', 'rara', '5ab83fa52e5d0f5abc44d2eed4479ff0', 'customer', 'rara', '2020-04-09', 'perempuan', 'Situbondo', '085234567891', 'pp.jpg', 0),
+(5, 'sinyo@gmail.com', 'sinyo', '7cf7a0149ee46108c3f37066b1c126ec', 'gudang', 'sinyo', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'user_1585977429.jpg', 0),
+(6, 'rama@gmail.com', 'rama', '36226b453eb255f672f118a1ecc1e4ec', 'sales', 'rama', '2020-04-09', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977424.jpg', 0),
+(7, 'tarno@gmail.com', 'tarno', 'ed8465aeaf6682cbf12c6a3c94bba4d7', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977486.jpg', 0),
+(8, 'ipang@gmail.com', 'ipang', 'a3b1427fc6eb05dde4883180e7284322', 'gudang', 'ipang', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'pp.jpg', 0),
+(9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Bondowoso', '089765456111', 'pp.jpg', 0),
+(65, 'haris@gmail.com', 'haris123', 'haris123', 'gudang', 'haris', '2000-01-26', 'laki-laki', 'Jember Timur', '089765432123', NULL, 0);
 
 --
 -- Indexes for dumped tables
@@ -689,19 +744,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
 
 --
 -- AUTO_INCREMENT untuk tabel `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
@@ -719,13 +774,13 @@ ALTER TABLE `masuk`
 -- AUTO_INCREMENT untuk tabel `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

@@ -52,7 +52,7 @@ class Konfirmasi extends CI_Controller {
 
             //masukkan data ke database
             $data = array(
-                'status' => "1"
+                'status' => "2"
 
                 );
                 
@@ -73,6 +73,24 @@ class Konfirmasi extends CI_Controller {
 		$this->db->delete('detail_keluar');
 		redirect('konfirmasi');
 	}
+
+
+	public function status($id) 
+    {
+        //jika gambar tidak diinput oleh user 
+
+            //masukkan data ke database
+            $data = array(
+                'status' => "1"
+
+                );
+                
+				$this->db->where('id_keluar', $id);
+				$this->db->update('detail_keluar', $data);
+				$this->db->where('id_keluar', $id);
+           		 redirect(site_url('konfirmasi'));
+
+		}
     
 }
 

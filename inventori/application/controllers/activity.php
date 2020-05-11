@@ -21,29 +21,18 @@ class Activity extends CI_Controller {
         $this->load->view('v_header');
         $this->load->view('v_sidebar');
         //konfigurasi url saat klik halaman
-        $q = urldecode($this->input->get('q', TRUE));
-        $per_page = intval($this->input->get('per_page'));
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'activity/?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'activity/?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'activity';
-            $config['first_url'] = base_url() . 'activity';
-        }
+        
+        
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 10;
-        $config['page_query_string'] = TRUE;
-        $config['total_rows'] = $this->m_activity->total_rows($q);
-        $activity = $this->m_activity->get_limit_data($config['per_page'], $per_page, $q);
-        $this->load->library('pagination');
-        $this->pagination->initialize($config);
+    
+        $config['total_rows'] = $this->m_activity->total_rows();
+        $activity = $this->m_activity->get_limit_data();
+
         //menampilkan data
         $data = array(
             'activity_data' => $activity,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
             'total_rows' => $config['total_rows'],
-            'per_page' => $per_page,
+    
         );
         //menampilkan view activity
         $this->load->view('v_activity', $data);
@@ -61,6 +50,26 @@ class Activity extends CI_Controller {
     }
 }
     
+
+public function status($id) 
+{
+    //jika gambar tidak diinput oleh user 
+
+        //masukkan data ke database
+        $data = array(
+            'status' => "1"
+
+            );
+            
+            $this->db->where('id_activity',$id);
+            $this->db->update('activity', $data);
+            $this->db->where('id_activity', $id);
+                redirect(site_url('activity'));
+
+    }
+
+
+
 }
     ?>
 

@@ -17,7 +17,7 @@ class M_keluar1 extends CI_Model
         $this->db->from('keluar');
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
-        $where = "keluar.del='1' and detail_keluar.status='1' or detail_keluar.status='2'";
+        $where = "keluar.del='1' and detail_keluar.status='2' or detail_keluar.status='3'";
         $this->db->where($where);
         
         }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
@@ -51,7 +51,7 @@ class M_keluar1 extends CI_Model
     $this->db->from('keluar');
     $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
     $this->db->join('user', 'user.id_user=keluar.id_user');
-    $where = "keluar.del='1' and detail_keluar.status='1'  or detail_keluar.status='2'";
+    $where = "keluar.del='1' and detail_keluar.status='2'  or detail_keluar.status='3'";
     $this->db->where($where);
         return $this->db->get()->result();
     }

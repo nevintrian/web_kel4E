@@ -22,21 +22,20 @@ class M_activity extends CI_Model
 
 
 	//menghitung rows untuk pencarian dan dashboard
-	public function total_rows($q = NULL) { 
-        $this->db->like('id_activity', $q);
-	$this->db->or_like('tgl_activity', $q);
-	$this->db->or_like('keterangan', $q);
+	public function total_rows() { 
+        $this->db->like('id_activity');
+	$this->db->or_like('tgl_activity');
+	$this->db->or_like('keterangan');
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
     // untuk limit halaman dan pencarian
-    function get_limit_data($limit, $per_page = 0, $q = NULL) { 
+    function get_limit_data() { 
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('id_activity', $q);
-	$this->db->or_like('tgl_activity', $q);
-	$this->db->or_like('keterangan', $q);
-	$this->db->limit($limit, $per_page);
+        $this->db->like('id_activity');
+	$this->db->or_like('tgl_activity');
+	$this->db->or_like('keterangan');
         return $this->db->get($this->table)->result();
     }
 

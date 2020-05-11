@@ -40,8 +40,8 @@ class Barang extends RestController{
     }
 }
 
-public function index_delete(){
-    $id=$this->delete('id');
+public function index_delete($id){
+
 
     if($id==null) {
         $this->response ([
@@ -95,8 +95,8 @@ public function index_post(){
 }
 
 
-public function index_put() {
-    $id=$this->put('id');
+public function index_put($id) {
+
     $data = [
         'nama_barang' => $this->put('nama_barang'),
         'harga' => $this->put('harga'),

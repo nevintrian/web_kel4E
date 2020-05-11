@@ -128,7 +128,7 @@ class Keluar extends CI_Controller {
 			'id_keluar' => $kode_penjualan,
 			'id_barang' => $id_barang,
 			'qty_keluar' => $qty_keluar,
-			'status' => "1",
+			'status' => "3",
 			
 		);
 		$this->db->insert('detail_keluar', $d);
@@ -504,11 +504,9 @@ public function hapus_penjualan($id)
 	}
 	public function status($kode_penjualan) 
     {
-        //jika gambar tidak diinput oleh user 
-
-            //masukkan data ke database
+ 
             $data = array(
-                'status' => "2"
+                'status' => "3"
 
                 );
                 
