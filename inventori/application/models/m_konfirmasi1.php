@@ -17,7 +17,7 @@ class M_konfirmasi1 extends CI_Model
         $this->db->from('keluar');
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
-        $where = "detail_keluar.status='0' or detail_keluar.status='1' and keluar.foto_keluar is not null";
+        $where = "detail_keluar.status='0' or detail_keluar.status='1' and keluar.foto_keluar is not null and keluar.del='0'";
         $this->db->where($where);
 
         }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
@@ -28,7 +28,7 @@ class M_konfirmasi1 extends CI_Model
         $this->db->from('keluar');
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
-        $where = "detail_keluar.status='0' or detail_keluar.status='1' and user.id_user=$id";
+        $where = "detail_keluar.status='0' or detail_keluar.status='1' and user.id_user=$id and keluar.del='0'";
         $this->db->where($where);
         
     }
@@ -45,7 +45,7 @@ class M_konfirmasi1 extends CI_Model
     $this->db->from('keluar');
     $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
     $this->db->join('user', 'user.id_user=keluar.id_user');
-    $where = "detail_keluar.status='0' or detail_keluar.status='1' and keluar.foto_keluar is not null";
+    $where = "detail_keluar.status='0' or detail_keluar.status='1' and keluar.foto_keluar is not null and keluar.del='0'";
     $this->db->where($where);
     $this->db->limit($limit, $per_page);
 
@@ -58,7 +58,7 @@ class M_konfirmasi1 extends CI_Model
         $this->db->from('keluar');
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
-        $where = "detail_keluar.status='0' or detail_keluar.status='1' and user.id_user=$id";
+        $where = "detail_keluar.status='0' or detail_keluar.status='1' and user.id_user=$id and keluar.del='0'";
         $this->db->where($where);
         $this->db->limit($limit, $per_page);
 

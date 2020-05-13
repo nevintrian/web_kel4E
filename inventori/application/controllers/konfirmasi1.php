@@ -64,14 +64,18 @@ class Konfirmasi1 extends CI_Controller {
 		}
 		
 
-		public function hapus_penjualan($kode_penjualan)
+		public function hapus_penjualan($id)
 	{
 		
-        $this->db->where('id_keluar', $kode_penjualan);
-		$this->db->delete('keluar');
-		$this->db->where('id_keluar', $kode_penjualan);
-		$this->db->delete('detail_keluar');
-		redirect('konfirmasi1');
+		$data = array(
+			'del' => "1"
+
+			);
+			
+			$this->db->where('id_keluar', $id);
+			$this->db->update('keluar', $data);
+			$this->db->where('id_keluar', $id);
+				redirect(site_url('konfirmasi1'));
 	}
     
 }

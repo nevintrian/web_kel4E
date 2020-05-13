@@ -42,7 +42,9 @@ div.dataTables_info {
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4 text-right">
-                
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-danger" href="konfirmasi3"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <?php } ?>
                 </div>
                 </div>
                 <?php } ?>

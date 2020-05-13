@@ -24,7 +24,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Pembayaran</h2>
+                  <h2 class="content-row-title">Konfirmasi Belum Bayar Terhapus</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
@@ -36,8 +36,6 @@ div.dataTables_info {
                   <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <div class="card">
                 <div class="col-md-4">
-                <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
-                <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -67,27 +65,25 @@ div.dataTables_info {
     <tbody>
       <?php 
       $no=1;
-					foreach ($keluar_data as $keluar) {
+					foreach ($keluar_data2 as $keluar2) {
                         ?>
                 
 				<tr>
           <td><?php echo $no++ ?></td>
-					<td><?php echo $keluar->id_keluar; ?></td>
-					<td><?php echo $keluar->tgl_keluar; ?></td>
-					<td><?php echo number_format($keluar->total_keluar); ?></td>
-					<td><?php echo $keluar->nama; ?></td>
-          <td><?php echo $keluar->alamat; ?></td>
-          <td><?php echo $keluar->no_telp; ?></td>
-          <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
+					<td><?php echo $keluar2->id_keluar; ?></td>
+					<td><?php echo $keluar2->tgl_keluar; ?></td>
+					<td><?php echo number_format($keluar2->total_keluar); ?></td>
+					<td><?php echo $keluar2->nama; ?></td>
+          <td><?php echo $keluar2->alamat; ?></td>
+          <td><?php echo $keluar2->no_telp; ?></td>
+          <input type="hidden" name="id_keluar" value="<?php echo $keluar2->id_keluar; ?>" /> 
 					
 					<td>
-         <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
-          <a href="konfirmasi/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
-          <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
+         <?php if ($this->session->userdata('level') == 'manajer') { ?>
+          <a href="konfirmasi2/restore/<?php echo $keluar2->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin restore?')">restore</a>
+          <a href="konfirmasi2/hapus_penjualan/<?php echo $keluar2->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus transaksi?')">delete</a>
          <?php } ?>
-          <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
-            <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
-            
+         
 					</td>
 				</tr>
 				<?php } ?>

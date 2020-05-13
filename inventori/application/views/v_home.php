@@ -9,7 +9,8 @@
 	.panel > .panel-body {
     background-image: none;
     background-color: #f1f2f6;
-
+    /* background: url('image/carousel/kokola10.jpg'); */
+    
 
 }
 
