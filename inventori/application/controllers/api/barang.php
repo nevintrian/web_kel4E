@@ -66,6 +66,19 @@ public function index_delete($id){
 }
 
 public function index_post(){
+    $nmfile = "barang_".time();
+    $config['upload_path'] = './image/barang/';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    $config['max_size'] = '160000000';
+    $config['file_name'] = $nmfile;
+
+    $this->load->library('upload');
+    $this->upload->initialize($config);
+    $this->upload->do_upload('foto_barang');
+    $result1 = $this->upload->data();
+    $result = array('barang'=>$result1);
+    $dfile = $result['barang']['file_name'];
+
     $data = [
     'nama_barang' => $this->post('nama_barang'),
     'harga' => $this->post('harga'),
@@ -74,7 +87,8 @@ public function index_post(){
     'jenis' => $this->post('jenis'),
     'merk' => $this->post('merk'),
     'id_supplier' => $this->post('id_supplier'),
-    'foto_barang' => $this->post('foto_barang'),
+    'terjual'=> $this->post('terjual'),
+    'foto_barang' => $dfile,
     ];
 
     if($this->m_barang->createbarang($data) >0){
@@ -95,31 +109,51 @@ public function index_post(){
 }
 
 
-public function index_put($id) {
+public function update_post($id_barang){
 
     $data = [
-        'nama_barang' => $this->put('nama_barang'),
-        'harga' => $this->put('harga'),
-        'stok' => $this->put('stok'),
-        'kemasan' => $this->put('kemasan'),
-        'jenis' => $this->put('jenis'),
-        'merk' => $this->put('merk'),
-        'id_supplier' => $this->put('id_supplier'),
-        'foto_barang' => $this->put('foto_barang'),
+        'nama_barang' => $this->post('nama_barang'),
+        'harga' => $this->post('harga'),
+        'stok' => $this->post('stok'),
+        'kemasan' => $this->post('kemasan'),
+        'jenis' => $this->post('jenis'),
+        'merk' => $this->post('merk'),
+        'id_supplier' => $this->post('id_supplier'),
+        'terjual'=> $this->post('terjual'),
+ 
         ];
 
-        if($this->m_barang->updatebarang($data, $id) >0){
+    $config['upload_path'] = './image/barang/';
+    $config['allowed_types'] = 'gif|jpg|png|jpeg';
+    $config['encrypt_name'] = TRUE;
+    $config['max_size'] = '160000000';
+    $config['max_width']  = '1110024';
+    $config['max_height']  = '115768';
 
-            $this->response( [
-                'status' => true,
-                'message' => 'data barang berhasil diupdate'
-            ], 200 );
-        } else {
-            $this->response( [
-                'status' => false,
-                'message' => 'data barang gagal diupdate'
-            ], 400 );
+    $this->load->library('upload');
+    $this->upload->initialize($config);
     
-        }
+    if ($this->upload->do_upload('foto_barang')) {            
+        $foto_barang = array('upload_data' => $this->upload->data());
+        $file_name = $foto_barang['upload_data']['file_name'];
+        $data['foto_barang'] = $file_name;
+
+        $this->db->where('id_barang', $id_barang);
+        $data_foto_barang = $this->db->get('barang')->row_array();
+        $foto_barang = $data_foto_barang['foto_barang'];
+        $path = './image/barang/'.$foto_barang;
+        unlink($path);
+    }
+    
+    $this->db->where('id_barang', $id_barang);
+    $update = $this->db->update('barang', $data);
+
+    if ($update) {
+        $this->response(['status' => 'success'], 200);
+    } else {
+        $this->response(['status' => 'fail'], 200);
+    }
+
 }
+
 }

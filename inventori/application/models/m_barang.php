@@ -86,12 +86,12 @@ class M_barang extends CI_Model
 
             $this->db->select('*');
             $this->db->from('barang');
-            $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
+      
             return $this->db->get()->result();
         }else{
             $this->db->select('*');
             $this->db->from('barang');
-            $this->db->join('supplier', 'supplier.id_supplier=barang.id_supplier');
+
             $where = "id_barang=$id";
             $this->db->where($where);
             return $this->db->get()->result();
