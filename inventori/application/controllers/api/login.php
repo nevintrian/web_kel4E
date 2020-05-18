@@ -12,9 +12,15 @@ class Login extends RestController{
         $cek_user = $this->db->query("SELECT * FROM user WHERE username='$username' and password='$password' ");
         foreach ($cek_user->result() as $row) {
             $data['id_user'] = $row->id_user;
-            $data['nama'] = $row->nama;
+            $data['email'] = $row->email;
             $data['username'] = $row->username;
+            $data['password'] = $row->password;
             $data['level'] = $row->level;
+            $data['nama'] = $row->nama;
+            $data['tgl_lahir'] = $row->tgl_lahir;
+            $data['jenis_kelamin'] = $row->jenis_kelamin;
+            $data['alamat'] = $row->alamat;
+            $data['no_telp'] = $row->no_telp;
       
         }
         
@@ -23,9 +29,16 @@ class Login extends RestController{
                 $this->response( [
                     'status' => true,
                     'message' => 'anda berhasil login',
+                    'id_user' => $data['id_user'],
+                    'email' => $data['email'],
                     'username' => $data['username'],
+                    'password' => $data['password'],
                     'level' => $data['level'],
-                    'id_user' => $data['id_user']
+                    'nama' => $data['nama'],
+                    'tgl_lahir' => $data['tgl_lahir'],
+                    'jenis_kelamin' => $data['jenis_kelamin'],
+                    'alamat' => $data['alamat'],
+                    'no_telp' => $data['no_telp'],
                     
                    
                 ], 200 );
