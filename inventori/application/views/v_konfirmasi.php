@@ -38,13 +38,14 @@ div.dataTables_info {
                 <div class="col-md-4">
                 <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
                 <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-danger" href="konfirmasi2"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <?php } ?>
                 </div>
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4 text-right">
-                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="konfirmasi2"> <i class="glyphicon glyphicon-trash"></i> </a>
-                <?php } ?>
+
                 </div>
                 </div>
                 <?php } ?>
@@ -58,9 +59,9 @@ div.dataTables_info {
 					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
-					<th>Nama Pelanggan</th>
+					<th>Nama</th>
           <th>Alamat</th>
-          <th>No Telepon</th>
+          <th>No Telp</th>
 					<th>Pilihan</th>
 				</tr>
       </thead>

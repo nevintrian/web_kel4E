@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Bulan Mei 2020 pada 01.09
+-- Waktu pembuatan: 01 Jun 2020 pada 03.54
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -52,7 +52,96 @@ INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) V
 (57, '2020-05-12 05:49:21', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
 (58, '2020-05-12 05:49:21', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
 (59, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(60, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0);
+(60, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(61, '2020-05-13 04:03:16', 'Barang bernama iu telah ditambah', 0),
+(62, '2020-05-13 04:06:05', 'Barang bernama hu telah diupdate', 0),
+(63, '2020-05-13 04:06:46', 'Barang bernama l telah diupdate', 0),
+(64, '2020-05-13 04:07:59', 'Barang bernama jj telah ditambah', 0),
+(65, '2020-05-13 04:15:02', 'Barang bernama iu telah diupdate', 0),
+(66, '2020-05-13 04:15:29', 'Barang bernama jj telah diupdate', 0),
+(67, '2020-05-13 04:19:00', NULL, 0),
+(68, '2020-05-13 04:19:15', NULL, 0),
+(69, '2020-05-13 04:20:54', 'Barang bernama h telah ditambah', 0),
+(70, '2020-05-13 04:21:04', 'Barang bernama h telah diupdate', 0),
+(71, '2020-05-13 04:35:46', NULL, 0),
+(72, '2020-05-13 04:36:19', NULL, 0),
+(73, '2020-05-13 04:38:58', 'Barang bernama k telah ditambah', 0),
+(74, '2020-05-13 04:39:23', 'Barang bernama k telah diupdate', 0),
+(75, '2020-05-13 04:59:44', 'Barang bernama jj telah ditambah', 0),
+(76, '2020-05-13 05:00:02', 'Barang bernama jj telah diupdate', 0),
+(77, '2020-05-13 05:04:04', 'Barang bernama jeti telah ditambah', 0),
+(78, '2020-05-13 05:06:27', 'Barang bernama jeti telah diupdate', 0),
+(79, '2020-05-13 05:07:20', NULL, 0),
+(80, '2020-05-13 05:07:43', NULL, 0),
+(81, '2020-05-13 05:08:05', NULL, 0),
+(82, '2020-05-13 08:32:13', 'Barang bernama i telah ditambah', 0),
+(83, '2020-05-13 08:32:25', 'Barang bernama i telah diupdate', 0),
+(84, '2020-05-13 08:32:30', 'Barang bernama PERMEN LOLLIPOP MAWAR 12 GR telah diupdate', 0),
+(85, '2020-05-13 08:45:48', 'Barang bernama iu telah diupdate', 0),
+(86, '2020-05-13 08:46:02', 'Barang bernamah telah dihapus', 0),
+(87, '2020-05-13 08:46:09', NULL, 0),
+(88, '2020-05-13 08:46:16', NULL, 0),
+(89, '2020-05-13 08:46:51', NULL, 0),
+(90, '2020-05-13 08:46:59', NULL, 0),
+(91, '2020-05-13 08:47:06', NULL, 0),
+(92, '2020-05-13 08:47:12', NULL, 0),
+(93, '2020-05-13 08:47:33', NULL, 0),
+(94, '2020-05-13 08:47:45', NULL, 0),
+(95, '2020-05-13 08:47:59', NULL, 0),
+(96, '2020-05-13 08:48:13', NULL, 0),
+(97, '2020-05-13 08:48:32', NULL, 0),
+(98, '2020-05-13 08:50:09', NULL, 0),
+(99, '2020-05-13 08:58:13', NULL, 0),
+(100, '2020-05-13 08:58:24', NULL, 0),
+(101, '2020-05-13 08:59:29', NULL, 0),
+(102, '2020-05-13 09:00:20', NULL, 0),
+(103, '2020-05-13 09:00:41', NULL, 0),
+(104, '2020-05-13 09:00:56', 'Barang bernama rr telah ditambah', 0),
+(105, '2020-05-13 09:01:20', 'Barang bernama f telah ditambah', 0),
+(106, '2020-05-13 09:02:45', 'Barang bernama ttt telah ditambah', 0),
+(107, '2020-05-13 09:05:16', NULL, 0),
+(108, '2020-05-13 09:05:44', 'Barang bernama rr telah diupdate', 0),
+(109, '2020-05-13 09:07:23', NULL, 0),
+(110, '2020-05-13 09:14:22', 'Barang bernama f telah diupdate', 0),
+(111, '2020-05-13 09:14:50', 'Barang bernama ffq telah diupdate', 0),
+(112, '2020-05-13 09:14:58', NULL, 0),
+(113, '2020-05-13 09:15:12', 'Barang bernamaffq telah dihapus', 0),
+(114, '2020-05-13 09:15:23', 'Barang bernama ttt telah diupdate', 0),
+(115, '2020-05-13 09:15:35', 'Barang bernamattt telah dihapus', 0),
+(116, '2020-05-14 11:00:16', 'Barang bernama timun telah ditambah', 0),
+(117, '2020-05-17 13:57:27', 'Barang bernama timun telah diupdate', 0),
+(118, '2020-05-17 14:02:58', 'Barang bernamatimun goreng telah dihapus', 0),
+(119, '2020-06-01 06:52:12', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 0),
+(120, '2020-06-01 06:52:12', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 0),
+(121, '2020-06-01 06:52:12', 'Barang bernama BUCKET BUTTER KUKIS 400 GR telah diupdate', 0),
+(122, '2020-06-01 06:52:12', 'Barang bernama BUCKET BUTTER KUKIS 400 GR telah diupdate', 0),
+(123, '2020-06-01 08:07:23', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(124, '2020-06-01 08:07:23', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(125, '2020-06-01 08:09:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(126, '2020-06-01 08:09:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(127, '2020-06-01 08:12:20', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(128, '2020-06-01 08:12:20', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(129, '2020-06-01 08:12:41', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(130, '2020-06-01 08:12:41', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(131, '2020-06-01 08:12:56', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(132, '2020-06-01 08:12:56', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(133, '2020-06-01 08:39:25', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(134, '2020-06-01 08:39:25', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(135, '2020-06-01 08:39:46', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(136, '2020-06-01 08:39:46', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(137, '2020-06-01 08:40:05', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(138, '2020-06-01 08:40:05', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(139, '2020-06-01 08:40:24', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(140, '2020-06-01 08:40:24', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(141, '2020-06-01 08:42:52', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(142, '2020-06-01 08:44:07', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(143, '2020-06-01 08:45:02', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(144, '2020-06-01 08:45:34', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(145, '2020-06-01 08:46:06', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(146, '2020-06-01 08:46:51', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(147, '2020-06-01 08:53:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(148, '2020-06-01 08:53:43', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(149, '2020-06-01 08:54:01', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0);
 
 -- --------------------------------------------------------
 
@@ -79,9 +168,9 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4977, 36, 'barang_1587349533.jpg', 0),
-(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4986, 26, 'barang_1587349541.jpg', 0),
-(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 4999, 1, 'barang_1587350641.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4970, 44, 'barang_1587349533.jpg', 0),
+(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4985, 27, 'barang_1587349541.jpg', 0),
+(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 4997, 3, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5000, 0, 'barang_1587349556.jpg', 0),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350694.jpg', 0),
 (6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', '-', 'makanan', 16750, 5000, 0, 'barang_1587349524.jpg', 0),
@@ -324,10 +413,7 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (243, 7, 'YUPO FRUIT COCKTAIL 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg', 0),
 (244, 7, 'YUPI SEET HEART 15 GR', '12 PCS / K', NULL, NULL, 10300, 5000, 0, 'gg.jpg', 0),
 (245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', '-', 'CANDY', 10300, 5000, 0, 'barang_1587486236.jpg', 0),
-(246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', NULL, NULL, 25000, 5000, 0, 'gg.jpg', 0),
-(269, 7, 'h', 'h', 'h', 'h', 1, 1, 0, 'gg.jpg', 0),
-(270, 11, 'hu', 'h', 'h', 'h', 5000, 5, 0, 'gg.jpg', 0),
-(271, 12, 'l', 'l', 'l', 'l', 9, 9, 0, 'gg.jpg', 0);
+(246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', NULL, NULL, 25000, 5000, 0, 'gg.jpg', 0);
 
 --
 -- Trigger `barang`
@@ -412,7 +498,11 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) V
 (2, 7, 1, 1),
 (2, 8, 1, 1),
 (1, 9, 1, 3),
-(2, 10, 1, 3);
+(2, 10, 1, 3),
+(2, 11, 1, 2),
+(3, 11, 2, 2),
+(1, 12, 5, 2),
+(1, 13, 3, 2);
 
 --
 -- Trigger `detail_keluar`
@@ -447,7 +537,6 @@ $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `update detail_keluar` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
-
     UPDATE barang SET stok=stok-NEW.qty_keluar
     WHERE id_barang=NEW.id_barang AND NEW.status='1' AND OLD.qty_keluar=NEW.qty_KELUAR;
 END
@@ -463,14 +552,28 @@ DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `update detail_keluar2` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
     UPDATE barang SET stok=stok+(OLD.qty_keluar-NEW.qty_keluar)
-    WHERE id_barang=NEW.id_barang AND OLD.qty_keluar!=NEW.qty_keluar;
+    WHERE id_barang=NEW.id_barang AND OLD.qty_keluar>NEW.qty_keluar;
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `update detail_keluar3` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
     UPDATE barang SET terjual=terjual-(OLD.qty_keluar-NEW.qty_keluar)
-    WHERE id_barang=NEW.id_barang AND OLD.qty_keluar!=NEW.qty_keluar;
+    WHERE id_barang=NEW.id_barang AND OLD.qty_keluar>NEW.qty_keluar;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update detail_keluar4` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
+    UPDATE barang SET stok=stok+(OLD.qty_keluar-NEW.qty_keluar)
+    WHERE id_barang=NEW.id_barang AND OLD.qty_keluar<NEW.qty_keluar;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update detail_keluar5` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
+    UPDATE barang SET terjual=terjual-(OLD.qty_keluar-NEW.qty_keluar)
+    WHERE id_barang=NEW.id_barang AND OLD.qty_keluar<NEW.qty_keluar;
 END
 $$
 DELIMITER ;
@@ -492,10 +595,12 @@ CREATE TABLE `detail_masuk` (
 --
 
 INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
-(1, 1, 12),
+(1, 1, 4),
 (2, 2, 1),
 (1, 3, 1),
-(2, 5, 11);
+(2, 5, 11),
+(1, 6, 11),
+(1, 7, 22);
 
 --
 -- Trigger `detail_masuk`
@@ -511,6 +616,20 @@ DELIMITER $$
 CREATE TRIGGER `tambah detail_masuk` AFTER INSERT ON `detail_masuk` FOR EACH ROW BEGIN
 	UPDATE barang SET stok=stok+NEW.qty_masuk
     WHERE id_barang=NEW.id_barang;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update detail_masuk` AFTER UPDATE ON `detail_masuk` FOR EACH ROW BEGIN
+    UPDATE barang SET stok=stok-(OLD.qty_masuk-NEW.qty_masuk)
+    WHERE id_barang=NEW.id_barang AND OLD.qty_masuk>NEW.qty_masuk;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update detail_masuk1` AFTER UPDATE ON `detail_masuk` FOR EACH ROW BEGIN
+    UPDATE barang SET stok=stok+(NEW.qty_masuk-OLD.qty_masuk)
+    WHERE id_barang=NEW.id_barang AND OLD.qty_masuk<NEW.qty_masuk;
 END
 $$
 DELIMITER ;
@@ -543,7 +662,10 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (7, 3, '2020-05-06 02:21:36', 67500, NULL, 1),
 (8, 3, '2020-05-06 02:22:02', 22500, 'bayar_1588749730.jpg', 1),
 (9, 3, '2020-05-12 05:49:53', 22500, NULL, 0),
-(10, 4, '2020-05-12 05:51:25', 22500, NULL, 0);
+(10, 4, '2020-05-12 05:51:25', 22500, NULL, 0),
+(11, 2, '2020-06-01 06:52:05', 67500, NULL, 0),
+(12, 2, '2020-06-01 08:07:18', 157500, NULL, 0),
+(13, 2, '2020-06-01 08:39:15', 45000, NULL, 0);
 
 --
 -- Trigger `keluar`
@@ -585,7 +707,9 @@ INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del
 (1, 1, '2020-04-25 02:16:34', 270000, 1),
 (2, 2, '2020-04-25 02:19:59', 22500, 1),
 (3, 6, '2020-04-25 02:20:29', 22500, 1),
-(5, 1, '2020-04-25 02:21:43', 247500, 1);
+(5, 1, '2020-04-25 02:21:43', 247500, 1),
+(6, 9, '2020-06-01 08:42:51', 247500, 0),
+(7, 2, '2020-06-01 08:53:11', 270000, 0);
 
 --
 -- Trigger `masuk`
@@ -662,12 +786,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`, `tgl_lahir`, `jenis_kelamin`, `alamat`, `no_telp`, `foto`, `del`) VALUES
-(1, 'nevin@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin', '2000-01-27', 'laki-laki', 'Jember', '089765456123', 'pp.jpg', 0),
+(1, 'nevin@gmail.com', 'nevin', '57dd6150d6302a88892a0c5e09dfc7fc', 'admin', 'nevin', '2000-01-27', 'laki-laki', 'Jember', '089765456123', 'user_1589942713.jpg', 0),
 (2, 'brianvidyanjaya@gmail.com', 'brian', '929064f2a141f812f1c2efb3ff8194ca', 'manajer', 'brian', '2000-04-20', 'laki-laki', 'Probolinggo', '087672819212', 'pp.jpg', 0),
 (3, 'rere@gmail.com', 'rere', '4b054d969d22341219a5bc88f4c8321f', 'customer', 'rere', '2000-01-27', 'perempuan', 'Surabaya', '089765682312', 'pp.jpg', 0),
 (4, 'rara@gmail.com', 'rara', '5ab83fa52e5d0f5abc44d2eed4479ff0', 'customer', 'rara', '2020-04-09', 'perempuan', 'Situbondo', '085234567891', 'pp.jpg', 0),
 (5, 'sinyo@gmail.com', 'sinyo', '7cf7a0149ee46108c3f37066b1c126ec', 'gudang', 'sinyo', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'user_1585977429.jpg', 0),
-(6, 'rama@gmail.com', 'rama', '36226b453eb255f672f118a1ecc1e4ec', 'sales', 'rama', '2020-04-09', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977424.jpg', 0),
+(6, 'rama', 'rama@gmail.com', '36226b453eb255f672f118a1ecc1e4ec', 'sales', 'rama', '2020-04-09', 'laki-laiki', 'Bondowoso', '089765456111', NULL, 0),
 (7, 'tarno@gmail.com', 'tarno', 'ed8465aeaf6682cbf12c6a3c94bba4d7', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Bondowoso', '089765456111', 'user_1585977486.jpg', 0),
 (8, 'ipang@gmail.com', 'ipang', 'a3b1427fc6eb05dde4883180e7284322', 'gudang', 'ipang', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', 'pp.jpg', 0),
 (9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Bondowoso', '089765456111', 'pp.jpg', 0),
@@ -744,13 +868,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=284;
 
 --
 -- AUTO_INCREMENT untuk tabel `carousel`
@@ -780,7 +904,7 @@ ALTER TABLE `supplier`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

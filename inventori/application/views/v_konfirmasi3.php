@@ -53,9 +53,9 @@ div.dataTables_info {
 					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
-					<th>Nama Pelanggan</th>
+					<th>Nama</th>
           <th>Alamat</th>
-          <th>No Telepon</th>
+          <th>No Telp</th>
           <th>Foto</th>
 					<th>Pilihan</th>
 				</tr>

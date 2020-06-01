@@ -103,6 +103,18 @@ class Keluar extends CI_Controller {
 
 		}
 
+	public function edit($id_keluar) 
+		{
+			$id_barang = $this->input->post('id_barang');
+			$edit = $this->input->post('edit');
+	 
+	
+				 $this->db->query("UPDATE detail_keluar set qty_keluar=$edit where id_keluar=$id_keluar and id_barang=$id_barang");
+					
+						redirect(site_url('keluar'));
+	
+			}
+
 	public function simpan_penjualan()
 	{
         $kode_penjualan = $this->input->post('kode_penjualan');

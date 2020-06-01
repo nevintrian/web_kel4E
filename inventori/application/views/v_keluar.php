@@ -60,7 +60,7 @@ div.dataTables_info {
 					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
-					<th>Nama Pelanggan</th>
+					<th>Nama</th>
           <th>Alamat</th>
           <th>No Telepon</th>
 					<th>Pilihan</th>
@@ -73,7 +73,7 @@ div.dataTables_info {
                         ?>
                 
 				<tr>
-          <td width="80px"><?php echo $no++ ?></td>
+          <td><?php echo $no++ ?></td>
 					<td><?php echo $keluar->id_keluar; ?></td>
 					<td><?php echo $keluar->tgl_keluar; ?></td>
 					<td><?php echo number_format($keluar->total_keluar); ?></td>
@@ -82,6 +82,7 @@ div.dataTables_info {
           <td><?php echo $keluar->no_telp; ?></td>
 					
 					<td>
+          <button href="#" data-toggle="modal" data-target="#myModal2<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm" >edit</button>
 						<a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
 
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
@@ -89,7 +90,7 @@ div.dataTables_info {
             <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
                      
               <?php } ?>
-              <button href="#" data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm" >retur</button>
+              <button href="#" data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-secondary btn-sm" >retur</button>
                                
           </td>
             
@@ -144,7 +145,57 @@ div.dataTables_info {
 </div>
   
 
+
+
         </tr>
+        <div id="myModal2<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <form method="POST" action="keluar/edit/<?php echo $keluar->id_keluar ?>">
+  <?php $kel=$keluar->id_keluar ?>
+	  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Barang</h4>
+      </div>
+    <!-- Modal content-->
+	<div class="modal-body">
+  <div class="form-group">
+  
+        	<label>Nama Barang</label><br>
+	      <select id="id_barang" name="id_barang"  class="form-control" >
+      
+        <option value="">--pilih barang--</option>
+	        <?php 
+	      $sql = $this->db->query("select * from detail_keluar inner join barang on detail_keluar.id_barang=barang.id_barang where detail_keluar.id_keluar=$kel");
+	        foreach ($sql->result() as $row) {
+           ?>
+	        <option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?> (qty beli:<?php echo $row->qty_keluar ?>)</option>
+       
+     
+          <?php } ?>
+        </select>
+       
+      </div>
+
+
+     
+
+      <div class="form-group">
+        	<label>Qty baru</label><br>
+	      <input id="edit" name="edit"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+      
+      </div>
+		</div>
+        <div class="modal-footer">
+	
+      	<button class="btn btn-info" type="submit">Kirim</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+        
+    </form>
+	
+</div>
+</div>
 
         <?php } ?> 
           </tbody>   	

@@ -21,6 +21,7 @@ class Login extends RestController{
             $data['jenis_kelamin'] = $row->jenis_kelamin;
             $data['alamat'] = $row->alamat;
             $data['no_telp'] = $row->no_telp;
+            $data['foto'] = $row->foto;
       
         }
         
@@ -39,6 +40,7 @@ class Login extends RestController{
                     'jenis_kelamin' => $data['jenis_kelamin'],
                     'alamat' => $data['alamat'],
                     'no_telp' => $data['no_telp'],
+                    'foto' => $data['foto'],
                     
                    
                 ], 200 );

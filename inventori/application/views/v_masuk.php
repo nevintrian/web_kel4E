@@ -46,7 +46,7 @@ div.dataTables_info {
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Kode Transaksi</th>
+					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
 					<th>Nama Supplier</th>
@@ -61,7 +61,7 @@ div.dataTables_info {
 					foreach ($masuk_data as $masuk) {
                         ?>
 				<tr>
-        <td width="80px"><?php echo $no++ ?></td>
+        <td><?php echo $no++ ?></td>
 					<td><?php echo $masuk->id_masuk; ?></td>
 					
 					<td><?php echo $masuk->tgl_masuk; ?></td>
@@ -70,12 +70,60 @@ div.dataTables_info {
           <td><?php echo $masuk->alamat; ?></td>
           <td><?php echo $masuk->no_telp; ?></td>
 					<td>
+          <button href="#" data-toggle="modal" data-target="#myModal2<?php echo $masuk->id_masuk ?>" class="btn btn-warning btn-sm" >edit</button>
 						<a href="masuk/detail_penjualan/<?php echo $masuk->id_masuk ?>" class="btn btn-info btn-sm">detail</a>
-					
             <a href="masuk/cetak_penjualan/<?php echo $masuk->id_masuk ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             <a href="masuk/hapus_penjualan/<?php echo $masuk->id_masuk ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
 					</td>
 				</tr>
+        <div id="myModal2<?php echo $masuk->id_masuk ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <form method="POST" action="masuk/edit/<?php echo $masuk->id_masuk ?>">
+  <?php $kel=$masuk->id_masuk ?>
+	  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Barang</h4>
+      </div>
+    <!-- Modal content-->
+	<div class="modal-body">
+  <div class="form-group">
+  
+        	<label>Nama Barang</label><br>
+	      <select id="id_barang" name="id_barang"  class="form-control" >
+      
+        <option value="">--pilih barang--</option>
+	        <?php 
+	      $sql = $this->db->query("select * from detail_masuk inner join barang on detail_masuk.id_barang=barang.id_barang where detail_masuk.id_masuk=$kel");
+	        foreach ($sql->result() as $row) {
+           ?>
+	        <option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?> (qty beli:<?php echo $row->qty_masuk ?>)</option>
+       
+     
+          <?php } ?>
+        </select>
+       
+      </div>
+
+
+     
+
+      <div class="form-group">
+        	<label>Qty baru</label><br>
+	      <input id="edit" name="edit"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+      
+      </div>
+		</div>
+        <div class="modal-footer">
+	
+      	<button class="btn btn-info" type="submit">Kirim</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+        
+    </form>
+	
+</div>
+</div>
 				<?php } ?>
 			</tbody>
 		</table>
