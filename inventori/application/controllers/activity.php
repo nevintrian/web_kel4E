@@ -68,7 +68,20 @@ public function status($id)
 
     }
 
+    public function statusall() 
+    {
+ 
+            $data = array(
+                'status' => "1"
 
+                );
+                
+				$this->db->where('status', '0');
+				$this->db->update('activity', $data);
+				$this->db->where('status', '0');
+           		 redirect(site_url('activity'));
+
+		}
 
 }
     ?>

@@ -200,9 +200,9 @@ public function hapus_penjualan($id)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(10,6,'Kode',1,0,'C');
-        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(35,6,'Tgl Transaksi',1,0,'C');
        
-		$pdf->Cell(60,6,'Nama Pelanggan',1,0,'C');
+		$pdf->Cell(55,6,'Nama Pelanggan',1,0,'C');
 		$pdf->Cell(30,6,'Alamat',1,0,'C');
 		$pdf->Cell(30,6,'No Telp',1,0,'C');
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
@@ -212,9 +212,9 @@ public function hapus_penjualan($id)
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(10,6,$data->id_keluar,1,0);
-            $pdf->Cell(30,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(35,6,$data->tgl_keluar,1,0);
            
-			$pdf->Cell(60,6,$data->nama,1,0);
+			$pdf->Cell(55,6,$data->nama,1,0);
 			$pdf->Cell(30,6,$data->alamat,1,0);
 			$pdf->Cell(30,6,$data->no_telp,1,0);
 			$pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
@@ -246,9 +246,9 @@ public function hapus_penjualan($id)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(10,6,'Kode',1,0,'C');
-        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(35,6,'Tgl Transaksi',1,0,'C');
         
-		$pdf->Cell(60,6,'Nama Pelanggan',1,0,'C');
+		$pdf->Cell(55,6,'Nama Pelanggan',1,0,'C');
 		$pdf->Cell(30,6,'Alamat',1,0,'C');
 		$pdf->Cell(30,6,'No Telp',1,0,'C');
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
@@ -259,9 +259,9 @@ public function hapus_penjualan($id)
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(10,6,$data->id_keluar,1,0);
-            $pdf->Cell(30,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(35,6,$data->tgl_keluar,1,0);
            
-			$pdf->Cell(60,6,$data->nama,1,0);
+			$pdf->Cell(55,6,$data->nama,1,0);
 			$pdf->Cell(30,6,$data->alamat,1,0);
 			$pdf->Cell(30,6,$data->no_telp,1,0);
 			$pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
@@ -292,9 +292,9 @@ public function hapus_penjualan($id)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(10,6,'Kode',1,0,'C');
-        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(35,6,'Tgl Transaksi',1,0,'C');
        
-		$pdf->Cell(60,6,'Nama Pelanggan',1,0,'C');
+		$pdf->Cell(55,6,'Nama Pelanggan',1,0,'C');
 		$pdf->Cell(30,6,'Alamat',1,0,'C');
 		$pdf->Cell(30,6,'No Telp',1,0,'C');
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
@@ -305,9 +305,9 @@ public function hapus_penjualan($id)
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(10,6,$data->id_keluar,1,0);
-            $pdf->Cell(30,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(35,6,$data->tgl_keluar,1,0);
             
-			$pdf->Cell(60,6,$data->nama,1,0);
+			$pdf->Cell(55,6,$data->nama,1,0);
 			$pdf->Cell(30,6,$data->alamat,1,0);
 			$pdf->Cell(30,6,$data->no_telp,1,0);
 			$pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
@@ -339,9 +339,9 @@ public function hapus_penjualan($id)
 
         $pdf->Cell(8,6,'No',1,0,'C');
         $pdf->Cell(10,6,'Kode',1,0,'C');
-        $pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+        $pdf->Cell(35,6,'Tgl Transaksi',1,0,'C');
         
-		$pdf->Cell(60,6,'Nama Pelanggan',1,0,'C');
+		$pdf->Cell(55,6,'Nama Pelanggan',1,0,'C');
 		$pdf->Cell(30,6,'Alamat',1,0,'C');
 		$pdf->Cell(30,6,'No Telp',1,0,'C');
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
@@ -352,9 +352,9 @@ public function hapus_penjualan($id)
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
             $pdf->Cell(10,6,$data->id_keluar,1,0);
-            $pdf->Cell(30,6,$data->tgl_keluar,1,0);
+            $pdf->Cell(35,6,$data->tgl_keluar,1,0);
            
-			$pdf->Cell(60,6,$data->nama,1,0);
+			$pdf->Cell(55,6,$data->nama,1,0);
 			$pdf->Cell(30,6,$data->alamat,1,0);
 			$pdf->Cell(30,6,$data->no_telp,1,0);
             $pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
@@ -389,9 +389,9 @@ public function hapus_penjualan($id)
 
 							$pdf->Cell(8,6,'No',1,0,'C');
 							$pdf->Cell(10,6,'Kode',1,0,'C');
-							$pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+							$pdf->Cell(35,6,'Tgl Transaksi',1,0,'C');
 							
-							$pdf->Cell(60,6,'Nama Pelanggan',1,0,'C');
+							$pdf->Cell(55,6,'Nama Pelanggan',1,0,'C');
 							$pdf->Cell(30,6,'Alamat',1,0,'C');
 							$pdf->Cell(30,6,'No Telp',1,0,'C');
 							$pdf->Cell(30,6,'Total bayar',1,1,'C');
@@ -402,9 +402,9 @@ public function hapus_penjualan($id)
 							foreach ($barang as $data){
 								$pdf->Cell(8,6,$no,1,0);
 								$pdf->Cell(10,6,$data->id_keluar,1,0);
-								$pdf->Cell(30,6,$data->tgl_keluar,1,0);
+								$pdf->Cell(35,6,$data->tgl_keluar,1,0);
 								
-								$pdf->Cell(60,6,$data->nama,1,0);
+								$pdf->Cell(55,6,$data->nama,1,0);
 								$pdf->Cell(30,6,$data->alamat,1,0);
 								$pdf->Cell(30,6,$data->no_telp,1,0);
 								$pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
@@ -434,9 +434,9 @@ public function hapus_penjualan($id)
 
 							$pdf->Cell(8,6,'No',1,0,'C');
 							$pdf->Cell(10,6,'Kode',1,0,'C');
-							$pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+							$pdf->Cell(35,6,'Tgl Transaksi',1,0,'C');
 							
-							$pdf->Cell(60,6,'Nama Pelanggan',1,0,'C');
+							$pdf->Cell(55,6,'Nama Pelanggan',1,0,'C');
 							$pdf->Cell(30,6,'Alamat',1,0,'C');
 							$pdf->Cell(30,6,'No Telp',1,0,'C');
 							$pdf->Cell(30,6,'Total bayar',1,1,'C');
@@ -447,9 +447,9 @@ public function hapus_penjualan($id)
 							foreach ($barang as $data){
 								$pdf->Cell(8,6,$no,1,0);
 								$pdf->Cell(10,6,$data->id_keluar,1,0);
-								$pdf->Cell(30,6,$data->tgl_keluar,1,0);
+								$pdf->Cell(35,6,$data->tgl_keluar,1,0);
 								
-								$pdf->Cell(60,6,$data->nama,1,0);
+								$pdf->Cell(55,6,$data->nama,1,0);
 								$pdf->Cell(30,6,$data->alamat,1,0);
 								$pdf->Cell(30,6,$data->no_telp,1,0);
 								$pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
@@ -478,9 +478,9 @@ public function hapus_penjualan($id)
 
 							$pdf->Cell(8,6,'No',1,0,'C');
 							$pdf->Cell(10,6,'Kode',1,0,'C');
-							$pdf->Cell(30,6,'Tgl Transaksi',1,0,'C');
+							$pdf->Cell(35,6,'Tgl Transaksi',1,0,'C');
 							
-							$pdf->Cell(60,6,'Nama Pelanggan',1,0,'C');
+							$pdf->Cell(55,6,'Nama Pelanggan',1,0,'C');
 							$pdf->Cell(30,6,'Alamat',1,0,'C');
 							$pdf->Cell(30,6,'No Telp',1,0,'C');
 							$pdf->Cell(30,6,'Total bayar',1,1,'C');
@@ -491,9 +491,9 @@ public function hapus_penjualan($id)
 							foreach ($barang as $data){
 								$pdf->Cell(8,6,$no,1,0);
 								$pdf->Cell(10,6,$data->id_keluar,1,0);
-								$pdf->Cell(30,6,$data->tgl_keluar,1,0);
+								$pdf->Cell(35,6,$data->tgl_keluar,1,0);
 								
-								$pdf->Cell(60,6,$data->nama,1,0);
+								$pdf->Cell(55,6,$data->nama,1,0);
 								$pdf->Cell(30,6,$data->alamat,1,0);
 								$pdf->Cell(30,6,$data->no_telp,1,0);
 								$pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
@@ -528,6 +528,22 @@ public function hapus_penjualan($id)
            		 redirect(site_url('keluar'));
 
 		}
+
+		public function statusall() 
+    {
+ 
+            $data = array(
+                'status' => "3"
+
+                );
+                
+				$this->db->where('status', '2');
+				$this->db->update('detail_keluar', $data);
+				$this->db->where('status', '2');
+           		 redirect(site_url('keluar'));
+
+		}
+
 
 
 }

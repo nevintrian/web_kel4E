@@ -95,6 +95,24 @@ class Konfirmasi extends CI_Controller {
            		 redirect(site_url('konfirmasi'));
 
 		}
+
+
+		public function statusall() 
+    {
+        //jika gambar tidak diinput oleh user 
+
+            //masukkan data ke database
+            $data = array(
+                'status' => "1"
+
+                );
+                
+				$this->db->where('status', 0);
+				$this->db->update('detail_keluar', $data);
+				$this->db->where('status', 0);
+           		 redirect(site_url('konfirmasi'));
+
+		}
     
 }
 

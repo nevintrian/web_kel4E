@@ -87,7 +87,7 @@
                                   ?>
                           <li><a href="activity/status/<?php echo $row->id_activity ?>"><td><?php echo $row->keterangan; ?></td></a></li>
                               <?php } ?>   
-                              <li><a href="activity">Lihat semua</a></li>         
+                              <li><a href="activity/statusall/">Lihat semua</a></li>         
                             </ul>
 
                            
@@ -119,7 +119,7 @@
                                   
                           <li><a href="konfirmasi/status/<?php echo $row->id_keluar ?>">Transaksi baru dari <td><?php echo $row->nama; ?></td></a></li>
                              <?php } ?>   
-                             <li><a href="konfirmasi">Lihat semua</a></li>         
+                             <li><a href="konfirmasi/statusall/">Lihat semua</a></li>         
                             </ul>
                             
                      
@@ -158,7 +158,7 @@
                                   
                           <li><a href="konfirmasi/status/<?php echo $row->id_keluar ?>">Transaksi baru dari <td><?php echo $row->nama; ?></td></a></li>
                              <?php } ?>   
-                             <li><a href="konfirmasi">Lihat semua</a></li>         
+                             <li><a href="konfirmasi/statusall/">Lihat semua</a></li>         
                             </ul>
                             
                      
@@ -205,7 +205,7 @@
                             ?>
                           <li><a href="keluar/status/<?php echo $row->id_keluar ?>">Transaksi kamu telah di konfirmasi</td></a></li>
                              <?php } ?>   
-                             <li><a href="keluar">Lihat semua</a></li>         
+                             <li><a href="keluar/statusall/">Lihat semua</a></li>         
                             </ul>
                             
                      
