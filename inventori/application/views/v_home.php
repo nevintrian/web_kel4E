@@ -23,7 +23,7 @@
         <div class="panel-body">
         <div class="card">
         <div class="col-md-3 text-right">
-        <div class="col-md-3 text-left">
+        <!-- <div class="col-md-3 text-left"> -->
                 <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                        
@@ -41,11 +41,11 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('home'); ?>" class="btn btn-default">Reset</a>
+                                    
                                     <?php
                                 }
                             ?>
-                          <button class="btn btn-primary" type="submit">Search</button>
+                          <button class="btn btn-primary" type="submit"><i class='fas fa-search' style='font-size:16px'></i></button>
                         </span>
                     </div>
                 </form>
@@ -56,7 +56,7 @@
                 <div class="col-md-3 text-left">
                 <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="cari nama barang" name="q" value="<?php echo $q; ?>">
+                        <input type="text" class="form-control" placeholder="cari nama barang" name="q">
                         <span class="input-group-btn">
                             <?php 
                                 if ($q <> '')
@@ -75,7 +75,7 @@
             
  
                 <div class="col-md-4 text-left">
-                <center><h4> UD SRI REJEKI </h4> </center>
+                
                 </div>
                 
                 </div>
