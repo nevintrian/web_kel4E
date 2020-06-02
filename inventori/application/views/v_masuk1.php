@@ -26,6 +26,7 @@
         		<th>Nama Barang</th>
         		<th>Jumlah</th>
         		<th>Harga</th>
+            <th>Diskon(%)</th>
         		<th>Subtotal</th>
         		<th>
         			<!-- Trigger the modal with a button -->
@@ -40,6 +41,7 @@
                 <td><?php echo $items['name']; ?></td>
                 <td><?php echo $items['qty']; ?></td>
                 <td>Rp. <?php echo $this->cart->format_number($items['price']); ?></td>
+                <td><?php echo $this->cart->format_number($items['coupon']); ?>%</td>
                 <td>Rp. <?php echo $this->cart->format_number($items['subtotal']); ?></td>
                 <td>
                     <a href="masuk/hapus_cart/<?php echo $items['rowid'] ?>" class="btn btn-warning btn-sm">X</a>
@@ -48,7 +50,7 @@
         	<?php $i++; $no++;?>
             <?php endforeach; ?>
             <tr>
-        		<th colspan="5">Total Harga</th>
+        		<th colspan="6">Total Harga</th>
         		<th colspan="2">Rp. <?php echo $this->cart->format_number($this->cart->total()); ?></th>
         	</tr>
         </table>
@@ -119,6 +121,10 @@
             <label>Jumlah Beli </label>
             <input type="text" class="form-control" name="jumlah"required  id="jumlah"/>
             <input type="hidden" class="form-control" name="nabar" id="nabar"/>
+        </div>
+        <div class="form-group">
+            <label>Diskon(%) </label>
+            <input type="text" class="form-control" name="coupon" id="coupon"/>
         </div>
       </div>
       <div class="modal-footer">

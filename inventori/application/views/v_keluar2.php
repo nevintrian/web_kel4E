@@ -59,7 +59,8 @@ $rs = $data->row();
 					<th>Kemasan</th>
 					<th>Qty</th>
 					<th>Harga</th>
-					<th>Jumlah</th>
+					<th>Diskon(%)</th>
+					<th>Subtotal</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -74,17 +75,23 @@ $rs = $data->row();
 					<td><?php echo $row->jenis; ?></td>
 					<td><?php echo $row->kemasan; ?></td>
 					<td><?php echo $row->qty_keluar; ?></td>
-					<td><?php echo $row->harga; ?></td>
-					
+					<td><?php echo number_format($row->qty_keluar*$row->harga); ?></td>
+					<td><?php echo $row->diskon; ?>%</td>
 					<td><?php 
-						$totharga = $row->qty_keluar*$row->harga;
+
+							$harga= $row->qty_keluar*$row->harga;
+							$diskon=$row->diskon;
+							$hasil=$harga*($diskon/100);
+
+
+						$totharga = $harga-$hasil;
 						echo number_format($totharga);
 						 ?></td>
 				</tr>
 	
 				<?php } ?>
 				<tr>
-						<td colspan="6">Total</td>
+						<td colspan="7">Total</td>
 						<td>Rp. <?php echo number_format($rs->total_keluar) ?></td>
 					</tr>
 			</tbody>

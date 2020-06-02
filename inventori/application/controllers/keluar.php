@@ -63,12 +63,16 @@ class Keluar extends CI_Controller {
 	{
 		if($this->input->post('jumlah')<$this->input->post('stok')){
 
-		
+		$harga=$this->input->post('harga');
+		$diskon=$this->input->post('coupon');
+		$hasil=$harga*($diskon/100);
         $data = array(
             'id'    => $this->input->post('id_barang'),
             'qty'   => $this->input->post('jumlah'),
 			'stok' => $this->input->post('stok'),
-			'price' => $this->input->post('harga'),
+			'coupon' => $this->input->post('coupon'),
+			'harga' => $this->input->post('harga'),
+			'price' => $this->input->post('harga')-$hasil,
             'name'  => $this->input->post('nabar'),
 		);
 		
@@ -136,10 +140,12 @@ class Keluar extends CI_Controller {
 	foreach ($this->cart->contents() as $items) {
 		$id_barang = $items['id'];
 		$qty_keluar = $items['qty'];
+		$coupon = $items['coupon'];
 		$d = array(
 			'id_keluar' => $kode_penjualan,
 			'id_barang' => $id_barang,
 			'qty_keluar' => $qty_keluar,
+			'diskon' => $coupon,
 			'status' => "3",
 			
 		);

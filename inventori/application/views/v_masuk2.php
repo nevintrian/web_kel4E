@@ -51,7 +51,8 @@ $rs = $data->row();
 					<th>Kemasan</th>
 					<th>Qty</th>
 					<th>Harga</th>
-					<th>Jumlah</th>
+					<th>Diskon(%)</th>
+					<th>Subtotal</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -61,23 +62,28 @@ $rs = $data->row();
 				foreach ($sql->result() as $row) {
 				 ?>
 				<tr>
-					<td><?php echo $no++; ?></td>
-					
-					<td><?php echo $row->nama_barang; ?></td>
+				<td><?php echo $no++; ?></td>
+				<td><?php echo $row->nama_barang; ?></td>
 					<td><?php echo $row->jenis; ?></td>
 					<td><?php echo $row->kemasan; ?></td>
 					<td><?php echo $row->qty_masuk; ?></td>
-					<td><?php echo $row->harga; ?></td>
-					
+					<td><?php echo number_format($row->qty_masuk*$row->harga); ?></td>
+					<td><?php echo $row->diskon; ?>%</td>
 					<td><?php 
-						$totharga = $row->qty_masuk*$row->harga;
+
+							$harga= $row->qty_masuk*$row->harga;
+							$diskon=$row->diskon;
+							$hasil=$harga*($diskon/100);
+
+
+						$totharga = $harga-$hasil;
 						echo number_format($totharga);
 						 ?></td>
 				</tr>
 	
 				<?php } ?>
 				<tr>
-						<td colspan="6">Total</td>
+						<td colspan="7">Total</td>
 						<td>Rp. <?php echo number_format($rs->total_masuk) ?></td>
 					</tr>
 			</tbody>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jun 2020 pada 03.54
+-- Waktu pembuatan: 02 Jun 2020 pada 07.33
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -51,97 +51,109 @@ INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) V
 (56, '2020-05-12 05:49:21', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
 (57, '2020-05-12 05:49:21', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
 (58, '2020-05-12 05:49:21', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
-(59, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(60, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(61, '2020-05-13 04:03:16', 'Barang bernama iu telah ditambah', 0),
-(62, '2020-05-13 04:06:05', 'Barang bernama hu telah diupdate', 0),
-(63, '2020-05-13 04:06:46', 'Barang bernama l telah diupdate', 0),
-(64, '2020-05-13 04:07:59', 'Barang bernama jj telah ditambah', 0),
-(65, '2020-05-13 04:15:02', 'Barang bernama iu telah diupdate', 0),
-(66, '2020-05-13 04:15:29', 'Barang bernama jj telah diupdate', 0),
-(67, '2020-05-13 04:19:00', NULL, 0),
-(68, '2020-05-13 04:19:15', NULL, 0),
-(69, '2020-05-13 04:20:54', 'Barang bernama h telah ditambah', 0),
-(70, '2020-05-13 04:21:04', 'Barang bernama h telah diupdate', 0),
-(71, '2020-05-13 04:35:46', NULL, 0),
-(72, '2020-05-13 04:36:19', NULL, 0),
-(73, '2020-05-13 04:38:58', 'Barang bernama k telah ditambah', 0),
-(74, '2020-05-13 04:39:23', 'Barang bernama k telah diupdate', 0),
-(75, '2020-05-13 04:59:44', 'Barang bernama jj telah ditambah', 0),
-(76, '2020-05-13 05:00:02', 'Barang bernama jj telah diupdate', 0),
-(77, '2020-05-13 05:04:04', 'Barang bernama jeti telah ditambah', 0),
-(78, '2020-05-13 05:06:27', 'Barang bernama jeti telah diupdate', 0),
-(79, '2020-05-13 05:07:20', NULL, 0),
-(80, '2020-05-13 05:07:43', NULL, 0),
-(81, '2020-05-13 05:08:05', NULL, 0),
-(82, '2020-05-13 08:32:13', 'Barang bernama i telah ditambah', 0),
-(83, '2020-05-13 08:32:25', 'Barang bernama i telah diupdate', 0),
-(84, '2020-05-13 08:32:30', 'Barang bernama PERMEN LOLLIPOP MAWAR 12 GR telah diupdate', 0),
-(85, '2020-05-13 08:45:48', 'Barang bernama iu telah diupdate', 0),
-(86, '2020-05-13 08:46:02', 'Barang bernamah telah dihapus', 0),
-(87, '2020-05-13 08:46:09', NULL, 0),
-(88, '2020-05-13 08:46:16', NULL, 0),
-(89, '2020-05-13 08:46:51', NULL, 0),
-(90, '2020-05-13 08:46:59', NULL, 0),
-(91, '2020-05-13 08:47:06', NULL, 0),
-(92, '2020-05-13 08:47:12', NULL, 0),
-(93, '2020-05-13 08:47:33', NULL, 0),
-(94, '2020-05-13 08:47:45', NULL, 0),
-(95, '2020-05-13 08:47:59', NULL, 0),
-(96, '2020-05-13 08:48:13', NULL, 0),
-(97, '2020-05-13 08:48:32', NULL, 0),
-(98, '2020-05-13 08:50:09', NULL, 0),
-(99, '2020-05-13 08:58:13', NULL, 0),
-(100, '2020-05-13 08:58:24', NULL, 0),
-(101, '2020-05-13 08:59:29', NULL, 0),
-(102, '2020-05-13 09:00:20', NULL, 0),
-(103, '2020-05-13 09:00:41', NULL, 0),
-(104, '2020-05-13 09:00:56', 'Barang bernama rr telah ditambah', 0),
-(105, '2020-05-13 09:01:20', 'Barang bernama f telah ditambah', 0),
-(106, '2020-05-13 09:02:45', 'Barang bernama ttt telah ditambah', 0),
-(107, '2020-05-13 09:05:16', NULL, 0),
-(108, '2020-05-13 09:05:44', 'Barang bernama rr telah diupdate', 0),
-(109, '2020-05-13 09:07:23', NULL, 0),
-(110, '2020-05-13 09:14:22', 'Barang bernama f telah diupdate', 0),
-(111, '2020-05-13 09:14:50', 'Barang bernama ffq telah diupdate', 0),
-(112, '2020-05-13 09:14:58', NULL, 0),
-(113, '2020-05-13 09:15:12', 'Barang bernamaffq telah dihapus', 0),
-(114, '2020-05-13 09:15:23', 'Barang bernama ttt telah diupdate', 0),
-(115, '2020-05-13 09:15:35', 'Barang bernamattt telah dihapus', 0),
-(116, '2020-05-14 11:00:16', 'Barang bernama timun telah ditambah', 0),
-(117, '2020-05-17 13:57:27', 'Barang bernama timun telah diupdate', 0),
-(118, '2020-05-17 14:02:58', 'Barang bernamatimun goreng telah dihapus', 0),
-(119, '2020-06-01 06:52:12', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 0),
-(120, '2020-06-01 06:52:12', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 0),
-(121, '2020-06-01 06:52:12', 'Barang bernama BUCKET BUTTER KUKIS 400 GR telah diupdate', 0),
-(122, '2020-06-01 06:52:12', 'Barang bernama BUCKET BUTTER KUKIS 400 GR telah diupdate', 0),
-(123, '2020-06-01 08:07:23', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(124, '2020-06-01 08:07:23', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(125, '2020-06-01 08:09:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(126, '2020-06-01 08:09:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(127, '2020-06-01 08:12:20', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(128, '2020-06-01 08:12:20', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(129, '2020-06-01 08:12:41', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(130, '2020-06-01 08:12:41', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(131, '2020-06-01 08:12:56', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(132, '2020-06-01 08:12:56', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(133, '2020-06-01 08:39:25', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(134, '2020-06-01 08:39:25', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(135, '2020-06-01 08:39:46', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(136, '2020-06-01 08:39:46', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(137, '2020-06-01 08:40:05', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(138, '2020-06-01 08:40:05', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(139, '2020-06-01 08:40:24', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(140, '2020-06-01 08:40:24', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(141, '2020-06-01 08:42:52', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(142, '2020-06-01 08:44:07', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(143, '2020-06-01 08:45:02', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(144, '2020-06-01 08:45:34', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(145, '2020-06-01 08:46:06', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(146, '2020-06-01 08:46:51', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(147, '2020-06-01 08:53:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(148, '2020-06-01 08:53:43', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
-(149, '2020-06-01 08:54:01', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0);
+(59, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(60, '2020-05-12 05:50:31', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(61, '2020-05-13 04:03:16', 'Barang bernama iu telah ditambah', 1),
+(62, '2020-05-13 04:06:05', 'Barang bernama hu telah diupdate', 1),
+(63, '2020-05-13 04:06:46', 'Barang bernama l telah diupdate', 1),
+(64, '2020-05-13 04:07:59', 'Barang bernama jj telah ditambah', 1),
+(65, '2020-05-13 04:15:02', 'Barang bernama iu telah diupdate', 1),
+(66, '2020-05-13 04:15:29', 'Barang bernama jj telah diupdate', 1),
+(67, '2020-05-13 04:19:00', NULL, 1),
+(68, '2020-05-13 04:19:15', NULL, 1),
+(69, '2020-05-13 04:20:54', 'Barang bernama h telah ditambah', 1),
+(70, '2020-05-13 04:21:04', 'Barang bernama h telah diupdate', 1),
+(71, '2020-05-13 04:35:46', NULL, 1),
+(72, '2020-05-13 04:36:19', NULL, 1),
+(73, '2020-05-13 04:38:58', 'Barang bernama k telah ditambah', 1),
+(74, '2020-05-13 04:39:23', 'Barang bernama k telah diupdate', 1),
+(75, '2020-05-13 04:59:44', 'Barang bernama jj telah ditambah', 1),
+(76, '2020-05-13 05:00:02', 'Barang bernama jj telah diupdate', 1),
+(77, '2020-05-13 05:04:04', 'Barang bernama jeti telah ditambah', 1),
+(78, '2020-05-13 05:06:27', 'Barang bernama jeti telah diupdate', 1),
+(79, '2020-05-13 05:07:20', NULL, 1),
+(80, '2020-05-13 05:07:43', NULL, 1),
+(81, '2020-05-13 05:08:05', NULL, 1),
+(82, '2020-05-13 08:32:13', 'Barang bernama i telah ditambah', 1),
+(83, '2020-05-13 08:32:25', 'Barang bernama i telah diupdate', 1),
+(84, '2020-05-13 08:32:30', 'Barang bernama PERMEN LOLLIPOP MAWAR 12 GR telah diupdate', 1),
+(85, '2020-05-13 08:45:48', 'Barang bernama iu telah diupdate', 1),
+(86, '2020-05-13 08:46:02', 'Barang bernamah telah dihapus', 1),
+(87, '2020-05-13 08:46:09', NULL, 1),
+(88, '2020-05-13 08:46:16', NULL, 1),
+(89, '2020-05-13 08:46:51', NULL, 1),
+(90, '2020-05-13 08:46:59', NULL, 1),
+(91, '2020-05-13 08:47:06', NULL, 1),
+(92, '2020-05-13 08:47:12', NULL, 1),
+(93, '2020-05-13 08:47:33', NULL, 1),
+(94, '2020-05-13 08:47:45', NULL, 1),
+(95, '2020-05-13 08:47:59', NULL, 1),
+(96, '2020-05-13 08:48:13', NULL, 1),
+(97, '2020-05-13 08:48:32', NULL, 1),
+(98, '2020-05-13 08:50:09', NULL, 1),
+(99, '2020-05-13 08:58:13', NULL, 1),
+(100, '2020-05-13 08:58:24', NULL, 1),
+(101, '2020-05-13 08:59:29', NULL, 1),
+(102, '2020-05-13 09:00:20', NULL, 1),
+(103, '2020-05-13 09:00:41', NULL, 1),
+(104, '2020-05-13 09:00:56', 'Barang bernama rr telah ditambah', 1),
+(105, '2020-05-13 09:01:20', 'Barang bernama f telah ditambah', 1),
+(106, '2020-05-13 09:02:45', 'Barang bernama ttt telah ditambah', 1),
+(107, '2020-05-13 09:05:16', NULL, 1),
+(108, '2020-05-13 09:05:44', 'Barang bernama rr telah diupdate', 1),
+(109, '2020-05-13 09:07:23', NULL, 1),
+(110, '2020-05-13 09:14:22', 'Barang bernama f telah diupdate', 1),
+(111, '2020-05-13 09:14:50', 'Barang bernama ffq telah diupdate', 1),
+(112, '2020-05-13 09:14:58', NULL, 1),
+(113, '2020-05-13 09:15:12', 'Barang bernamaffq telah dihapus', 1),
+(114, '2020-05-13 09:15:23', 'Barang bernama ttt telah diupdate', 1),
+(115, '2020-05-13 09:15:35', 'Barang bernamattt telah dihapus', 1),
+(116, '2020-05-14 11:00:16', 'Barang bernama timun telah ditambah', 1),
+(117, '2020-05-17 13:57:27', 'Barang bernama timun telah diupdate', 1),
+(118, '2020-05-17 14:02:58', 'Barang bernamatimun goreng telah dihapus', 1),
+(119, '2020-06-01 06:52:12', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(120, '2020-06-01 06:52:12', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(121, '2020-06-01 06:52:12', 'Barang bernama BUCKET BUTTER KUKIS 400 GR telah diupdate', 1),
+(122, '2020-06-01 06:52:12', 'Barang bernama BUCKET BUTTER KUKIS 400 GR telah diupdate', 1),
+(123, '2020-06-01 08:07:23', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(124, '2020-06-01 08:07:23', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(125, '2020-06-01 08:09:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(126, '2020-06-01 08:09:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(127, '2020-06-01 08:12:20', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(128, '2020-06-01 08:12:20', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(129, '2020-06-01 08:12:41', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(130, '2020-06-01 08:12:41', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(131, '2020-06-01 08:12:56', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(132, '2020-06-01 08:12:56', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(133, '2020-06-01 08:39:25', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(134, '2020-06-01 08:39:25', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(135, '2020-06-01 08:39:46', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(136, '2020-06-01 08:39:46', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(137, '2020-06-01 08:40:05', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(138, '2020-06-01 08:40:05', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(139, '2020-06-01 08:40:24', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(140, '2020-06-01 08:40:24', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(141, '2020-06-01 08:42:52', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(142, '2020-06-01 08:44:07', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(143, '2020-06-01 08:45:02', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(144, '2020-06-01 08:45:34', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(145, '2020-06-01 08:46:06', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(146, '2020-06-01 08:46:51', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(147, '2020-06-01 08:53:14', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(148, '2020-06-01 08:53:43', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(149, '2020-06-01 08:54:01', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(150, '2020-06-01 09:29:07', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(151, '2020-06-01 09:29:07', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(152, '2020-06-01 09:29:07', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(153, '2020-06-01 09:29:07', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(154, '2020-06-01 09:29:53', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(155, '2020-06-01 09:29:53', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 1),
+(156, '2020-06-01 09:29:53', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(157, '2020-06-01 09:29:53', 'Barang bernama BUCKET COCONUT 400 GR telah diupdate', 1),
+(158, '2020-06-02 12:11:15', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(159, '2020-06-02 12:11:15', 'Barang bernama POWDER PINK 100 GR telah diupdate', 0),
+(160, '2020-06-02 12:32:29', 'Barang bernama BUCKET KUKIS MAMAH 400 GR telah diupdate', 0),
+(161, '2020-06-02 12:32:29', 'Barang bernama SABUN CUSSONS BLUE 75 GR 75 GR telah diupdate', 0);
 
 -- --------------------------------------------------------
 
@@ -168,8 +180,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4970, 44, 'barang_1587349533.jpg', 0),
-(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4985, 27, 'barang_1587349541.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4988, 46, 'barang_1587349533.jpg', 0),
+(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4983, 29, 'barang_1587349541.jpg', 0),
 (3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 4997, 3, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5000, 0, 'barang_1587349556.jpg', 0),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350694.jpg', 0),
@@ -178,10 +190,10 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (8, 1, 'MAJORICO CHOCOLATE 300 GR', '12 PCS / K', NULL, NULL, 16750, 5000, 0, 'gg.jpg', 0),
 (9, 1, 'KUKIS N KRIM STRAWBERY 400 GR', '6 PCS / K', NULL, NULL, 22700, 5000, 0, 'gg.jpg', 0),
 (10, 7, 'SABUN CUSSONS PINK 75 GR', '144 PCS / K', NULL, 'PC', 2946, 5000, 0, 'gg.jpg', 0),
-(11, 7, 'SABUN CUSSONS BLUE 75 GR 75 GR', '144 PCS / K', NULL, 'PC', 2946, 5000, 0, 'gg.jpg', 0),
+(11, 7, 'SABUN CUSSONS BLUE 75 GR 75 GR', '144 PCS / K', NULL, 'PC', 2946, 5020, 0, 'gg.jpg', 0),
 (12, 7, 'POWDER PINK 50 GR', '48 PCS/ K', NULL, 'PC', 3500, 5000, 0, 'gg.jpg', 0),
 (13, 7, 'POWDER BLUE 50 GR', '48 PCS / K', NULL, 'PC', 3500, 5000, 0, 'gg.jpg', 0),
-(14, 7, 'POWDER PINK 100 GR', '48 PCS / K', NULL, 'PC', 6193, 5000, 0, 'gg.jpg', 0),
+(14, 7, 'POWDER PINK 100 GR', '48 PCS / K', NULL, 'PC', 6193, 5010, 0, 'gg.jpg', 0),
 (15, 7, 'POWDER BLUE 100 GR', '48 PCS / K', '-', 'PC', 6193, 5000, 0, 'barang_1587486993.jpg', 0),
 (16, 7, 'POWDER PINK 200 GR', '24 PCS / K', NULL, 'PC', 11044, 5000, 0, 'gg.jpg', 0),
 (17, 7, 'POWDER BLUE 200 GR', '24 PCS / K', NULL, 'PC', 11044, 5000, 0, 'gg.jpg', 0),
@@ -479,6 +491,7 @@ CREATE TABLE `detail_keluar` (
   `id_barang` int(11) NOT NULL,
   `id_keluar` int(11) NOT NULL,
   `qty_keluar` int(11) DEFAULT NULL,
+  `diskon` int(3) NOT NULL DEFAULT 0,
   `status` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -486,23 +499,34 @@ CREATE TABLE `detail_keluar` (
 -- Dumping data untuk tabel `detail_keluar`
 --
 
-INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `status`) VALUES
-(1, 2, 11, 1),
-(2, 2, 11, 1),
-(1, 3, 12, 1),
-(2, 3, 12, 1),
-(1, 4, 10, 1),
-(2, 5, 1, 1),
-(3, 6, 1, 1),
-(1, 7, 2, 1),
-(2, 7, 1, 1),
-(2, 8, 1, 1),
-(1, 9, 1, 3),
-(2, 10, 1, 3),
-(2, 11, 1, 2),
-(3, 11, 2, 2),
-(1, 12, 5, 2),
-(1, 13, 3, 2);
+INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `status`) VALUES
+(1, 2, 11, 0, 1),
+(2, 2, 11, 0, 1),
+(1, 3, 12, 0, 1),
+(2, 3, 12, 0, 1),
+(1, 4, 10, 0, 1),
+(2, 5, 1, 0, 1),
+(3, 6, 1, 0, 1),
+(1, 7, 2, 0, 1),
+(2, 7, 1, 0, 1),
+(2, 8, 1, 0, 1),
+(1, 9, 1, 0, 3),
+(2, 10, 1, 0, 3),
+(2, 11, 1, 0, 3),
+(3, 11, 2, 0, 3),
+(1, 12, 5, 0, 3),
+(1, 13, 3, 0, 3),
+(1, 14, 1, 0, 3),
+(2, 15, 1, 0, 3),
+(1, 16, 1, 0, 3),
+(2, 17, 1, 0, 3),
+(3, 18, 10, 0, 3),
+(1, 19, 1, 0, 3),
+(2, 20, 1, 10, 3),
+(1, 21, 10, 10, 3),
+(4, 21, 10, 20, 3),
+(4, 22, 10, 10, 3),
+(15, 22, 20, 20, 3);
 
 --
 -- Trigger `detail_keluar`
@@ -587,20 +611,25 @@ DELIMITER ;
 CREATE TABLE `detail_masuk` (
   `id_barang` int(11) NOT NULL,
   `id_masuk` int(11) NOT NULL,
-  `qty_masuk` int(11) DEFAULT NULL
+  `qty_masuk` int(11) DEFAULT NULL,
+  `diskon` int(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `detail_masuk`
 --
 
-INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`) VALUES
-(1, 1, 4),
-(2, 2, 1),
-(1, 3, 1),
-(2, 5, 11),
-(1, 6, 11),
-(1, 7, 22);
+INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`, `diskon`) VALUES
+(1, 1, 4, 0),
+(2, 2, 1, 0),
+(1, 3, 1, 0),
+(2, 5, 11, 0),
+(1, 6, 11, 0),
+(1, 7, 22, 0),
+(1, 8, 10, 0),
+(14, 8, 10, 0),
+(1, 10, 10, 10),
+(11, 10, 20, 20);
 
 --
 -- Trigger `detail_masuk`
@@ -665,7 +694,16 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (10, 4, '2020-05-12 05:51:25', 22500, NULL, 0),
 (11, 2, '2020-06-01 06:52:05', 67500, NULL, 0),
 (12, 2, '2020-06-01 08:07:18', 157500, NULL, 0),
-(13, 2, '2020-06-01 08:39:15', 45000, NULL, 0);
+(13, 2, '2020-06-01 08:39:15', 45000, NULL, 0),
+(14, 2, '2020-06-01 09:28:55', 22500, NULL, 0),
+(15, 2, '2020-06-01 09:29:02', 22500, NULL, 0),
+(16, 3, '2020-06-01 09:29:33', 22500, NULL, 0),
+(17, 3, '2020-06-01 09:29:41', 22500, NULL, 0),
+(18, 3, '2020-06-02 11:53:54', 202500, NULL, 0),
+(19, 3, '2020-06-02 12:02:20', 20250, NULL, 0),
+(20, 3, '2020-06-02 12:04:12', 20250, NULL, 0),
+(21, 4, '2020-06-02 12:06:12', 382500, NULL, 0),
+(22, 7, '2020-06-02 12:12:33', 301588, NULL, 0);
 
 --
 -- Trigger `keluar`
@@ -709,7 +747,10 @@ INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del
 (3, 6, '2020-04-25 02:20:29', 22500, 1),
 (5, 1, '2020-04-25 02:21:43', 247500, 1),
 (6, 9, '2020-06-01 08:42:51', 247500, 0),
-(7, 2, '2020-06-01 08:53:11', 270000, 0);
+(7, 2, '2020-06-01 08:53:11', 270000, 0),
+(8, 6, '2020-06-02 12:11:11', 286930, 0),
+(9, 11, '2020-06-02 12:31:37', 249636, 0),
+(10, 12, '2020-06-02 12:32:22', 249636, 0);
 
 --
 -- Trigger `masuk`
@@ -868,7 +909,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`

@@ -64,11 +64,17 @@ class Masuk extends CI_Controller {
 	public function simpan_cart()
 	{
 		if($this->input->post('jumlah')<$this->input->post('stok')){
+
+			$harga=$this->input->post('harga');
+			$diskon=$this->input->post('coupon');
+			$hasil=$harga*($diskon/100);
         $data = array(
             'id'    => $this->input->post('id_barang'),
 			'qty'   => $this->input->post('jumlah'),
 			'stok' => $this->input->post('stok'),
-            'price' => $this->input->post('harga'),
+			'coupon' => $this->input->post('coupon'),
+			'harga' => $this->input->post('harga'),
+			'price' => $this->input->post('harga')-$hasil,
             'name'  => $this->input->post('nabar'),
         );
         $this->cart->insert($data);
@@ -109,10 +115,12 @@ class Masuk extends CI_Controller {
 	foreach ($this->cart->contents() as $items) {
 		$id_barang = $items['id'];
 		$qty_masuk = $items['qty'];
+		$coupon = $items['coupon'];
 		$d = array(
 			'id_masuk' => $kode_pembelian,
 			'id_barang' => $id_barang,
 			'qty_masuk' => $qty_masuk,
+			'diskon' => $coupon,
 		);
 		$this->db->insert('detail_masuk', $d);
 		//$this->db->query("UPDATE menu SET satuan=satuan-'$qty' WHERE kode_menu='$id_barang'");
