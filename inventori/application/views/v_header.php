@@ -16,16 +16,26 @@
 
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   </head>
+  <style>
+
+.navbar img {
+    border: 2px solid #888888;
+}
+</style>
+
+
+
   <body>
     <nav role="navigation" class="navbar navbar-custom">
         <div class="container-fluid">
           <div class="navbar-header">
             <a  href="<?php echo base_url() ?>home" type="submit">
-            <img src="image/hh.png" alt="" width="50px" left="15px" position="relative">
+            <img src="image/hh.png"  class="img-responsive img-circle" alt="" width="50px" left="15px" position="relative">
              </a>
           </div>
           <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
+                                
                                   <li class="active"><a href="home">Home</a></li>
                                   <!-- <li class="disabled"><a href="#">Link</a></li> -->
         

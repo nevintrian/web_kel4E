@@ -22,13 +22,13 @@
       <div class="panel panel-default">
         <div class="panel-body">
         <div class="card">
-        <div class="col-md-3 text-right">
+        <div class="col-md-2 text-right">
         <!-- <div class="col-md-3 text-left"> -->
                 <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                        
                         <select name="q" class="form-control" > 
-                                <option value="">pilih</option>
+                                <option value="">pilih jenis</option>
                                 <?php 
                                 $sql = $this->db->query("select distinct jenis from barang");
                                 foreach ($sql->result() as $row) {
@@ -63,7 +63,7 @@
                                 if ($q <> '')
                                 {
                                     ?>
-                                    <a href="<?php echo site_url('home'); ?>" class="btn btn-default">Reset</a>
+                                   
                                     <?php
                                 }
                             ?>
@@ -72,13 +72,11 @@
                     </div>
                     </div>
                 </form>
-
+                <div class="col-md-2 text-center">
+                <h5  style="color: grey">UD SRI REJEKI</h5>
+               </div>
                 </div>
             
- 
-                <div class="col-md-4 text-left">
-                
-                </div>
                 
                 </div>
 </br>
