@@ -8,7 +8,7 @@
 <style>
 	.panel > .panel-body {
     background-image: none;
-    background-color: #f1f2f6;
+    background-color: #ffffff;
     /* background: url('image/carousel/kokola10.jpg'); */
     
 
@@ -50,7 +50,7 @@
                     </div>
                 </form>
 
-                </div>
+
                 
                 </div>
                 <div class="col-md-3 text-left">

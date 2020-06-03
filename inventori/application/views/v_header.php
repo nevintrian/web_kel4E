@@ -35,7 +35,7 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                
+                                  <li><a><h7>UD SRI REJEKI</h7></a></li>
                                   <li class="active"><a href="home">Home</a></li>
                                   <!-- <li class="disabled"><a href="#">Link</a></li> -->
         

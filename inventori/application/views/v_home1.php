@@ -1,4 +1,14 @@
+<style>
 
+.thumbnail {
+    border: 2px solid #888888;
+}
+
+.thumbnail img {
+    border: 2px solid #888888;
+}
+
+</style>
 		<div class="row">
 		  <?php foreach($home_data as $home) : ?>
 		  <div class="col-sm-2 col-md-2">
