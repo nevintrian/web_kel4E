@@ -20,7 +20,9 @@
     <nav role="navigation" class="navbar navbar-custom">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a  href="<?php echo base_url() ?>home" type="submit"><h5  style="color: lightblue">UD SRI REJEKI</h5> </a>
+            <a  href="<?php echo base_url() ?>home" type="submit">
+            <img src="image/hh.png" alt="" width="50px" left="15px" position="relative">
+             </a>
           </div>
           <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                                 <ul class="nav navbar-nav">

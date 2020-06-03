@@ -54,6 +54,7 @@
                 
                 </div>
                 <div class="col-md-3 text-left">
+                <div class="home-category-list__category-grid"></div>
                 <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="cari nama barang" name="q">
@@ -68,6 +69,7 @@
                             ?>
                           <button class="btn btn-primary" type="submit">Search</button>
                         </span>
+                    </div>
                     </div>
                 </form>
 
