@@ -19,7 +19,7 @@
   <style>
 
 .navbar img {
-    border: 2px solid #888888;
+    border: 3px solid #888888;
 }
 </style>
 
@@ -29,13 +29,15 @@
     <nav role="navigation" class="navbar navbar-custom">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a  href="<?php echo base_url() ?>home" type="submit">
+           
             <img src="image/hh.png"  class="img-responsive img-circle" alt="" width="50px" left="15px" position="relative">
              </a>
           </div>
+        
           <div class="collapse navbar-collapse" id="bs-content-row-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
-                                  <li><a><h7>UD SRI REJEKI</h7></a></li>
+                                <li></li>
+                                <li><b><a href="<?php echo base_url() ?>home" type="submit" style="color: lightgrey"><h5>UD SRI REJEKI</h5></a></b></li>
                                   <li class="active"><a href="home">Home</a></li>
                                   <!-- <li class="disabled"><a href="#">Link</a></li> -->
         

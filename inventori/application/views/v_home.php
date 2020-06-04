@@ -22,38 +22,19 @@
       <div class="panel panel-default">
         <div class="panel-body">
         <div class="card">
-        <div class="col-md-2 text-right">
+        <div class="col-md-7 text-left">
+        <a href="<?php echo base_url() ?>home" type="submit" class="btn btn-primary" >All </a> 
+        <a href="<?php echo base_url() ?>home/makanan" type="submit" class="btn btn-info" >Makanan </a> 
+        <a href="<?php echo base_url() ?>home/minuman" type="submit" class="btn btn-success" >Minuman </a> 
+        <a href="<?php echo base_url() ?>home/mamel" type="submit" class="btn btn-secondary" >Sempak mamel</a>
+        <a href="<?php echo base_url() ?>home/bocor" type="submit" class="btn btn-warning" >Kondom anti bocor</a> 
+        <a href="<?php echo base_url() ?>home/meledak" type="submit" class="btn btn-primary" >Bijimu meledak</a> 
         <!-- <div class="col-md-3 text-left"> -->
-                <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
-                    <div class="input-group">
-                       
-                        <select name="q" class="form-control" > 
-                                <option value="">pilih jenis</option>
-                                <?php 
-                                $sql = $this->db->query("select distinct jenis from barang");
-                                foreach ($sql->result() as $row) {
-                                ?>
-                                <option value="<?php echo $row->jenis ?>"><?php echo $row->jenis ?></option>
-                                <?php } ?>
-                                </select>
-                        <span class="input-group-btn">
-                            <?php 
-                                if ($q <> '')
-                                {
-                                    ?>
-                                    
-                                    <?php
-                                }
-                            ?>
-                          <button class="btn btn-primary" type="submit"><i class='fas fa-search' style='font-size:16px'></i></button>
-                        </span>
-                    </div>
-                </form>
-
 
                 
                 </div>
-                <div class="col-md-3 text-left">
+          
+                <div class="col-md-5 text-right">
                 <div class="home-category-list__category-grid"></div>
                 <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">
@@ -72,9 +53,7 @@
                     </div>
                     </div>
                 </form>
-                <div class="col-md-2 text-center">
-                <h5  style="color: grey">UD SRI REJEKI</h5>
-               </div>
+
                 </div>
             
                 

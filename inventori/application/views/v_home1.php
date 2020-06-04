@@ -8,6 +8,7 @@
     border: 2px solid #888888;
 }
 
+
 </style>
 		<div class="row">
 		  <?php foreach($home_data as $home) : ?>

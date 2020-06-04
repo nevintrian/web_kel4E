@@ -30,8 +30,28 @@ class M_home extends CI_Model
     $this->db->or_like('jenis', $q);
     $this->db->select('*');
     $this->db->from('barang');
+    $this->db->where('jenis', 'makanan');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
+    }
+
+
+    function get_limit_data_makanan($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+        $this->db->order_by($this->id, $this->order);
+
+    $this->db->select('*');
+    $this->db->from('barang');
+    $this->db->where('jenis', 'makanan');
+	$this->db->limit($limit, $per_page);
+        return $this->db->get()->result();
+    }
+
+
+    public function total_rows_makanan($q = NULL) { //untuk memunculkan record
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->where('jenis', 'makanan');
+        return $this->db->count_all_results();
     }
 
 

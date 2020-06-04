@@ -52,4 +52,46 @@ class Home extends CI_Controller {
 
 	}
     
+
+
+
+
+
+
+    public function makanan(){	
+
+        $this->load->view('v_header');
+        
+		$q = urldecode($this->input->get('q', TRUE)); //search 
+        $per_page = intval($this->input->get('per_page')); //membuat halaman baru
+        if ($q <> '') {
+            $config['base_url'] = base_url() . 'home/makanan/?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'home/makanan/?q=' . urlencode($q);
+        } else {
+            $config['base_url'] = base_url() . 'home/makanan';
+            $config['first_url'] = base_url() . 'home/makanan';
+        }
+        //konfigurasi banyak row dalam satu halaman
+        $config['per_page'] = 6;
+        $config['page_query_string'] = TRUE;
+        $config['total_rows'] = $this->m_home->total_rows_makanan($q);
+        $home = $this->m_home->get_limit_data_makanan($config['per_page'], $per_page, $q);
+        $this->load->library('pagination');
+        $this->pagination->initialize($config);
+        //menampilkan data
+        $data = array(
+            'home_data' => $home,
+            'q' => $q,
+            'pagination' => $this->pagination->create_links(),
+            'total_rows' => $config['total_rows'],
+            'per_page' => $per_page,
+		);
+        $this->load->view('v_home',$data);
+        $this->load->view('v_carousel');
+        $this->load->view('v_home1',$data);
+		$this->load->view('v_footer'); 
+
+
+
+	}
 }
