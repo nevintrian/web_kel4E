@@ -15,23 +15,22 @@ table.dataTable {
 div.dataTables_info {
     margin-bottom: -5em;
 }
-</style> 
+</style>  
 <div class="col-xs-12 col-sm-9 content">
+
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Master</h3>
+                <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Pegawai</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Data Supplier</h2>
-                  <div class="row">
+                  <h2 class="content-row-title">Data supplier Terhapus</h2>
 
-                <div class="card">
+                  <div class="row" style="margin-bottom: 10px">
+
+                  <div class="card">
                   <div class="col-md-4">
-                <?php echo anchor(site_url('supplier/create'),'Tambah', 'class="btn btn-primary"'); ?>
-                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="supplier1"> <i class="glyphicon glyphicon-trash"></i> </a>
-                <?php } ?>
+               
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -44,44 +43,45 @@ div.dataTables_info {
                     <div class="col-md-12">
                     <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
         <thead>
-        <tr>
+            <tr>
         <th>No</th>
-        <th>Nama_supplier</th>
+        <th>Nama supplier</th>
         <th>Alamat</th>
-        <th>No_telp</th>
+        <th>No Telepon</th> 
         <th>Action</th>
         </tr>
         </thead>
-      <tbody>
-        <?php 
-        $no=1;
-					foreach ($supplier_data as $supplier) {
+        <tbody>
+            <?php 
+            $no=1;
+					foreach ($supplier_data1 as $supplier1) {
                         ?>
+					 
                 <tr>
-            <td width="80px"><?php echo $no++ ?></td>
-            <td><?php echo $supplier->nama_supplier ?></td>
-            <td><?php echo $supplier->alamat ?></td>
-            <td><?php echo $supplier->no_telp ?></td> 
-            
-            <td>
+            <td width="80px"><?php echo $no++?></td>
+            <td><?php echo $supplier1->nama_supplier ?></td>
+            <td><?php echo $supplier1->alamat ?></td>
+            <td><?php echo $supplier1->no_telp ?></td>
+            <td style="text-align:center" width="200px">
                 <?php 
-               echo anchor(site_url('supplier/update/'.$supplier->id_supplier),'Ubah', 'class="btn btn-info btn-sm"'); 
-               echo '  '; 
-               echo anchor(site_url('supplier/delete/'.$supplier->id_supplier),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
+                
+                echo anchor(site_url('supplier/restore/'.$supplier1->id_supplier),'Restore', 'class="btn btn-info btn-sm"'); 
+                echo '  '; 
+                echo anchor(site_url('supplier/delete/'.$supplier1->id_supplier),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>
             </td>
         </tr>
                 <?php
             }
             ?>
-      </tbody>    
+        </tbody>
         </table>
         <div class="row">
             <div class="col-md-6">
                 <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
-                <a href="supplier/cetak_pdf" class="btn btn-info">Cetak Data Supplier</a>
+                <a href="supplier/cetak_pdf" class="btn btn-info">Cetak Data supplier</a>
         </div>
-           
+            
         </div>
 
                     </div>
@@ -90,9 +90,7 @@ div.dataTables_info {
               </div>
             </div>
         </div>
-      </div>
-    </div>
-    <script type="text/javascript">
+        <script type="text/javascript">
     $(document).ready( function () 
     {
       $('#datatables').DataTable({
@@ -101,4 +99,4 @@ div.dataTables_info {
                 });
       
     } );
-    </script>
+    </script> 

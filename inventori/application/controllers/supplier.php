@@ -205,13 +205,17 @@ class supplier extends CI_Controller {
     //fungsi delete data database
     public function delete($id) 
 {
-    $row = $this->m_supplier->get_by_id($id);
+    $data = array(
+        'del' => "1"
 
-    if ($row) {
-        $this->m_supplier->delete($id);
-        redirect(site_url('supplier'));
+        );
+        
+        $this->db->where('id_supplier', $id);
+        $this->db->update('supplier', $data);
+        $this->db->where('id_supplier', $id);
+            redirect(site_url('supplier'));
     }
-}
+
     
 }
     ?>

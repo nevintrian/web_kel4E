@@ -38,11 +38,13 @@ div.dataTables_info {
                 <div class="col-md-4">
                 <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
                 <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
+                <a href="cicilan/" class="btn btn-warning">cicilan</a>
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
                 <a class ="btn btn-danger" href="konfirmasi2"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
                 </div>
                 <div class="col-md-4">
+                
                 </div>
                 <div class="col-md-4 text-right">
 

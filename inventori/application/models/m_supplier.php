@@ -23,10 +23,9 @@ class M_supplier extends CI_Model
 
 	//menghitung rows untuk pencarian dan dashboard
 	public function total_rows() { 
-        $this->db->like('id_supplier');
+        
 	$this->db->or_like('nama_supplier');
-	$this->db->or_like('alamat');
-	$this->db->or_like('no_telp');
+    
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -34,10 +33,10 @@ class M_supplier extends CI_Model
     // untuk limit halaman dan pencarian
     function get_limit_data() { 
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('id_supplier');
+    
 	$this->db->or_like('nama_supplier');
-	$this->db->or_like('alamat');
-	$this->db->or_like('no_telp');
+    $where = "supplier.del='0'";
+    $this->db->where($where);
         return $this->db->get($this->table)->result();
     }
 

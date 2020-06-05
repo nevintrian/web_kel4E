@@ -10,7 +10,51 @@
     background-image: none;
     background-color: #ffffff;
     /* background: url('image/carousel/kokola10.jpg'); */
+    }
     
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 4px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.button1 {
+  background-color: white; 
+  color: green; 
+  border: 2px solid #4CAF50;
+}
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #f44336;
+}
+
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button5 {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+}
 
 }
 
@@ -23,12 +67,12 @@
         <div class="panel-body">
         <div class="card">
         <div class="col-md-7 text-left">
-        <a href="<?php echo base_url() ?>home" type="submit" class="btn btn-primary" >All </a> 
-        <a href="<?php echo base_url() ?>home/makanan" type="submit" class="btn btn-info" >Makanan </a> 
-        <a href="<?php echo base_url() ?>home/minuman" type="submit" class="btn btn-success" >Minuman </a> 
-        <a href="<?php echo base_url() ?>home/mamel" type="submit" class="btn btn-secondary" >Sempak mamel</a>
-        <a href="<?php echo base_url() ?>home/bocor" type="submit" class="btn btn-warning" >Kondom anti bocor</a> 
-        <a href="<?php echo base_url() ?>home/meledak" type="submit" class="btn btn-primary" >Bijimu meledak</a> 
+        <a href="<?php echo base_url() ?>home" type="submit" class="button button4" >All </a> 
+        <a href="<?php echo base_url() ?>home/makanan" type="submit" class="button button4" >Makanan </a>
+        <a href="<?php echo base_url() ?>home/minuman" type="submit" class="button button4" >Minuman</a>
+        <a href="<?php echo base_url() ?>home/pembalut" type="submit" class="button button4" >Pembalut</a>
+        <a href="<?php echo base_url() ?>home/kosmetik" type="submit" class="button button4" >Kosmetik</a> 
+        <a href="<?php echo base_url() ?>home/permen" type="submit" class="button button4" >Permen</a> 
         <!-- <div class="col-md-3 text-left"> -->
 
                 

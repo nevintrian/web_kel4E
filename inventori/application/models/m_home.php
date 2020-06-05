@@ -54,5 +54,42 @@ class M_home extends CI_Model
         return $this->db->count_all_results();
     }
 
+    //
+
+    function get_limit_data_minuman($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+        $this->db->order_by($this->id, $this->order);
+
+    $this->db->select('*');
+    $this->db->from('barang');
+    $this->db->where('jenis', 'minuman');
+	$this->db->limit($limit, $per_page);
+        return $this->db->get()->result();
+    }
+
+
+    public function total_rows_minuman($q = NULL) { //untuk memunculkan record
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->where('jenis', 'minuman');
+        return $this->db->count_all_results();
+    }
+
+    function get_limit_data_pembalut($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+        $this->db->order_by($this->id, $this->order);
+
+    $this->db->select('*');
+    $this->db->from('barang');
+    $this->db->where('jenis', 'pembalut');
+	$this->db->limit($limit, $per_page);
+        return $this->db->get()->result();
+    }
+
+
+    public function total_rows_pembalut($q = NULL) { //untuk memunculkan record
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->where('jenis', 'pembalut');
+        return $this->db->count_all_results();
+    }
 
 }
