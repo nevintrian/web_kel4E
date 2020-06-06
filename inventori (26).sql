@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Jun 2020 pada 05.45
+-- Waktu pembuatan: 06 Jun 2020 pada 07.47
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -176,7 +176,42 @@ INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) V
 (181, '2020-06-04 10:37:54', 'Tansaksi barang masuk dengan id=1 telah diubah', 1),
 (182, '2020-06-04 10:37:59', 'Tansaksi barang masuk dengan id=1 telah diubah', 1),
 (183, '2020-06-04 10:39:09', 'Tansaksi barang keluar dengan id=25 telah ditambah', 1),
-(184, '2020-06-04 10:40:29', 'Tansaksi barang keluar dengan id=26 telah ditambah', 1);
+(184, '2020-06-04 10:40:29', 'Tansaksi barang keluar dengan id=26 telah ditambah', 1),
+(185, '2020-06-06 08:53:58', 'Supplier bernamaCV. KAWI telah dihapus', 1),
+(186, '2020-06-06 09:23:04', 'Tansaksi barang keluar dengan id=27 telah ditambah', 1),
+(187, '2020-06-06 09:23:30', 'Tansaksi barang keluar dengan id=28 telah ditambah', 1),
+(188, '2020-06-06 09:31:04', 'Tansaksi barang keluar dengan id=29 telah ditambah', 1),
+(189, '2020-06-06 09:31:31', 'Tansaksi barang keluar dengan id=30 telah ditambah', 1),
+(190, '2020-06-06 09:32:45', 'Tansaksi barang keluar dengan id=31 telah ditambah', 1),
+(191, '2020-06-06 09:33:38', 'Tansaksi barang keluar dengan id=32 telah ditambah', 1),
+(192, '2020-06-06 09:37:07', 'Tansaksi barang keluar dengan id=33 telah ditambah', 1),
+(193, '2020-06-06 09:41:44', 'Tansaksi barang keluar dengan id=36 telah ditambah', 1),
+(194, '2020-06-06 09:44:02', 'Transaksi barang keluar dengan id=29 telah dihapus', 1),
+(195, '2020-06-06 09:44:09', 'Transaksi barang keluar dengan id=28 telah dihapus', 1),
+(196, '2020-06-06 09:45:40', 'Tansaksi barang keluar dengan id=27 telah dikonfirmasi', 1),
+(197, '2020-06-06 09:45:40', 'Tansaksi barang keluar dengan id=27 telah dikonfirmasi', 1),
+(198, '2020-06-06 09:45:53', 'Tansaksi barang keluar dengan id=6 telah dikonfirmasi', 1),
+(199, '2020-06-06 09:45:59', 'Tansaksi barang keluar dengan id=25 telah dikonfirmasi', 1),
+(200, '2020-06-06 09:46:02', 'Tansaksi barang keluar dengan id=2 telah dikonfirmasi', 1),
+(201, '2020-06-06 09:46:02', 'Tansaksi barang keluar dengan id=2 telah dikonfirmasi', 1),
+(202, '2020-06-06 09:56:50', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(203, '2020-06-06 10:05:55', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(204, '2020-06-06 10:05:59', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(205, '2020-06-06 10:06:22', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(206, '2020-06-06 10:08:48', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(207, '2020-06-06 10:08:52', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(208, '2020-06-06 10:09:34', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(209, '2020-06-06 10:10:36', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(210, '2020-06-06 10:23:01', 'Transaksi barang keluar dengan id=39 telah dihapus', 0),
+(211, '2020-06-06 10:23:03', 'Transaksi barang keluar dengan id=39 telah dihapus', 0),
+(212, '2020-06-06 10:23:04', 'Transaksi barang keluar dengan id=38 telah dihapus', 0),
+(213, '2020-06-06 10:23:06', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(214, '2020-06-06 10:31:33', 'Transaksi barang keluar dengan id=40 telah dihapus', 0),
+(215, '2020-06-06 10:36:03', 'Transaksi barang keluar dengan id=39 telah dihapus', 0),
+(216, '2020-06-06 10:36:05', 'Transaksi barang keluar dengan id=38 telah dihapus', 0),
+(217, '2020-06-06 10:39:22', 'Transaksi barang keluar dengan id=38 telah dihapus', 0),
+(218, '2020-06-06 11:50:58', 'Transaksi barang keluar dengan id=37 telah dihapus', 0),
+(219, '2020-06-06 11:51:01', 'Transaksi barang keluar dengan id=3 telah dihapus', 0);
 
 -- --------------------------------------------------------
 
@@ -203,9 +238,9 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4986, 47, 'barang_1587349533.jpg', 0),
-(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4984, 29, 'barang_1587349541.jpg', 0),
-(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 4997, 3, 'barang_1587350641.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4953, 80, 'barang_1587349533.jpg', 0),
+(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'makanan', 22500, 4969, 44, 'barang_1587349541.jpg', 0),
+(3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MM', 22500, 4995, 5, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'makanan', 22500, 5002, -2, 'barang_1587349556.jpg', 0),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', '-', 'MM', 22500, 5000, 0, 'barang_1587350694.jpg', 0),
 (6, 1, 'MAJORICO BANANA 300 GR', '12 PCS / K', '-', 'makanan', 16750, 5000, 0, 'barang_1587349524.jpg', 0),
@@ -516,10 +551,22 @@ INSERT INTO `carousel` (`id_carousel`, `judul`, `isi`, `gambar`) VALUES
 
 CREATE TABLE `cicil` (
   `id_cicil` int(11) NOT NULL,
+  `id_keluar` int(11) NOT NULL,
+  `tgl_cicil` datetime NOT NULL DEFAULT current_timestamp(),
+  `periode` int(11) NOT NULL DEFAULT 0,
   `jumlah_cicil` int(11) NOT NULL,
-  `jatuh_tempo` date NOT NULL,
-  `status` int(11) NOT NULL
+  `foto_cicil` varchar(100) DEFAULT NULL,
+  `status` int(1) NOT NULL DEFAULT 0,
+  `del` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `cicil`
+--
+
+INSERT INTO `cicil` (`id_cicil`, `id_keluar`, `tgl_cicil`, `periode`, `jumlah_cicil`, `foto_cicil`, `status`, `del`) VALUES
+(12, 38, '2020-06-06 11:47:50', 0, 2, NULL, 1, 0),
+(13, 39, '2020-06-06 11:58:41', 0, 5, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -540,13 +587,13 @@ CREATE TABLE `detail_keluar` (
 --
 
 INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `status`) VALUES
-(1, 2, 11, 0, 1),
-(2, 2, 11, 0, 1),
+(1, 2, 11, 0, 2),
+(2, 2, 11, 0, 2),
 (1, 3, 12, 0, 1),
 (2, 3, 12, 0, 1),
 (1, 4, 10, 0, 1),
 (2, 5, 1, 0, 1),
-(3, 6, 1, 0, 1),
+(3, 6, 1, 0, 2),
 (1, 7, 2, 0, 1),
 (2, 7, 1, 0, 1),
 (2, 8, 1, 0, 1),
@@ -569,8 +616,22 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `
 (15, 22, 20, 20, 3),
 (2, 23, 10, 10, 3),
 (4, 24, 10, 3, 3),
-(1, 25, 1, 0, 1),
-(3, 26, 1, 0, 0);
+(1, 25, 1, 0, 2),
+(3, 26, 1, 0, 1),
+(2, 27, 1, 0, 2),
+(1, 27, 1, 0, 2),
+(2, 28, 12, 0, 1),
+(1, 29, 10, 0, 1),
+(1, 30, 10, 0, 2),
+(1, 31, 12, 0, 2),
+(2, 32, 1, 0, 3),
+(3, 33, 1, 0, 2),
+(2, 34, 1, 0, 2),
+(2, 35, 1, 0, 2),
+(1, 36, 1, 0, 2),
+(1, 37, 12, 0, 0),
+(1, 38, 10, 0, 0),
+(1, 39, 12, 0, 0);
 
 --
 -- Trigger `detail_keluar`
@@ -600,6 +661,15 @@ DELIMITER $$
 CREATE TRIGGER `tambah detail_keluar1` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET terjual=terjual+NEW.qty_keluar
     WHERE id_barang=NEW.id_barang AND NEW.status='1';
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tambah keluar` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
+IF NEW.status=2 THEN
+ INSERT INTO activity(keterangan)
+        VALUES(CONCAT('Tansaksi barang keluar dengan id=', NEW.id_keluar, ' telah ditambah')) ;
+END IF;
 END
 $$
 DELIMITER ;
@@ -739,6 +809,7 @@ CREATE TABLE `keluar` (
   `tgl_keluar` datetime DEFAULT NULL,
   `total_keluar` int(11) DEFAULT NULL,
   `foto_keluar` varchar(100) DEFAULT NULL,
+  `status` int(1) DEFAULT 0,
   `del` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -746,32 +817,45 @@ CREATE TABLE `keluar` (
 -- Dumping data untuk tabel `keluar`
 --
 
-INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `foto_keluar`, `del`) VALUES
-(2, 2, '2020-04-25 02:15:36', 495000, NULL, 0),
-(3, 1, '2020-04-25 02:16:02', 540000, 'bayar_1587798968.jpg', 0),
-(4, 1, '2020-04-26 09:49:36', 270000, NULL, 1),
-(5, 3, '2020-05-06 06:03:03', 22500, NULL, 1),
-(6, 3, '2020-05-06 02:10:18', 22500, NULL, 0),
-(7, 3, '2020-05-06 02:21:36', 67500, NULL, 1),
-(8, 3, '2020-05-06 02:22:02', 22500, 'bayar_1588749730.jpg', 1),
-(9, 3, '2020-05-12 05:49:53', 22500, NULL, 0),
-(10, 4, '2020-05-12 05:51:25', 22500, NULL, 0),
-(11, 2, '2020-06-01 06:52:05', 67500, NULL, 0),
-(12, 2, '2020-06-01 08:07:18', 157500, NULL, 0),
-(13, 2, '2020-06-01 08:39:15', 45000, NULL, 0),
-(14, 2, '2020-06-01 09:28:55', 22500, NULL, 0),
-(15, 2, '2020-06-01 09:29:02', 22500, NULL, 0),
-(16, 3, '2020-06-01 09:29:33', 22500, NULL, 0),
-(17, 3, '2020-06-01 09:29:41', 22500, NULL, 0),
-(18, 3, '2020-06-02 11:53:54', 202500, NULL, 0),
-(19, 3, '2020-06-02 12:02:20', 20250, NULL, 0),
-(20, 3, '2020-06-02 12:04:12', 20250, NULL, 0),
-(21, 4, '2020-06-02 12:06:12', 382500, NULL, 0),
-(22, 7, '2020-06-02 12:12:33', 301588, NULL, 0),
-(23, 3, '2020-06-03 02:16:05', 202500, NULL, 0),
-(24, 3, '2020-06-04 10:33:09', 261900, NULL, 0),
-(25, 2, '2020-06-04 10:39:05', 22500, NULL, 0),
-(26, 2, '2020-06-04 10:40:22', 22500, 'bayar_1591242029.jpg', 0);
+INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `foto_keluar`, `status`, `del`) VALUES
+(2, 2, '2020-04-25 02:15:36', 495000, NULL, 0, 0),
+(3, 1, '2020-04-25 02:16:02', 540000, 'bayar_1587798968.jpg', 0, 1),
+(4, 1, '2020-04-26 09:49:36', 270000, NULL, 0, 1),
+(5, 3, '2020-05-06 06:03:03', 22500, NULL, 0, 1),
+(6, 3, '2020-05-06 02:10:18', 22500, NULL, 0, 0),
+(7, 3, '2020-05-06 02:21:36', 67500, NULL, 0, 1),
+(8, 3, '2020-05-06 02:22:02', 22500, 'bayar_1588749730.jpg', 0, 1),
+(9, 3, '2020-05-12 05:49:53', 22500, NULL, 0, 0),
+(10, 4, '2020-05-12 05:51:25', 22500, NULL, 0, 0),
+(11, 2, '2020-06-01 06:52:05', 67500, NULL, 0, 0),
+(12, 2, '2020-06-01 08:07:18', 157500, NULL, 0, 0),
+(13, 2, '2020-06-01 08:39:15', 45000, NULL, 0, 0),
+(14, 2, '2020-06-01 09:28:55', 22500, NULL, 0, 0),
+(15, 2, '2020-06-01 09:29:02', 22500, NULL, 0, 0),
+(16, 3, '2020-06-01 09:29:33', 22500, NULL, 0, 0),
+(17, 3, '2020-06-01 09:29:41', 22500, NULL, 0, 0),
+(18, 3, '2020-06-02 11:53:54', 202500, NULL, 0, 0),
+(19, 3, '2020-06-02 12:02:20', 20250, NULL, 0, 0),
+(20, 3, '2020-06-02 12:04:12', 20250, NULL, 0, 0),
+(21, 4, '2020-06-02 12:06:12', 382500, NULL, 0, 0),
+(22, 7, '2020-06-02 12:12:33', 301588, NULL, 0, 0),
+(23, 3, '2020-06-03 02:16:05', 202500, NULL, 0, 0),
+(24, 3, '2020-06-04 10:33:09', 261900, NULL, 0, 0),
+(25, 2, '2020-06-04 10:39:05', 22500, NULL, 0, 0),
+(26, 2, '2020-06-04 10:40:22', 22500, 'bayar_1591242029.jpg', 0, 0),
+(27, 2, '2020-06-06 09:23:01', 45000, NULL, 0, 0),
+(28, 2, '2020-06-06 09:23:24', 270000, NULL, 0, 1),
+(29, 2, '2020-06-06 09:30:55', 225000, NULL, 0, 1),
+(30, 2, '2020-06-06 09:31:22', 225000, NULL, 0, 0),
+(31, 2, '2020-06-06 09:32:42', 270000, NULL, 0, 0),
+(32, 3, '2020-06-06 09:33:36', 22500, NULL, 0, 0),
+(33, 2, '2020-06-06 09:37:04', 22500, NULL, 0, 0),
+(34, 2, '2020-06-06 09:39:19', 22500, NULL, 0, 0),
+(35, 2, '2020-06-06 09:41:21', 22500, NULL, 0, 0),
+(36, 3, '2020-06-06 09:41:43', 22500, NULL, 0, 0),
+(37, 2, '2020-06-06 11:46:52', 270000, NULL, 0, 1),
+(38, 2, '2020-06-06 11:47:45', 225000, NULL, 1, 0),
+(39, 2, '2020-06-06 11:58:37', 270000, NULL, 1, 0);
 
 --
 -- Trigger `keluar`
@@ -793,9 +877,9 @@ END
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `tambah keluar` AFTER INSERT ON `keluar` FOR EACH ROW BEGIN
- INSERT INTO activity(keterangan)
-        VALUES(CONCAT('Tansaksi barang keluar dengan id=', NEW.id_keluar, ' telah ditambah')) ;
+CREATE TRIGGER `hapus keluar2` BEFORE DELETE ON `keluar` FOR EACH ROW BEGIN
+	DELETE FROM cicil
+    WHERE id_keluar=OLD.id_keluar;
 END
 $$
 DELIMITER ;
@@ -980,7 +1064,8 @@ ALTER TABLE `carousel`
 -- Indeks untuk tabel `cicil`
 --
 ALTER TABLE `cicil`
-  ADD PRIMARY KEY (`id_cicil`);
+  ADD PRIMARY KEY (`id_cicil`),
+  ADD KEY `id_keluar` (`id_keluar`);
 
 --
 -- Indeks untuk tabel `detail_keluar`
@@ -1030,7 +1115,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
@@ -1048,13 +1133,13 @@ ALTER TABLE `carousel`
 -- AUTO_INCREMENT untuk tabel `cicil`
 --
 ALTER TABLE `cicil`
-  MODIFY `id_cicil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cicil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `keluar`
 --
 ALTER TABLE `keluar`
-  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT untuk tabel `masuk`
@@ -1083,6 +1168,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `barang`
   ADD CONSTRAINT `fk_berasal` FOREIGN KEY (`id_supplier`) REFERENCES `supplier` (`id_supplier`);
+
+--
+-- Ketidakleluasaan untuk tabel `cicil`
+--
+ALTER TABLE `cicil`
+  ADD CONSTRAINT `cicil_ibfk_1` FOREIGN KEY (`id_keluar`) REFERENCES `keluar` (`id_keluar`);
 
 --
 -- Ketidakleluasaan untuk tabel `detail_keluar`
