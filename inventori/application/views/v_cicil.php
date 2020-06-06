@@ -60,10 +60,9 @@ div.dataTables_info {
 					<th>No.</th>
 					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
-					<th>Total</th>
-					<th>Nama</th>
-          <th>Alamat</th>
-          <th>No Telp</th>
+          <th>Nama</th>
+					<th>Periode</th>
+					<th>Jumlah Cicil</th>
 					<th>Pilihan</th>
 				</tr>
       </thead>
@@ -75,18 +74,18 @@ div.dataTables_info {
                 
 				<tr>
           <td><?php echo $no++ ?></td>
-					<td><?php echo $keluar->id_keluar; ?></td>
-					<td><?php echo $keluar->tgl_keluar; ?></td>
-					<td><?php echo number_format($keluar->total_keluar); ?></td>
-					<td><?php echo $keluar->nama; ?></td>
-          <td><?php echo $keluar->alamat; ?></td>
-          <td><?php echo $keluar->no_telp; ?></td>
+					<td><?php echo $keluar->id_cicil; ?></td>
+					<td><?php echo $keluar->tgl_cicil; ?></td>
+          <td><?php echo $keluar->nama; ?></td>
+					<td><?php echo $keluar->periode; ?></td>
+          <td><?php echo $keluar->jumlah_cicil; ?></td>
+
           <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
 					
 					<td>
          <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
-          <a href="konfirmasi/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
-          <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
+          <a href="cicil/update_action/<?php echo $keluar->id_cicil ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
+          <a href="cicil/hapus_penjualan/<?php echo $keluar->id_cicil ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
          <?php } ?>
           <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>

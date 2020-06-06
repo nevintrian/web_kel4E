@@ -146,7 +146,7 @@ class Keluar extends CI_Controller {
 			'id_barang' => $id_barang,
 			'qty_keluar' => $qty_keluar,
 			'diskon' => $coupon,
-			'status' => "3",
+			'status' => "2",
 			
 		);
 		$this->db->insert('detail_keluar', $d);

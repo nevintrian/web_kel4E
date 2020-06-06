@@ -65,7 +65,7 @@ div.dataTables_info {
             <td style="text-align:center" width="200px">
                 <?php 
                 
-                echo anchor(site_url('supplier/restore/'.$supplier1->id_supplier),'Restore', 'class="btn btn-info btn-sm"'); 
+                echo anchor(site_url('supplier1/restore/'.$supplier1->id_supplier),'Restore', 'class="btn btn-info btn-sm"'); 
                 echo '  '; 
                 echo anchor(site_url('supplier/delete/'.$supplier1->id_supplier),'Hapus', 'class="btn btn-danger btn-sm", onclick="javasciprt: return confirm(\'Apa Anda Yakin?\')"'); 
                 ?>

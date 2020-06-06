@@ -89,7 +89,8 @@
         <select name="filter" id="filter" class="form-control" required>
             <option value="">--pilih--</option>
             <option value="1">Bayar di tempat</option>
-            <option value="2">Bayar melalui transfer bank</option>
+            <option value="2">Bayar Tunai</option>
+            <option value="3">Bayar Kredit</option>
            
         </select>
 		</div>
@@ -106,6 +107,26 @@
 			
 
     </div>
+
+    <div class="form-group" id="form-cicil">
+    <select name="cicil" id="cicil" class="form-control" >
+            <option value="">--pilih cicilan--</option>
+            <option value="2">2 kali</option>
+            <option value="3">3 kali</option>
+            <option value="4">4 kali</option>
+            <option value="5">5 kali</option>
+            <option value="6">6 kali</option>
+            <option value="7">7 kali</option>
+            <option value="8">8 kali</option>
+            <option value="9">9 kali</option>
+            <option value="10">10 kali</option>
+            <option value="11">11 kali</option>
+            <option value="12">12 kali</option>
+           
+        </select>
+
+        </div>
+
     <div class="form-group" id="form-bulan">
             <label for="file"> Masukkan bukti transfer </label>
             <input type="file" class="form-control" name="foto_keluar" />
@@ -127,14 +148,18 @@
     <script>
     $(document).ready(function(){ // Ketika halaman selesai di load
 
-        $('#form-tanggal, #form-bulan, #form-tahun').hide(); // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
+        $('#form-tanggal, #form-bulan, #form-tahun, #form-cicil').hide(); // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
         $('#filter').change(function(){ // Ketika user memilih filter
             if($(this).val() == '1'){ // Jika filter nya 1 (per tanggal)
-                $('#form-bulan, #form-tahun').hide(); // Sembunyikan form bulan dan tahun
+                $('#form-bulan, #form-tahun, #form-cicil').hide(); // Sembunyikan form bulan dan tahun
                 $('#form-tanggal').show(); // Tampilkan form tanggal
             }else if($(this).val() == '2'){ // Jika filter nya 2 (per bulan)
-                $('#form-tanggal').hide(); // Sembunyikan form tanggal
+                $('#form-tanggal, #form-cicil').hide(); // Sembunyikan form tanggal
                 $('#form-bulan, #form-tahun').show(); // Tampilkan form bulan dan tahun
+
+              }else if($(this).val() == '3'){ // Jika filter nya 2 (per bulan)
+                $('#form-tanggal, #form-bulan, #form-tahun').hide(); // Sembunyikan form tanggal
+                $('#form-cicil').show(); // Tampilkan form bulan dan tahun
 
             }
             $('#form-tanggal input, #form-bulan select, #form-tahun select').val(''); // Clear data pada textbox tanggal, combobox bulan & tahun

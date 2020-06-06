@@ -166,6 +166,53 @@ foreach ($this->cart->contents() as $items) {
 $this->cart->destroy();
 redirect('keranjang');
 
-}
+}else if($filter == '3'){ // Jika filter nya 1 (per tanggal)
+
+	$kode_penjualan = $this->input->post('kode_penjualan');
+	$total_keluar = $this->input->post('total_keluar');
+	$tgl_penjualan = $this->input->post('tgl_penjualan');
+	$id_user = $this->input->post('id_user');
+	$cicil = $this->input->post('cicil');
+
+	$data = array(
+		
+		'id_keluar'=> $kode_penjualan,
+		'total_keluar'=> $total_keluar,
+		'tgl_keluar'=> $tgl_penjualan,
+		'id_user'=> $id_user,
+		'status' => "1",
+	);
+	$this->db->insert('keluar', $data);
+
+
+foreach ($this->cart->contents() as $items) {
+	$id_barang = $items['id'];
+	$qty_keluar = $items['qty'];
+	$d = array(
+		'id_keluar' => $kode_penjualan,
+		'id_barang' => $id_barang,
+		'qty_keluar' => $qty_keluar,
+		'status' => "0",
+		
+	);
+	$this->db->insert('detail_keluar', $d);
+	
+	
+	//$this->db->query("UPDATE menu SET satuan=satuan-'$qty_keluar' WHERE kode_menu='$id_barang'");
+} 
+
+
+$data = array(
+		
+	'id_keluar'=> $kode_penjualan,
+	'jumlah_cicil'=> $cicil,
+	
+);
+$this->db->insert('cicil', $data);
+
+
+$this->cart->destroy();
+redirect('keranjang');
 		}	}
+}
 }
