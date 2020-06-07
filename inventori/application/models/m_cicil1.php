@@ -18,7 +18,7 @@ class M_cicil1 extends CI_Model
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
         $this->db->join('cicil', 'cicil.id_keluar=keluar.id_keluar');
-        $where = "cicil.status='1' and cicil.del='0'";
+        $where = "(detail_keluar.status='0' and keluar.del='0' and cicil.status='1' and cicil.del='0') or (detail_keluar.status='1' and keluar.del='0' and cicil.status='1' and cicil.del='0')";
         $this->db->where($where);
 
         }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
@@ -30,7 +30,7 @@ class M_cicil1 extends CI_Model
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
         $this->db->join('cicil', 'cicil.id_keluar=keluar.id_keluar');
-        $where = "detail_keluar.status='0' or detail_keluar.status='1' and user.id_user=$id and keluar.del='0'";
+        $where = "(detail_keluar.status='0' and keluar.del='0' and cicil.status='1' and cicil.del='0' and user.id_user=$id) or (detail_keluar.status='1' and keluar.del='0' and cicil.status='1' and cicil.del='0' and user.id_user=$id)";
         $this->db->where($where);
         
     }
@@ -48,7 +48,7 @@ class M_cicil1 extends CI_Model
     $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
     $this->db->join('user', 'user.id_user=keluar.id_user');
     $this->db->join('cicil', 'cicil.id_keluar=keluar.id_keluar');
-    $where = "cicil.status='1' and cicil.del='0'";
+    $where = "(detail_keluar.status='0' and keluar.del='0' and cicil.status='1' and cicil.del='0') or (detail_keluar.status='1' and keluar.del='0' and cicil.status='1' and cicil.del='0')";
     $this->db->where($where);
     $this->db->limit($limit, $per_page);
 
@@ -62,7 +62,7 @@ class M_cicil1 extends CI_Model
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
         $this->db->join('cicil', 'cicil.id_keluar=keluar.id_keluar');
-        $where = "detail_keluar.status='0' or detail_keluar.status='1' and user.id_user=$id and keluar.del='0'";
+        $where = "(detail_keluar.status='0' and keluar.del='0' and cicil.status='1' and cicil.del='0' and user.id_user=$id) or (detail_keluar.status='1' and keluar.del='0' and cicil.status='1' and cicil.del='0' and user.id_user=$id)";
         $this->db->where($where);
         $this->db->limit($limit, $per_page);
 

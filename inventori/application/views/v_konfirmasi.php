@@ -39,6 +39,14 @@ div.dataTables_info {
                 <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
                 <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
                 <a href="cicil/" class="btn btn-warning">Cicilan</a>
+                <?php } ?>
+                <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
+            <div class="card">
+                <div class="col-md-6">
+                <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
+                <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
+                <a href="cicil/" class="btn btn-warning">Cicilan</a>
+                <?php } ?>
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
                 <a class ="btn btn-danger" href="konfirmasi2"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
@@ -50,7 +58,7 @@ div.dataTables_info {
 
                 </div>
                 </div>
-                <?php } ?>
+                
                 </br>
                 </br></br>
                 <div class="col-md-12">
