@@ -17,7 +17,7 @@ class M_keluar1 extends CI_Model
         $this->db->from('keluar');
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
         $this->db->join('user', 'user.id_user=keluar.id_user');
-        $where = "keluar.del='1' and detail_keluar.status='2' or detail_keluar.status='3'";
+        $where = "(keluar.del='1' and detail_keluar.status='2' and keluar.status='0' and keluar.foto_keluar is null) or (detail_keluar.status='3' and keluar.del='1' and keluar.status='0' and keluar.foto_keluar is null)";
         $this->db->where($where);
         
         }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
@@ -28,7 +28,7 @@ class M_keluar1 extends CI_Model
             $this->db->from('keluar');
             $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
             $this->db->join('user', 'user.id_user=keluar.id_user');
-            $where = "user.id_user=$id";
+            $where = "(keluar.del='1' and detail_keluar.status='2' and user.id_user=$id and keluar.status='0' and keluar.foto_keluar is null) or (keluar.del='1' and detail_keluar.status='3' and user.id_user=$id and keluar.status='0' and keluar.foto_keluar is null)";
             $this->db->where($where);
                  
     }
@@ -51,7 +51,7 @@ class M_keluar1 extends CI_Model
     $this->db->from('keluar');
     $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
     $this->db->join('user', 'user.id_user=keluar.id_user');
-    $where = "keluar.del='1' and detail_keluar.status='2'  or detail_keluar.status='3'";
+    $where = "(keluar.del='1' and detail_keluar.status='2' and keluar.status='0' and keluar.foto_keluar is null) or (detail_keluar.status='3' and keluar.del='1' and keluar.status='0' and keluar.foto_keluar is null)";
     $this->db->where($where);
         return $this->db->get()->result();
     }
@@ -64,7 +64,7 @@ class M_keluar1 extends CI_Model
         $this->db->select("keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp");
         $this->db->from('keluar');
         $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
-        $this->db->join('user', 'user.id_user=keluar.id_user');
+        $where = "(keluar.del='1' and detail_keluar.status='2' and user.id_user=$id and keluar.status='0' and keluar.foto_keluar is null) or (keluar.del='1' and detail_keluar.status='3' and user.id_user=$id and keluar.status='0' and keluar.foto_keluar is null)";
         $where = "user.id_user=$id";
         $this->db->where($where);
 

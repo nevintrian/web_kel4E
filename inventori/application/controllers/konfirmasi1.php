@@ -52,7 +52,7 @@ class Konfirmasi1 extends CI_Controller {
 
             //masukkan data ke database
             $data = array(
-                'status' => "1"
+                'status' => "2"
 
                 );
                 

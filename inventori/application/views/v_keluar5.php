@@ -1,3 +1,4 @@
+
 <head>
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -6,6 +7,7 @@
     
 
 </head> 
+
 <style>
 table.dataTable {
   margin-top:-1em !important;  
@@ -16,7 +18,7 @@ div.dataTables_info {
     margin-bottom: -5em;
 }
 </style> 
-          <div class="col-xs-12 col-sm-9 content">
+       <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">
               <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
@@ -24,44 +26,50 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Pembayaran</h2>
+                  <h2 class="content-row-title">Transaksi Barang Keluar</h2>
                   <?php }else{?>
-                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Menunggu Konfirmasi</h3>
+                    <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Menunggu Konfirmasi</h2>
+                  <h2 class="content-row-title">Transaksi Telah di Konfirmasi</h2>
                   <?php } ?>
                   <div class="row">
                   <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <div class="card">
                 <div class="col-md-6">
-                <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
-                <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
-                <a href="cicil/" class="btn btn-warning">Cicilan</a>
+                <?php echo anchor(site_url('keluar/tambah'),'Tambah', 'class="btn btn-primary"'); ?>
+              
+                <a href="keluar" class="btn btn-info">Belum bayar</a>
+                <a href="keluar2" class="btn btn-primary">Sudah bayar</a>
+                <a href="cicil1/" class="btn btn-warning">Cicilan</a>
                 <?php } ?>
 
                 <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
             <div class="card">
                 <div class="col-md-6">
-                <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
-                <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
-                <a href="cicil/" class="btn btn-warning">Cicilan</a>
+                <a href="keluar" class="btn btn-info">Belum bayar</a>
+                <a href="keluar2" class="btn btn-primary">Sudah bayar</a>
+                <a href="cicil1/" class="btn btn-warning">Cicilan</a>
                 <?php } ?>
+
+
+
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="konfirmasi3"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <a class ="btn btn-danger" href="keluar1"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
                 </div>
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4 text-right">
-
-                </div>
-                </div>
                 
-                </br></br></br>
+                </div>
+                </div>
+               
+                </br>
+                </br></br>
                 <div class="col-md-12">
-              <table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
+		<table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
     <thead>
 				<tr>
 					<th>No.</th>
@@ -70,14 +78,14 @@ div.dataTables_info {
 					<th>Total</th>
 					<th>Nama</th>
           <th>Alamat</th>
-          <th>No Telp</th>
+          <th>No Telepon</th>
           <th>Foto</th>
 					<th>Pilihan</th>
 				</tr>
-    </thead>                                
+                </thead>
     <tbody>
       <?php 
-        $no=1;
+      $no=1;
 					foreach ($keluar_data as $keluar) {
                         ?>
                 
@@ -89,33 +97,144 @@ div.dataTables_info {
 					<td><?php echo $keluar->nama; ?></td>
           <td><?php echo $keluar->alamat; ?></td>
           <td><?php echo $keluar->no_telp; ?></td>
-          <td>
-            <a data-fancybox="gallery" href="image/bayar/<?php echo $keluar->foto_keluar; ?>">
-            <img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" />
-            </td> 
-          <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
+          <td><img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" /></td>
 					
-				<td>
-          <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
-          <a href="konfirmasi1/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
-          <a href="konfirmasi1/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
-          <?php } ?>
-          <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
-          <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+					<td>
+         
+						<a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
+
+            <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+            <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
+              <button href="#" data-toggle="modal" data-target="#myModal2<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm" >edit</button>
+            <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
+                     
+              <?php } ?>
+              <button href="#" data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-secondary btn-sm" >retur</button>
+                               
+          </td>
             
-				</td>
-				</tr>
-				<?php } ?>
-      </tbody>  
+         
+   <div id="myModal1<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <form method="POST" action="keluar/retur/<?php echo $keluar->id_keluar ?>">
+  <?php $kel=$keluar->id_keluar ?>
+	  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Retur Barang</h4>
+      </div>
+    <!-- Modal content-->
+	<div class="modal-body">
+  <div class="form-group">
+  
+        	<label>Nama Barang</label><br>
+	      <select id="id_barang" name="id_barang"  class="form-control" >
+      
+        <option value="">--pilih barang--</option>
+	        <?php 
+	      $sql = $this->db->query("select * from detail_keluar inner join barang on detail_keluar.id_barang=barang.id_barang where detail_keluar.id_keluar=$kel");
+	        foreach ($sql->result() as $row) {
+           ?>
+	        <option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?> (qty beli:<?php echo $row->qty_keluar ?>)</option>
+       
+     
+          <?php } ?>
+        </select>
+       
+      </div>
+
+
+     
+
+      <div class="form-group">
+        	<label>Jumlah Retur</label><br>
+	      <input id="jumlah_retur" name="jumlah_retur"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+      
+      </div>
+		</div>
+        <div class="modal-footer">
+	
+      	<button class="btn btn-info" type="submit">Kirim</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+        
+    </form>
+	
+</div>
+</div>
+  
+
+
+
+        </tr>
+        <div id="myModal2<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <form method="POST" action="keluar/edit/<?php echo $keluar->id_keluar ?>">
+  <?php $kel=$keluar->id_keluar ?>
+	  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Barang</h4>
+      </div>
+    <!-- Modal content-->
+	<div class="modal-body">
+  <div class="form-group">
+  
+        	<label>Nama Barang</label><br>
+	      <select id="id_barang" name="id_barang"  class="form-control" >
+      
+        <option value="">--pilih barang--</option>
+	        <?php 
+	      $sql = $this->db->query("select * from detail_keluar inner join barang on detail_keluar.id_barang=barang.id_barang where detail_keluar.id_keluar=$kel");
+	        foreach ($sql->result() as $row) {
+           ?>
+	        <option value="<?php echo $row->id_barang ?>"><?php echo $row->nama_barang ?> (qty beli:<?php echo $row->qty_keluar ?>)</option>
+       
+     
+          <?php } ?>
+        </select>
+       
+      </div>
+
+
+     
+
+      <div class="form-group">
+        	<label>Qty baru</label><br>
+	      <input id="edit" name="edit"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+      
+      </div>
+		</div>
+        <div class="modal-footer">
+	
+      	<button class="btn btn-info" type="submit">Kirim</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+        
+    </form>
+	
+</div>
+</div>
+
+        <?php } ?> 
+          </tbody>   	
 				</table>
 
 
 
 
     <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
+            
             <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
-        </div>
+            <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
+            <a href="keluar/cetak_pdf1" class="btn btn-info">Cetak Data Hari ini</a>
+            <a href="keluar/cetak_pdf2" class="btn btn-primary">Cetak Data Bulan ini</a>
+            <a href="keluar/cetak_pdf3" class="btn btn-success">Cetak Data Tahun ini</a>
+            <a href="keluar/cetak_pdf" class="btn btn-secondary">Cetak Semua Data</a>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Cetak Periode</button>
+            <?php }?>
+          </div>
             <div class="col-md-2 text-right">
                 
             </div>
@@ -194,10 +313,15 @@ div.dataTables_info {
 	
 </div>
 </div>
+
+
+
 </div>
     
 
                     </div>
+ 
+    <!-- Load file plugin js jquery-ui -->
     <script src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js'); ?>"></script> <!-- Load file plugin js jquery-ui -->
     <script>
     $(document).ready(function(){ // Ketika halaman selesai di load
@@ -218,6 +342,9 @@ div.dataTables_info {
         })
     })
     </script>
+
+
+
   </div>
 </div>
 </div>
@@ -231,6 +358,7 @@ div.dataTables_info {
 </div>
 	</div>
 </div>
+
 <script type="text/javascript">
     $(document).ready( function () 
     {
@@ -240,4 +368,4 @@ div.dataTables_info {
                 });
       
     } );
-    </script> 
+    </script>

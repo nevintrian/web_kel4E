@@ -40,16 +40,16 @@ div.dataTables_info {
                 <div class="col-md-6">
                 <?php echo anchor(site_url('keluar/tambah'),'Tambah', 'class="btn btn-primary"'); ?>
               
-                <a href="keluar5" class="btn btn-info">Belum bayar</a>
-                <a href="keluar6" class="btn btn-primary">Sudah bayar</a>
+                <a href="keluar" class="btn btn-info">Belum bayar</a>
+                <a href="keluar2" class="btn btn-primary">Sudah bayar</a>
                 <a href="cicil1/" class="btn btn-warning">Cicilan</a>
                 <?php } ?>
 
                 <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
             <div class="card">
                 <div class="col-md-6">
-                <a href="keluar5" class="btn btn-info">Belum bayar</a>
-                <a href="keluar6" class="btn btn-primary">Sudah bayar</a>
+                <a href="keluar" class="btn btn-info">Belum bayar</a>
+                <a href="keluar2" class="btn btn-primary">Sudah bayar</a>
                 <a href="cicil1/" class="btn btn-warning">Cicilan</a>
                 <?php } ?>
 
