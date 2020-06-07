@@ -78,7 +78,11 @@ foreach ($user_data as $user) {
 <td><?php echo $user->jenis_kelamin ?></td>
 <td><?php echo $user->alamat ?></td>
 <td><?php echo $user->no_telp ?></td>
-<td><img src="<?php echo base_url('image/user/'.$user->foto) ?>" width="64" /></td> <!-- menampilkan gambar  -->
+<td>
+            <a data-fancybox="gallery" href="image/user/<?php echo $user->foto; ?>">
+            <img src="<?php echo base_url('image/user/'.$user->foto) ?>" width="64" />
+</td> 
+<!-- menampilkan gambar  -->
 <td style="text-align:center" width="200px">
     <?php 
     

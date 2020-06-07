@@ -89,7 +89,10 @@ div.dataTables_info {
 					<td><?php echo $keluar->nama; ?></td>
           <td><?php echo $keluar->alamat; ?></td>
           <td><?php echo $keluar->no_telp; ?></td>
-          <td><img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" /></td>
+           <td>
+            <a data-fancybox="gallery" href="image/bayar/<?php echo $keluar->foto_keluar; ?>">
+            <img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" />
+            </td> 
           <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
 					
 				<td>

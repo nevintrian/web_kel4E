@@ -94,7 +94,10 @@ div.dataTables_info {
           <td><?php echo $keluar->periode; ?></td>
           
           <td><?php echo number_format($keluar->total_keluar/$keluar->jumlah_cicil); ?></td>
-          <td><img src="<?php echo base_url('image/cicil/'.$keluar->foto_cicil) ?>" width="64" /></td>
+          <td>
+            <a data-fancybox="gallery" href="image/cicil/<?php echo $keluar->foto_cicil; ?>">
+            <img src="<?php echo base_url('image/cicil/'.$keluar->foto_cicil) ?>" width="64" />
+          </td> 
 
           <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
 					
