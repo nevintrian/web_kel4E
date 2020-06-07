@@ -100,6 +100,27 @@
             </div>    
      
         
+    <div class="form-group" id="form-cicil">
+    <label>Pilih Cicilan</label><br>
+    <select name="cicil" id="cicil" class="form-control" >
+
+            <option value="">--pilih cicilan--</option>
+            <option value="2">2 kali (Rp<?php echo round(($item['subtotal'])/2); ?>)</option>
+            <option value="3">3 kali (Rp<?php echo round(($item['subtotal'])/3); ?>)</option>
+            <option value="4">4 kali (Rp<?php echo round(($item['subtotal'])/4); ?>)</option>
+            <option value="5">5 kali (Rp<?php echo round(($item['subtotal'])/5); ?>)</option>
+            <option value="6">6 kali (Rp<?php echo round(($item['subtotal'])/6); ?>)</option>
+            <option value="7">7 kali (Rp<?php echo round(($item['subtotal'])/7); ?>)</option>
+            <option value="8">8 kali (Rp<?php echo round(($item['subtotal'])/8); ?>)</option>
+            <option value="9">9 kali (Rp<?php echo round(($item['subtotal'])/9); ?>)</option>
+            <option value="10">10 kali (Rp<?php echo round(($item['subtotal'])/10); ?>)</option>
+            <option value="11">11 kali (Rp<?php echo round(($item['subtotal'])/11); ?>)</option>
+            <option value="12">12 kali (Rp<?php echo round(($item['subtotal'])/12); ?>)</option>
+           
+        </select>
+
+        </div>
+
         <div class="form-group" id="form-tahun">
             <label >Silahkan melakukan transfer ke nomor rekening berikut</label><br>
            
@@ -108,25 +129,15 @@
 
     </div>
 
-    <div class="form-group" id="form-cicil">
-    <select name="cicil" id="cicil" class="form-control" >
-            <option value="">--pilih cicilan--</option>
-            <option value="2">2 kali</option>
-            <option value="3">3 kali</option>
-            <option value="4">4 kali</option>
-            <option value="5">5 kali</option>
-            <option value="6">6 kali</option>
-            <option value="7">7 kali</option>
-            <option value="8">8 kali</option>
-            <option value="9">9 kali</option>
-            <option value="10">10 kali</option>
-            <option value="11">11 kali</option>
-            <option value="12">12 kali</option>
+
+    <div class="form-group" id="form-transfer">
+            <label >Jumlah Transfer</label><br>
            
-        </select>
+            <input name="tahun" class="form-control" readonly value="Rp. <?php echo number_format($item['subtotal'], 0,',','.'); ?>"></input>
+     </div>
 
-        </div>
 
+   
     <div class="form-group" id="form-bulan">
             <label for="file"> Masukkan bukti transfer </label>
             <input type="file" class="form-control" name="foto_keluar" />
@@ -146,23 +157,31 @@
   
 <script src="<?php echo base_url('assets/jquery-ui/jquery-ui.min.js'); ?>"></script> <!-- Load file plugin js jquery-ui -->
     <script>
+
     $(document).ready(function(){ // Ketika halaman selesai di load
 
-        $('#form-tanggal, #form-bulan, #form-tahun, #form-cicil').hide(); // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
+        $('#form-tanggal, #form-bulan, #form-tahun, #form-cicil, #form-transfer').hide(); // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
         $('#filter').change(function(){ // Ketika user memilih filter
             if($(this).val() == '1'){ // Jika filter nya 1 (per tanggal)
-                $('#form-bulan, #form-tahun, #form-cicil').hide(); // Sembunyikan form bulan dan tahun
+                $('#form-bulan, #form-tahun, #form-cicil, #form-transfer').hide(); // Sembunyikan form bulan dan tahun
                 $('#form-tanggal').show(); // Tampilkan form tanggal
             }else if($(this).val() == '2'){ // Jika filter nya 2 (per bulan)
                 $('#form-tanggal, #form-cicil').hide(); // Sembunyikan form tanggal
-                $('#form-bulan, #form-tahun').show(); // Tampilkan form bulan dan tahun
+                $('#form-bulan, #form-tahun, #form-transfer').show(); // Tampilkan form bulan dan tahun
 
               }else if($(this).val() == '3'){ // Jika filter nya 2 (per bulan)
-                $('#form-tanggal, #form-bulan, #form-tahun').hide(); // Sembunyikan form tanggal
+                $('#form-tanggal, #form-bulan, #form-tahun, #form-transfer').hide(); // Sembunyikan form tanggal
                 $('#form-cicil').show(); // Tampilkan form bulan dan tahun
 
             }
             $('#form-tanggal input, #form-bulan select, #form-tahun select').val(''); // Clear data pada textbox tanggal, combobox bulan & tahun
+        })
+        
+        $('#cicil').change(function(){
+          if($(this).val() >'1'){ // Jika filter nya 2 (per bulan)
+                $('#form-tanggal, #form-tahun').hide(); // Sembunyikan form tanggal
+                $('#form-cicil, #form-bulan, #form-tahun').show();
+          }
         })
     })
     </script>

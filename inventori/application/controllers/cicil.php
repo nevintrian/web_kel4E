@@ -73,7 +73,7 @@ class cicil extends CI_Controller {
 			);
 			
 			$this->db->where('id_keluar', $id);
-			$this->db->update('keluar', $data);
+			$this->db->update('cicil', $data);
 			$this->db->where('id_keluar', $id);
 				redirect(site_url('cicil'));
 	}

@@ -168,6 +168,8 @@ redirect('keranjang');
 
 }else if($filter == '3'){ // Jika filter nya 1 (per tanggal)
 
+
+
 	$kode_penjualan = $this->input->post('kode_penjualan');
 	$total_keluar = $this->input->post('total_keluar');
 	$tgl_penjualan = $this->input->post('tgl_penjualan');
@@ -201,12 +203,23 @@ foreach ($this->cart->contents() as $items) {
 	//$this->db->query("UPDATE menu SET satuan=satuan-'$qty_keluar' WHERE kode_menu='$id_barang'");
 } 
 
-
+$nmfile = "cicil_".time();
+$config['upload_path'] = './image/cicil';
+$config['allowed_types'] = 'jpg|png';
+$config['max_size'] = '20000';
+$config['file_name'] = $nmfile;
+$this->load->library('upload');
+$this->upload->initialize($config);
+$this->upload->do_upload('foto_keluar');
+$result1 = $this->upload->data();
+$result = array('gambar'=>$result1);
+$dfile = $result['gambar']['file_name'];
 $data = array(
 		
 	'id_keluar'=> $kode_penjualan,
 	'jumlah_cicil'=> $cicil,
-	
+	'periode'=>"1",
+	'foto_cicil'=>$dfile,
 );
 $this->db->insert('cicil', $data);
 
