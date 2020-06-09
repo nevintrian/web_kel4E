@@ -1,4 +1,4 @@
-        <div class="container-fluid">
+<div class="container-fluid">
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
             <ul class="list-group panel">
@@ -29,7 +29,7 @@
                   <a href="#demo5" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo5">
                     <a href="#demo8" class="list-group-item " data-toggle="collapse">Konfirmasi Pembayaran  <span class="glyphicon glyphicon-chevron-right"></span></a>
-                                <li class="collapse" style="padding-left: 5px;" id="demo8">
+                                <li class="collapse" style="padding-left: 30px;" id="demo8">
                                   <a href="konfirmasi" class="list-group-item">Belum Bayar</a> 
                                   <a href="konfirmasi1" class="list-group-item">Sudah Bayar</a>   
                                   <a href="cicil" class="list-group-item">Cicilan</a>  
