@@ -2,34 +2,27 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
-class Gudang extends RestController{
+class Profil extends RestController{
 
     function __construct()
     {
         // Construct the parent class
         parent::__construct();
-        $this->load->model('m_gudang');
+        $this->load->model('m_user');
     }
 
 
-    public function index_get(){
+    public function index_get($id_user){
 
 
-    $id=$this->get('id');
-    if($id==null) {
-    $gudang=$this->m_gudang->getgudang();
-    }else {
-        $gudang=$this->m_gudang->getgudang($id);
+        $user=$this->m_user->getprofil($id_user);
 
-    }
-     
-     
-
-    if($gudang) {
+    
+    if($user) {
 
             $this->response( [
                 'status' => true,
-                'data' => $gudang
+                'data' => $user
             ], 200 );
      
     }else {
@@ -49,7 +42,7 @@ public function index_delete($id){
             'message' => 'masukkan id delete'
         ], 400 );
         }else {
-            if($this->m_gudang->deletegudang($id)>0) {
+            if($this->m_user->deleteuser($id)>0) {
                 $this->response( [
                     'status' => true,
                     'id'=> $id,
@@ -79,30 +72,31 @@ public function index_post(){
     $result1 = $this->upload->data();
     $result = array('user'=>$result1);
     $dfile = $result['user']['file_name'];
-
+    
     $data = [
     'email' => $this->post('email'),
     'username' => $this->post('username'),
     'password' => $this->post('password'),
-    'level' => "gudang",
+    'level' => "admin",
     'nama' => $this->post('nama'),
     'tgl_lahir' => $this->post('tgl_lahir'),
     'jenis_kelamin' => $this->post('jenis_kelamin'),
     'alamat' => $this->post('alamat'),
     'no_telp' => $this->post('no_telp'),
-     'foto' => $dfile
+    'foto' => $dfile
+    
     ];
 
-    if($this->m_gudang->creategudang($data) >0){
+    if($this->m_user->createuser($data) >0){
 
         $this->response( [
             'status' => true,
-            'message' => 'data gudang berhasil ditambah'
+            'message' => 'data user berhasil ditambah'
         ], 200 );
     } else {
         $this->response( [
             'status' => false,
-            'message' => 'data gudang gagal ditambahkan'
+            'message' => 'data user gagal ditambahkan'
         ], 400 );
 
     }
@@ -117,7 +111,7 @@ public function update_post($id_user) {
         'email' => $this->post('email'),
         'username' => $this->post('username'),
         'password' => $this->post('password'),
-        'level' => "gudang",
+        'level' => $this->post('level'),
         'nama' => $this->post('nama'),
         'tgl_lahir' => $this->post('tgl_lahir'),
         'jenis_kelamin' => $this->post('jenis_kelamin'),
@@ -156,7 +150,7 @@ public function update_post($id_user) {
         if ($update) {
             $this->response(['status' => 'success'], 200);
         } else {
-            $this->response(['status' => 'fail'], 400);
+            $this->response(['status' => 'fail'], 200);
         }
     
     }

@@ -76,6 +76,18 @@ class M_user extends CI_Model
         
     }
 
+    public function getprofil($id=null){
+        
+  
+            $this->db->select('*');
+            $this->db->from('user');
+            $where = "id_user=$id";
+            $this->db->where($where);
+            return $this->db->get()->result();
+       
+        
+    }
+
    public function deleteuser($id){
         $this->db->delete('user', ['id_user' =>$id]);
         return $this->db->affected_rows();

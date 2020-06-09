@@ -78,14 +78,14 @@ class M_keluar extends CI_Model
 
             $this->db->select('*');
             $this->db->from('keluar');
-            
+            $this->db->join('user', 'user.id_user=keluar.id_user');
             return $this->db->get()->result();
         }else{
             $this->db->select('*');
             $this->db->from('keluar');
-            
-            
-            
+            $this->db->join('user', 'user.id_user=keluar.id_user');
+            $where = "id_keluar=$id";
+            $this->db->where($where);
             return $this->db->get()->result();
         }
         
