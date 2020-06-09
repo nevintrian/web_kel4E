@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2020 at 04:07 AM
+-- Generation Time: Jun 09, 2020 at 04:25 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -258,7 +258,7 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (189, 6, 'UANG EMAS MERAH 1 KG', '5 PCS / K', NULL, 'MM2', 22260, 5000, 0, 'gg.jpg', 0),
 (190, 6, 'UANG EMAS TOP 600', '12 PCS / K', '-', 'MM2', 19125, 5000, 0, 'barang_1587350880.jpg', 0),
 (191, 6, 'UANG EMAS SPECIAL 380', '9 PCS / K', NULL, 'MM2', 14700, 5000, 0, 'gg.jpg', 0),
-(192, 6, 'UANG EMAS SPECIAL 135', '25 PCS / K', NULL, 'MM2', 3850, 5000, 0, 'gg.jpg', 0),
+(192, 6, 'UANG EMAS SPECIAL 135', '25 PCS / K', '-', 'MM2', 3850, 5000, 0, 'barang_1591669453.jpg', 0),
 (193, 6, 'UANG EMAS SPECIAL 10 GR', '20 RTG / K', NULL, NULL, 3600, 5000, 0, 'gg.jpg', 0),
 (194, 4, 'ULTRA TABUR RASA BALADO 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg', 0),
 (195, 4, 'ULTRA TBR RS SAMBAL BALADO 100 GR', '200 PCS / K', NULL, NULL, 4200, 5000, 0, 'gg.jpg', 0),
