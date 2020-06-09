@@ -113,6 +113,35 @@ class Cicil1 extends CI_Controller {
            		 redirect(site_url('cicil1'));
 
 		}
+
+		public function simpancicil(){
+
+	
+	$id = $this->input->post('id_keluar');
+	$cicil = $this->input->post('cicil');
+	$periode = $this->input->post('periode');
+
+		$nmfile = "cicil_".time();
+		$config['upload_path'] = './image/cicil';
+		$config['allowed_types'] = 'jpg|png';
+		$config['max_size'] = '20000';
+		$config['file_name'] = $nmfile;
+		$this->load->library('upload');
+		$this->upload->initialize($config);
+		$this->upload->do_upload('foto_cicil');
+		$result1 = $this->upload->data();
+		$result = array('gambar'=>$result1);
+		$dfile = $result['gambar']['file_name'];
+		$data = array(
+				
+			'id_keluar'=> $id,
+			'jumlah_cicil'=> $cicil,
+			'periode'=>$periode,
+			'foto_cicil'=>$dfile,
+		);
+		$this->db->insert('cicil', $data);
+		redirect(site_url('cicil1'));
+		}
     
 }
 
