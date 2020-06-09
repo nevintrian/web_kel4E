@@ -167,10 +167,13 @@ class Barang extends CI_Controller {
             );
             $this->m_barang->update($this->input->post('id_barang', TRUE), $data);
             ?>
-            <script type="text/javascript">
-                alert('Data Berhasil di Update');
-                window.location = '<?php echo base_url('barang'); ?>'
-            </script>
+           <script>
+	function klik(){
+		swal ("Yes!", "Data Berhasil di Update", "success")
+	
+        }
+        window.location = '<?php echo base_url('barang'); ?>'
+        </script>
             <?php
         //jika gambar diinput oleh user
         } else {
@@ -199,9 +202,13 @@ class Barang extends CI_Controller {
 
         $this->m_barang->update($this->input->post('id_barang', TRUE), $data);
         ?>
-        <script type="text/javascript">
-            alert('Data Berhasil di Update');
-            window.location = '<?php echo base_url('barang'); ?>'
+         <script>
+	function klik(){
+		swal ("Yes!", "Data berhasil di update", "success")
+	
+            
+        }
+        window.location = '<?php echo base_url('barang'); ?>'
         </script>
         <?php
         }
