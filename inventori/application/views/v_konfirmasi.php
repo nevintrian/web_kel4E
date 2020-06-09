@@ -36,9 +36,7 @@ div.dataTables_info {
                   <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <div class="card">
                 <div class="col-md-6">
-                <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
-                <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
-                <a href="cicil/" class="btn btn-warning">Cicilan</a>
+                
                 <?php } ?>
                 <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
             <div class="card">

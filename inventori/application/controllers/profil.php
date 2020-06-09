@@ -45,7 +45,7 @@ class Profil extends CI_Controller {
             $this->m_user->update($this->input->post('id_user', TRUE), $data);
             ?>
         <script type="text/javascript">
-			alert('data profil berhasil di update');
+			
 			window.location = '<?php echo base_url('profil'); ?>'
         </script>
         <?php
@@ -80,7 +80,7 @@ class Profil extends CI_Controller {
             $this->m_user->update($this->input->post('id_user', TRUE), $data);
             ?>
             <script type="text/javascript">
-                alert('data profil berhasil di update');
+                
                 window.location = '<?php echo base_url('profil'); ?>'
             </script>
             <?php
@@ -108,7 +108,7 @@ class Profil extends CI_Controller {
                 $this->m_user->update($this->input->post('id_user', TRUE), $data);
                 ?>
             <script type="text/javascript">
-                alert('data profil berhasil di update');
+                
                 window.location = '<?php echo base_url('profil'); ?>'
             </script>
             <?php
@@ -143,7 +143,7 @@ class Profil extends CI_Controller {
                 $this->m_user->update($this->input->post('id_user', TRUE), $data);
                 ?>
                 <script type="text/javascript">
-                    alert('data profil berhasil di update');
+                   
                     window.location = '<?php echo base_url('profil'); ?>'
                 </script>
                 <?php

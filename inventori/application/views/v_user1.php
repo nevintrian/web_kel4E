@@ -62,6 +62,11 @@
             <input type="file" class="form-control" name="foto" />
         </div>
         <input type="hidden" name="id_user" value="<?php echo $id_user; ?>" /> 
-        <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
+        <button onclick="klik()" type="submit" class="btn btn-primary"><?php echo $button ?></button> 
         <a href="<?php echo site_url('user') ?>" class="btn btn-default">Cancel</a>
     </form>
+    <script>
+	function klik(){
+		swal ("Sukses!", "Berhasil", "success")
+	}
+</script>

@@ -81,7 +81,7 @@ class Barang extends CI_Controller {
                 $this->m_barang->insert($data);
                 ?>
                 <script type="text/javascript">
-                    alert('Data Berhasil di Tambahkan');
+                    
                     window.location = '<?php echo base_url('barang'); ?>'
                 </script>
                 <?php

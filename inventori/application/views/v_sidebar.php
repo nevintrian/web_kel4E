@@ -16,6 +16,7 @@
                     <a href="gudang" class="list-group-item">Data Gudang</a>    
                     </li>
                 </li>
+
                 <li>
                   <a href="#demo4" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-th-large"></i>Data Master  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo4">
@@ -25,7 +26,7 @@
                   
                     </li>
                 </li>
-                <li>
+                <li>  
                   <a href="#demo5" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo5">
                     <a href="#demo8" class="list-group-item " data-toggle="collapse">Konfirmasi Pembayaran  <span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -39,7 +40,12 @@
                       <a href="masuk" class="list-group-item">Transaksi Barang Masuk</a>
                       </li>
                       <li class="collapse"  id="demo5">
-                      <a href="keluar" class="list-group-item">Transaksi Barang Keluar</a>
+                      <a href="#demo9" class="list-group-item " data-toggle="collapse">Transaksi Barang Keluar  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <li class="collapse" style="padding-left: 30px;" id="demo9">
+                                  <a href="keluar" class="list-group-item">Belum Bayar</a> 
+                                  <a href="keluar2" class="list-group-item">Sudah Bayar</a>   
+                                  <a href="cicil1" class="list-group-item">Cicilan</a>  
+                                </li>  
                       </li>
                 </li>
 
@@ -84,15 +90,27 @@
                   
                     </li>
                 </li>
-                <li>
-                  <a href="#demo5" class="list-group-item " data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <li>  
+                  <a href="#demo5" class="list-group-item" data-toggle="collapse"><i class="glyphicon glyphicon-folder-open"></i>Data Transaksi  <span class="glyphicon glyphicon-chevron-right"></span></a>
                     <li class="collapse" id="demo5">
-                    <a href="konfirmasi" class="list-group-item">Konfirmasi Pembayaran</a>
+                    <a href="#demo8" class="list-group-item " data-toggle="collapse">Konfirmasi Pembayaran  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <li class="collapse" style="padding-left: 30px;" id="demo8">
+                                  <a href="konfirmasi" class="list-group-item">Belum Bayar</a> 
+                                  <a href="konfirmasi1" class="list-group-item">Sudah Bayar</a>   
+                                  <a href="cicil" class="list-group-item">Cicilan</a>  
+                                </li>  
+                      </li>
+                      <li class="collapse" id="demo5">
                       <a href="masuk" class="list-group-item">Transaksi Barang Masuk</a>
-                      <a href="keluar" class="list-group-item">Transaksi Barang Keluar</a>
-                     
-                      
-                    </li>
+                      </li>
+                      <li class="collapse"  id="demo5">
+                      <a href="#demo9" class="list-group-item " data-toggle="collapse">Transaksi Barang Keluar  <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                <li class="collapse" style="padding-left: 30px;" id="demo9">
+                                  <a href="keluar" class="list-group-item">Belum Bayar</a> 
+                                  <a href="keluar2" class="list-group-item">Sudah Bayar</a>   
+                                  <a href="cicil1" class="list-group-item">Cicilan</a>  
+                                </li>  
+                      </li>
                 </li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>carousel"><i class="glyphicon glyphicon-picture"></i>Data Slider</a></li>
                 <li class="list-group-item"><a href="<?php echo base_url()?>activity" type="submit"><i class="fa fa-history"></i>Data Activity </a></li>
