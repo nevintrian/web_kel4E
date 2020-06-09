@@ -63,7 +63,14 @@
         </div>
 
         <input type="hidden" name="id_user" value="<?php echo $row->id_user; ?>" /> 
-        <button type="submit" class="btn btn-primary">Simpan</button> 
+        <button onclick="klik()" type="submit" class="btn btn-primary">Simpan</button> 
         <a href="<?php echo site_url('user') ?>" class="btn btn-default">Cancel</a>
                 </form>
                 <?php } ?>
+
+                <script>
+	function klik(){
+		swal ("Sukses!", "Berhasil", "success")
+	}
+    
+</script>

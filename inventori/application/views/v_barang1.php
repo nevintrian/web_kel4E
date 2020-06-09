@@ -61,6 +61,6 @@
                 </div>
                 <script>
 	function klik(){
-		swal ("Sukses!", "Data berhasil di update", "success")
+		swal ("Sukses!", "Data berhasil di tambahkan", "success")
 	}
 </script>
