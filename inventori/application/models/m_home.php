@@ -92,4 +92,41 @@ class M_home extends CI_Model
         return $this->db->count_all_results();
     }
 
+    function get_limit_data_kosmetik($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+        $this->db->order_by($this->id, $this->order);
+
+    $this->db->select('*');
+    $this->db->from('barang');
+    $this->db->where('jenis', 'kosmetik');
+	$this->db->limit($limit, $per_page);
+        return $this->db->get()->result();
+    }
+
+
+    public function total_rows_kosmetik($q = NULL) { //untuk memunculkan record
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->where('jenis', 'kosmetik');
+        return $this->db->count_all_results();
+    }
+
+    function get_limit_data_permen($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+        $this->db->order_by($this->id, $this->order);
+
+    $this->db->select('*');
+    $this->db->from('barang');
+    $this->db->where('jenis', 'permen');
+	$this->db->limit($limit, $per_page);
+        return $this->db->get()->result();
+    }
+
+
+    public function total_rows_permen($q = NULL) { //untuk memunculkan record
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->where('jenis', 'permen');
+        return $this->db->count_all_results();
+    }
+
+
 }

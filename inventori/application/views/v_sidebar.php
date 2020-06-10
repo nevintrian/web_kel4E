@@ -42,9 +42,9 @@
                       <li class="collapse"  id="demo5">
                       <a href="#demo9" class="list-group-item " data-toggle="collapse">Transaksi Barang Keluar  <span class="glyphicon glyphicon-chevron-right"></span></a>
                                 <li class="collapse" style="padding-left: 30px;" id="demo9">
-                                  <a href="keluar" class="list-group-item">Belum Bayar</a> 
-                                  <a href="keluar2" class="list-group-item">Sudah Bayar</a>   
-                                  <a href="cicil1" class="list-group-item">Cicilan</a>  
+                                  <a href="keluar" class="list-group-item">Bayar di Tempat</a> 
+                                  <a href="keluar2" class="list-group-item">Bayar tunai</a>   
+                                  <a href="cicil1" class="list-group-item">Bayar Kredit</a>  
                                 </li>  
                       </li>
                 </li>
@@ -95,9 +95,9 @@
                     <li class="collapse" id="demo5">
                     <a href="#demo8" class="list-group-item " data-toggle="collapse">Konfirmasi Pembayaran  <span class="glyphicon glyphicon-chevron-right"></span></a>
                                 <li class="collapse" style="padding-left: 30px;" id="demo8">
-                                  <a href="konfirmasi" class="list-group-item">Belum Bayar</a> 
-                                  <a href="konfirmasi1" class="list-group-item">Sudah Bayar</a>   
-                                  <a href="cicil" class="list-group-item">Cicilan</a>  
+                                  <a href="konfirmasi" class="list-group-item">>Bayar di Tempat</a> 
+                                  <a href="konfirmasi1" class="list-group-item">>Bayar Tunai</a>   
+                                  <a href="cicil" class="list-group-item">Bayar Kredit</a>  
                                 </li>  
                       </li>
                       <li class="collapse" id="demo5">
@@ -106,9 +106,9 @@
                       <li class="collapse"  id="demo5">
                       <a href="#demo9" class="list-group-item " data-toggle="collapse">Transaksi Barang Keluar  <span class="glyphicon glyphicon-chevron-right"></span></a>
                                 <li class="collapse" style="padding-left: 30px;" id="demo9">
-                                  <a href="keluar" class="list-group-item">Belum Bayar</a> 
-                                  <a href="keluar2" class="list-group-item">Sudah Bayar</a>   
-                                  <a href="cicil1" class="list-group-item">Cicilan</a>  
+                                  <a href="keluar" class="list-group-item">>Bayar di Tempatr</a> 
+                                  <a href="keluar2" class="list-group-item">>Bayar Tunai</a>   
+                                  <a href="cicil1" class="list-group-item">Bayar Kredit</a>  
                                 </li>  
                       </li>
                 </li>
