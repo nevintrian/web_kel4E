@@ -26,7 +26,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Barang Keluar (sudah bayar)</h2>
+                  <h2 class="content-row-title">Transaksi Barang Keluar (Tunai)</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
@@ -54,7 +54,7 @@ div.dataTables_info {
 
 
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="keluar1"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <a class ="btn btn-danger" href="keluardel"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
                 </div>
                 <div class="col-md-4">

@@ -24,7 +24,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Pembayaran (Cash)</h2>
+                  <h2 class="content-row-title">Konfirmasi Pembayaran Terhapus (Kredit)</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
@@ -37,6 +37,7 @@ div.dataTables_info {
             <div class="card">
                 <div class="col-md-6">
                 
+
                 <?php } ?>
                 <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
             <div class="card">
@@ -46,7 +47,7 @@ div.dataTables_info {
                 <a href="cicil/" class="btn btn-warning">Cicilan</a>
                 <?php } ?>
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="konfirmasi2"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <a class ="btn btn-danger" href="cicildel"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
                 </div>
                 <div class="col-md-4">
@@ -66,36 +67,45 @@ div.dataTables_info {
 					<th>No.</th>
 					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
+          <th>Nama</th>
 					<th>Total</th>
-					<th>Nama</th>
-          <th>Alamat</th>
-          <th>No Telp</th>
+					<th>Cicilan</th>
+          <th>Periode</th>
+          <th>Tagihan</th>
+          <th>Foto</th>
 					<th>Pilihan</th>
 				</tr>
       </thead>
     <tbody>
       <?php 
       $no=1;
-					foreach ($keluar_data as $keluar) {
+					foreach ($keluar_data1 as $keluar1) {
                         ?>
                 
 				<tr>
           <td><?php echo $no++ ?></td>
-					<td><?php echo $keluar->id_keluar; ?></td>
-					<td><?php echo $keluar->tgl_keluar; ?></td>
-					<td><?php echo number_format($keluar->total_keluar); ?></td>
-					<td><?php echo $keluar->nama; ?></td>
-          <td><?php echo $keluar->alamat; ?></td>
-          <td><?php echo $keluar->no_telp; ?></td>
-          <input type="hidden" name="id_keluar" value="<?php echo $keluar->id_keluar; ?>" /> 
+					<td><?php echo $keluar1->id_keluar; ?></td>
+					<td><?php echo $keluar1->tgl_cicil; ?></td>
+          <td><?php echo $keluar1->nama; ?></td>
+					<td><?php echo number_format($keluar1->total_keluar); ?></td>
+          <td><?php echo $keluar1->jumlah_cicil; ?></td>
+          <td><?php echo $keluar1->periode; ?></td>
+          
+          <td><?php echo number_format($keluar1->total_keluar/$keluar1->jumlah_cicil); ?></td>
+          <td>
+            <a data-fancybox="gallery" href="image/cicil/<?php echo $keluar1->foto_cicil; ?>">
+            <img src="<?php echo base_url('image/cicil/'.$keluar1->foto_cicil) ?>" width="64" />
+          </td> 
+
+          <input type="hidden" name="id_keluar" value="<?php echo $keluar1->id_keluar; ?>" /> 
 					
 					<td>
          <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
-          <a href="konfirmasi/update_action/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">konfirmasi</a>
-          <a href="konfirmasi/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">batalkan</a>
+          <a href="cicildel/restore/<?php echo $keluar1->id_cicil ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">Restore</a>
+          <a href="cicildel/hapus_penjualan/<?php echo $keluar1->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">Hapus</a>
          <?php } ?>
-          <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
-            <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
+          <a href="keluar/detail_penjualan/<?php echo $keluar1->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
+            <a href="keluar/cetak_penjualan/<?php echo $keluar1->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             
 					</td>
 				</tr>

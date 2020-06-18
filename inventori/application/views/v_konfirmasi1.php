@@ -24,7 +24,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Pembayaran (Sudah Bayar)</h2>
+                  <h2 class="content-row-title">Konfirmasi Pembayaran (Tunai)</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Menunggu Konfirmasi</h3>
               </div>

@@ -26,7 +26,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Barang Keluar Terhapus (Cash) </h2>
+                  <h2 class="content-row-title">Transaksi Barang Keluar Terhapus (Tunai) </h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Telah Dikonfirmasi</h3>
               </div>
@@ -67,23 +67,23 @@ div.dataTables_info {
        <tbody>
       <?php 
       $no=1;
-					foreach ($keluar_data as $keluar) {
+					foreach ($keluar_datadel as $keluardel) {
                         ?>
                 
 				<tr>
           <td width="80px"><?php echo $no++ ?></td>
-					<td><?php echo $keluar->id_keluar; ?></td>
-					<td><?php echo $keluar->tgl_keluar; ?></td>
-					<td><?php echo number_format($keluar->total_keluar); ?></td>
-					<td><?php echo $keluar->nama; ?></td>
-          <td><?php echo $keluar->alamat; ?></td>
-          <td><?php echo $keluar->no_telp; ?></td>
+					<td><?php echo $keluardel->id_keluar; ?></td>
+					<td><?php echo $keluardel->tgl_keluar; ?></td>
+					<td><?php echo number_format($keluardel->total_keluar); ?></td>
+					<td><?php echo $keluardel->nama; ?></td>
+          <td><?php echo $keluardel->alamat; ?></td>
+          <td><?php echo $keluardel->no_telp; ?></td>
 					
 					<td>
 						
-          <a href="keluar1/restore/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin merestore data?')">restore</a>
+          <a href="keluar1/restore/<?php echo $keluardel->id_keluar ?>" class="btn btn-warning btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin merestore data?')">restore</a>
            
-            <a href="keluar1/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
+            <a href="keluar1/hapus_penjualan/<?php echo $keluardel->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
                      
             
              
