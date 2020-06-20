@@ -45,6 +45,17 @@ class Cicildel extends CI_Controller {
 	}
 	
 
+	public function hapus_penjualan1($kode_penjualan)
+	{
+		
+		$this->db->where('id_keluar', $kode_penjualan);
+		$this->db->delete('keluar');
+		$this->db->where('id_keluar', $kode_penjualan);
+		$this->db->delete('detail_keluar');
+		redirect('cicildel');
+		
+		
+	}
 
 	public function update_action($kode_penjualan) 
     {

@@ -39,7 +39,9 @@ div.dataTables_info {
             <div class="card">
                 <div class="col-md-4">
                
-          
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-primary" href="keluar2"> Kembali </a>
+                <?php } ?>
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -53,37 +55,39 @@ div.dataTables_info {
                 <div class="col-md-12">
 		<table class="table table-bordered" style="margin-bottom: 10px" id="datatables">
     <thead>
-				<tr>
+    <tr>
 					<th>No.</th>
-					<th>Kode Transaksi</th>
+					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
-					<th>Total Bayar</th>
-					<th>Nama Pelanggan</th>
+					<th>Total</th>
+					<th>Nama</th>
           <th>Alamat</th>
           <th>No Telepon</th>
+          <th>Foto</th>
 					<th>Pilihan</th>
 				</tr>
        </thead>
        <tbody>
       <?php 
       $no=1;
-					foreach ($keluar_datadel as $keluardel) {
+					foreach ($keluar as $keluar) {
                         ?>
                 
-				<tr>
-          <td width="80px"><?php echo $no++ ?></td>
-					<td><?php echo $keluardel->id_keluar; ?></td>
-					<td><?php echo $keluardel->tgl_keluar; ?></td>
-					<td><?php echo number_format($keluardel->total_keluar); ?></td>
-					<td><?php echo $keluardel->nama; ?></td>
-          <td><?php echo $keluardel->alamat; ?></td>
-          <td><?php echo $keluardel->no_telp; ?></td>
+                <tr>
+          <td><?php echo $no++ ?></td>
+					<td><?php echo $keluar->id_keluar; ?></td>
+					<td><?php echo $keluar->tgl_keluar; ?></td>
+					<td><?php echo number_format($keluar->total_keluar); ?></td>
+					<td><?php echo $keluar->nama; ?></td>
+          <td><?php echo $keluar->alamat; ?></td>
+          <td><?php echo $keluar->no_telp; ?></td>
+          <td><img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" /></td>
 					
 					<td>
 						
-          <a href="keluar1/restore/<?php echo $keluardel->id_keluar ?>" class="btn btn-warning btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin merestore data?')">restore</a>
+          <a href="keluar2/restore/<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin merestore data?')">restore</a>
            
-            <a href="keluar1/hapus_penjualan/<?php echo $keluardel->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
+            <a href="keluar2/hapus_penjualan1/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
                      
             
              

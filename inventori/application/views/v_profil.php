@@ -14,6 +14,7 @@
                 </br>
 <form action="profil/update_action" method="post" enctype="multipart/form-data">
         <div class="form-group">
+        
         <img src="image/user/<?php echo $row->foto; ?>" height="100px" width="100px" >
             <label for="file"></label>
             <input type="file" class="form-control" name="foto" />

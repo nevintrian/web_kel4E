@@ -56,7 +56,20 @@ class Keluar2 extends CI_Controller {
 	}
 
 
+	public function restore($id)
+{
+	$data = array(
+		'del' => "0"
 
+		);
+
+	$this->db->where('id_keluar', $id);
+	$this->db->update('keluar',$data);
+	$this->db->where('id_keluar', $id);
+	
+	redirect(site_url('keluardel1'));
+
+} 
 
 
 	public function simpan_cart()
@@ -171,6 +184,19 @@ public function hapus_penjualan($id)
 	redirect(site_url('keluar'));
 
 }
+
+
+
+public function hapus_penjualan1($kode_penjualan)
+	{
+		
+        $this->db->where('id_keluar', $kode_penjualan);
+		$this->db->delete('keluar');
+		$this->db->where('id_keluar', $kode_penjualan);
+		$this->db->delete('detail_keluar');
+		redirect('keluardel1');
+		
+	}
 
 	public function cetak_penjualan($kode_penjualan)
 	{

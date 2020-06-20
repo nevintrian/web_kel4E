@@ -53,14 +53,19 @@ div.dataTables_info {
 
 
 
-                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="keluardel"> <i class="glyphicon glyphicon-trash"></i> </a>
-                <?php } ?>
+             
                 </div>
                 <div class="col-md-4">
                 </div>
-                <div class="col-md-4 text-right">
-                
+                <div class="col-md-6 text-right">
+                <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
+                  <a href="keluar" class="btn btn-info">Bayar di Tempat</a>
+                <a href="keluar2" class="btn btn-primary">Tunai</a>
+                <a href="cicil1/" class="btn btn-warning">Kredit</a>
+                  <?php } ?>
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-danger" href="keluardel1"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <?php } ?>
                 </div>
                 </div>
                
@@ -95,16 +100,18 @@ div.dataTables_info {
 					<td><?php echo $keluar->nama; ?></td>
           <td><?php echo $keluar->alamat; ?></td>
           <td><?php echo $keluar->no_telp; ?></td>
-          <td><img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" /></td>
-					
-					<td>
-         
+
+           <td>
+            <a data-fancybox="gallery" href="image/bayar/<?php echo $keluar->foto_keluar; ?>">
+            <img src="<?php echo base_url('image/bayar/'.$keluar->foto_keluar) ?>" width="64" />
+          </td> 
+          <td>
 						<a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
 
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
               <button href="#" data-toggle="modal" data-target="#myModal2<?php echo $keluar->id_keluar ?>" class="btn btn-warning btn-sm" >edit</button>
-            <a href="keluar/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
+            <a href="keluardel1/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus data?')">hapus</a>
                      
               <?php } ?>
               <button href="#" data-toggle="modal" data-target="#myModal1<?php echo $keluar->id_keluar ?>" class="btn btn-secondary btn-sm" >retur</button>

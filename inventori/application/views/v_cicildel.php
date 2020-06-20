@@ -24,7 +24,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Pembayaran Terhapus (Kredit)</h2>
+                  <h2 class="content-row-title">Konfirmasi Pembayaran Delete (Kredit)</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
@@ -47,7 +47,7 @@ div.dataTables_info {
                 <a href="cicil/" class="btn btn-warning">Cicilan</a>
                 <?php } ?>
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="cicildel"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <a class ="btn btn-primary" href="cicil"> Kembali </a>
                 <?php } ?>
                 </div>
                 <div class="col-md-4">
@@ -102,7 +102,7 @@ div.dataTables_info {
 					<td>
          <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
           <a href="cicildel/restore/<?php echo $keluar1->id_cicil ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">Restore</a>
-          <a href="cicildel/hapus_penjualan/<?php echo $keluar1->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">Hapus</a>
+          <a href="cicildel/hapus_penjualan1/<?php echo $keluar1->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">Hapus</a>
          <?php } ?>
           <a href="keluar/detail_penjualan/<?php echo $keluar1->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
             <a href="keluar/cetak_penjualan/<?php echo $keluar1->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>

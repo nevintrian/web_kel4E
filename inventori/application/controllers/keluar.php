@@ -168,7 +168,7 @@ public function hapus_penjualan($id)
 	$this->db->update('keluar',$data);
 	$this->db->where('id_keluar', $id);
 	
-	redirect(site_url('keluardel'));
+	redirect(site_url('keluar'));
 
 }
 

@@ -56,7 +56,7 @@
   border: 2px solid #555555;
 }
 
-}
+
 
 
 </style>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');  
  
-class Keluardel extends CI_Controller { 
+class Keluardel1 extends CI_Controller { 
 
 	
 	//load library, helper, dan model
@@ -10,22 +10,22 @@ class Keluardel extends CI_Controller {
 		$this->load->helper('url'); 
 		$this->load->helper('html'); 
         $this->load->helper(array('form', 'url')); 
-		$this->load->model('m_keluardel');
+		$this->load->model('m_keluardel1');
 		$this->load->library('cetak_pdf');
 	}
  //menampilkan barang pada home
 	public function index(){	
 		$this->load->view('v_header'); 
 		$this->load->view('v_sidebar'); 	
-		$config['total_rows'] = $this->m_keluardel->total_rows();
-		$keluardel = $this->m_keluardel->get_limit_data();
+		$config['total_rows'] = $this->m_keluardel1->total_rows();
+		$keluardel = $this->m_keluardel1->get_limit_data();
  
 		$data = array(
-            'keluar_datadel' => $keluardel,
+            'keluar' => $keluardel,
             'total_rows' => $config['total_rows'],
             
         );
-        $this->load->view('v_keluardel', $data); 
+        $this->load->view('v_keluardel1', $data); 
 	}
 	
 	public function tambah()
@@ -160,7 +160,7 @@ class Keluardel extends CI_Controller {
 public function hapus_penjualan($id)
 {
 	$data = array(
-		'del' => "0"
+		'del' => "1"
 
 		);
 
@@ -168,7 +168,7 @@ public function hapus_penjualan($id)
 	$this->db->update('keluar',$data);
 	$this->db->where('id_keluar', $id);
 	
-	redirect(site_url('keluardel'));
+	redirect(site_url('keluar2'));
 
 }
 

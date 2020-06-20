@@ -30,7 +30,9 @@ div.dataTables_info {
 
                   <div class="card">
                   <div class="col-md-4">
-               
+                  <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-primary" href="supplier"> Kembali </a>
+                <?php } ?>
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -79,7 +81,7 @@ div.dataTables_info {
         <div class="row">
             <div class="col-md-6">
                 <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
-                <a href="supplier/cetak_pdf" class="btn btn-info">Cetak Data supplier</a>
+            
         </div>
             
         </div>

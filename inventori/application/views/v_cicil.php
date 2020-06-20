@@ -46,15 +46,18 @@ div.dataTables_info {
                 <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
                 <a href="cicil/" class="btn btn-warning">Cicilan</a>
                 <?php } ?>
-                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="cicildel"> <i class="glyphicon glyphicon-trash"></i> </a>
-                <?php } ?>
+       
                 </div>
                 <div class="col-md-4">
                 
                 </div>
-                <div class="col-md-4 text-right">
-
+                <div class="col-md-12 text-right">
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a href="konfirmasi/" class="btn btn-info">Bayar di Tempat</a>
+                <a href="konfirmasi1/" class="btn btn-primary">Tunai</a>
+                <a href="cicil/" class="btn btn-warning">Kredit</a>
+                <a class ="btn btn-danger" href="cicildel"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <?php } ?>
                 </div>
                 </div>
                 

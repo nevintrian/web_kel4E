@@ -28,7 +28,9 @@ div.dataTables_info {
 
                 <div class="card">
                   <div class="col-md-4">
-                
+                  <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-primary" href="barang"> Kembali </a>
+                <?php } ?>
                 </div>
                 <div class="col-md-4">
                 </div>

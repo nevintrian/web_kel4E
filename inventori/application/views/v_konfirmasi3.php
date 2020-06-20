@@ -24,18 +24,21 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Sudah Bayar Terhapus</h2>
+                  <h2 class="content-row-title">Konfirmasi Pembayaran Delete (Tunai)</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Transaksi Menunggu Konfirmasi</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Menunggu Konfirmasi</h2>
+                  <h2 class="content-row-title">>Konfirmasi Pembayaran Delete (Tunai)</h2>
                   <?php } ?>
                   <div class="row">
                   <?php if ($this->session->userdata('level') == 'manajer') { ?>
             <div class="card">
                 <div class="col-md-4">
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <a class ="btn btn-primary" href="konfirmasi1"> Kembali </a>
+                <?php } ?>
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -80,7 +83,7 @@ div.dataTables_info {
 				<td>
           <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
           <a href="konfirmasi3/restore/<?php echo $keluar3->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin restore pembayaran?')">restore</a>
-          <a href="konfirmasi3/hapus_penjualan/<?php echo $keluar3->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus transaksi?')">batalkan</a>
+          <a href="konfirmasi3/hapus_penjualan/<?php echo $keluar3->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus transaksi?')">hapus</a>
           <?php } ?>
           
             
