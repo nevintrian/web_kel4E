@@ -47,6 +47,7 @@ div.dataTables_info {
                     <thead>
         <tr>
         <th>No</th>
+        <th>Id</th>
         <th>Judul</th>
         <th>Isi</th>
         <th>Gambar</th>
@@ -60,13 +61,14 @@ div.dataTables_info {
                         ?>
                 <tr>
             <td width="80px"><?php echo $no++ ?></td>
+            <td><?php echo $carousel->id_carousel ?></td>
             <td><?php echo $carousel->judul ?></td>
             <td><?php echo $carousel->isi ?></td>
-            <td>
+            
             <td>
             <a data-fancybox="gallery" href="image/carousel/<?php echo $carousel->gambar; ?>">
             <img src="<?php echo base_url('image/carousel/'.$carousel->gambar) ?>" width="64" />
-</td> 
+          </td> 
              <!-- menampilkan gambar  -->
             <td style="text-align:center" width="200px">
                 <?php 

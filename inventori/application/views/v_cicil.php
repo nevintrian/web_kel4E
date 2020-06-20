@@ -30,7 +30,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Menunggu Konfirmasi</h2>
+                  <h2 class="content-row-title">Transaksi Menunggu Konfirmasi (Kredit)</h2>
                   <?php } ?>
                   <div class="row">
                   <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
@@ -42,9 +42,9 @@ div.dataTables_info {
                 <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
             <div class="card">
                 <div class="col-md-6">
-                <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
-                <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
-                <a href="cicil/" class="btn btn-warning">Cicilan</a>
+                <a href="konfirmasi/" class="btn btn-info">Bayar di Tempat</a>
+                <a href="konfirmasi1/" class="btn btn-primary">Tunai</a>
+                <a href="cicil/" class="btn btn-warning">Kredit</a>
                 <?php } ?>
        
                 </div>
@@ -52,10 +52,12 @@ div.dataTables_info {
                 
                 </div>
                 <div class="col-md-12 text-right">
-                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
+                <?php if ( $this->session->userdata('level') == 'manajer' or $this->session->userdata('level') == 'admin') { ?>
                 <a href="konfirmasi/" class="btn btn-info">Bayar di Tempat</a>
                 <a href="konfirmasi1/" class="btn btn-primary">Tunai</a>
                 <a href="cicil/" class="btn btn-warning">Kredit</a>
+                <?php } ?>
+                <?php if ( $this->session->userdata('level') == 'manajer') { ?>
                 <a class ="btn btn-danger" href="cicildel"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
                 </div>

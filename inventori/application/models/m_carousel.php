@@ -57,6 +57,7 @@ class M_carousel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('carousel');
+        $this->db->where($this->id, $id);
         return $this->db->get()->row();
     }
     
