@@ -61,7 +61,7 @@
             <input type="file" class="form-control" name="foto_barang" />
         </div>
         <input type="hidden" name="id_barang" value="<?php echo $id_barang; ?>" /> 
-        <button onclick="klik()" type="submit" class="btn btn-primary"><?php echo $button ?></button> 
+        <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
         <a href="<?php echo site_url('barang') ?>" class="btn btn-default">Cancel</a>
     </form>
 

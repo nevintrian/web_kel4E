@@ -10,7 +10,7 @@
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="varchar">Email</label>
-            <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="Masukan email (contoh : wirganteng@gmail.com)" required name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
+            <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  title="Masukan email (contoh : kelompok4@gmail.com)" required name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
         </div>
         <div class="form-group">
             <label for="varchar">Username</label>

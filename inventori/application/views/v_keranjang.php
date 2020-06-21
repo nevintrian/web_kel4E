@@ -68,7 +68,7 @@
         	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d h:i:sa') ?>">
         	<a href="home" class="btn btn-danger">Kembali</a>
 
-            <button onclick="klik()" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Bayar</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Bayar</button>
             
             
         </div>
@@ -145,7 +145,7 @@
 	
         <div class="modal-footer">
 	
-      	<button onclick="klik()" class="btn btn-info" type="submit">Simpan</button>
+      	<button class="btn btn-info" type="submit">Simpan</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
         
@@ -186,9 +186,7 @@
     })
 
     
-	function klik(){
-		swal ("Sukses!", "Berhasil", "success")
-	}
+	
     
 
     </script>
