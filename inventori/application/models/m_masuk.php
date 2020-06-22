@@ -21,7 +21,9 @@ class M_masuk extends CI_Model
 	$this->db->or_like('id_supplier');
 	$this->db->or_like('tgl_masuk');
 	$this->db->or_like('total_masuk');
-	$this->db->from($this->table);
+    $this->db->from($this->table);
+    $where = "masuk.del='0'";
+    $this->db->where($where);
         return $this->db->count_all_results();
     }
 
@@ -32,6 +34,8 @@ class M_masuk extends CI_Model
     $this->db->select('*');
     $this->db->from('masuk');
     $this->db->join('supplier', 'supplier.id_supplier=masuk.id_supplier');
+    $where = "masuk.del='0'";
+    $this->db->where($where);
         return $this->db->get()->result();
     }
 

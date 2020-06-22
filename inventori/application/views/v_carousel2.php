@@ -9,12 +9,12 @@
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="varchar">Judul</label>
-            <input type="text" class="form-control" required name="judul" id="judul" placeholder="Judul" value="<?php echo $judul; ?>" />
+            <input type="text" class="form-control" name="judul" id="judul" placeholder="Judul" value="<?php echo $judul; ?>" />
         </div>
 
         <div class="form-group">
             <label for="varchar">Isi </label>
-            <input type="text" class="form-control" required name="isi" id="isi" placeholder="Jenis" value="<?php echo $isi; ?>" />
+            <input type="text" class="form-control" name="isi" id="isi" placeholder="Jenis" value="<?php echo $isi; ?>" />
         </div>
 
         <div class="form-group">

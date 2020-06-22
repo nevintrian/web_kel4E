@@ -141,7 +141,7 @@ class Masuk extends CI_Controller {
 		$this->db->update('masuk',$data);
 		$this->db->where('id_masuk', $id);
 		
-		redirect(site_url('masuk1'));
+		redirect(site_url('masuk'));
 
 	}
 

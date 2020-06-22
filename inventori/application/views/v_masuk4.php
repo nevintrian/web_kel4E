@@ -45,7 +45,7 @@ div.dataTables_info {
 			<thead>
 				<tr>
 					<th>No.</th>
-					<th>Kode Transaksi</th>
+					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
 					<th>Total Bayar</th>
 					<th>Nama Supplier</th>
