@@ -14,7 +14,17 @@ class Supplier extends RestController{
 
     public function index_get(){
 
-
+        if ($this->query('search')) {
+            $penjualan = $this->db->select('*')
+            ->from('supplier')
+            ->order_by('id_supplier', 'ASC')
+            ->like('supplier.nama_supplier', $this->query('search'))
+            ->get()
+            ->result();
+            $response['status'] = "success";
+            $response['data'] = $penjualan;        
+            $this->response($response, 200);
+        } else {
     $id=$this->get('id');
     if($id==null) {
     $supplier=$this->m_supplier->getsupplier();
@@ -40,7 +50,7 @@ class Supplier extends RestController{
     }
 }
 
-
+    }
 public function list_get()
 {
     $barang = $this->db

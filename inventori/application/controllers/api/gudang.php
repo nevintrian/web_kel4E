@@ -14,7 +14,18 @@ class Gudang extends RestController{
 
     public function index_get(){
 
-
+        if ($this->query('search')) {
+            $penjualan = $this->db->select('*')
+            ->from('user')
+            ->where('level', 'gudang')
+            ->order_by('id_user', 'ASC')
+            ->like('user.nama', $this->query('search'))
+            ->get()
+            ->result();
+            $response['status'] = "success";
+            $response['data'] = $penjualan;        
+            $this->response($response, 200);
+        } else {
     $id=$this->get('id');
     if($id==null) {
     $gudang=$this->m_gudang->getgudang();
@@ -39,7 +50,7 @@ class Gudang extends RestController{
         ], 404 );
     }
 }
-
+    }
 public function index_delete($id){
 
 
@@ -137,14 +148,14 @@ public function update_post($id_user) {
         $this->upload->initialize($config);
         
         if ($this->upload->do_upload('foto')) {            
-            $foto_barang = array('upload_data' => $this->upload->data());
-            $file_name = $foto_barang['upload_data']['file_name'];
+            $foto_user = array('upload_data' => $this->upload->data());
+            $file_name = $foto_user['upload_data']['file_name'];
             $data['foto'] = $file_name;
     
             $this->db->where('id_user', $id_user);
-            $data_foto_barang = $this->db->get('user')->row_array();
-            $foto_barang = $data_foto_barang['foto'];
-            $path = './image/user/'.$foto_barang;
+            $data_foto_user = $this->db->get('user')->row_array();
+            $foto_user = $data_foto_user['foto'];
+            $path = './image/user/'.$foto_user;
             unlink($path);
         }
 

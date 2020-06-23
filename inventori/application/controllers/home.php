@@ -139,11 +139,11 @@ class Home extends CI_Controller {
 		$q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
-            $config['base_url'] = base_url() . 'home/pembalut/?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'home/pembalut/?q=' . urlencode($q);
+            $config['base_url'] = base_url() . 'home/kecantikan/?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'home/kecantikan/?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . 'home/pembalut';
-            $config['first_url'] = base_url() . 'home/pembalut';
+            $config['base_url'] = base_url() . 'home/kecantikan';
+            $config['first_url'] = base_url() . 'home/kecantikan';
         }
         //konfigurasi banyak row dalam satu halaman
         $config['per_page'] = 6;
@@ -176,11 +176,11 @@ class Home extends CI_Controller {
 		$q = urldecode($this->input->get('q', TRUE)); //search 
         $per_page = intval($this->input->get('per_page')); //membuat halaman baru
         if ($q <> '') {
-            $config['base_url'] = base_url() . 'home/kosmetik/?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'home/kosmetik/?q=' . urlencode($q);
+            $config['base_url'] = base_url() . 'home/dapur/?q=' . urlencode($q);
+            $config['first_url'] = base_url() . 'home/dapur/?q=' . urlencode($q);
         } else {
-            $config['base_url'] = base_url() . 'home/kosmetik';
-            $config['first_url'] = base_url() . 'home/kosmetik';
+            $config['base_url'] = base_url() . 'home/dapur';
+            $config['first_url'] = base_url() . 'home/dapur';
         }
         //konfigurasi banyak row dalam satu halaman
         $config['per_page'] = 6;

@@ -53,8 +53,8 @@ class Keluar extends RestController{
     }
 }
     }
-public function index_delete(){
-    $id=$this->delete('id');
+public function index_delete($id){
+
 
     if($id==null) {
         $this->response ([
@@ -79,52 +79,62 @@ public function index_delete(){
 }
 
 public function index_post(){
+
+
+
     $data = [
     'id_user' => $this->post('id_user'),
-    'tgl_keluar' => $this->post('tgl_keluar'),
+    'tgl_keluar' => date('Y-m-d h:i:sa'),
     'total_keluar' => $this->post('total_keluar'),
-    'foto_keluar' => $this->post('foto_keluar'),
     ];
 
-    if($this->m_keluar->createkeluar($data) >0){
+    $this->db->insert('keluar', $data);
+  
 
-        $this->response( [
-            'status' => true,
-            'message' => 'data keluar berhasil ditambah'
-        ], 200 );
+    $d = [
+        'id_keluar' => $this->db->insert_id(),
+        'id_barang' => $this->post('id_barang'),
+        'qty_keluar' => $this->post('qty_keluar'),
+        ];
+        $update= $this->db->insert('detail_keluar', $d);
+
+
+
+    if ($update) {
+        $this->response(['status' => 'success'], 200);
     } else {
-        $this->response( [
-            'status' => false,
-            'message' => 'data keluar gagal ditambahkan'
-        ], 400 );
-
+        $this->response(['status' => 'fail'], 400);
     }
 
 
 }
 
 
-public function index_put() {
-    $id=$this->put('id');
+
+public function index_put($id) {
+
     $data = [
         'id_user' => $this->put('id_user'),
-        'tgl_keluar' => $this->put('tgl_keluar'),
         'total_keluar' => $this->put('total_keluar'),
-        'foto_keluar' => $this->put('foto_keluar'),
         ];
 
-        if($this->m_keluar->updatekeluar($data, $id) >0){
-
-            $this->response( [
-                'status' => true,
-                'message' => 'data keluar berhasil diupdate'
-            ], 200 );
-        } else {
-            $this->response( [
-                'status' => false,
-                'message' => 'data keluar gagal diupdate'
-            ], 400 );
+        $this->db->where('id_keluar', $id);
+        $this->db->update('keluar', $data);
+        $this->db->where('id_keluar', $id);
+      
     
-        }
+        $d = [
+            'id_barang' => $this->put('id_barang'),
+            'qty_keluar' => $this->put('qty_keluar'),
+            ];
+            $this->db->where('id_keluar', $id);
+            $this->db->update('detail_keluar', $d);
+            $this->db->where('id_keluar', $id);
+    
+    
+    
+        
+    
+
 }
 }

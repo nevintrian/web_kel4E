@@ -14,7 +14,18 @@ class Pelanggan extends RestController{
 
     public function index_get(){
 
-
+        if ($this->query('search')) {
+            $penjualan = $this->db->select('*')
+            ->from('user')
+            ->where('level', 'customer')
+            ->order_by('id_user', 'ASC')
+            ->like('user.nama', $this->query('search'))
+            ->get()
+            ->result();
+            $response['status'] = "success";
+            $response['data'] = $penjualan;        
+            $this->response($response, 200);
+        } else {
     $id=$this->get('id');
     if($id==null) {
     $pelanggan=$this->m_pelanggan->getpelanggan();
@@ -39,6 +50,7 @@ class Pelanggan extends RestController{
         ], 404 );
     }
 }
+    }
 
 public function list_get()
 {

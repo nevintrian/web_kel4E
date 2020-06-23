@@ -14,7 +14,18 @@ class Sales extends RestController{
 
     public function index_get(){
 
-
+        if ($this->query('search')) {
+            $penjualan = $this->db->select('*')
+            ->from('user')
+            ->where('level', 'sales')
+            ->order_by('id_user', 'ASC')
+            ->like('user.nama', $this->query('search'))
+            ->get()
+            ->result();
+            $response['status'] = "success";
+            $response['data'] = $penjualan;        
+            $this->response($response, 200);
+        } else {
     $id=$this->get('id');
     if($id==null) {
     $sales=$this->m_sales->getsales();
@@ -39,6 +50,7 @@ class Sales extends RestController{
         ], 404 );
     }
 }
+    }
 
 public function index_delete($id){
   

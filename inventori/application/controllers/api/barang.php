@@ -13,7 +13,17 @@ class Barang extends RestController{
 
 
     public function index_get(){
-
+        if ($this->query('search')) {
+            $penjualan = $this->db->select('*')
+            ->from('barang')
+            ->order_by('id_barang', 'ASC')
+            ->like('barang.nama_barang', $this->query('search'))
+            ->get()
+            ->result();
+            $response['status'] = "success";
+            $response['data'] = $penjualan;        
+            $this->response($response, 200);
+        } else {
 
     $id=$this->get('id');
     if($id==null) {
@@ -39,7 +49,7 @@ class Barang extends RestController{
         ], 404 );
     }
 }
-
+    }
 public function list_get()
 {
     $barang = $this->db

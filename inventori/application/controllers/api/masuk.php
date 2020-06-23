@@ -14,7 +14,20 @@ class Masuk extends RestController{
 
     public function index_get(){
 
-
+        if ($this->query('search')) {
+            $penjualan = $this->db->select('detail_masuk.id_masuk, masuk.id_supplier, masuk.tgl_masuk, masuk.total_masuk, detail_masuk.id_barang, detail_masuk.qty_masuk, barang.nama_barang, barang.harga, supplier.nama_supplier')
+            ->from('masuk')
+            ->join('supplier', 'supplier.id_supplier=masuk.id_supplier')
+            ->join('detail_masuk', 'masuk.id_masuk=detail_masuk.id_masuk')
+            ->join('barang', 'barang.id_barang=detail_masuk.id_barang')
+            ->order_by('id_masuk', 'ASC')
+            ->like('barang.nama_barang', $this->query('search'))
+            ->get()
+            ->result();
+            $response['status'] = "success";
+            $response['data'] = $penjualan;        
+            $this->response($response, 200);
+        } else {
     $id=$this->get('id');
     if($id==null) {
     $masuk=$this->m_masuk->getmasuk();
@@ -39,9 +52,10 @@ class Masuk extends RestController{
         ], 404 );
     }
 }
+    }
 
-public function index_delete(){
-    $id=$this->delete('id');
+public function index_delete($id){
+
 
     if($id==null) {
         $this->response ([
@@ -66,50 +80,57 @@ public function index_delete(){
 }
 
 public function index_post(){
+
+
+
     $data = [
     'id_supplier' => $this->post('id_supplier'),
-    'tgl_masuk' => $this->post('tgl_masuk'),
+    'tgl_masuk' => date('Y-m-d h:i:sa'),
     'total_masuk' => $this->post('total_masuk'),
     ];
 
-    if($this->m_masuk->createmasuk($data) >0){
+    $this->db->insert('masuk', $data);
+  
 
-        $this->response( [
-            'status' => true,
-            'message' => 'data masuk berhasil ditambah'
-        ], 200 );
+    $d = [
+        'id_masuk' => $this->db->insert_id(),
+        'id_barang' => $this->post('id_barang'),
+        'qty_masuk' => $this->post('qty_masuk'),
+        ];
+        $update= $this->db->insert('detail_masuk', $d);
+
+
+
+    if ($update) {
+        $this->response(['status' => 'success'], 200);
     } else {
-        $this->response( [
-            'status' => false,
-            'message' => 'data masuk gagal ditambahkan'
-        ], 400 );
-
+        $this->response(['status' => 'fail'], 400);
     }
 
 
 }
 
 
-public function index_put() {
-    $id=$this->put('id');
+public function index_put($id) {
+
     $data = [
         'id_supplier' => $this->put('id_supplier'),
-        'tgl_masuk' => $this->put('tgl_masuk'),
         'total_masuk' => $this->put('total_masuk'),
         ];
 
-        if($this->m_masuk->updatemasuk($data, $id) >0){
-
-            $this->response( [
-                'status' => true,
-                'message' => 'data masuk berhasil diupdate'
-            ], 200 );
-        } else {
-            $this->response( [
-                'status' => false,
-                'message' => 'data masuk gagal diupdate'
-            ], 400 );
+        $this->db->where('id_masuk', $id);
+        $this->db->update('masuk', $data);
+        $this->db->where('id_masuk', $id);
+      
+    
+        $d = [
+            'id_barang' => $this->put('id_barang'),
+            'qty_masuk' => $this->put('qty_masuk'),
+            ];
+            $this->db->where('id_masuk', $id);
+            $this->db->update('detail_masuk', $d);
+            $this->db->where('id_masuk', $id);
+    
     
         }
-}
 }
