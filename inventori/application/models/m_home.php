@@ -30,7 +30,6 @@ class M_home extends CI_Model
     $this->db->or_like('jenis', $q);
     $this->db->select('*');
     $this->db->from('barang');
-    $this->db->where('jenis', 'makanan');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
@@ -41,7 +40,7 @@ class M_home extends CI_Model
 
     $this->db->select('*');
     $this->db->from('barang');
-    $this->db->where('jenis', 'makanan');
+    $this->db->where('jenis', 'MAKANAN');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
@@ -50,7 +49,7 @@ class M_home extends CI_Model
     public function total_rows_makanan($q = NULL) { //untuk memunculkan record
         $this->db->select('*');
         $this->db->from('barang');
-        $this->db->where('jenis', 'makanan');
+        $this->db->where('jenis', 'MAKANAN');
         return $this->db->count_all_results();
     }
 
@@ -61,7 +60,7 @@ class M_home extends CI_Model
 
     $this->db->select('*');
     $this->db->from('barang');
-    $this->db->where('jenis', 'minuman');
+    $this->db->where('jenis', 'MINUMAN');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
@@ -70,7 +69,7 @@ class M_home extends CI_Model
     public function total_rows_minuman($q = NULL) { //untuk memunculkan record
         $this->db->select('*');
         $this->db->from('barang');
-        $this->db->where('jenis', 'minuman');
+        $this->db->where('jenis', 'MINUMAN');
         return $this->db->count_all_results();
     }
 
@@ -79,7 +78,7 @@ class M_home extends CI_Model
 
     $this->db->select('*');
     $this->db->from('barang');
-    $this->db->where('jenis', 'pembalut');
+    $this->db->where('jenis', 'KECANTIKAN');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
@@ -88,7 +87,7 @@ class M_home extends CI_Model
     public function total_rows_pembalut($q = NULL) { //untuk memunculkan record
         $this->db->select('*');
         $this->db->from('barang');
-        $this->db->where('jenis', 'pembalut');
+        $this->db->where('jenis', 'KECANTIKAN');
         return $this->db->count_all_results();
     }
 
@@ -97,7 +96,7 @@ class M_home extends CI_Model
 
     $this->db->select('*');
     $this->db->from('barang');
-    $this->db->where('jenis', 'kosmetik');
+    $this->db->where('jenis', 'DAPUR');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
@@ -106,7 +105,7 @@ class M_home extends CI_Model
     public function total_rows_kosmetik($q = NULL) { //untuk memunculkan record
         $this->db->select('*');
         $this->db->from('barang');
-        $this->db->where('jenis', 'kosmetik');
+        $this->db->where('jenis', 'DAPUR');
         return $this->db->count_all_results();
     }
 
@@ -115,7 +114,7 @@ class M_home extends CI_Model
 
     $this->db->select('*');
     $this->db->from('barang');
-    $this->db->where('jenis', 'permen');
+    $this->db->where('jenis', 'PERMEN');
 	$this->db->limit($limit, $per_page);
         return $this->db->get()->result();
     }
@@ -124,7 +123,7 @@ class M_home extends CI_Model
     public function total_rows_permen($q = NULL) { //untuk memunculkan record
         $this->db->select('*');
         $this->db->from('barang');
-        $this->db->where('jenis', 'permen');
+        $this->db->where('jenis', 'PERMEN');
         return $this->db->count_all_results();
     }
 

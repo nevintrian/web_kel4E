@@ -132,7 +132,7 @@ class Home extends CI_Controller {
 
     }
     
-    public function pembalut(){	
+    public function kecantikan(){	
 
         $this->load->view('v_header');
         
@@ -169,7 +169,7 @@ class Home extends CI_Controller {
 
     }
     
-    public function kosmetik(){	
+    public function dapur(){	
 
         $this->load->view('v_header');
         

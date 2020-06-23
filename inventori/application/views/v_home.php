@@ -70,9 +70,11 @@
         <a href="<?php echo base_url() ?>home" type="submit" class="button button4" >All </a> 
         <a href="<?php echo base_url() ?>home/makanan" type="submit" class="button button4" >Makanan </a>
         <a href="<?php echo base_url() ?>home/minuman" type="submit" class="button button4" >Minuman</a>
-        <a href="<?php echo base_url() ?>home/pembalut" type="submit" class="button button4" >Pembalut</a>
-        <a href="<?php echo base_url() ?>home/kosmetik" type="submit" class="button button4" >Kosmetik</a> 
         <a href="<?php echo base_url() ?>home/permen" type="submit" class="button button4" >Permen</a> 
+        <a href="<?php echo base_url() ?>home/dapur" type="submit" class="button button4" >Dapur</a> 
+        <a href="<?php echo base_url() ?>home/kecantikan" type="submit" class="button button4" >Kecantikan</a>
+        
+        
         <!-- <div class="col-md-3 text-left"> -->
 
                 
