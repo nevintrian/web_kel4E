@@ -216,7 +216,7 @@ class Barang extends CI_Controller {
         $pdf->AddPage();
 
         $pdf->SetFont('Arial','B',16);
-        $pdf->Cell(0,7,'DAFTAR BARANG',0,1,'C');
+        $pdf->Cell(0,7,'DATA BARANG',0,1,'C');
         $pdf->Cell(10,7,'',0,1);
 
         $pdf->SetFont('Arial','B',10);

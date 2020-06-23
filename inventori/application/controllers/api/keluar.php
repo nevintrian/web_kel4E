@@ -14,6 +14,20 @@ class Keluar extends RestController{
 
     public function index_get(){
 
+        if ($this->query('search')) {
+            $penjualan = $this->db->select('detail_keluar.id_keluar, keluar.id_user, keluar.tgl_keluar, keluar.total_keluar, detail_keluar.id_barang, detail_keluar.qty_keluar, barang.nama_barang, barang.harga, user.nama')
+            ->from('keluar')
+            ->join('user', 'user.id_user=keluar.id_user')
+            ->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar')
+            ->join('barang', 'barang.id_barang=detail_keluar.id_barang')
+            ->order_by('id_keluar', 'ASC')
+            ->like('barang.nama_barang', $this->query('search'))
+            ->get()
+            ->result();
+            $response['status'] = "success";
+            $response['data'] = $penjualan;        
+            $this->response($response, 200);
+        } else {
 
     $id=$this->get('id');
     if($id==null) {
@@ -23,8 +37,7 @@ class Keluar extends RestController{
 
     }
      
-     
-
+    
     if($keluar) {
 
             $this->response( [
@@ -39,7 +52,7 @@ class Keluar extends RestController{
         ], 404 );
     }
 }
-
+    }
 public function index_delete(){
     $id=$this->delete('id');
 
