@@ -84,14 +84,19 @@ class M_masuk extends CI_Model
         
         if($id==null) {
 
-            $this->db->select('*');
+            $this->db->select('detail_masuk.id_masuk, masuk.id_supplier, masuk.tgl_masuk, masuk.total_masuk, detail_masuk.id_barang, detail_masuk.qty_masuk, barang.nama_barang, barang.harga, supplier.nama_supplier');
             $this->db->from('masuk');
+            $this->db->join('detail_masuk', 'masuk.id_masuk=detail_masuk.id_masuk');
             $this->db->join('supplier', 'supplier.id_supplier=masuk.id_supplier');
+            $this->db->join('barang', 'barang.id_barang=detail_masuk.id_barang');
+           
             return $this->db->get()->result();
         }else{
             $this->db->select('*');
             $this->db->from('masuk');
+            $this->db->join('detail_masuk', 'masuk.id_masuk=detail_masuk.id_masuk');
             $this->db->join('supplier', 'supplier.id_supplier=masuk.id_supplier');
+            $this->db->join('barang', 'barang.id_barang=detail_masuk.id_barang');
             $where = "id_masuk=$id";
             $this->db->where($where);
             return $this->db->get()->result();

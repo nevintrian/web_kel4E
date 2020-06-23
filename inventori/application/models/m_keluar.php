@@ -76,14 +76,20 @@ class M_keluar extends CI_Model
         
         if($id==null) {
 
-            $this->db->select('*');
+            $this->db->select('detail_keluar.id_keluar, keluar.id_user, keluar.tgl_keluar, keluar.total_keluar, detail_keluar.id_barang, detail_keluar.qty_keluar, barang.nama_barang, barang.harga, user.nama');
             $this->db->from('keluar');
             $this->db->join('user', 'user.id_user=keluar.id_user');
+            $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
+            $this->db->join('barang', 'barang.id_barang=detail_keluar.id_barang');
+
             return $this->db->get()->result();
         }else{
             $this->db->select('*');
             $this->db->from('keluar');
             $this->db->join('user', 'user.id_user=keluar.id_user');
+            $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
+            $this->db->join('barang', 'barang.id_barang=detail_keluar.id_barang');
+
             $where = "id_keluar=$id";
             $this->db->where($where);
             return $this->db->get()->result();

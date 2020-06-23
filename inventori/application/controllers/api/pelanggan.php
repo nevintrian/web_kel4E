@@ -40,6 +40,18 @@ class Pelanggan extends RestController{
     }
 }
 
+public function list_get()
+{
+    $barang = $this->db
+                    ->select('id_user, nama')
+                    ->get('user')
+                    ->result();
+    $response['status'] = "success";
+    $response['data'] = $barang;
+    
+    $this->response($response, 200);
+}
+
 public function index_delete($id){
 
 

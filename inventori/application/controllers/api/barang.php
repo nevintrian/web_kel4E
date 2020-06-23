@@ -40,6 +40,18 @@ class Barang extends RestController{
     }
 }
 
+public function list_get()
+{
+    $barang = $this->db
+                    ->select('id_barang, nama_barang, harga')
+                    ->get('barang')
+                    ->result();
+    $response['status'] = "success";
+    $response['data'] = $barang;
+    
+    $this->response($response, 200);
+}
+
 public function index_delete($id){
 
 
