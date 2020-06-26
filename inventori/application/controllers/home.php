@@ -29,7 +29,7 @@ class Home extends CI_Controller {
             $config['first_url'] = base_url() . 'home';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 6;
+        $config['per_page'] = 4;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_home->total_rows($q);
         $home = $this->m_home->get_limit_data($config['per_page'], $per_page, $q);
@@ -72,7 +72,7 @@ class Home extends CI_Controller {
             $config['first_url'] = base_url() . 'home/makanan';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 6;
+        $config['per_page'] = 4;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_home->total_rows_makanan($q);
         $home = $this->m_home->get_limit_data_makanan($config['per_page'], $per_page, $q);
@@ -109,7 +109,7 @@ class Home extends CI_Controller {
             $config['first_url'] = base_url() . 'home/minuman';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 6;
+        $config['per_page'] = 4;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_home->total_rows_minuman($q);
         $home = $this->m_home->get_limit_data_minuman($config['per_page'], $per_page, $q);
@@ -146,7 +146,7 @@ class Home extends CI_Controller {
             $config['first_url'] = base_url() . 'home/kecantikan';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 6;
+        $config['per_page'] = 4;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_home->total_rows_pembalut($q);
         $home = $this->m_home->get_limit_data_pembalut($config['per_page'], $per_page, $q);
@@ -183,7 +183,7 @@ class Home extends CI_Controller {
             $config['first_url'] = base_url() . 'home/dapur';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 6;
+        $config['per_page'] = 4;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_home->total_rows_kosmetik($q);
         $home = $this->m_home->get_limit_data_kosmetik($config['per_page'], $per_page, $q);
@@ -220,7 +220,7 @@ class Home extends CI_Controller {
             $config['first_url'] = base_url() . 'home/permen';
         }
         //konfigurasi banyak row dalam satu halaman
-        $config['per_page'] = 6;
+        $config['per_page'] = 4;
         $config['page_query_string'] = TRUE;
         $config['total_rows'] = $this->m_home->total_rows_permen($q);
         $home = $this->m_home->get_limit_data_permen($config['per_page'], $per_page, $q);

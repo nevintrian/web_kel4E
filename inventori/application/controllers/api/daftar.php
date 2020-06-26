@@ -8,7 +8,7 @@ public function index_post(){
     $data = [
     'email' => $this->post('email'),
     'username' => $this->post('username'),
-    'password' => $this->post('password'),
+    'password' => md5($this->post('password')),
     'level' => $this->post('level'),
     'nama' => $this->post('nama'),
     'tgl_lahir' => $this->post('tgl_lahir'),

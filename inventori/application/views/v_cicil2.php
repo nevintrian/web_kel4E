@@ -24,13 +24,13 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Barang Keluar (Kredit)</h2>
+                  <h2 class="content-row-title">Transaksi Barang Keluar (Kredit Lunas)</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Transaksi Telah di Konfirmasi (Kredit)</h2>
+                  <h2 class="content-row-title">Transaksi Telah di Konfirmasi (Kredit Lunas)</h2>
                   <?php } ?>
                   <div class="row">
                   <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
@@ -113,9 +113,7 @@ div.dataTables_info {
           
           <a href="cicil1/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus transaksi?')">hapus</a>
          <?php } ?>
-         <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
-          <button href="#" data-toggle="modal" data-target="#myModal<?php echo $keluar->id_cicil ?>" class="btn btn-warning btn-sm" >bayar</button>
-         <?php } ?>
+
           <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
             <a href="keluar/cetak_penjualan/<?php echo $keluar->id_keluar ?>" target="_blank" class="btn btn-success btn-sm">cetak</a>
             

@@ -49,6 +49,7 @@ div.dataTables_info {
                 <a href="keluar" class="btn btn-info">Bayar di Tempat</a>
                 <a href="keluar2" class="btn btn-primary">Tunai</a>
                 <a href="cicil1/" class="btn btn-warning">Kredit</a>
+                <a href="cicil2/" class="btn btn-secondary">Kredit Lunas</a>
                 <?php } ?>
 
 
@@ -62,6 +63,7 @@ div.dataTables_info {
                   <a href="keluar" class="btn btn-info">Bayar di Tempat</a>
                 <a href="keluar2" class="btn btn-primary">Tunai</a>
                 <a href="cicil1/" class="btn btn-warning">Kredit</a>
+                <a href="cicil2/" class="btn btn-secondary">Kredit Lunas</a>
                   <?php } ?>
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
                 <a class ="btn btn-danger" href="keluardel1"> <i class="glyphicon glyphicon-trash"></i> </a>

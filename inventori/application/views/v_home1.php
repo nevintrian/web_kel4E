@@ -10,9 +10,23 @@
 
 
 </style>
+
+<div class="col-xs-12 col-sm-12 content">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <div class="card">
+        <div class="col-md-7 text-left">
+        <a href="<?php echo base_url() ?>home" type="submit" class="button button4" >All </a> 
+        <a href="<?php echo base_url() ?>home/makanan" type="submit" class="button button4" >Makanan </a>
+        <a href="<?php echo base_url() ?>home/minuman" type="submit" class="button button4" >Minuman</a>
+        <a href="<?php echo base_url() ?>home/permen" type="submit" class="button button4" >Permen</a> 
+        <a href="<?php echo base_url() ?>home/dapur" type="submit" class="button button4" >Dapur</a> 
+        <a href="<?php echo base_url() ?>home/kecantikan" type="submit" class="button button4" >Kecantikan</a>
+</div> </div> </div> </div> </div>
+
 		<div class="row">
 		  <?php foreach($home_data as $home) : ?>
-		  <div class="col-sm-2 col-md-2">
+		  <div class="col-sm-3 col-md-3">
 			<div class="thumbnail">
 			  <?=img([
 				'src'		=> 'image/barang/' . $home->foto_barang, 

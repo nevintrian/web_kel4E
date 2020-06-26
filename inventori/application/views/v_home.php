@@ -67,20 +67,10 @@
         <div class="panel-body">
         <div class="card">
         <div class="col-md-7 text-left">
-        <a href="<?php echo base_url() ?>home" type="submit" class="button button4" >All </a> 
-        <a href="<?php echo base_url() ?>home/makanan" type="submit" class="button button4" >Makanan </a>
-        <a href="<?php echo base_url() ?>home/minuman" type="submit" class="button button4" >Minuman</a>
-        <a href="<?php echo base_url() ?>home/permen" type="submit" class="button button4" >Permen</a> 
-        <a href="<?php echo base_url() ?>home/dapur" type="submit" class="button button4" >Dapur</a> 
-        <a href="<?php echo base_url() ?>home/kecantikan" type="submit" class="button button4" >Kecantikan</a>
-        
-        
-        <!-- <div class="col-md-3 text-left"> -->
-
                 
                 </div>
           
-                <div class="col-md-5 text-right">
+                <div class="col-md-12 text-center">
                 <div class="home-category-list__category-grid"></div>
                 <form action="<?php echo site_url('home/index'); ?>" class="form-inline" method="get">
                     <div class="input-group">

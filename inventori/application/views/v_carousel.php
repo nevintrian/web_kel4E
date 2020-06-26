@@ -11,7 +11,7 @@
    <div class="container">		
 
 	<br/>
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-12 col-md">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -41,7 +41,7 @@
 					?>
 					
 				<div class="item">
-					<img src="image/carousel/<?php echo $row->gambar; ?> " style="height:292px; width:100%">
+					<img src="image/carousel/<?php echo $row->gambar; ?> " >
 					<div class="carousel-caption">
 						<h3><?php echo $row->judul; ?></h3>
 						<p><?php echo $row->isi; ?></p>
