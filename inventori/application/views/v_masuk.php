@@ -90,7 +90,7 @@ div.dataTables_info {
   <div class="form-group">
   
         	<label>Nama Barang</label><br>
-	      <select id="id_barang" name="id_barang"  class="form-control" >
+	      <select id="id_barang" name="id_barang"  class="form-control" required >
       
         <option value="">--pilih barang--</option>
 	        <?php 
@@ -109,14 +109,13 @@ div.dataTables_info {
      
 
       <div class="form-group">
-        	<label>Qty baru</label><br>
-	      <input name="edit" type="number" min="1"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
-      
+        	<label>Qty baru</label>
+	      <input name="edit" id="edit" min="1" value=""  placeholder="masukkan jumlah barang yang ingin di retur" class="form-control" required>
       </div>
 
-      <div class="form-group">
-        	<label>Diskon(%)</label><br>
-	      <input name="diskon" type="number" min="0"  placeholder="masukkan jumlah diskon" required class="form-control" >
+      <div class="form-group" id="form-x">
+        	<label>Diskon(%)</label>
+	      <input name="diskon" id="diskon" min="0" value=""  placeholder="masukkan jumlah diskon" class="form-control" required>
       
       </div>
 		</div>
@@ -241,6 +240,22 @@ div.dataTables_info {
                 $('#form-tahun').show(); // Tampilkan form tahun
             }
             $('#form-tanggal input, #form-bulan select, #form-tahun select').val(''); // Clear data pada textbox tanggal, combobox bulan & tahun
+        })
+    })
+    </script>
+
+<script>
+    $(document).ready(function(){ // Ketika halaman selesai di load
+
+        // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
+        $('#id_barang').change(function(){ // Ketika user memilih filter
+            if($(this).val() !=  null){ // Jika filter nya 1 (per tanggal)
+              var theInput = document.getElementById("diskon");
+              theInput.setAttribute("type", "number");
+              var theInput = document.getElementById("edit");
+              theInput.setAttribute("type", "number");
+            }
+        
         })
     })
     </script>

@@ -141,7 +141,7 @@ div.dataTables_info {
   <div class="form-group">
   
         	<label>Nama Barang</label><br>
-	      <select id="id_barang" name="id_barang"  class="form-control" required>
+	      <select id="id_barang1" name="id_barang"  class="form-control" required>
       
         <option value="">--pilih barang--</option>
 	        <?php 
@@ -161,7 +161,7 @@ div.dataTables_info {
 
       <div class="form-group">
         	<label>Jumlah Retur</label><br>
-	      <input type="number" min="1" id="jumlah_retur" name="jumlah_retur"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+	      <input min="1" id="jumlah_retur" name="jumlah_retur"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
       
       </div>
 		</div>
@@ -214,13 +214,13 @@ div.dataTables_info {
 
       <div class="form-group">
         	<label>Qty baru</label><br>
-	      <input type="number" min="1" id="edit" name="edit"  required placeholder="masukkan jumlah barang yang ingin di retur"  class="form-control" >
+	      <input  min="1" id="edit" name="edit"  required placeholder="masukkan jumlah barang yang ingin di retur"  class="form-control" required >
       
       </div>
 
       <div class="form-group">
         	<label>Diskon(%)</label><br>
-	      <input type="number" min="0" id="diskon" name="diskon"   required placeholder="masukkan jumlah diskon"  class="form-control" >
+	      <input  min="0" id="diskon" name="diskon"   required placeholder="masukkan jumlah diskon"  class="form-control" required >
       
       </div>
 		</div>
@@ -362,7 +362,37 @@ div.dataTables_info {
     })
     </script>
 
+<script>
+    $(document).ready(function(){ // Ketika halaman selesai di load
 
+        // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
+        $('#id_barang').change(function(){ // Ketika user memilih filter
+            if($(this).val() !=  null){ // Jika filter nya 1 (per tanggal)
+              var theInput = document.getElementById("diskon");
+              theInput.setAttribute("type", "number");
+              var theInput = document.getElementById("edit");
+              theInput.setAttribute("type", "number");
+            }
+        
+        })
+    })
+    </script>
+
+
+<script>
+    $(document).ready(function(){ // Ketika halaman selesai di load
+
+        // Sebagai default kita sembunyikan form filter tanggal, bulan & tahunnya
+        $('#id_barang1').change(function(){ // Ketika user memilih filter
+            if($(this).val() !=  null){ // Jika filter nya 1 (per tanggal)
+              var theInput = document.getElementById("jumlah_retur");
+              theInput.setAttribute("type", "number");
+
+            }
+        
+        })
+    })
+    </script>
 
   </div>
 </div>

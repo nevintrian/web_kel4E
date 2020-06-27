@@ -8,7 +8,9 @@
     border: 2px solid #888888;
 }
 
-
+.button {
+    border: 2px solid #888888;
+}
 .stepper .stepper-arrow{
   width: 0px;
   height: 0px;
@@ -26,7 +28,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
         <div class="card">
-        <div class="col-md-7 text-left">
+        <div class="col-md-12 text-center">
         <a href="<?php echo base_url() ?>home" type="submit" class="button button4" >All </a> 
         <a href="<?php echo base_url() ?>home/makanan" type="submit" class="button button4" >Makanan </a>
         <a href="<?php echo base_url() ?>home/minuman" type="submit" class="button button4" >Minuman</a>

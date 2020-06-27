@@ -55,9 +55,21 @@
   color: black;
   border: 2px solid #555555;
 }
+.input-group-btn:last-child>.btn {
+  box-shadow: 1px 2px #888888;
+  height: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.input-group .form-control:first-child {
+  box-shadow: 1px 2px #888888;
+  width: 1040px;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 
 
-
+}
 
 </style>
 	<body>
@@ -94,5 +106,5 @@
             
                 
                 </div>
-</br>
+
 	

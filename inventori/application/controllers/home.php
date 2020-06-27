@@ -47,17 +47,8 @@ class Home extends CI_Controller {
         $this->load->view('v_carousel');
         $this->load->view('v_home1',$data);
 		$this->load->view('v_footer'); 
-
-
-
 	}
     
-
-
-
-
-
-
     public function makanan(){	
 
         $this->load->view('v_header');
