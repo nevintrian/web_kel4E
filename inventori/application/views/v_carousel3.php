@@ -5,7 +5,7 @@
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Tambah Data carousel</h2>
+                  <h2 class="content-row-title">Ubah Data carousel</h2>
 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="varchar">Judul</label>
@@ -19,7 +19,7 @@
 
         <div class="form-group">
             <label for="file">Gambar</label>
-            <input type="file" class="form-control" required name="gambar" />
+            <input type="file" class="form-control" name="gambar" />
         </div>
         <input type="hidden" name="id_carousel" value="<?php echo $id_carousel; ?>" /> 
         <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 

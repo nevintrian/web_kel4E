@@ -207,6 +207,12 @@ div.dataTables_info {
 	      <input id="edit" name="edit"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
       
       </div>
+
+      <div class="form-group">
+        	<label>Diskon(%)</label><br>
+	      <input id="diskon" name="diskon"  placeholder="masukkan jumlah diskon" required class="form-control" >
+      
+      </div>
 		</div>
         <div class="modal-footer">
 	

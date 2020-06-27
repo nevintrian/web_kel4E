@@ -67,8 +67,11 @@
         	<input type="hidden" name="total_keluar" value="<?php echo $this->cart->total() ?>">
         	<input type="hidden" name="tgl_penjualan" value="<?php echo date('Y-m-d h:i:sa') ?>">
         	<a href="home" class="btn btn-danger">Kembali</a>
-
+          
+          <?php if ($this->cart->contents() != null) { ?>
+          
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Bayar</button>
+          <?php } ?>
             
             
         </div>

@@ -150,9 +150,10 @@ class Masuk extends CI_Controller {
 		{
 			$id_barang = $this->input->post('id_barang');
 			$edit = $this->input->post('edit');
+			$diskon = $this->input->post('diskon');
 	 
 	
-				 $this->db->query("UPDATE detail_masuk set qty_masuk=$edit where id_masuk=$id_masuk and id_barang=$id_barang");
+				 $this->db->query("UPDATE detail_masuk set qty_masuk=$edit, diskon=$diskon where id_masuk=$id_masuk and id_barang=$id_barang");
 					
 						redirect(site_url('masuk'));
 	

@@ -176,7 +176,7 @@ div.dataTables_info {
         </tr>
         <div id="myModal2<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
-  <form method="POST" action="keluar/edit/<?php echo $keluar->id_keluar ?>">
+  <form method="POST" action="keluar2/edit/<?php echo $keluar->id_keluar ?>">
   <?php $kel=$keluar->id_keluar ?>
 	  <div class="modal-content">
       <div class="modal-header">
@@ -209,6 +209,12 @@ div.dataTables_info {
       <div class="form-group">
         	<label>Qty baru</label><br>
 	      <input id="edit" name="edit"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+      
+      </div>
+
+      <div class="form-group">
+        	<label>Diskon(%)</label><br>
+	      <input id="diskon" name="diskon"  placeholder="masukkan jumlah diskon" required class="form-control" >
       
       </div>
 		</div>

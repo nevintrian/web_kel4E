@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jun 2020 pada 01.30
+-- Waktu pembuatan: 27 Jun 2020 pada 02.59
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -1359,7 +1359,23 @@ INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) V
 (1362, '2020-06-26 12:52:29', 'Tansaksi barang masuk dengan id=29 telah dihapus', 1),
 (1363, '2020-06-26 12:52:30', 'Tansaksi barang masuk dengan id=30 telah dihapus', 1),
 (1364, '2020-06-26 12:52:33', 'Tansaksi barang masuk dengan id=31 telah dihapus', 1),
-(1365, '2020-06-26 12:52:35', 'Tansaksi barang masuk dengan id=20 telah dihapus', 1);
+(1365, '2020-06-26 12:52:35', 'Tansaksi barang masuk dengan id=20 telah dihapus', 1),
+(1366, '2020-06-27 06:40:49', 'Tansaksi barang keluar dengan id=50 telah diubah', 0),
+(1367, '2020-06-27 06:52:49', 'Tansaksi barang keluar dengan id=34 telah diubah', 0),
+(1368, '2020-06-27 07:15:02', 'Transaksi barang keluar dengan id=50 telah dihapus', 0),
+(1369, '2020-06-27 07:25:44', 'Tansaksi barang keluar dengan id=76 telah diubah', 0),
+(1370, '2020-06-27 07:26:31', 'Tansaksi barang keluar dengan id=34 telah diubah', 0),
+(1371, '2020-06-27 07:27:49', 'Tansaksi barang keluar dengan id=32 telah diubah', 0),
+(1372, '2020-06-27 07:28:17', 'Tansaksi barang keluar dengan id=31 telah diubah', 0),
+(1373, '2020-06-27 07:46:05', 'Tansaksi barang keluar dengan id=60 telah diubah', 0),
+(1374, '2020-06-27 07:46:38', 'Tansaksi barang keluar dengan id=60 telah diubah', 0),
+(1375, '2020-06-27 07:47:29', 'Tansaksi barang masuk dengan id=33 telah diubah', 0),
+(1376, '2020-06-27 07:49:00', 'User dengan usernament telah dihapus', 0),
+(1377, '2020-06-27 07:49:02', 'User dengan usernametri telah dihapus', 0),
+(1378, '2020-06-27 07:49:04', 'User dengan usernamenevinr telah dihapus', 0),
+(1379, '2020-06-27 07:49:05', 'User dengan usernamenta telah dihapus', 0),
+(1380, '2020-06-27 07:53:27', 'Barang bernama qw telah ditambah', 0),
+(1381, '2020-06-27 07:53:36', 'Barang bernama qw telah diupdate', 0);
 
 -- --------------------------------------------------------
 
@@ -1386,8 +1402,8 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5056, 37, 'barang_1587349533.jpg', 0),
-(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5011, 0, 'barang_1587349541.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5045, 45, 'barang_1587349533.jpg', 0),
+(2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 4999, 12, 'barang_1587349541.jpg', 0),
 (3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5111, -111, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 4988, 12, 'barang_1587349556.jpg', 0),
 (5, 1, 'BUCKET MILKY VANILA 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5000, 0, 'barang_1587350694.jpg', 0),
@@ -1633,7 +1649,8 @@ INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `mer
 (245, 7, 'YUPI AQUARIUM 15 GR', '12 PCS / K', '-', 'PERMEN', 10300, 5000, 0, 'barang_1587486236.jpg', 0),
 (246, 7, 'YUPI FESTIVE EDITION 400 GR', '6 PCS / K', '-', 'PERMEN', 25000, 5000, 0, 'barang_1592746054.jpg', 0),
 (289, 1, 'yy', 'yy', 'yy', 'yy', 3, 3, 3, 'barang_1592920933.jpg', 0),
-(292, 8, 'yuyu', 'kotak', 'yuyu', 'makanan', 12000, 12, 2, 'barang_1592921430.jpg', 0);
+(292, 8, 'yuyu', 'kotak', 'yuyu', 'makanan', 12000, 12, 2, 'barang_1592921430.jpg', 0),
+(293, 7, 'qw', 'ww', 'ww', 'ww', 1, 1, 0, 'gg.jpg', 0);
 
 --
 -- Trigger `barang`
@@ -1788,17 +1805,17 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `
 (1, 21, 10, 10, 3),
 (4, 21, 10, 20, 3),
 (2, 23, 10, 10, 3),
-(4, 24, 10, 3, 3),
+(4, 24, 10, 8, 3),
 (1, 25, 1, 0, 3),
 (2, 27, 1, 0, 3),
 (1, 27, 1, 0, 3),
 (2, 28, 12, 0, 1),
 (1, 29, 10, 0, 2),
 (1, 30, 10, 0, 3),
-(1, 31, 12, 0, 3),
-(2, 32, 1, 0, 3),
-(3, 33, 1, 0, 3),
-(2, 34, 1, 0, 3),
+(1, 31, 10, 0, 3),
+(2, 32, 2, 10, 3),
+(3, 33, 1, 10, 3),
+(2, 34, 3, 0, 3),
 (1, 36, 1, 0, 3),
 (1, 38, 10, 0, 1),
 (1, 39, 12, 0, 1),
@@ -1809,13 +1826,13 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `
 (1, 48, 12, 0, 1),
 (2, 49, 12, 0, 1),
 (4, 50, 1, 0, 3),
-(2, 50, 10, 0, 3),
+(2, 50, 8, 10, 3),
 (1, 51, 11, 0, 3),
 (1, 53, 11, 0, 3),
 (1, 55, 12, 0, 3),
 (2, 56, 12, 0, 1),
 (2, 58, 111, 0, 1),
-(2, 60, 11, 0, 2),
+(2, 60, 11, 11, 2),
 (1, 61, 13, 0, 1),
 (2, 61, 12, 0, 1),
 (3, 62, 11, 0, 1),
@@ -1828,11 +1845,37 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `
 (2, 72, 12, 0, 1),
 (3, 73, 12, 0, 1),
 (4, 74, 12, 0, 1),
-(1, 75, 12, 0, 1);
+(1, 75, 12, 0, 1),
+(1, 76, 10, 10, 2),
+(2, 76, 11, 11, 2);
 
 --
 -- Trigger `detail_keluar`
 --
+DELIMITER $$
+CREATE TRIGGER `editdiskon` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
+declare harga1 int(20);
+IF OLD.diskon=!NEW.diskon THEN
+
+select harga into harga1 from barang where barang.id_barang=NEW.id_barang;
+
+UPDATE keluar SET total_keluar=total_keluar-(harga1*NEW.qty_keluar*NEW.diskon/100) WHERE id_keluar=NEW.id_keluar;
+END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `editstok` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
+declare harga1 int(20);
+IF OLD.qty_keluar=!NEW.qty_keluar THEN
+
+select harga into harga1 from barang where barang.id_barang=NEW.id_barang;
+
+UPDATE keluar SET total_keluar=(harga1*NEW.qty_keluar) WHERE id_keluar=NEW.id_keluar;
+END IF;
+END
+$$
+DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `hapus detail_keluar` AFTER DELETE ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET stok = stok+OLD.qty_keluar 
@@ -1954,7 +1997,7 @@ INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`, `diskon`) VALU
 (3, 19, 10, 2),
 (1, 31, 56, 0),
 (1, 32, 5, 0),
-(1, 33, 4, 0),
+(1, 33, 1, 1),
 (1, 34, 2, 0),
 (1, 36, 1, 0),
 (1, 37, 2, 0);
@@ -2047,8 +2090,8 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (29, 2, '2020-06-06 09:30:55', 225000, NULL, 0, 0),
 (30, 2, '2020-06-06 09:31:22', 225000, NULL, 0, 0),
 (31, 2, '2020-06-06 09:32:42', 270000, NULL, 0, 0),
-(32, 3, '2020-06-06 09:33:36', 22500, NULL, 0, 0),
-(33, 2, '2020-06-06 09:37:04', 22500, NULL, 0, 0),
+(32, 3, '2020-06-06 09:33:36', 18000, NULL, 0, 0),
+(33, 2, '2020-06-06 09:37:04', 20250, NULL, 0, 0),
 (34, 2, '2020-06-06 09:39:19', 22500, NULL, 0, 0),
 (36, 3, '2020-06-06 09:41:43', 22500, NULL, 0, 1),
 (38, 2, '2020-06-06 11:47:45', 225000, NULL, 1, 0),
@@ -2058,14 +2101,14 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (47, 2, '2020-06-07 11:37:19', 22500, NULL, 1, 0),
 (48, 3, '2020-06-07 11:42:55', 540000, NULL, 1, 0),
 (49, 2, '2020-06-07 12:28:00', 270000, NULL, 1, 0),
-(50, 2, '2020-06-07 01:45:23', 247500, NULL, 0, 0),
+(50, 2, '2020-06-07 01:45:23', 247500, NULL, 0, 1),
 (51, 1, '2020-06-08 05:09:12', 247500, 'bayar_1591567758.jpg', 0, 0),
 (53, 3, '2020-06-08 05:21:49', 247500, 'bayar_1591568515.jpg', 0, 0),
 (55, 3, '2020-06-08 05:22:46', 270000, 'bayar_1591568572.jpg', 0, 0),
 (56, 3, '2020-06-08 05:22:57', 270000, NULL, 1, 0),
 (57, 1, '0000-00-00 00:00:00', 80, NULL, 0, 0),
 (58, 2, '2020-06-20 07:54:57', 2497500, 'bayar_1592614505.jpg', 0, 0),
-(60, 2, '2020-06-20 07:55:20', 247500, 'bayar_1592614526.jpg', 0, 0),
+(60, 2, '2020-06-20 07:55:20', 225000, 'bayar_1592614526.jpg', 0, 0),
 (61, 3, '2020-06-20 05:36:56', 562500, 'bayar_1592649490', 0, 0),
 (62, 3, '2020-06-20 05:38:42', 247500, NULL, 0, 0),
 (63, 3, '2020-06-20 05:38:55', 270000, NULL, 0, 0),
@@ -2079,7 +2122,8 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (72, 3, '2020-06-26 12:54:37', 270000, NULL, 1, 0),
 (73, 1, '2020-06-26 12:57:13', 270000, NULL, 1, 0),
 (74, 3, '2020-06-26 01:02:29', 270000, NULL, 2, 0),
-(75, 3, '2020-06-26 02:08:14', 270000, NULL, 2, 0);
+(75, 3, '2020-06-26 02:08:14', 270000, NULL, 2, 0),
+(76, 1, '2020-06-27 07:15:27', 463275, NULL, 0, 0);
 
 --
 -- Trigger `keluar`
@@ -2263,10 +2307,10 @@ INSERT INTO `user` (`id_user`, `email`, `username`, `password`, `level`, `nama`,
 (7, 'tarno@gmail.com', 'tarno', 'ed8465aeaf6682cbf12c6a3c94bba4d7', 'customer', 'tarno', '2020-04-20', 'laki-laiki', 'Jember', '089765456111', 'user_1585977486.jpg', 0),
 (8, 'ipang@gmail.com', 'ipang', 'a3b1427fc6eb05dde4883180e7284322', 'gudang', 'ipang i', '2020-04-15', 'laki-laiki', 'Jember', '089765241572', '26e3d288a102a913721b6386f1a1bf91.jpg', 0),
 (9, 'eko@gmail.com', 'eko', '8e1a070e9b0340da2b0ea4f193c172f0', 'customer', 'eko', '2020-04-15', 'laki-laiki', 'Jember', '089765456111', 'pp.jpg', 0),
-(90, 'nt@gmail.com', 'nt', 'nt123', 'customer', 'nt', '2000-01-01', 'laki-laki', NULL, NULL, 'pp.jpg', 0),
-(91, 'nta@gmail.com', 'nta', 'b4e1913138f06cda94b3e7e3f2eb2c7b', 'customer', 'nta', '2027-07-07', 'laki-laki', NULL, NULL, 'pp.jpg', 0),
-(92, 'nevinr', 'nevinr', 'e57540d142526e84b44bb639ae511263', 'customer', 'nevinr', '2027-07-07', 'laki-laki', NULL, NULL, 'pp.jpg', 0),
-(93, 'tri', 'tri', 'b85593ca6abda3f203e0af8239beb228', 'customer', 'tri', '2000-06-06', 'laki-laki', NULL, NULL, 'pp.jpg', 0);
+(90, 'nt@gmail.com', 'nt', 'nt123', 'customer', 'nt', '2000-01-01', 'laki-laki', NULL, NULL, 'pp.jpg', 1),
+(91, 'nta@gmail.com', 'nta', 'b4e1913138f06cda94b3e7e3f2eb2c7b', 'customer', 'nta', '2027-07-07', 'laki-laki', NULL, NULL, 'pp.jpg', 1),
+(92, 'nevinr', 'nevinr', 'e57540d142526e84b44bb639ae511263', 'customer', 'nevinr', '2027-07-07', 'laki-laki', NULL, NULL, 'pp.jpg', 1),
+(93, 'tri', 'tri', 'b85593ca6abda3f203e0af8239beb228', 'customer', 'tri', '2000-06-06', 'laki-laki', NULL, NULL, 'pp.jpg', 1);
 
 --
 -- Trigger `user`
@@ -2359,19 +2403,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1366;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1382;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=293;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=294;
 
 --
 -- AUTO_INCREMENT untuk tabel `carousel`
 --
 ALTER TABLE `carousel`
-  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_carousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `cicil`
@@ -2383,7 +2427,7 @@ ALTER TABLE `cicil`
 -- AUTO_INCREMENT untuk tabel `keluar`
 --
 ALTER TABLE `keluar`
-  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT untuk tabel `masuk`

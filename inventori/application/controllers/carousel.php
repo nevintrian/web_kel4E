@@ -139,7 +139,7 @@ class Carousel extends CI_Controller {
 
             );
             //menampilkan form edit data
-            $this->load->view('v_carousel2', $data);
+            $this->load->view('v_carousel3', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('carousel'));
