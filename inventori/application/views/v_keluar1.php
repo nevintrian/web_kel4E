@@ -1,4 +1,13 @@
-
+<style>
+.stepper .stepper-arrow{
+  width: 0px;
+  height: 0px;
+  right: 0px;
+}
+.stepper-arrow { 
+    opacity: 0;
+}
+</style>
           <script type="text/javascript" src="assets/dist/js/site.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -120,13 +129,13 @@
         </div>
         <div class="form-group">
             <label>Jumlah Beli </label>
-            <input type="text" class="form-control" name="jumlah" required id="jumlah"/>
+            <input type="number" min="1" class="form-control" name="jumlah" required id="jumlah"/>
             <input type="hidden" class="form-control" name="nabar" id="nabar"/>
         </div>
 
         <div class="form-group">
             <label>Diskon(%)</label>
-            <input type="text" class="form-control" name="coupon" id="coupon"/>
+            <input type="number" min="0" class="form-control" name="coupon" required id="coupon"/>
         </div>
 
       </div>

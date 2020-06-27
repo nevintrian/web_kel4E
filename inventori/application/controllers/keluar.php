@@ -97,6 +97,7 @@ class Keluar extends CI_Controller {
 
 	public function retur($id_keluar) 
     {
+		
 		$id_barang = $this->input->post('id_barang');
 		$jumlah_retur = $this->input->post('jumlah_retur');
  
@@ -109,11 +110,12 @@ class Keluar extends CI_Controller {
 
 	public function edit($id_keluar) 
 		{
+			
 			$id_barang = $this->input->post('id_barang');
 			$edit = $this->input->post('edit');
 			$diskon = $this->input->post('diskon');
 	
-				 $this->db->query("UPDATE detail_keluar set qty_keluar=$edit, diskon=$diskon where id_keluar=$id_keluar and id_barang=$id_barang");
+				 $this->db->query("UPDATE detail_keluar set qty_keluar=$edit diskon=$diskon where id_keluar=$id_keluar and id_barang=$id_barang");
 					
 						redirect(site_url('keluar'));
 	

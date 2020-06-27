@@ -17,6 +17,16 @@ table.dataTable {
 div.dataTables_info {
     margin-bottom: -5em;
 }
+.stepper .stepper-arrow{
+  width: 0px;
+  height: 0px;
+  right: 0px;
+}
+.stepper-arrow { 
+    opacity: 0;
+    
+
+}
 </style> 
        <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
@@ -131,7 +141,7 @@ div.dataTables_info {
   <div class="form-group">
   
         	<label>Nama Barang</label><br>
-	      <select id="id_barang" name="id_barang"  class="form-control" >
+	      <select id="id_barang" name="id_barang"  class="form-control" required>
       
         <option value="">--pilih barang--</option>
 	        <?php 
@@ -151,13 +161,13 @@ div.dataTables_info {
 
       <div class="form-group">
         	<label>Jumlah Retur</label><br>
-	      <input id="jumlah_retur" name="jumlah_retur"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+	      <input type="number" min="1" id="jumlah_retur" name="jumlah_retur"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
       
       </div>
 		</div>
         <div class="modal-footer">
 	
-      	<button class="btn btn-info" type="submit">Kirim</button>
+      	<button class="btn btn-info" id="submit" type="submit">Kirim</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
         
@@ -204,13 +214,13 @@ div.dataTables_info {
 
       <div class="form-group">
         	<label>Qty baru</label><br>
-	      <input id="edit" name="edit"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+	      <input type="number" min="1" id="edit" name="edit"  required placeholder="masukkan jumlah barang yang ingin di retur"  class="form-control" >
       
       </div>
 
       <div class="form-group">
         	<label>Diskon(%)</label><br>
-	      <input id="diskon" name="diskon"  placeholder="masukkan jumlah diskon" required class="form-control" >
+	      <input type="number" min="0" id="diskon" name="diskon"   required placeholder="masukkan jumlah diskon"  class="form-control" >
       
       </div>
 		</div>

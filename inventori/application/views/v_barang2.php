@@ -1,3 +1,13 @@
+<style>
+.stepper .stepper-arrow{
+  width: 0px;
+  height: 0px;
+  right: 0px;
+}
+.stepper-arrow { 
+    opacity: 0;
+}
+</style>
 <div class="col-xs-12 col-sm-9 content">
             <div class="panel panel-default">
               <div class="panel-heading">

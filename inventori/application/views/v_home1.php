@@ -9,6 +9,17 @@
 }
 
 
+.stepper .stepper-arrow{
+  width: 0px;
+  height: 0px;
+  right: 0px;
+}
+.stepper-arrow { 
+    opacity: 0;
+}
+
+
+
 </style>
 
 <div class="col-xs-12 col-sm-12 content">
@@ -76,7 +87,7 @@
         </div>
         <div class="form-group">
             <label>Jumlah Beli </label>
-            <input type="text" class="form-control" required name="jumlah" id="jumlah"/>
+            <input type="number" min="1" class="form-control" required name="jumlah" id="jumlah"/>
             <input type="hidden" class="form-control" name="nabar" id="nabar" value="<?php echo $home->nama_barang ?>"/>
 		</div>
 		

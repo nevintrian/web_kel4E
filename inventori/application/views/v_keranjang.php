@@ -143,7 +143,7 @@
    
     <div class="form-group" id="form-bulan">
             <label for="file"> Masukkan bukti transfer </label>
-            <input type="file" class="form-control" name="foto_keluar" />
+            <input type="file" id="foto_keluar" class="form-control" name="foto_keluar" required />
         </div>
 	
         <div class="modal-footer">
@@ -168,10 +168,14 @@
             if($(this).val() == '1'){ // Jika filter nya 1 (per tanggal)
                 $('#form-bulan, #form-tahun, #form-cicil, #form-transfer').hide(); // Sembunyikan form bulan dan tahun
                 $('#form-tanggal').show(); // Tampilkan form tanggal
+                var theInput = document.getElementById("foto_keluar");
+     
+                theInput.removeAttribute("required");
             }else if($(this).val() == '2'){ // Jika filter nya 2 (per bulan)
                 $('#form-tanggal, #form-cicil').hide(); // Sembunyikan form tanggal
                 $('#form-bulan, #form-tahun, #form-transfer').show(); // Tampilkan form bulan dan tahun
-
+            
+                
               }else if($(this).val() == '3'){ // Jika filter nya 2 (per bulan)
                 $('#form-tanggal, #form-bulan, #form-tahun, #form-transfer').hide(); // Sembunyikan form tanggal
                 $('#form-cicil').show(); // Tampilkan form bulan dan tahun

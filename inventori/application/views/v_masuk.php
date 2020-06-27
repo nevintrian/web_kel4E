@@ -110,13 +110,13 @@ div.dataTables_info {
 
       <div class="form-group">
         	<label>Qty baru</label><br>
-	      <input id="edit" name="edit"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
+	      <input name="edit" type="number" min="1"  placeholder="masukkan jumlah barang yang ingin di retur" required class="form-control" >
       
       </div>
 
       <div class="form-group">
         	<label>Diskon(%)</label><br>
-	      <input id="diskon" name="diskon"  placeholder="masukkan jumlah diskon" required class="form-control" >
+	      <input name="diskon" type="number" min="0"  placeholder="masukkan jumlah diskon" required class="form-control" >
       
       </div>
 		</div>
