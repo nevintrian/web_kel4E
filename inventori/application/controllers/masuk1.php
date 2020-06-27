@@ -30,7 +30,7 @@ class Masuk1 extends CI_Controller {
 		}
 
 
-		$config['per_page'] = 5;
+		$config['per_page'] = 10000;
         $config['page_query_string'] = TRUE;
 		$config['total_rows'] = $this->m_masuk1->total_rows();
 		$keluar = $this->m_masuk1->get_limit_data($config['per_page'], $per_page, $q);

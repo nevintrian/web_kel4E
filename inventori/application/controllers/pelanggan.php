@@ -247,7 +247,7 @@ public function cetak_pdf() {
     
 
     $pdf->SetFont('Arial','',10);
-    $barang= $this->db->query("SELECT * FROM user WHERE level='customer'")->result();
+    $barang= $this->db->query("SELECT * FROM user WHERE level='customer' and del='0'")->result();
     $no=1;
     foreach ($barang as $data){
         $pdf->Cell(8,6,$no,1,0);

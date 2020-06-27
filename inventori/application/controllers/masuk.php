@@ -165,7 +165,7 @@ class Masuk extends CI_Controller {
 	{
 		
         $data = array(
-			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian'"),
+			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian' where masuk.del='0'"),
 		);
 		$this->load->view('v_masuk3',$data);
 	}
@@ -176,7 +176,7 @@ class Masuk extends CI_Controller {
         $this->load->view('v_sidebar'); 
 		$data = array(
 
-			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian'"),
+			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian' where masuk.del='0'"),
 		);
 		$this->load->view('v_masuk2',$data);
 	}
@@ -202,7 +202,7 @@ class Masuk extends CI_Controller {
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier")->result();
+        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where masuk.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
@@ -215,7 +215,7 @@ class Masuk extends CI_Controller {
 			$pdf->Cell(30,6,"Rp ".number_format($data->total_masuk, 0, ".", "."),1,1);
             $no++;
         }
-		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk")->result();
+		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where masuk.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -247,7 +247,7 @@ class Masuk extends CI_Controller {
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)=date(now())")->result();
+        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)=date(now()) and masuk.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
 			$pdf->Cell(8,6,$no,1,0);
@@ -262,7 +262,7 @@ class Masuk extends CI_Controller {
             $no++;
 		}
 		
-		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where date(masuk.tgl_masuk)=date(now())")->result();
+		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where date(masuk.tgl_masuk)=date(now()) and masuk.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -293,7 +293,7 @@ class Masuk extends CI_Controller {
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now()) and month(masuk.tgl_masuk)=month(now())")->result();
+        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now()) and month(masuk.tgl_masuk)=month(now()) and masuk.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
 			$pdf->Cell(8,6,$no,1,0);
@@ -306,7 +306,7 @@ class Masuk extends CI_Controller {
            
             $no++;
 		}
-		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where year(masuk.tgl_masuk)=year(now()) and month(masuk.tgl_masuk)=month(now())")->result();
+		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where year(masuk.tgl_masuk)=year(now()) and month(masuk.tgl_masuk)=month(now()) and masuk.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -337,7 +337,7 @@ class Masuk extends CI_Controller {
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
 
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now())")->result();
+        $barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(masuk.tgl_masuk)=year(now()) and masuk.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
 			$pdf->Cell(8,6,$no,1,0);
@@ -351,7 +351,7 @@ class Masuk extends CI_Controller {
            
             $no++;
 		}
-		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where year(masuk.tgl_masuk)=year(now())")->result();
+		$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where year(masuk.tgl_masuk)=year(now()) and masuk.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -387,7 +387,7 @@ class Masuk extends CI_Controller {
 									$pdf->Cell(30,6,'Total bayar',1,1,'C');
 							
 									$pdf->SetFont('Arial','',10);
-									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)='$tgl_masuk'")->result();
+									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where date(masuk.tgl_masuk)='$tgl_masuk' and masuk.del='0'")->result();
 									$no=1;
 									foreach ($barang as $data){
 										$pdf->Cell(8,6,$no,1,0);
@@ -401,7 +401,7 @@ class Masuk extends CI_Controller {
 									
 										$no++;
 									}
-									$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where date(masuk.tgl_masuk)='$tgl_masuk'")->result();
+									$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where date(masuk.tgl_masuk)='$tgl_masuk' and masuk.del='0'")->result();
 									foreach ($total as $tot){
 									$pdf->Cell(168,6,"Total Bayar",1,0);
 									$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -431,7 +431,7 @@ class Masuk extends CI_Controller {
 									$pdf->Cell(30,6,'Total bayar',1,1,'C');
 							
 									$pdf->SetFont('Arial','',10);
-									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where month(tgl_masuk)=$bulan and year(tgl_masuk)=$tahun")->result();
+									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where month(tgl_masuk)=$bulan and year(tgl_masuk)=$tahun and masuk.del='0'")->result();
 									$no=1;
 									foreach ($barang as $data){
 										$pdf->Cell(8,6,$no,1,0);
@@ -445,7 +445,7 @@ class Masuk extends CI_Controller {
 									
 										$no++;
 									}
-									$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where month(tgl_masuk)=$bulan and year(tgl_masuk)=$tahun")->result();
+									$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where month(tgl_masuk)=$bulan and year(tgl_masuk)=$tahun and masuk.del='0'")->result();
 									foreach ($total as $tot){
 									$pdf->Cell(168,6,"Total Bayar",1,0);
 									$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -475,7 +475,7 @@ class Masuk extends CI_Controller {
 									$pdf->Cell(30,6,'Total bayar',1,1,'C');
 							
 									$pdf->SetFont('Arial','',10);
-									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(tgl_masuk)=$tahun")->result();
+									$barang= $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where year(tgl_masuk)=$tahun and masuk.del='0'")->result();
 									$no=1;
 									foreach ($barang as $data){
 										$pdf->Cell(8,6,$no,1,0);
@@ -489,7 +489,7 @@ class Masuk extends CI_Controller {
 									
 										$no++;
 									}
-									$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where year(tgl_masuk)=$tahun")->result();
+									$total= $this->db->query("SELECT SUM(total_masuk) AS total FROM masuk where year(tgl_masuk)=$tahun and masuk.del='0'")->result();
 									foreach ($total as $tot){
 									$pdf->Cell(168,6,"Total Bayar",1,0);
 									$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);

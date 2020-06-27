@@ -215,7 +215,7 @@ public function hapus_penjualan($id)
 		$pdf->Cell(30,6,'No Telp',1,0,'C');
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user")->result();
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where keluar.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
@@ -229,7 +229,7 @@ public function hapus_penjualan($id)
            
             $no++;
         }
-		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar")->result();
+		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where keluar.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -262,7 +262,7 @@ public function hapus_penjualan($id)
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where date(keluar.tgl_keluar)=date(now())")->result();
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where date(keluar.tgl_keluar)=date(now()) and keluar.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
@@ -276,7 +276,7 @@ public function hapus_penjualan($id)
            
             $no++;
         }
-		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where date(keluar.tgl_keluar)=date(now())")->result();
+		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where date(keluar.tgl_keluar)=date(now()) and keluar.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -308,7 +308,7 @@ public function hapus_penjualan($id)
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(keluar.tgl_keluar)=year(now()) and month(keluar.tgl_keluar)=month(now())")->result();
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(keluar.tgl_keluar)=year(now()) and month(keluar.tgl_keluar)=month(now()) and keluar.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
@@ -322,7 +322,7 @@ public function hapus_penjualan($id)
            
             $no++;
         }
-		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where year(keluar.tgl_keluar)=year(now()) and month(keluar.tgl_keluar)=month(now())")->result();
+		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where year(keluar.tgl_keluar)=year(now()) and month(keluar.tgl_keluar)=month(now()) and keluar.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -355,7 +355,7 @@ public function hapus_penjualan($id)
 		$pdf->Cell(30,6,'Total bayar',1,1,'C');
  
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(keluar.tgl_keluar)=year(now())")->result();
+        $barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(keluar.tgl_keluar)=year(now()) and keluar.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
@@ -368,7 +368,7 @@ public function hapus_penjualan($id)
             $pdf->Cell(30,6,"Rp ".number_format($data->total_keluar, 0, ".", "."),1,1);
             $no++;
         }
-		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where year(keluar.tgl_keluar)=year(now())")->result();
+		$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where year(keluar.tgl_keluar)=year(now()) and keluar.del='0'")->result();
 		foreach ($total as $tot){
 		$pdf->Cell(168,6,"Total Bayar",1,0);
 		$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -405,7 +405,7 @@ public function hapus_penjualan($id)
 							$pdf->Cell(30,6,'Total bayar',1,1,'C');
 					
 							$pdf->SetFont('Arial','',10);
-							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where date(keluar.tgl_keluar)='$tgl_keluar'")->result();
+							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where date(keluar.tgl_keluar)='$tgl_keluar' and keluar.del='0'")->result();
 							$no=1;
 							foreach ($barang as $data){
 								$pdf->Cell(8,6,$no,1,0);
@@ -419,7 +419,7 @@ public function hapus_penjualan($id)
 							
 								$no++;
 							}
-							$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where date(keluar.tgl_keluar)='$tgl_keluar'")->result();
+							$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where date(keluar.tgl_keluar)='$tgl_keluar' and keluar.del='0'")->result();
 							foreach ($total as $tot){
 							$pdf->Cell(168,6,"Total Bayar",1,0);
 							$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
@@ -450,7 +450,7 @@ public function hapus_penjualan($id)
 							$pdf->Cell(30,6,'Total bayar',1,1,'C');
 					
 							$pdf->SetFont('Arial','',10);
-							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where month(tgl_keluar)=$bulan and year(tgl_keluar)=$tahun")->result();
+							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where month(tgl_keluar)=$bulan and year(tgl_keluar)=$tahun and keluar.del='0'")->result();
 							$no=1;
 							foreach ($barang as $data){
 								$pdf->Cell(8,6,$no,1,0);
@@ -464,8 +464,8 @@ public function hapus_penjualan($id)
 							
 								$no++;
 							}
-							$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar  where month(tgl_keluar)=$bulan and year(tgl_keluar)=$tahun")->result();
-							foreach ($total as $tot){
+							$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar  where month(tgl_keluar)=$bulan and year(tgl_keluar)=$tahun and keluar.del='0'")->result();
+							foreach ($total as $tot){ 
 							$pdf->Cell(168,6,"Total Bayar",1,0);
 							$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);
 							$pdf->Output();
@@ -494,7 +494,7 @@ public function hapus_penjualan($id)
 							$pdf->Cell(30,6,'Total bayar',1,1,'C');
 					
 							$pdf->SetFont('Arial','',10);
-							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(tgl_keluar)=$tahun")->result();
+							$barang= $this->db->query("SELECT * FROM keluar inner join user on keluar.id_user=user.id_user where year(tgl_keluar)=$tahun and keluar.del='0'")->result();
 							$no=1;
 							foreach ($barang as $data){
 								$pdf->Cell(8,6,$no,1,0);
@@ -508,7 +508,7 @@ public function hapus_penjualan($id)
 							
 								$no++;
 							}
-							$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where year(tgl_keluar)=$tahun")->result();
+							$total= $this->db->query("SELECT SUM(total_keluar) AS total FROM keluar where year(tgl_keluar)=$tahun and keluar.del='0'")->result();
 							foreach ($total as $tot){
 							$pdf->Cell(168,6,"Total Bayar",1,0);
 							$pdf->Cell(30,6,"Rp ".number_format($tot->total, 0, ".", "."),1,1);

@@ -83,7 +83,7 @@ div.dataTables_info {
 
 <div class="row">
             <div class="col-md-10">
-            <a href="dashboard" class="btn btn-primary btn-sm">Total Record : <?php echo $total_rows ?></a>
+            <a href="dashboard" class="btn btn-primary btn-md">Total Record : <?php echo $total_rows ?></a>
     
     
         </div>

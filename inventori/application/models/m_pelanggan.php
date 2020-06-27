@@ -16,7 +16,7 @@ class M_pelanggan extends CI_Model
 	//menghitung rows untuk pencarian dan dashboard
 	public function total_rows() {
     $this->db->or_like('nama');
-    $where = "level='customer'";
+    $where = "level='customer' and user.del='0'";
     $this->db->where($where);
 	$this->db->from($this->table);
         return $this->db->count_all_results();

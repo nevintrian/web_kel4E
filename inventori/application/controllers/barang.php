@@ -234,7 +234,7 @@ class Barang extends CI_Controller {
         
 
         $pdf->SetFont('Arial','',10);
-        $barang= $this->db->query("SELECT * FROM barang inner join supplier on barang.id_supplier=supplier.id_supplier")->result();
+        $barang= $this->db->query("SELECT * FROM barang inner join supplier on barang.id_supplier=supplier.id_supplier where barang.del='0'")->result();
         $no=1;
         foreach ($barang as $data){
             $pdf->Cell(8,6,$no,1,0);
