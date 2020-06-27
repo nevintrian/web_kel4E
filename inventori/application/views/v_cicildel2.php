@@ -24,7 +24,7 @@ div.dataTables_info {
               </div>
               <div class="panel-body">
                 <div class="content-row">
-                  <h2 class="content-row-title">Konfirmasi Pembayaran Delete (Bayar di Tempat)</h2>
+                  <h2 class="content-row-title">Transaksi Barang Keluar Delete (Kredit Lunas)</h2>
                   <?php }else{?>
                     <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Data Transaksi</h3>
               </div>
@@ -35,19 +35,29 @@ div.dataTables_info {
                   <div class="row">
                   <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
             <div class="card">
-            
-                <div class="col-md-4">
+                <div class="col-md-6">
+                
+
+                <?php } ?>
+                <?php if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') { ?>
+            <div class="card">
+                <div class="col-md-6">
+                <a href="konfirmasi/" class="btn btn-info">Belum bayar</a>
+                <a href="konfirmasi1/" class="btn btn-primary">Sudah bayar</a>
+                <a href="cicil/" class="btn btn-warning">Cicilan</a>
+                <?php } ?>
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-primary" href="konfirmasi"> Kembali </a>
+                <a class ="btn btn-primary" href="cicil2"> Kembali </a>
                 <?php } ?>
                 </div>
                 <div class="col-md-4">
+                
                 </div>
                 <div class="col-md-4 text-right">
 
                 </div>
                 </div>
-                <?php } ?>
+                
                 </br>
                 </br></br>
                 <div class="col-md-12">
@@ -57,10 +67,12 @@ div.dataTables_info {
 					<th>No.</th>
 					<th>Kode</th>
 					<th>Tanggal Transaksi</th>
-					<th>Total Bayar</th>
-					<th>Nama</th>
-          <th>Alamat</th>
-          <th>No Telp</th>
+          <th>Nama</th>
+					<th>Total</th>
+					<th>Cicilan</th>
+          <th>Periode</th>
+          <th>Tagihan</th>
+          <th>Foto</th>
 					<th>Pilihan</th>
 				</tr>
       </thead>
@@ -73,19 +85,25 @@ div.dataTables_info {
 				<tr>
           <td><?php echo $no++ ?></td>
 					<td><?php echo $keluar2->id_keluar; ?></td>
-					<td><?php echo $keluar2->tgl_keluar; ?></td>
+					<td><?php echo $keluar2->tgl_cicil; ?></td>
+          <td><?php echo $keluar2->nama; ?></td>
 					<td><?php echo number_format($keluar2->total_keluar); ?></td>
-					<td><?php echo $keluar2->nama; ?></td>
-          <td><?php echo $keluar2->alamat; ?></td>
-          <td><?php echo $keluar2->no_telp; ?></td>
+          <td><?php echo $keluar2->jumlah_cicil; ?></td>
+          <td><?php echo $keluar2->periode; ?></td>
+          
+          <td><?php echo number_format($keluar2->total_keluar/$keluar2->jumlah_cicil); ?></td>
+          <td>
+            <a data-fancybox="gallery" href="image/cicil/<?php echo $keluar2->foto_cicil; ?>">
+            <img src="<?php echo base_url('image/cicil/'.$keluar2->foto_cicil) ?>" width="64" />
+          </td> 
+
           <input type="hidden" name="id_keluar" value="<?php echo $keluar2->id_keluar; ?>" /> 
 					
 					<td>
-         <?php if ($this->session->userdata('level') == 'manajer') { ?>
-          <a href="konfirmasi2/restore/<?php echo $keluar2->id_keluar ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin restore?')">restore</a>
-          <a href="konfirmasi2/hapus_penjualan/<?php echo $keluar2->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus transaksi?')">delete</a>
+         <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
+          <a href="cicildel2/restore/<?php echo $keluar2->id_cicil ?>" class="btn btn-warning btn-sm"onclick="javasciprt: return confirm('Apa anda yakin ingin konfirmasi pembayaran?')">Restore</a>
+          <a href="cicildel2/hapus_penjualan1/<?php echo $keluar2->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin membatalkan transaksi?')">Hapus</a>
          <?php } ?>
-         
 					</td>
 				</tr>
 				<?php } ?>
@@ -99,7 +117,9 @@ div.dataTables_info {
             <div class="col-md-10">
             <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
         </div>
-
+            <div class="col-md-2 text-right">
+                <?php echo $pagination ?>
+            </div>
         </div>
 
 

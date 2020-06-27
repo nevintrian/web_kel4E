@@ -8,10 +8,10 @@ class M_konfirmasi extends CI_Model
 
 
 
-    public function total_rows($q = NULL)
+    public function total_rows()
     {
         if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
-        $this->db->or_like('nama', $q);
+    
         $this->db->distinct();
         $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp");
         $this->db->from('keluar');
@@ -22,7 +22,7 @@ class M_konfirmasi extends CI_Model
 
         }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
         $id = $this->session->userdata('id_user');
-        $this->db->or_like('nama', $q);
+   ;
         $this->db->distinct();
         $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp");
         $this->db->from('keluar');
@@ -36,10 +36,10 @@ class M_konfirmasi extends CI_Model
 }
 
    
-    function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+    function get_limit_data() { //membubat seacrh dan pagination
     if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
     $this->db->order_by('keluar.id_keluar', 'DESC');
-    $this->db->or_like('nama', $q);
+ 
     $this->db->distinct();
     $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp");
     $this->db->from('keluar');
@@ -47,12 +47,12 @@ class M_konfirmasi extends CI_Model
     $this->db->join('user', 'user.id_user=keluar.id_user');
     $where = "(detail_keluar.status='0' and keluar.foto_keluar is null and keluar.del='0' and keluar.status='0') or (detail_keluar.status='1' and keluar.foto_keluar is null and keluar.del='0' and keluar.status='0')";
     $this->db->where($where);
-    $this->db->limit($limit, $per_page);
+
 
     }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
         $id = $this->session->userdata('id_user');
         $this->db->order_by('keluar.id_keluar', 'DESC');
-        $this->db->or_like('nama', $q);
+
         $this->db->distinct();
         $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp");
         $this->db->from('keluar');
@@ -60,7 +60,7 @@ class M_konfirmasi extends CI_Model
         $this->db->join('user', 'user.id_user=keluar.id_user');
         $where = "(detail_keluar.status='0' and keluar.foto_keluar is null and user.id_user=$id and keluar.del='0' and keluar.status='0') or (detail_keluar.status='1' and keluar.foto_keluar is null and user.id_user=$id and keluar.del='0' and keluar.status='0')";
         $this->db->where($where);
-        $this->db->limit($limit, $per_page);
+
 
         
     }

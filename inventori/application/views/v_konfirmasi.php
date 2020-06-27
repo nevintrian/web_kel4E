@@ -115,9 +115,7 @@ div.dataTables_info {
             <div class="col-md-10">
             <a href="dashboard" class="btn btn-primary">Total Record : <?php echo $total_rows ?></a>
         </div>
-            <div class="col-md-2 text-right">
-                <?php echo $pagination ?>
-            </div>
+ 
         </div>
 
 

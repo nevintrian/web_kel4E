@@ -62,7 +62,7 @@ div.dataTables_info {
                 <a href="cicil2/" class="btn btn-secondary">Kredit Lunas</a>
                   <?php } ?>
                 <?php if ( $this->session->userdata('level') == 'manajer') { ?>
-                <a class ="btn btn-danger" href="cicildel1"> <i class="glyphicon glyphicon-trash"></i> </a>
+                <a class ="btn btn-danger" href="cicildel2"> <i class="glyphicon glyphicon-trash"></i> </a>
                 <?php } ?>
                 </div>
                 </div>
@@ -111,7 +111,7 @@ div.dataTables_info {
 					<td>
          <?php if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') { ?>
           
-          <a href="cicil1/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus transaksi?')">hapus</a>
+          <a href="cicil2/hapus_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-danger btn-sm" onclick="javasciprt: return confirm('Apa anda yakin ingin menghapus transaksi?')">hapus</a>
          <?php } ?>
 
           <a href="keluar/detail_penjualan/<?php echo $keluar->id_keluar ?>" class="btn btn-info btn-sm">detail</a>
