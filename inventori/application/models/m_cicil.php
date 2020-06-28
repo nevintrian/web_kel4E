@@ -8,10 +8,10 @@ class M_cicil extends CI_Model
 
 
 
-    public function total_rows($q = NULL)
+    public function total_rows()
     {
         if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
-        $this->db->or_like('nama', $q);
+        $this->db->or_like('nama');
         $this->db->distinct();
         $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp, cicil.id_cicil, cicil.tgl_cicil, cicil.periode, cicil.jumlah_cicil, foto_cicil ");
         $this->db->from('keluar');
@@ -23,7 +23,7 @@ class M_cicil extends CI_Model
 
         }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
         $id = $this->session->userdata('id_user');
-        $this->db->or_like('nama', $q);
+        $this->db->or_like('nama');
         $this->db->distinct();
         $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp, cicil.id_cicil, cicil.tgl_cicil, cicil.periode, cicil.jumlah_cicil, foto_cicil ");
         $this->db->from('keluar');
@@ -38,10 +38,10 @@ class M_cicil extends CI_Model
 }
 
    
-    function get_limit_data($limit, $per_page = 0, $q = NULL) { //membubat seacrh dan pagination
+    function get_limit_data() { //membubat seacrh dan pagination
     if ($this->session->userdata('level') == 'admin' or $this->session->userdata('level') == 'manajer') {
     $this->db->order_by('keluar.id_keluar', 'DESC');
-    $this->db->or_like('nama', $q);
+    $this->db->or_like('nama');
     $this->db->distinct();
     $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp, cicil.id_cicil, cicil.tgl_cicil, cicil.periode, cicil.jumlah_cicil, foto_cicil ");
     $this->db->from('keluar');
@@ -50,12 +50,12 @@ class M_cicil extends CI_Model
     $this->db->join('cicil', 'cicil.id_keluar=keluar.id_keluar');
     $where = "(detail_keluar.status='0' and keluar.del='0' and keluar.status='1' and cicil.del='0' and cicil.status='0') or (detail_keluar.status='1' and cicil.del='0' and keluar.del='0' and keluar.status='1' and cicil.status='0')";
     $this->db->where($where);
-    $this->db->limit($limit, $per_page);
+
 
     }else if ($this->session->userdata('level') == 'sales' or $this->session->userdata('level') == 'customer') {
         $id = $this->session->userdata('id_user');
         $this->db->order_by('keluar.id_keluar', 'DESC');
-        $this->db->or_like('nama', $q);
+        $this->db->or_like('nama');
         $this->db->distinct();
         $this->db->select("keluar.id_keluar, keluar.foto_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp, cicil.id_cicil, cicil.tgl_cicil, cicil.periode, cicil.jumlah_cicil, foto_cicil ");
         $this->db->from('keluar');
@@ -64,7 +64,7 @@ class M_cicil extends CI_Model
         $this->db->join('cicil', 'cicil.id_keluar=keluar.id_keluar');
         $where = "(detail_keluar.status='0' and user.id_user=$id and keluar.del='0' and keluar.status='1' and cicil.del='0' and cicil.status='0') or (detail_keluar.status='1' and user.id_user=$id and keluar.del='0' and keluar.status='1' and cicil.del='0' and cicil.status='0')";
         $this->db->where($where);
-        $this->db->limit($limit, $per_page);
+
 
         
     }

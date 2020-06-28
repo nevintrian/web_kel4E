@@ -18,28 +18,18 @@ class Cicildel extends CI_Controller {
 		$this->load->view('v_header'); 
 		$this->load->view('v_sidebar'); 
 
-		$q = urldecode($this->input->get('q', TRUE)); //search 
-        $per_page = intval($this->input->get('per_page')); //membuat halaman baru
-        if ($q <> '') {
-            $config['base_url'] = base_url() . 'cicildel/?q=' . urlencode($q);
-            $config['first_url'] = base_url() . 'cicildel/?q=' . urlencode($q);
-        } else {
-            $config['base_url'] = base_url() . 'cicildel';
-            $config['first_url'] = base_url() . 'cicildel';
-		}
+	
 		
-		$config['per_page'] = 5;
-        $config['page_query_string'] = TRUE;
+	
 		$config['total_rows'] = $this->m_cicildel->total_rows();
-		$keluar1 = $this->m_cicildel->get_limit_data($config['per_page'], $per_page, $q);
+		$keluar1 = $this->m_cicildel->get_limit_data();
         $this->load->library('pagination');
         $this->pagination->initialize($config);
 		$data = array(
             'keluar_data1' => $keluar1,
-            'q' => $q,
-            'pagination' => $this->pagination->create_links(),
+           
             'total_rows' => $config['total_rows'],
-            'per_page' => $per_page,
+        
         );
         $this->load->view('v_cicildel', $data); 
 	}
