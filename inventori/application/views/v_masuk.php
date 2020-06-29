@@ -115,7 +115,7 @@ div.dataTables_info {
 
       <div class="form-group" id="form-x">
         	<label>Diskon(%)</label>
-	      <input name="diskon" id="diskon" min="0" value=""  placeholder="masukkan jumlah diskon" class="form-control" required>
+	      <input name="diskon" id="diskon" min="0" max="100" value=""  placeholder="masukkan jumlah diskon" class="form-control" required>
       
       </div>
 		</div>

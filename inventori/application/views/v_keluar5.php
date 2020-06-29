@@ -135,7 +135,7 @@ div.dataTables_info {
   <div class="form-group">
   
         	<label>Nama Barang</label><br>
-	      <select id="id_barang1" name="id_barang"  class="form-control" >
+	      <select id="id_barang1" name="id_barang"  class="form-control" required>
       
         <option value="">--pilih barang--</option>
 	        <?php 
@@ -188,7 +188,7 @@ div.dataTables_info {
   <div class="form-group">
   
         	<label>Nama Barang</label><br>
-	      <select id="id_barang" name="id_barang"  class="form-control" >
+	      <select id="id_barang" name="id_barang"  class="form-control" required >
       
         <option value="">--pilih barang--</option>
 	        <?php 
@@ -214,7 +214,7 @@ div.dataTables_info {
 
       <div class="form-group">
         	<label>Diskon(%)</label><br>
-	      <input id="diskon" name="diskon" min="0"  placeholder="masukkan jumlah diskon" required class="form-control" >
+	      <input id="diskon" name="diskon" min="0" max="100"  placeholder="masukkan jumlah diskon" required class="form-control" >
       
       </div>
 		</div>

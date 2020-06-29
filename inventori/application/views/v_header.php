@@ -73,8 +73,13 @@
 
           <div id="navbar" class="navbar-collapse collapse">
             <div class="navbar-form navbar-right">
-                       
-            <a href="<?php echo base_url() ?>keranjang" type="submit" class="btn btn-info"><i class='fas fa-shopping-cart' style='font-size:16px'></i> </a>
+               <?php $car =count($this->cart->contents());   ?>
+               <?php if ($car>10) { ?>
+                <a href="<?php echo base_url() ?>keranjang" type="submit" class="btn btn-info"><i class='fas fa-shopping-cart' style='font-size:16px'></i> <span class="label-pesan"><?php echo "10++"; ?></span> </a>
+               <?php }else{ ?>
+                <a href="<?php echo base_url() ?>keranjang" type="submit" class="btn btn-info"><i class='fas fa-shopping-cart' style='font-size:16px'></i> <span class="label-pesan"><?php echo $car; ?></span> </a>
+               <?php } ?>
+         
             
 
 
@@ -85,7 +90,7 @@
                  ?>
                  <div class="btn-group">
  <div class="dropdown">  
-                  <?php $jumlah = $this->db->query("select * from activity where status='0' ")->num_rows(); ?>        
+                  <?php $jumlah = $this->db->query("select * from activity where status='0' limit 11")->num_rows(); ?>        
                   <?php if ($jumlah=='0') {  
                     ?>
                     <a class="dropdown">    
@@ -94,8 +99,24 @@
               <li><a>Tidak ada notifikasi baru</a></li>
                             </ul>
               </a> 
-                  <?php }else{ ?>
+                  <?php }else if ($jumlah>10){ ?>
                     <a class="dropdown">  
+                    <a href="#"  data-toggle="dropdown" class="btn btn-secondary"><i class='fas fa-history' style='font-size:16px'></i> <span class="label-pesan"><?php echo $jumlah-1; ?>++</span> </a>
+
+                  <ul id='dropdown' class='dropdown-menu'>
+                          <?php 
+                              $sql = $this->db->query("select * from activity where status='0' order by id_activity desc limit 10");
+                                foreach ($sql->result() as $row) {
+                                  ?>
+                          <li><a href="activity/status/<?php echo $row->id_activity ?>"><td><?php echo $row->keterangan; ?></td></a></li>
+                              <?php } ?>   
+                              <li><a href="activity/statusall/">Lihat semua</a></li>         
+                            </ul>
+
+                           
+                    </a> 
+                    <?php } else if ($jumlah<=10 and $jumlah >0) {?>
+                      <a class="dropdown">  
                     <a href="#"  data-toggle="dropdown" class="btn btn-secondary"><i class='fas fa-history' style='font-size:16px'></i> <span class="label-pesan"><?php echo $jumlah; ?></span> </a>
 
                   <ul id='dropdown' class='dropdown-menu'>
@@ -115,7 +136,7 @@
                                 </div>  
                                 <div class="btn-group">                
  <div class="dropdown">                          
-            <?php $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0'")->num_rows(); ?>           
+            <?php $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0' limit 11")->num_rows(); ?>           
             <?php if ($jmlh=='0') {
               ?>   
                <a class="dropdown">    
@@ -125,8 +146,24 @@
               
                             </ul>
               </a> 
-              <?php }else{ ?>
+              <?php }else if ($jmlh>10){ ?>
 
+              <a class="dropdown">  
+                    <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh-1; ?>++</span> </a>
+                        <ul id='dropdown' class='dropdown-menu'>
+                          <?php 
+                              $sql = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0' order by keluar.id_keluar desc limit 10");
+                                foreach ($sql->result() as $row) {
+                                  ?>
+                                  
+                          <li><a href="konfirmasi/status/<?php echo $row->id_keluar ?>">Transaksi baru dari <td><?php echo $row->nama; ?></td></a></li>
+                             <?php } ?>   
+                             <li><a href="konfirmasi/statusall/">Lihat semua</a></li>         
+                            </ul>
+                            
+                     
+              </a> 
+            <?php } else if ($jmlh<=10 and $jmlh >0) {?>
               <a class="dropdown">  
                     <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh; ?></span> </a>
                         <ul id='dropdown' class='dropdown-menu'>
@@ -142,7 +179,8 @@
                             
                      
               </a> 
-            <?php } ?>
+              <?php }?>
+
                                 </div> 
                                 </div>  
                                                       
@@ -154,7 +192,7 @@
 
 
           <?php }else if($this->session->userdata('level') == 'admin'){ ?>
-            <?php $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0'")->num_rows(); ?>           
+            <?php $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0' limit 11")->num_rows(); ?>           
             <?php if ($jmlh=='0') {
               ?>   
                <a class="dropdown">    
@@ -164,9 +202,26 @@
               
                             </ul>
               </a> 
-              <?php }else{ ?>
+              <?php }else if ($jmlh>10){ ?>
 
               <a class="dropdown">  
+                    <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh-1; ?>++</span> </a>
+                        <ul id='dropdown' class='dropdown-menu'>
+                          <?php 
+                              $sql = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='0' order by keluar.id_keluar desc limit 10");
+                                foreach ($sql->result() as $row) {
+                                  ?>
+                                  
+                          <li><a href="konfirmasi/status/<?php echo $row->id_keluar ?>">Transaksi baru dari <td><?php echo $row->nama; ?></td></a></li>
+                             <?php } ?>   
+                             <li><a href="konfirmasi/statusall/">Lihat semua</a></li>         
+                            </ul>
+                            
+                     
+              </a> 
+
+              <?php } else if ($jmlh<=10 and $jmlh >0) {?>
+                <a class="dropdown">  
                     <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh; ?></span> </a>
                         <ul id='dropdown' class='dropdown-menu'>
                           <?php 
@@ -200,7 +255,7 @@
             
             <?php 
                $id = $this->session->userdata('id_user');
-               $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='2' and user.id_user=$id")->num_rows(); 
+               $jmlh = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='2' and user.id_user=$id limit 11")->num_rows(); 
                ?>           
             <?php if ($jmlh=='0') {
               ?>   
@@ -211,9 +266,25 @@
                                             
                             </ul>
               </a> 
-              <?php }else{ ?>
+              <?php }else if ($jmlh>10){ ?>
 
               <a class="dropdown">  
+                    <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh-1; ?>++</span> </a>
+                        <ul id='dropdown' class='dropdown-menu'>
+                          <?php 
+                           $id = $this->session->userdata('id_user');
+                              $sql = $this->db->query("select distinct keluar.id_keluar, keluar.tgl_keluar, keluar.total_keluar, user.nama, user.alamat, user.no_telp from keluar inner join detail_keluar on detail_keluar.id_keluar=keluar.id_keluar inner join user on user.id_user=keluar.id_user where detail_keluar.status='2' and user.id_user=$id order by keluar.id_keluar desc limit 10");
+                                foreach ($sql->result() as $row) {
+                            ?>
+                          <li><a href="keluar/status/<?php echo $row->id_keluar ?>">Transaksi kamu telah di konfirmasi</td></a></li>
+                             <?php } ?>   
+                             <li><a href="keluar/statusall/">Lihat semua</a></li>         
+                            </ul>
+                            
+                     
+              </a> 
+              <?php } else if ($jmlh<=10 and $jmlh >0) {?>
+                <a class="dropdown">  
                     <a href="#"  data-toggle="dropdown" class="btn btn-warning"><i class='fas fa-bell' style='font-size:16px'></i>  <span class="label-pesan"><?php echo $jmlh; ?></span> </a>
                         <ul id='dropdown' class='dropdown-menu'>
                           <?php 

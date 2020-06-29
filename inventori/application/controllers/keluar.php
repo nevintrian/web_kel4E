@@ -100,14 +100,22 @@ class Keluar extends CI_Controller {
 		
 		$id_barang = $this->input->post('id_barang');
 		$jumlah_retur = $this->input->post('jumlah_retur');
- 
+	
+		$cek_retur=$this->db->query("SELECT qty_keluar from detail_keluar where id_barang=$id_barang and id_keluar=$id_keluar")->result();
+		foreach ($cek_retur as $data) {
+			$retur12=$data->qty_keluar;
+		}
 
+		if ($jumlah_retur>=$retur12){
+			echo "<script>alert('Jumlah retur lebih besar atau sama dengan jumlah stok yang dibeli!');history.back(); ;</script>";
+
+		}else{
 			 $this->db->query("UPDATE detail_keluar set qty_keluar=qty_keluar-($jumlah_retur) where id_keluar=$id_keluar and id_barang=$id_barang");
 				
            		 redirect(site_url('keluar'));
-
-		}
-
+				}
+		
+	}
 	public function edit($id_keluar) 
 		{
 			
@@ -115,12 +123,24 @@ class Keluar extends CI_Controller {
 			$edit = $this->input->post('edit');
 			$diskon = $this->input->post('diskon');
 	
-				 $this->db->query("UPDATE detail_keluar set qty_keluar=$edit diskon=$diskon where id_keluar=$id_keluar and id_barang=$id_barang");
+			$cek_stok=$this->db->query("SELECT stok from barang where id_barang=$id_barang")->result();
+            foreach ($cek_stok as $data) {
+                $stok12=$data->stok;
+            }
+
+
+		if ($edit>$stok12){
+			echo "<script>alert('Stok barang tidak cukup! Silahkan kurangi jumlah pembelian.');history.back(); ;</script>";
+
+		}else{
+
+				 $this->db->query("UPDATE detail_keluar set qty_keluar=$edit, diskon=$diskon where id_keluar=$id_keluar and id_barang=$id_barang");
 					
 						redirect(site_url('keluar'));
 	
 			}
 
+		}
 	public function simpan_penjualan()
 	{
         $kode_penjualan = $this->input->post('kode_penjualan');

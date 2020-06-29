@@ -165,7 +165,7 @@ class Masuk extends CI_Controller {
 	{
 		
         $data = array(
-			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian' where masuk.del='0'"),
+			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian' "),
 		);
 		$this->load->view('v_masuk3',$data);
 	}
@@ -176,7 +176,7 @@ class Masuk extends CI_Controller {
         $this->load->view('v_sidebar'); 
 		$data = array(
 
-			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian' where masuk.del='0'"),
+			'data' => $this->db->query("SELECT * FROM masuk inner join supplier on masuk.id_supplier=supplier.id_supplier where id_masuk='$kode_pembelian' "),
 		);
 		$this->load->view('v_masuk2',$data);
 	}
