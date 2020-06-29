@@ -123,7 +123,7 @@ div.dataTables_info {
          
    <div id="myModal1<?php echo $keluar->id_keluar ?>" class="modal fade" role="dialog">
   <div class="modal-dialog">
-  <form method="POST" action="keluar/retur/<?php echo $keluar->id_keluar ?>">
+  <form method="POST" action="keluar2/retur/<?php echo $keluar->id_keluar ?>">
   <?php $kel=$keluar->id_keluar ?>
 	  <div class="modal-content">
       <div class="modal-header">

@@ -152,13 +152,23 @@ class Masuk extends CI_Controller {
 			$edit = $this->input->post('edit');
 			$diskon = $this->input->post('diskon');
 	 
-	
+			$cek_stok=$this->db->query("SELECT stok from barang where id_barang=$id_barang")->result();
+            foreach ($cek_stok as $data) {
+                $stok12=$data->stok;
+            }
+
+
+		if ($edit>$stok12){
+			echo "<script>alert('Stok barang tidak cukup! Silahkan kurangi jumlah pembelian.');history.back(); ;</script>";
+
+		}else{
+
 				 $this->db->query("UPDATE detail_masuk set qty_masuk=$edit, diskon=$diskon where id_masuk=$id_masuk and id_barang=$id_barang");
 					
 						redirect(site_url('masuk'));
 	
 			}
-
+		}
 
 
 	public function cetak_penjualan($kode_pembelian)

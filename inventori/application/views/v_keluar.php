@@ -194,7 +194,7 @@ div.dataTables_info {
   <div class="form-group">
   
         	<label>Nama Barang</label><br>
-	      <select id="id_barang" name="id_barang"  class="form-control" >
+	      <select id="id_barang" name="id_barang"  class="form-control" required>
       
         <option value="">--pilih barang--</option>
 	        <?php 

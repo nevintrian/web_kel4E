@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Jun 2020 pada 02.39
+-- Waktu pembuatan: 29 Jun 2020 pada 09.13
 -- Versi server: 10.3.16-MariaDB
 -- Versi PHP: 7.3.7
 
@@ -1399,7 +1399,52 @@ INSERT INTO `activity` (`id_activity`, `tgl_activity`, `keterangan`, `status`) V
 (1402, '2020-06-29 07:02:30', 'Tansaksi barang keluar dengan id=34 telah diubah', 0),
 (1403, '2020-06-29 07:04:27', 'Transaksi barang keluar dengan id=79 telah dihapus', 0),
 (1404, '2020-06-29 07:04:30', 'Transaksi barang keluar dengan id=76 telah dihapus', 0),
-(1405, '2020-06-29 07:04:45', 'Transaksi barang keluar dengan id=34 telah dihapus', 0);
+(1405, '2020-06-29 07:04:45', 'Transaksi barang keluar dengan id=34 telah dihapus', 0),
+(1406, '2020-06-29 10:46:57', 'Tansaksi barang keluar dengan id=89 telah diubah', 0),
+(1407, '2020-06-29 10:47:17', 'Tansaksi barang keluar dengan id=89 telah diubah', 0),
+(1408, '2020-06-29 10:47:32', 'Transaksi barang keluar dengan id=89 telah dihapus', 0),
+(1409, '2020-06-29 10:48:14', 'Transaksi barang keluar dengan id=89 telah dihapus', 0),
+(1410, '2020-06-29 10:48:50', 'Tansaksi barang masuk dengan id=40 telah ditambah', 0),
+(1411, '2020-06-29 10:49:03', 'Tansaksi barang masuk dengan id=40 telah dihapus', 0),
+(1412, '2020-06-29 10:58:16', 'Tansaksi barang keluar dengan id=91 telah ditambah', 0),
+(1413, '2020-06-29 11:11:22', 'Tansaksi barang keluar dengan id=91 telah diubah', 0),
+(1414, '2020-06-29 11:15:10', 'Tansaksi barang keluar dengan id=89 telah diubah', 0),
+(1415, '2020-06-29 11:16:17', 'Tansaksi barang keluar dengan id=92 telah diubah', 0),
+(1416, '2020-06-29 11:19:43', 'Tansaksi barang keluar dengan id=92 telah diubah', 0),
+(1417, '2020-06-29 11:37:55', 'Tansaksi barang keluar dengan id=94 telah diubah', 0),
+(1418, '2020-06-29 11:51:44', 'Tansaksi barang keluar dengan id=95 telah diubah', 0),
+(1419, '2020-06-29 12:07:06', 'Tansaksi barang keluar dengan id=97 telah diubah', 0),
+(1420, '2020-06-29 12:07:21', 'Tansaksi barang keluar dengan id=97 telah diubah', 0),
+(1421, '2020-06-29 12:08:00', 'Tansaksi barang keluar dengan id=98 telah diubah', 0),
+(1422, '2020-06-29 12:09:47', 'Tansaksi barang keluar dengan id=98 telah diubah', 0),
+(1423, '2020-06-29 12:10:50', 'Tansaksi barang keluar dengan id=98 telah diubah', 0),
+(1424, '2020-06-29 13:41:29', 'Tansaksi barang keluar dengan id=100 telah diubah', 0),
+(1425, '2020-06-29 13:41:42', 'Tansaksi barang keluar dengan id=100 telah diubah', 0),
+(1426, '2020-06-29 13:44:20', 'Tansaksi barang keluar dengan id=101 telah diubah', 0),
+(1427, '2020-06-29 13:44:32', 'Tansaksi barang keluar dengan id=101 telah diubah', 0),
+(1428, '2020-06-29 13:44:55', 'Tansaksi barang keluar dengan id=101 telah diubah', 0),
+(1429, '2020-06-29 13:45:03', 'Tansaksi barang keluar dengan id=101 telah diubah', 0),
+(1430, '2020-06-29 13:46:10', 'Tansaksi barang keluar dengan id=101 telah diubah', 0),
+(1431, '2020-06-29 13:58:19', 'Tansaksi barang masuk dengan id=40 telah ditambah', 0),
+(1432, '2020-06-29 13:58:27', 'Tansaksi barang masuk dengan id=39 telah dihapus', 0),
+(1433, '2020-06-29 13:58:41', 'Tansaksi barang masuk dengan id=41 telah ditambah', 0),
+(1435, '2020-06-29 14:00:19', 'Tansaksi barang masuk dengan id=40 telah diubah', 0),
+(1436, '2020-06-29 14:00:50', 'Tansaksi barang masuk dengan id=40 telah diubah', 0),
+(1437, '2020-06-29 14:03:37', 'Tansaksi barang masuk dengan id=42 telah ditambah', 0),
+(1438, '2020-06-29 14:03:43', 'Tansaksi barang masuk dengan id=41 telah dihapus', 0),
+(1439, '2020-06-29 14:03:47', 'Tansaksi barang masuk dengan id=42 telah dihapus', 0),
+(1440, '2020-06-29 14:03:48', 'Tansaksi barang masuk dengan id=40 telah dihapus', 0),
+(1441, '2020-06-29 14:04:41', 'Tansaksi barang masuk dengan id=40 telah ditambah', 0),
+(1442, '2020-06-29 14:05:00', 'Tansaksi barang masuk dengan id=40 telah diubah', 0),
+(1443, '2020-06-29 14:05:16', 'Tansaksi barang masuk dengan id=40 telah diubah', 0),
+(1444, '2020-06-29 14:05:23', 'Tansaksi barang masuk dengan id=40 telah dihapus', 0),
+(1445, '2020-06-29 14:08:42', 'Tansaksi barang keluar dengan id=103 telah ditambah', 0),
+(1446, '2020-06-29 14:09:47', 'Tansaksi barang keluar dengan id=104 telah ditambah', 0),
+(1447, '2020-06-29 14:10:50', 'Tansaksi barang keluar dengan id=105 telah ditambah', 0),
+(1448, '2020-06-29 14:11:04', 'Tansaksi barang keluar dengan id=105 telah diubah', 0),
+(1449, '2020-06-29 14:11:26', 'Tansaksi barang keluar dengan id=105 telah diubah', 0),
+(1450, '2020-06-29 14:11:40', 'Tansaksi barang keluar dengan id=105 telah diubah', 0),
+(1451, '2020-06-29 14:12:25', 'Transaksi barang keluar dengan id=105 telah dihapus', 0);
 
 -- --------------------------------------------------------
 
@@ -1426,7 +1471,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `id_supplier`, `nama_barang`, `kemasan`, `merk`, `jenis`, `harga`, `stok`, `terjual`, `foto_barang`, `del`) VALUES
-(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 10000, 0, 'barang_1587349533.jpg', 0),
+(1, 1, 'BUCKET KUKIS MAMAH 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 9980, 20, 'barang_1587349533.jpg', 0),
 (2, 1, 'BUCKET COCONUT 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5000, 0, 'barang_1587349541.jpg', 0),
 (3, 1, 'BUCKET BUTTER KUKIS 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 5112, 0, 'barang_1587350641.jpg', 0),
 (4, 1, 'BUCKET MOCHACINO 400 GR', '6 PCS / K', '-', 'MAKANAN', 22500, 4988, 12, 'barang_1587349556.jpg', 0),
@@ -1869,33 +1914,39 @@ INSERT INTO `detail_keluar` (`id_barang`, `id_keluar`, `qty_keluar`, `diskon`, `
 (1, 83, 1, 0, 0),
 (1, 84, 1, 0, 0),
 (1, 85, 1, 0, 0),
-(1, 86, 1, 0, 0),
+(1, 86, 1, 0, 1),
 (1, 87, 1, 0, 1),
-(1, 88, 1, 0, 1);
+(1, 88, 1, 0, 1),
+(1, 89, 24, 0, 2),
+(1, 90, 10, 1, 2),
+(1, 91, 20, 10, 2),
+(1, 92, 30, 0, 2),
+(1, 93, 10, 20, 2),
+(1, 94, 20, 1, 2),
+(1, 95, 20, 10, 2),
+(1, 96, 10, 0, 2),
+(1, 97, 10, 10, 2),
+(1, 98, 5, 1, 2),
+(1, 99, 20, 0, 2),
+(1, 100, 10, 10, 2),
+(1, 101, 20, 10, 2),
+(1, 102, 10, 0, 2),
+(1, 103, 1, 10, 2),
+(1, 104, 90, 1, 2),
+(1, 105, 10, 0, 2);
 
 --
 -- Trigger `detail_keluar`
 --
 DELIMITER $$
-CREATE TRIGGER `editdiskon` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
-declare harga1 int(20);
-IF OLD.diskon=!NEW.diskon THEN
-
-select harga into harga1 from barang where barang.id_barang=NEW.id_barang;
-
-UPDATE keluar SET total_keluar=total_keluar-(harga1*NEW.qty_keluar*NEW.diskon/100) WHERE id_keluar=NEW.id_keluar;
-END IF;
-END
-$$
-DELIMITER ;
-DELIMITER $$
 CREATE TRIGGER `editstok` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
 declare harga1 int(20);
-IF OLD.qty_keluar=!NEW.qty_keluar THEN
-
 select harga into harga1 from barang where barang.id_barang=NEW.id_barang;
 
-UPDATE keluar SET total_keluar=(harga1*NEW.qty_keluar) WHERE id_keluar=NEW.id_keluar;
+IF OLD.diskon!=NEW.diskon OR OLD.qty_keluar!=NEW.qty_keluar THEN
+
+UPDATE keluar SET total_keluar=(total_keluar+(harga1*OLD.qty_keluar*OLD.diskon/100))+((NEW.qty_keluar-OLD.qty_keluar)*harga1)-(harga1*NEW.qty_keluar*NEW.diskon/100) WHERE id_keluar=NEW.id_keluar;
+
 END IF;
 END
 $$
@@ -1903,28 +1954,28 @@ DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `hapus detail_keluar` AFTER DELETE ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET stok = stok+OLD.qty_keluar 
-    WHERE id_barang=OLD.id_barang AND OLD.status='1';
+    WHERE (id_barang=OLD.id_barang AND OLD.status='2') or (id_barang=OLD.id_barang AND OLD.status='3');
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `hapus detail_keluar1` AFTER DELETE ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET terjual = terjual-OLD.qty_keluar 
-    WHERE id_barang=OLD.id_barang AND OLD.status='1';
+    WHERE (id_barang=OLD.id_barang AND OLD.status='2') or (id_barang=OLD.id_barang AND OLD.status='3');
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `tambah detail_keluar` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET stok=stok-NEW.qty_keluar
-    WHERE id_barang=NEW.id_barang AND NEW.status='1';
+    WHERE id_barang=NEW.id_barang AND NEW.status='2';
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `tambah detail_keluar1` AFTER INSERT ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET terjual=terjual+NEW.qty_keluar
-    WHERE id_barang=NEW.id_barang AND NEW.status='1';
+    WHERE id_barang=NEW.id_barang AND NEW.status='2';
 END
 $$
 DELIMITER ;
@@ -1949,14 +2000,14 @@ DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `update detail_keluar` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
     UPDATE barang SET stok=stok-NEW.qty_keluar
-    WHERE id_barang=NEW.id_barang AND NEW.status='1' AND OLD.qty_keluar=NEW.qty_KELUAR;
+    WHERE id_barang=NEW.id_barang AND NEW.status='2' AND OLD.qty_keluar=NEW.qty_KELUAR;
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `update detail_keluar1` AFTER UPDATE ON `detail_keluar` FOR EACH ROW BEGIN
 	UPDATE barang SET terjual=terjual+NEW.qty_keluar
-    WHERE id_barang=NEW.id_barang AND NEW.status='1' AND OLD.qty_keluar=NEW.qty_KELUAR;
+    WHERE id_barang=NEW.id_barang AND NEW.status='2' AND OLD.qty_keluar=NEW.qty_KELUAR;
 END
 $$
 DELIMITER ;
@@ -2027,6 +2078,19 @@ INSERT INTO `detail_masuk` (`id_barang`, `id_masuk`, `qty_masuk`, `diskon`) VALU
 --
 -- Trigger `detail_masuk`
 --
+DELIMITER $$
+CREATE TRIGGER `editstok1` AFTER UPDATE ON `detail_masuk` FOR EACH ROW BEGIN
+declare harga1 int(20);
+select harga into harga1 from barang where barang.id_barang=NEW.id_barang;
+
+IF OLD.diskon!=NEW.diskon OR OLD.qty_masuk!=NEW.qty_masuk THEN
+
+UPDATE masuk SET total_masuk=(total_masuk+(harga1*OLD.qty_masuk*OLD.diskon/100))+((NEW.qty_masuk-OLD.qty_masuk)*harga1)-(harga1*NEW.qty_masuk*NEW.diskon/100) WHERE id_masuk=NEW.id_masuk;
+
+END IF;
+END
+$$
+DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `hapus detail_masuk` AFTER DELETE ON `detail_masuk` FOR EACH ROW BEGIN
 	UPDATE barang SET stok = stok-OLD.qty_masuk 
@@ -2148,7 +2212,24 @@ INSERT INTO `keluar` (`id_keluar`, `id_user`, `tgl_keluar`, `total_keluar`, `fot
 (85, 2, '2020-06-29 06:03:21', 22500, NULL, 0, 0),
 (86, 2, '2020-06-29 06:03:28', 22500, NULL, 0, 0),
 (87, 2, '2020-06-29 06:03:34', 22500, NULL, 0, 0),
-(88, 2, '2020-06-29 06:10:24', 22500, NULL, 0, 0);
+(88, 2, '2020-06-29 06:10:24', 22500, NULL, 0, 0),
+(89, 2, '2020-06-29 10:54:31', 270000, NULL, 0, 0),
+(90, 2, '2020-06-29 10:57:23', 202500, NULL, 0, 0),
+(91, 3, '2020-06-29 10:58:13', 202500, NULL, 0, 0),
+(92, 2, '2020-06-29 11:15:55', 225000, NULL, 0, 0),
+(93, 2, '2020-06-29 11:24:18', 157500, NULL, 0, 0),
+(94, 2, '2020-06-29 11:35:24', 222750, NULL, 0, 0),
+(95, 2, '2020-06-29 11:51:26', 180000, NULL, 0, 0),
+(96, 2, '2020-06-29 11:52:07', 225000, NULL, 0, 0),
+(97, 2, '2020-06-29 12:06:50', 405000, NULL, 0, 0),
+(98, 2, '2020-06-29 12:07:36', 111375, NULL, 0, 0),
+(99, 2, '2020-06-29 01:40:36', 450000, NULL, 0, 0),
+(100, 2, '2020-06-29 01:41:00', 405000, NULL, 0, 0),
+(101, 2, '2020-06-29 01:44:03', 405000, NULL, 0, 0),
+(102, 2, '2020-06-29 02:05:57', 225000, NULL, 0, 0),
+(103, 3, '2020-06-29 02:08:40', 20250, NULL, 0, 0),
+(104, 3, '2020-06-29 02:09:44', 2004750, NULL, 0, 0),
+(105, 2, '2020-06-29 02:12:44', 225000, NULL, 0, 0);
 
 --
 -- Trigger `keluar`
@@ -2210,7 +2291,7 @@ INSERT INTO `masuk` (`id_masuk`, `id_supplier`, `tgl_masuk`, `total_masuk`, `del
 (36, 1, '2020-06-23 07:17:50', 22500, 1),
 (37, 1, '2020-06-23 07:20:41', 45000, 1),
 (38, 11, '2020-06-29 06:52:29', 22275, 1),
-(39, 11, '2020-06-29 06:53:17', 22275, 0);
+(39, 11, '2020-06-29 06:53:17', 22275, 1);
 
 --
 -- Trigger `masuk`
@@ -2415,7 +2496,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1406;
+  MODIFY `id_activity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1452;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
@@ -2439,13 +2520,13 @@ ALTER TABLE `cicil`
 -- AUTO_INCREMENT untuk tabel `keluar`
 --
 ALTER TABLE `keluar`
-  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id_keluar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT untuk tabel `masuk`
 --
 ALTER TABLE `masuk`
-  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_masuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT untuk tabel `supplier`
