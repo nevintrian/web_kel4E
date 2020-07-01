@@ -2,13 +2,13 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
-class Keluar extends RestController{
+class Konfirmasi extends RestController{
 
     function __construct()
     {
         // Construct the parent class
         parent::__construct();
-        $this->load->model('m_keluar');
+        $this->load->model('m_konfirmasi');
     }
 
 
@@ -31,9 +31,9 @@ class Keluar extends RestController{
 
     $id=$this->get('id');
     if($id==null) {
-    $keluar=$this->m_keluar->getkeluar();
+    $keluar=$this->m_konfirmasi->getkonfirmasi();
     }else {
-        $keluar=$this->m_keluar->getkeluar($id);
+        $keluar=$this->m_konfirmasi->getkonfirmasi($id);
 
     }
      
@@ -62,7 +62,7 @@ public function index_delete($id){
             'message' => 'keluarkan id delete'
         ], 400 );
         }else {
-            if($this->m_keluar->deletekeluar($id)>0) {
+            if($this->m_konfirmasi->deletekonfirmasi($id)>0) {
                 $this->response( [
                     'status' => true,
                     'id'=> $id,
@@ -117,6 +117,7 @@ public function index_put($id) {
     $data = [
         'id_user' => $this->put('id_user'),
         'total_keluar' => $this->put('total_keluar'),
+        
         ];
 
         $this->db->where('id_keluar', $id);
@@ -127,6 +128,7 @@ public function index_put($id) {
         $d = [
             'id_barang' => $this->put('id_barang'),
             'qty_keluar' => $this->put('qty_keluar'),
+            'status' => "2"
             ];
             $this->db->where('id_keluar', $id);
             $this->db->update('detail_keluar', $d);

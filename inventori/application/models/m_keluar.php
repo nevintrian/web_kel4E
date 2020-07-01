@@ -81,6 +81,9 @@ class M_keluar extends CI_Model
             $this->db->join('user', 'user.id_user=keluar.id_user');
             $this->db->join('detail_keluar', 'keluar.id_keluar=detail_keluar.id_keluar');
             $this->db->join('barang', 'barang.id_barang=detail_keluar.id_barang');
+            $where = "(keluar.del='0' and detail_keluar.status='2' and keluar.status='0' and keluar.foto_keluar is null) or (detail_keluar.status='3' and keluar.del='0' and keluar.status='0' and keluar.foto_keluar is null)";
+            $this->db->order_by('keluar.id_keluar', 'DESC');
+            $this->db->where($where);
 
             return $this->db->get()->result();
         }else{

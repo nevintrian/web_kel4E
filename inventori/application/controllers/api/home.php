@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
-class Keluar extends RestController{
+class Home extends RestController{
 
     function __construct()
     {
@@ -95,7 +95,6 @@ public function index_post(){
         'id_keluar' => $this->db->insert_id(),
         'id_barang' => $this->post('id_barang'),
         'qty_keluar' => $this->post('qty_keluar'),
-        'status'=> "3"
         ];
         $update= $this->db->insert('detail_keluar', $d);
 
