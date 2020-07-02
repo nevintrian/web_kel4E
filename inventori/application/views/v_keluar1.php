@@ -135,7 +135,7 @@
 
         <div class="form-group">
             <label>Diskon(%)</label>
-            <input type="number" min="0" class="form-control" name="coupon" required id="coupon"/>
+            <input type="number" min="0" max="100" class="form-control" name="coupon" required id="coupon"/>
         </div>
 
       </div>

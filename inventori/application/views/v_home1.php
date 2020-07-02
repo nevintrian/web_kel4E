@@ -45,8 +45,8 @@
 				'src'		=> 'image/barang/' . $home->foto_barang, 
 				'style'		=> 'width: 200px; height:200px; ' 
 			  ])?>
-			  <div class="caption">
-				<h3 style="min-height:20px;"><?=$home->nama_barang?></h3>
+			  <div align="center">
+				<h6><b><?=$home->nama_barang?></b></h6>
 				
 				<p class="badge badge-success">Harga : Rp. <?php echo number_format($home->harga, 0,',','.')?></p>
 				<p>
